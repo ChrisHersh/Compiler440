@@ -1,0 +1,8 @@
+(before, ID, 1)
+(/*This is a
+multiline
+comment*/, ML_COMMENT, 1)
+(after, ID, 3)
+(before2, ID, 5)
+(/*single line*/, ML_COMMENT, 5)
+(after2, ID, 5)
