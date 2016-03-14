@@ -1,3 +1,5 @@
+package src;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -31,23 +33,32 @@ public class Tokenizer
 
             { "^(\\()", "L_PARA" },
             { "^(\\))", "R_PARA" },
+            
             //Key Words
             { "^(int)(\\W|\\Z)", "INT" }, 
-            { "^(double)(\\W|\\Z)", "DOUBLE" }, 
-            { "^(char)(\\W|\\Z)", "CHAR" }, 
             { "^(boolean)(\\W|\\Z)", "BOOLEAN" }, 
             { "^(if)(\\W|\\Z)", "IF" },
             { "^(while)(\\W|\\Z)", "WHILE" },
             { "^(void)(\\W|\\Z)", "VOID" },
-
+            { "^(main)(\\W|\\Z)", "MAIN" },
+            { "^(class)(\\W|\\Z)", "CLASS" },
+            { "^(static)(\\W|\\Z)", "STATIC" },
+            { "^(extends)(\\W|\\Z)", "EXTENDS" },
+            { "^(new)(\\W|\\Z)", "NEW" },
+            { "^(,)(\\W|\\Z)", "COMMA" },
+            { "^(public)(\\W|\\Z)", "PUBLIC" },
+            { "^(else)(\\W|\\Z)", "ELSE" },
+            { "^(return)(\\W|\\Z)", "RETURN" },
+            { "^(System\\.out\\.println)(\\W|\\Z)", "SYSTEM_OUT" },
+            { "^(length)(\\W|\\Z)", "LENGTH" },
+            { "^(this)(\\W|\\Z)", "THIS" },
+            { "^(true)(\\W|\\Z)", "TRUE" },
+            { "^(false)(\\W|\\Z)", "FALSE" },
+            
             //Symbols
-
             { "^(&&)", "AND" }, { "^(\\|\\|)", "OR" }, 
             { "^(==)", "EQ" }, 
-            { "^(>=)", "GT_EQ" }, { "^(<=)", "LT_EQ" }, 
-            { "^(>>)", "RT_SHIFT" }, { "^(<<)", "LFT_SHIFT" },
-            { "^(->)", "PRT" },
-            { "^(%)", "PERCENT" }, 
+            { "^(>=)", "GT_EQ" }, { "^(<=)", "LT_EQ" },
             { "^(!=)", "NOT_EQ" }, 
             { "^(;)", "SEMI" }, 
             { "^(\\+)", "PLUS" }, { "^(-)", "MINUS" }, 
@@ -56,12 +67,13 @@ public class Tokenizer
             { "^(\\.)", "PERIOD" },
             { "^(>)", "GT" }, { "^(<)", "LT" }, 
             { "^(!)", "NOT" },
-            //Float
-            { "^(\\d+\\.\\d+)", "FLOAT_NUM" },
+            
             //Int Num
             { "^(\\d+)", "INT_NUM" },
+            
             //ID -- Java only allows ids that start with a letter
             { "^([A-Za-z]\\w*)", "ID" },
+            
             //Junk, if it's gotten this far without a match, it must be junk
             { "^(\\S+)", "JUNK" }
 
