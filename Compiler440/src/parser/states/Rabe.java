@@ -13,7 +13,7 @@ public class Rabe
 	{
 		for (int x=0;x<name.length();x++)
 		{
-			data = name.charAt(x) + result;
+			data = name.charAt(x) + data;
 		}
 		data = data % name.length();
 		return data;
