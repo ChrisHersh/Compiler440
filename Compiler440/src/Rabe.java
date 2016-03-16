@@ -16,6 +16,7 @@ public class Rabe
 	@Override
 	public String toString()
 	{
-		return name + data;
+		String fancyName = "X "+name+" X";
+		return fancyName+" : "+data;
 	}
 }
