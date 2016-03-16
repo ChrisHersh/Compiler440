@@ -11,11 +11,11 @@ public class Schlesiger {
 		int result = 0;
 		int x=0;
 		while(x<name.length()) {
-			data = name.charAt(x) * result;
+			result = name.charAt(x) + result;
 			x++;
 		}
-		data = data % name.length();
-		return data;
+		data = result % name.length();
+		return result;
 	}
 
 	@Override
