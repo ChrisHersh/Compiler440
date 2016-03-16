@@ -16,7 +16,8 @@ public class SymbolTable
     // Mapping from name to list of all variables with that name.
 	private HashMap<String, ArrayList<Variable>> table;
 	
-	private SymbolTable() {
+	private SymbolTable() 
+	{
 		table = new HashMap<String, ArrayList<Variable>>();
 	}
 
@@ -25,7 +26,8 @@ public class SymbolTable
      * @param key
      * @param list
      */
-    public void addToTable(String key, ArrayList<Variable> list) {
+    public void addToTable(String key, ArrayList<Variable> list) 
+    {
     	table.put(key, list);
     }
     
@@ -33,7 +35,8 @@ public class SymbolTable
      * Remove a variable list from the hash table.
      * @param key
      */
-    public void removeFromTable(String key) {
+    public void removeFromTable(String key) 
+    {
     	table.remove(key);
     }
     
@@ -42,15 +45,18 @@ public class SymbolTable
      * @param key
      * @param list
      */
-    public void updateObjectInTable(String key, ArrayList<Variable> list) {
+    public void updateObjectInTable(String key, ArrayList<Variable> list) 
+    {
     	table.replace(key, list);
     }
     
     /**
      * @return singleton of SymbolTable
      */
-    public SymbolTable getInstance() {
-    	if(symbolTable == null) {
+    public SymbolTable getInstance() 
+    {
+    	if(symbolTable == null) 
+    	{
     		symbolTable = new SymbolTable();
     	}
     	return symbolTable;

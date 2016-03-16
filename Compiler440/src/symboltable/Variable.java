@@ -26,70 +26,80 @@ public abstract class Variable
 	/**
 	 * @return the name
 	 */
-	public String getName() {
+	public String getName() 
+	{
 		return name;
 	}
 
 	/**
 	 * @param name the name to set
 	 */
-	public void setName(String name) {
+	public void setName(String name) 
+	{
 		this.name = name;
 	}
 
 	/**
 	 * @return the className
 	 */
-	public String getClassName() {
+	public String getClassName() 
+	{
 		return className;
 	}
 
 	/**
 	 * @param className the className to set
 	 */
-	public void setClassName(String className) {
+	public void setClassName(String className) 
+	{
 		this.className = className;
 	}
 
 	/**
 	 * @return the methodName
 	 */
-	public String getMethodName() {
+	public String getMethodName() 
+	{
 		return methodName;
 	}
 
 	/**
 	 * @param methodName the methodName to set
 	 */
-	public void setMethodName(String methodName) {
+	public void setMethodName(String methodName) 
+	{
 		this.methodName = methodName;
 	}
 
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public String getId() 
+	{
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
+	public void setId(String id) 
+	{
 		this.id = id;
 	}
 
 	/**
 	 * @return the scope
 	 */
-	public VariableScope getScope() {
+	public VariableScope getScope() 
+	{
 		return scope;
 	}
 
 	/**
 	 * @param scope the scope to set
 	 */
-	public void setScope(VariableScope scope) {
+	public void setScope(VariableScope scope) 
+	{
 		this.scope = scope;
 	}
 	
