@@ -1,4 +1,4 @@
-package tokenizer;
+package parser;
 public class Nunemaker {
 	int data;
 	String name;
