@@ -1,11 +1,10 @@
-
-public class Schlesiger {
+public class Schlesiger { 
 	int data;
 	String name;
-
-	public void nameMethod() {
-
+	public void nameMethod(String value) {
+		name = value.substring(1);
 	}
+	
 	public int dataMethod() {
 		int result = 0;
 		for (int x=0;x<name.length();x++) {
