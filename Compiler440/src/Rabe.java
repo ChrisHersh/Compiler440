@@ -3,9 +3,9 @@ public class Rabe
 	int data;
 	String name;
 	
-	public void nameMethod()
+	public void nameMethod(String value)
 	{
-		
+		name = value.substring(1);
 	}
 	
 	public void dataMethod()
@@ -16,6 +16,7 @@ public class Rabe
 	@Override
 	public String toString()
 	{
-		return name + data;
+		String fancyName = "X "+name+" X";
+		return fancyName+" : "+data;
 	}
 }
