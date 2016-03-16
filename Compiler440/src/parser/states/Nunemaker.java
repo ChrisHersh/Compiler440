@@ -1,10 +1,9 @@
+package parser.states;
 public class Nunemaker {
 	int data;
 	String name;
 
-	public void nameMethod(String value)
-	{
-	    name = value.substring(1);
+	public void nameMethod() {
 	}
 
 	public int dataMethod() {
