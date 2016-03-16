@@ -9,13 +9,13 @@ public class Nunemaker {
 	}
 
 	public int dataMethod() {
-		int result = 0;
+		
 		for (int x = 0; x < name.length(); x++)
 		{
-			result = name.charAt(x) + result;
+			data = name.charAt(x) + data;
 		}
-		data = result % name.length();
-		return result;
+		data = data % name.length();
+		return data;
 	}
 
 	@Override
