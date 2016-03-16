@@ -4,8 +4,6 @@ import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.junit.Test;
 
