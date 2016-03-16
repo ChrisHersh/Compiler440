@@ -17,6 +17,7 @@ public class Schlesiger {
 
 	@Override
 	public String toString() {
-		return name+data;
+		String fancyName = "X " + name + " X";
+		return fancyName + " : " + data;
 	}
 }
