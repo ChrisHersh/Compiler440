@@ -1,3 +1,4 @@
+package src.tokenizer;
 
 public class Schlesiger { 
 	int data;
