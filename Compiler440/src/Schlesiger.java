@@ -1,5 +1,5 @@
 
-public class Schlesiger {
+public class Schlesiger { 
 	int data;
 	String name;
 	
