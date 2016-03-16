@@ -156,12 +156,14 @@ public class Tokenizer
                 if (!ml_comment)
                     tokens.addAll(tokenizeString(line, lineNum));
             }
+            scan.close();
 
         }
         catch (FileNotFoundException e)
         {
             throw e;
         }
+        
         return tokens;
     }
 
