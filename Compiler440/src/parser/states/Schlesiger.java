@@ -9,11 +9,13 @@ public class Schlesiger {
 	
 	public int dataMethod() {
 		int result = 0;
-		for (int x=0;x<name.length();x++) {
-			result = name.charAt(x) + result;
+		int x=0;
+		while(x<name.length()) {
+			data = name.charAt(x) * result;
+			x++;
 		}
-		data = result % name.length();
-		return result;
+		data = data % name.length();
+		return data;
 	}
 
 	@Override
