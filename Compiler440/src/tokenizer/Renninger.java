@@ -12,10 +12,12 @@ public class Renninger
 
 	public int dataMethod()
 	{
+		int x = 0;
 		int result = 0;
-		for (int x=0;x<name.length();x++)
+		while(x<name.length())
 		{
 			result = name.charAt(x) + result;
+			x++;
 		}
 		data = result % name.length();
 		return result;
