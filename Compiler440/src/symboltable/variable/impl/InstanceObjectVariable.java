@@ -2,6 +2,7 @@ package symboltable.variable.impl;
 
 import symboltable.Variable;
 import symboltable.VariableScope;
+import symboltable.VariableType;
 
 /**
  * 
@@ -11,9 +12,9 @@ import symboltable.VariableScope;
 public class InstanceObjectVariable extends Variable 
 {
 
-	public InstanceObjectVariable(String name, String className, String id, VariableScope scope) 
+	public InstanceObjectVariable(String name, String className, String id, VariableScope scope, VariableType type) 
 	{
-		super(name, className, id, "", scope);
+		super(name, className, id, "", scope, type);
 	}
 	
 

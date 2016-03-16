@@ -13,14 +13,16 @@ public abstract class Variable
     private String methodName; // only for method and local
     private String id; // object
     private VariableScope scope;
+    private VariableType type;
     
-	public Variable(String name, String className, String id, String methodName, VariableScope scope) 
+	public Variable(String name, String className, String id, String methodName, VariableScope scope, VariableType type) 
 	{
 		this.name = name;
 		this.className = className;
 		this.methodName = methodName;
 		this.id = id;
 		this.scope = scope;
+		this.type = type;
 	}
 
 	/**
@@ -103,6 +105,20 @@ public abstract class Variable
 		this.scope = scope;
 	}
 	
-	
+	/**
+	 * @return the type
+	 */
+	public VariableType getType() 
+	{
+		return type;
+	}
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(VariableType type) 
+	{
+		this.type = type;
+	}
     
 }
