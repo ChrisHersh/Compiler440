@@ -1,3 +1,4 @@
+package parser.states;
 
 public class Schlesiger { 
 	int data;
