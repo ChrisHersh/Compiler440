@@ -12,17 +12,13 @@ public class Rabe
 	public int dataMethod()
 	{
 		int result = 0;
-
-		for (int x=0;x<name.length();x++)
-
+		int x = 0;
+		while (x<name.length())
 		{
-
-		result = name.charAt(x) + result;
-
+			result = name.charAt(x) + result;
+			x++;
 		}
-
 		data = result % name.length();
-
 		return result;
 	}
 	
