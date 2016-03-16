@@ -4,9 +4,9 @@ public class Keefer {
 	int data;
 	String name;
 	
-	public void nameMethod()
+	public void nameMethod(String value)
 	{
-		
+		name = value.substring(1);
 	}
 	
 	public void dataMethod()
