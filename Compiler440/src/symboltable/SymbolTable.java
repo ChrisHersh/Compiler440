@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class SymbolTable
 {
 	
-	private SymbolTable symbolTable;
+	private static SymbolTable symbolTable;
 	
     // Mapping from name to list of all variables with that name.
 	private HashMap<String, ArrayList<Variable>> table;
@@ -20,11 +20,19 @@ public class SymbolTable
 	{
 		table = new HashMap<String, ArrayList<Variable>>();
 	}
-    
+	
     /**
+	 * @return the table
+	 */
+	public HashMap<String, ArrayList<Variable>> getTable() 
+	{
+		return table;
+	}
+
+	/**
      * @return singleton of SymbolTable
      */
-    public SymbolTable getInstance() 
+    public static SymbolTable getInstance() 
     {
     	if(symbolTable == null) 
     	{
