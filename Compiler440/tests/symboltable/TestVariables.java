@@ -74,5 +74,28 @@ public class TestVariables {
 		assertEquals(mov.getScope(), VariableScope.METHOD);
 		assertEquals(mov.getType(), VariableType.OBJECT);
 	}
+	
+	
+	/**
+	 * Tests for allowable values to be assigned.
+	 */
+	@Test
+	public void testVariableTypeForAssignment() {
+		LocalPrimitiveVariable lpv = new LocalPrimitiveVariable("Name", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.INTEGER);
+		lpv.setValue("1");
+		assertEquals(lpv.getValue(), "1");
+		lpv.setValue("2");
+		assertEquals(lpv.getValue(), "2");
+		lpv.setValue("true");
+		assertEquals(lpv.getValue(), "2");
+		
+		LocalPrimitiveVariable lpv2 = new LocalPrimitiveVariable("Name", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.BOOLEAN);
+		lpv2.setValue("true");
+		assertEquals(lpv2.getValue(), "true");
+		lpv2.setValue("1");
+		assertEquals(lpv2.getValue(), "true");
+		lpv2.setValue("false");
+		assertEquals(lpv2.getValue(), "false");
+	}
 
 }

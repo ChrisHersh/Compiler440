@@ -14,6 +14,7 @@ public abstract class Variable
     private String id; // object
     private VariableScope scope;
     private VariableType type;
+    private String value;
     
 	public Variable(String name, String className, String id, String methodName, VariableScope scope, VariableType type) 
 	{
@@ -119,6 +120,47 @@ public abstract class Variable
 	public void setType(VariableType type) 
 	{
 		this.type = type;
+	}
+	
+	/**
+	 * @return the value
+	 */
+	public String getValue() 
+	{
+		return value;
+	}
+
+	/**
+	 * Type checks to see if the value is valid before assigning it.
+	 * Will NOT assign if the types do not match.
+	 * @param id the id to set
+	 */
+	public void setValue(String value) 
+	{
+		if(isAssignable(value)) {
+			this.value = value;
+		}
+	}
+	
+	/**
+	 * Type checks for assigned values.
+	 * @param value to type check
+	 * @return if types match
+	 */
+	public boolean isAssignable(String value) {
+		if(type == VariableType.INTEGER) {
+			if(value.matches("-?\\d+(\\.\\d+)?")) {
+				return true;
+			}
+		} else if(type == VariableType.BOOLEAN) {
+			if(value.matches("true") || value.matches("false")) {
+				return true;
+			}
+		} else if(type == VariableType.OBJECT) { // TODO: Need to test validity of objects somehow. - Ian
+			return false;
+		}
+		return false;
+		
 	}
     
 }
