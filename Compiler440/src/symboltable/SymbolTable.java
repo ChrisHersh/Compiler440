@@ -15,10 +15,12 @@ public class SymbolTable
 	
     // Mapping from name to list of all variables with that name.
 	private HashMap<String, ArrayList<Variable>> table;
+	private HashMap<String, ArrayList<Method>> tableMethod;
 	
 	private SymbolTable() 
 	{
 		table = new HashMap<String, ArrayList<Variable>>();
+		tableMethod = new HashMap<String, ArrayList<Method>>();
 	}
 	
     /**
@@ -28,6 +30,15 @@ public class SymbolTable
 	{
 		return table;
 	}
+	
+	 /**
+	 * @return the table
+	 */
+	public HashMap<String, ArrayList<Method>> getTableMethod() 
+	{
+		return tableMethod;
+	}
+
 
 	/**
      * @return singleton of SymbolTable
