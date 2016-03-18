@@ -13,7 +13,7 @@ import symboltable.variable.impl.MethodPrimitiveVariable;
 
 /**
  * Tests the children of the abstract object Variable.
- * @author Ian Keefer and Curtis Rabe
+ * @author Ian Keefer (and Curtis Rabe)
  */
 public class TestVariables {
 	
