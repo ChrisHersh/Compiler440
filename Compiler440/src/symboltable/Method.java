@@ -12,13 +12,13 @@ import symboltable.variable.impl.MethodPrimitiveVariable;
  * @author Curtis Rabe
  *
  */
+
 public abstract class Method
 {
 	private String name;
     private String className;
     private VariableType type;
     private ArrayList<MethodPrimitiveVariable> params = new ArrayList<MethodPrimitiveVariable>();
-    
     /**
      * @param name the Method name
      * @param className the name of the class in which the method is located
@@ -48,4 +48,22 @@ public abstract class Method
     	return params;
     }
     
+    //Getter for Method Name - MM
+    /*
+     * Returns the method name
+     * @return the name of the method
+     */
+    public string getMethodName()
+    {
+    	return name;
+    }
+    //Setter for method Name - MM
+    /*
+     * sets the name of the method
+     * @param String s the desired name of the method
+     */
+    public string setMethodName(String s)
+    {
+    	name = s;
+    }
 }
