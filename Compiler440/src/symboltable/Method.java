@@ -53,7 +53,7 @@ public abstract class Method
      * Returns the method name
      * @return the name of the method
      */
-    public string getMethodName()
+    public String getMethodName()
     {
     	return name;
     }
@@ -62,8 +62,8 @@ public abstract class Method
      * sets the name of the method
      * @param String s the desired name of the method
      */
-    public string setMethodName(String s)
+    public void setMethodName(String s)
     {
     	name = s;
-    }
+    }//Not sure if this is needed since the name is passed through the constructor - Curtis R.
 }
