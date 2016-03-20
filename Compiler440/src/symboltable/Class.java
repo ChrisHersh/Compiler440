@@ -77,6 +77,8 @@ public class Class {
     	this.methods = methods;
     }
     /**
+     * checks for the potential super class if there is one 
+     * for instance variables within that superclass
      * @return the variables of the class
      */
     public ArrayList<InstancePrimitiveVariable> getVars()
