@@ -18,14 +18,14 @@ public abstract class Method
 	private String name;
     private String className;
     private VariableType type;
-    private ArrayList<MethodPrimitiveVariable> params = new ArrayList<MethodPrimitiveVariable>();
+    private ArrayList<Variable> params = new ArrayList<Variable>();
     /**
      * @param name the Method name
      * @param className the name of the class in which the method is located
      * @param type the return type
      * @param params the parameters of the method
      */
-    public Method(String name, String className, VariableType type, ArrayList<MethodPrimitiveVariable> params)
+    public Method(String name, String className, VariableType type, ArrayList<Variable> params)
     {
     	this.name = name;
     	this.className = className;
@@ -33,23 +33,37 @@ public abstract class Method
     	this.params = params;
     }
     
-    //Getter for name - not my job
-    //Getter for className - also not my job
-    //Getter for type - also also not my job
+    /**
+     * Getter to return the return type of the method
+     * @return the return type (in the form of a "VariableType"
+     */
+    public VariableType getType()
+    {
+    	return type;
+    }
+    
+    /**
+     * Getter for the className variable
+     * @return the class name
+     */
+    public String getClassName()
+    {
+    	return className;
+    }
     
     
-    //Getter for params - IS my job :'(
+    //Getter for params
     /**
      * Returns the arraylist of parameters
      * @return the parameters of the method
      */
-    public ArrayList<MethodPrimitiveVariable> getParams()
+    public ArrayList<Variable> getParams()
     {
     	return params;
     }
     
     //Getter for Method Name - MM
-    /*
+   /**
      * Returns the method name
      * @return the name of the method
      */
@@ -58,7 +72,7 @@ public abstract class Method
     	return name;
     }
     //Setter for method Name - MM
-    /*
+   /**
      * sets the name of the method
      * @param String s the desired name of the method
      */
