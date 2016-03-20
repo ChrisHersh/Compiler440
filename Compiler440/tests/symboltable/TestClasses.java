@@ -45,7 +45,7 @@ public class TestClasses {
 	/**
 	 * Test the extension when there is no extension
 	 * and check the name
-	 * @author Shannon Jones
+	 * @author Shannon Jones 
 	 */
 	@Test
 	public void testExtensionWhenFalse() {

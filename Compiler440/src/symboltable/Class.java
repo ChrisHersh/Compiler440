@@ -51,7 +51,7 @@ public class Class {
 	 */
 	public Class getExtention() 
 	{
-		return ext;
+		return ext; 
 	}
 
 	/**
