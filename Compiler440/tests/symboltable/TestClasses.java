@@ -12,7 +12,7 @@ import symboltable.variable.impl.InstancePrimitiveVariable;
 /**
  * The Testclass to test classes 
  * @author Michael Zimmerman
- *
+ * 
  */
 public class TestClasses {
 	
