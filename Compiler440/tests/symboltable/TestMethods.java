@@ -1,10 +1,13 @@
-package symboltable;
+package tests.symboltable;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
 import org.junit.Test;
 
+import symboltable.Variable;
+import symboltable.VariableScope;
+import symboltable.VariableType;
 import symboltable.method.impl.PublicMethod;
 import symboltable.variable.impl.MethodObjectVariable;
 import symboltable.variable.impl.MethodPrimitiveVariable;
@@ -39,6 +42,18 @@ public class TestMethods
 		assertTrue(pm.getParams().contains(mpv2));
 		assertTrue(pm.getParams().get(2).equals(mov3));
 
+	}
+	/**
+	 * Test that the return type for methods works
+	 * @author Daniel Breitigan
+	 */
+	@Test
+	public void testMethodReturnType()
+	{
+	    MethodPrimitiveVariable mpv1 = new MethodPrimitiveVariable("Name1", "ClassName", "MethodName", VariableScope.METHOD, VariableType.INTEGER);
+        MethodPrimitiveVariable mpv2 = new MethodPrimitiveVariable("Name2", "ClassName", "MethodName", VariableScope.METHOD, VariableType.BOOLEAN);  
+        assertTrue(mpv1.getType() == VariableType.INTEGER);
+        assertTrue(mpv2.getType() == VariableType.BOOLEAN);
 	}
 	
 	/**
