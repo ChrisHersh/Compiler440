@@ -3,6 +3,7 @@ package symboltable.method.impl;
 import java.util.ArrayList;
 
 import symboltable.Method;
+import symboltable.Variable;
 import symboltable.VariableType;
 import symboltable.variable.impl.MethodPrimitiveVariable;
 
@@ -19,7 +20,7 @@ public class PublicMethod extends Method
 	 * @param type the return type of the method
 	 * @param params the parameters of the method
 	 */
-	public PublicMethod(String name, String className, VariableType type, ArrayList<MethodPrimitiveVariable> params)
+	public PublicMethod(String name, String className, VariableType type, ArrayList<Variable> params)
 	{
 		super(className, className, type, params);
 	}
