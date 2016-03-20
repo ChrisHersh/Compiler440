@@ -12,7 +12,8 @@ import symboltable.variable.impl.InstancePrimitiveVariable;
 public class Class {
 	
 	private String name;
-    private Class ext;
+    private Class ext; 
+    private boolean extend = false;
     private ArrayList<Method> methods = new ArrayList<Method>();
     private ArrayList<InstancePrimitiveVariable> vars = new ArrayList<InstancePrimitiveVariable>();
     /**
@@ -59,6 +60,16 @@ public class Class {
 	public void setExtention(Class ext) 
 	{
 		this.ext = ext;
+		extend = true;
+	}
+	
+	/**
+	 * 
+	 * @return true or false if the class has an extension 
+	 */
+	public boolean checkExtension()
+	{
+		return extend;
 	}
 
 	/**
