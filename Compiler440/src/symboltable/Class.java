@@ -81,16 +81,12 @@ public class Class {
      */
     public ArrayList<InstancePrimitiveVariable> getVars()
     {
-    	if(ext.vars.isEmpty())
-    	{
-    		ArrayList<InstancePrimitiveVariable> temp = new ArrayList<InstancePrimitiveVariable>();
-    		temp.addAll(ext.vars);
-    		temp.addAll(vars);
-    		
-    		return temp;
-    	}
-    	else
-    		return vars;
+    	if(ext != null)
+    		if(!ext.vars.isEmpty())
+    		{
+    			vars.addAll(ext.vars);
+    		}
+    	return vars;
     }
     
     /**
