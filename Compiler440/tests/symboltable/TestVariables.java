@@ -98,4 +98,65 @@ public class TestVariables {
 		assertEquals(lpv2.getValue(), "false");
 	}
 
+	
+	/**
+	 * Tests datatypes with valid/invalid operators
+	 * If an invalid operator is entered it will default to false
+	 * If a data type other than INTEGER, BOOLEAN or OBJECT is entered, it will default to false
+	 * @author Jessica Schlesiger
+	 */
+	@Test
+	public void testOperators() {
+		
+		// Integers
+		LocalPrimitiveVariable lpv = new LocalPrimitiveVariable("Name", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.INTEGER);
+		assertTrue(lpv.validOperator("+"));
+		assertTrue(lpv.validOperator("-"));
+		assertTrue(lpv.validOperator("/"));
+		assertTrue(lpv.validOperator("*")); 
+		assertTrue(lpv.validOperator(">"));
+		assertTrue(lpv.validOperator("<"));
+		assertTrue(lpv.validOperator(">="));
+		assertTrue(lpv.validOperator("<="));
+		assertTrue(lpv.validOperator("=="));
+		assertTrue(lpv.validOperator("!="));
+
+		assertFalse(lpv.validOperator("&&"));
+		assertFalse(lpv.validOperator("!"));
+		assertFalse(lpv.validOperator("||"));
+		
+		// Boolean
+		lpv = new LocalPrimitiveVariable("Name", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.BOOLEAN);
+		assertTrue(lpv.validOperator("||"));
+		assertTrue(lpv.validOperator("&&"));
+		assertTrue(lpv.validOperator("!"));
+		
+		assertFalse(lpv.validOperator("=="));
+		assertFalse(lpv.validOperator("!="));
+		assertFalse(lpv.validOperator("+"));
+		assertFalse(lpv.validOperator("-"));
+		assertFalse(lpv.validOperator("/")); 
+		assertFalse(lpv.validOperator("*"));
+		assertFalse(lpv.validOperator(">"));
+		assertFalse(lpv.validOperator("<"));
+		assertFalse(lpv.validOperator(">="));
+		assertFalse(lpv.validOperator("<="));
+		
+		// Object
+		lpv = new LocalPrimitiveVariable("Name", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.OBJECT);
+		assertFalse(lpv.validOperator("=="));
+		assertFalse(lpv.validOperator("!="));		
+		assertFalse(lpv.validOperator("||"));
+		assertFalse(lpv.validOperator("&&"));
+		assertFalse(lpv.validOperator("!"));
+		assertFalse(lpv.validOperator("+"));
+		assertFalse(lpv.validOperator("-"));
+		assertFalse(lpv.validOperator("/"));
+		assertFalse(lpv.validOperator("*"));
+		assertFalse(lpv.validOperator(">"));
+		assertFalse(lpv.validOperator("<"));
+		assertFalse(lpv.validOperator(">="));
+		assertFalse(lpv.validOperator("<="));
+	}
+
 }

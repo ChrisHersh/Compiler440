@@ -163,4 +163,32 @@ public abstract class Variable
 		
 	}
     
+
+	/**
+	 * Checks if operator can be used on this variable
+	 * @author Jessica Schlesiger
+	 * @return if it can be done
+	 */
+	public boolean validOperator(String value) {
+		if (type == VariableType.INTEGER) {
+			String validOp[] = {"+","-","/","*",">","<",">=","<=","==","!="};
+			for(int i=0;i<validOp.length;i++) {
+				if (value.equals(validOp[i]))
+					return true;
+			}
+			return false;
+		} else if (type == VariableType.BOOLEAN) {
+			String validOp[] = {"||","&&","!"};
+			for(int i=0;i<validOp.length;i++) {
+				if (value.equals(validOp[i]))
+					return true;
+			}
+			return false;
+		} else if (type == VariableType.OBJECT) {
+			return false;
+		}
+		return false;
+	}
+	
+	
 }
