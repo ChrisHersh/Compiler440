@@ -208,13 +208,23 @@ public class TestVariables {
 	public void testOperations()
 	{
 		// Integers
-		LocalPrimitiveVariable lpv = new LocalPrimitiveVariable("Name", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.INTEGER);
+		LocalPrimitiveVariable i = new LocalPrimitiveVariable("Name", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.INTEGER);
 		// Boolean
-		lpv = new LocalPrimitiveVariable("Name", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.BOOLEAN);
+		LocalPrimitiveVariable b = new LocalPrimitiveVariable("Name", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.BOOLEAN);
 		// Object
-		lpv = new LocalPrimitiveVariable("Name", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.OBJECT);
+		LocalPrimitiveVariable o = new LocalPrimitiveVariable("Name", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.OBJECT);
 
-		//Valid for int
-		assertTrue(lpv.isValidOperation(lpv, "+"));
+		//INTEGER
+		assertTrue(i.isValidOperation(i, "+")); //Valid
+		assertFalse(i.isValidOperation(i, "&&")); //Invalid by operation
+		assertFalse(i.isValidOperation(b, "+")); //Invalid by type mismatch
+		
+		//BOOLEAN
+		assertTrue(i.isValidOperation(b, "||")); //Valid
+		assertFalse(i.isValidOperation(b, "+")); //Invalid by operation
+		assertFalse(i.isValidOperation(i, "||")); //Invalid by type mismatch
+		
+		//OBJECT
+		assertFalse(o.isValidOperation(o, "+")); //Invalid because objects are not allowed to have operations yet
 	}
 }
