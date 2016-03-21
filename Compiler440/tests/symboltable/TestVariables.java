@@ -1,9 +1,14 @@
 package symboltable;
-
 import static org.junit.Assert.*;
+
+import java.util.ArrayList;
 
 import org.junit.Test;
 
+import symboltable.SymbolTable;
+import symboltable.Variable;
+import symboltable.VariableScope;
+import symboltable.VariableType;
 import symboltable.variable.impl.InstanceObjectVariable;
 import symboltable.variable.impl.InstancePrimitiveVariable;
 import symboltable.variable.impl.LocalObjectVariable;
@@ -159,4 +164,68 @@ public class TestVariables {
 		assertFalse(lpv.validOperator("<="));
 	}
 
+
+	@Test
+	public void testIfVaribleIsInMethod()
+	{
+		//Proudly stolen from above
+		LocalPrimitiveVariable lpv = new LocalPrimitiveVariable("local", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.INTEGER);
+		InstancePrimitiveVariable ipv = new InstancePrimitiveVariable("instance", "ClassName", VariableScope.INSTANCE, VariableType.BOOLEAN);
+		MethodPrimitiveVariable mpv = new MethodPrimitiveVariable("parameter", "ClassName", "MethodName", VariableScope.METHOD, VariableType.INTEGER);
+		
+		LocalPrimitiveVariable lpv_class2 = new LocalPrimitiveVariable("local2", "ClassName2", "MethodName", VariableScope.LOCAL, VariableType.INTEGER);
+		
+		//Each variable name has it's own list, this should get much cleaner once we have an insertion method
+		ArrayList<Variable> local = new ArrayList<Variable>();
+		local.add(lpv);
+		ArrayList<Variable> ins = new ArrayList<Variable>();
+		ins.add(ipv);
+		ArrayList<Variable> para = new ArrayList<Variable>();
+		para.add(mpv);
+		ArrayList<Variable> local2 = new ArrayList<Variable>();
+		local2.add(lpv_class2);
+		
+		SymbolTable symbol = SymbolTable.getInstance();
+		symbol.getVariableTable().put(lpv.getName(), local);
+		symbol.getVariableTable().put(ipv.getName(), ins);
+		symbol.getVariableTable().put(mpv.getName(), para);
+		symbol.getVariableTable().put(lpv_class2.getName(), local2);
+		
+		assertTrue(symbol.checkIfVariableIsInMethod("local", "MethodName", "ClassName"));
+		assertTrue(symbol.checkIfVariableIsInMethod("parameter", "MethodName", "ClassName"));
+		
+		//Should fail, it's an instance variable
+		assertFalse(symbol.checkIfVariableIsInMethod("instance", "MethodName", "ClassName"));
+		
+		//Should fail, it's in a different class
+		assertFalse(symbol.checkIfVariableIsInMethod("local2", "MethodName", "ClassName"));
+	}
+	
+	/**
+	 * Test to see if an operation can be done between two variables
+	 * @author TJ Renninger
+	 */
+	@Test
+	public void testOperations()
+	{
+		// Integers
+		LocalPrimitiveVariable i = new LocalPrimitiveVariable("Name", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.INTEGER);
+		// Boolean
+		LocalPrimitiveVariable b = new LocalPrimitiveVariable("Name", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.BOOLEAN);
+		// Object
+		LocalPrimitiveVariable o = new LocalPrimitiveVariable("Name", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.OBJECT);
+
+		//INTEGER
+		assertTrue(i.isValidOperation(i, "+")); //Valid
+		assertFalse(i.isValidOperation(i, "&&")); //Invalid by operation
+		assertFalse(i.isValidOperation(b, "+")); //Invalid by type mismatch
+		
+		//BOOLEAN
+		assertTrue(b.isValidOperation(b, "||")); //Valid
+		assertFalse(b.isValidOperation(b, "+")); //Invalid by operation
+		assertFalse(b.isValidOperation(i, "||")); //Invalid by type mismatch
+		
+		//OBJECT
+		assertFalse(o.isValidOperation(o, "+")); //Invalid because objects are not allowed to have operations yet
+	}
 }
