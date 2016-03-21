@@ -26,7 +26,7 @@ public class testClass {
 	 * Tests to see if instance variables of a superclass are able to be touched
 	 */
 	@Test
-	public void testSuperClassInstanceVariables()
+	public void testSuperClassInstanceVariables() 
 	{
 		ArrayList<Method> methodSet1 = new ArrayList <Method>();
 		ArrayList<Method> methodSet2 = new ArrayList <Method>();
