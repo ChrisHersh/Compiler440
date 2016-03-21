@@ -28,6 +28,11 @@ public class Class {
     	this.ext = ext;
     	this.methods = methods;
     	this.vars = vars;
+    	
+    	if(ext != null)
+    	{
+    		extend = true;
+    	}
     }
     
 	/**
