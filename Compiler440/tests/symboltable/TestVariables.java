@@ -164,6 +164,7 @@ public class TestVariables {
 		assertFalse(lpv.validOperator("<="));
 	}
 
+
 	@Test
 	public void testIfVaribleIsInMethod()
 	{
@@ -220,9 +221,9 @@ public class TestVariables {
 		assertFalse(i.isValidOperation(b, "+")); //Invalid by type mismatch
 		
 		//BOOLEAN
-		assertTrue(i.isValidOperation(b, "||")); //Valid
-		assertFalse(i.isValidOperation(b, "+")); //Invalid by operation
-		assertFalse(i.isValidOperation(i, "||")); //Invalid by type mismatch
+		assertTrue(b.isValidOperation(b, "||")); //Valid
+		assertFalse(b.isValidOperation(b, "+")); //Invalid by operation
+		assertFalse(b.isValidOperation(i, "||")); //Invalid by type mismatch
 		
 		//OBJECT
 		assertFalse(o.isValidOperation(o, "+")); //Invalid because objects are not allowed to have operations yet

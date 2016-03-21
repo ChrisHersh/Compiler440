@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import symboltable.Method;
 import symboltable.Variable;
 import symboltable.VariableType;
+
 import symboltable.Class;
 
 /**

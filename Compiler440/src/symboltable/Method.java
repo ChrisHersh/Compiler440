@@ -3,6 +3,7 @@ package symboltable;
 import java.util.ArrayList;
 
 
+
 /**
  * Method that is inserted into a symbol table.
  * 
