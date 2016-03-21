@@ -1,3 +1,4 @@
+package tokenizer;
 /**
  * This class holds the information needed for the tokens
  * 

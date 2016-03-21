@@ -1,3 +1,4 @@
+package tokenizer;
 import static org.junit.Assert.*;
 
 import java.io.ByteArrayInputStream;
@@ -6,6 +7,9 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 import org.junit.Test;
+
+import tokenizer.Token;
+import tokenizer.Tokenizer;
 
 /**
  * This class is just for tests mainly for the regex
