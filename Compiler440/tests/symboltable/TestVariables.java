@@ -182,10 +182,10 @@ public class TestVariables {
 		local2.add(lpv_class2);
 		
 		SymbolTable symbol = SymbolTable.getInstance();
-		symbol.getTable().put(lpv.getName(), local);
-		symbol.getTable().put(ipv.getName(), ins);
-		symbol.getTable().put(mpv.getName(), para);
-		symbol.getTable().put(lpv_class2.getName(), local2);
+		symbol.getVariableTable().put(lpv.getName(), local);
+		symbol.getVariableTable().put(ipv.getName(), ins);
+		symbol.getVariableTable().put(mpv.getName(), para);
+		symbol.getVariableTable().put(lpv_class2.getName(), local2);
 		
 		assertTrue(symbol.checkIfVariableIsInMethod("local", "MethodName", "ClassName"));
 		assertTrue(symbol.checkIfVariableIsInMethod("parameter", "MethodName", "ClassName"));
