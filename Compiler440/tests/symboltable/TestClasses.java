@@ -1,9 +1,12 @@
 package symboltable;
 
 import static org.junit.Assert.*;
+
 import java.util.ArrayList;
 
 import org.junit.Test;
+
+import com.sun.java.util.jar.pack.Package.Class.Method;
 
 import symboltable.variable.impl.InstancePrimitiveVariable;
 
