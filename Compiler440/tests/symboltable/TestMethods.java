@@ -205,6 +205,29 @@ public class TestMethods
 		assertFalse(pm1.validParameters(params2));
 	}
 
+    /**
+     * Tests whether the getter well gets the name
+     */
+    @Test
+    public void testMethodParamOrder()
+    {
+        String test = "Name";
+        PublicMethod pm = new PublicMethod("Name", "Class", VariableType.INTEGER, params);
+        assertTrue(test.equals(pm.getMethodName()));
+    }
+
+    /**
+     * Tests whether the setter well sets the name
+     */
+    @Test
+    public void testMethodParamOrder()
+    {
+        String test = "TestName";
+        PublicMethod pm = new PublicMethod("Name", "Class", VariableType.INTEGER, params);
+        pm.setMethodName("TestName");
+        assertTrue(test.equals(pm.getMethodName()));
+    }
+
 }
 
 //Mike Zimmerman added a comment
