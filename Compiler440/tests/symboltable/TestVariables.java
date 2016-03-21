@@ -1,11 +1,14 @@
-package symtable;
-
+package symboltable;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
 import org.junit.Test;
 
+import symboltable.SymbolTable;
+import symboltable.Variable;
+import symboltable.VariableScope;
+import symboltable.VariableType;
 import symboltable.variable.impl.InstanceObjectVariable;
 import symboltable.variable.impl.InstancePrimitiveVariable;
 import symboltable.variable.impl.LocalObjectVariable;
@@ -197,4 +200,21 @@ public class TestVariables {
 		assertFalse(symbol.checkIfVariableIsInMethod("local2", "MethodName", "ClassName"));
 	}
 	
+	/**
+	 * Test to see if an operation can be done between two variables
+	 * @author TJ Renninger
+	 */
+	@Test
+	public void testOperations()
+	{
+		// Integers
+		LocalPrimitiveVariable lpv = new LocalPrimitiveVariable("Name", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.INTEGER);
+		// Boolean
+		lpv = new LocalPrimitiveVariable("Name", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.BOOLEAN);
+		// Object
+		lpv = new LocalPrimitiveVariable("Name", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.OBJECT);
+
+		//Valid for int
+		assertTrue(lpv.isValidOperation(lpv, "+"));
+	}
 }

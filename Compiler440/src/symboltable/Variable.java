@@ -190,5 +190,14 @@ public abstract class Variable
 		return false;
 	}
 	
-	
+	/**
+	 * Checcks to see if an operation can be done between two variables.
+	 * @author TJ Renninger
+	 * @return true if it is valid, else false
+	 */
+	public boolean isValidOperation(Variable var2, String op)
+	{
+		return validOperator(op) && type == var2.getType();
+		//TODO The way it sits now operations are not valid between objects.
+	}
 }

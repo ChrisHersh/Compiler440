@@ -1,4 +1,4 @@
-package symtable;
+package symboltable;
 
 import static org.junit.Assert.*;
 
