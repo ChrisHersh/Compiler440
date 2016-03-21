@@ -135,11 +135,11 @@ public abstract class Variable
 	 * Will NOT assign if the types do not match.
 	 * @param id the id to set
 	 */
-	public void setValue(String value) 
+	public void setValue(String value, String id) 
 	{
-		if(isAssignable(value)) {
+		if(isAssignablePrimitive(value)) {
 			this.value = value;
-		}
+		} else if(isAssignableObject(value, id));
 	}
 	
 	/**
@@ -147,7 +147,7 @@ public abstract class Variable
 	 * @param value to type check
 	 * @return if types match
 	 */
-	public boolean isAssignable(String value) {
+	public boolean isAssignablePrimitive(String value) {
 		if(type == VariableType.INTEGER) {
 			if(value.matches("-?\\d+(\\.\\d+)?")) {
 				return true;
@@ -156,11 +156,24 @@ public abstract class Variable
 			if(value.matches("true") || value.matches("false")) {
 				return true;
 			}
-		} else if(type == VariableType.OBJECT) { // TODO: Need to test validity of objects somehow. - Ian
-			return false;
 		}
 		return false;
 		
+	}
+	
+	/**
+	 * Type checks for objects
+	 * @param value
+	 * @param id
+	 * @return if type matches
+	 */
+	public boolean isAssignableObject(String value, String id) {
+		 if(type == VariableType.OBJECT) {
+			if(this.id.equals(id)) {
+				return true;
+			}
+		 }
+		 return false;
 	}
     
 

@@ -77,7 +77,7 @@ public class TestVariables {
 		assertEquals(mov.getMethodName(), "MethodName");
 		assertEquals(mov.getId(), "id");
 		assertEquals(mov.getScope(), VariableScope.METHOD);
-		assertEquals(mov.getType(), VariableType.OBJECT);
+		assertEquals(mov.getType(), VariableType.OBJECT);		
 	}
 	
 	
@@ -87,20 +87,24 @@ public class TestVariables {
 	@Test
 	public void testVariableTypeForAssignment() {
 		LocalPrimitiveVariable lpv = new LocalPrimitiveVariable("Name", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.INTEGER);
-		lpv.setValue("1");
+		lpv.setValue("1", "id");
 		assertEquals(lpv.getValue(), "1");
-		lpv.setValue("2");
+		lpv.setValue("2", "id");
 		assertEquals(lpv.getValue(), "2");
-		lpv.setValue("true");
+		lpv.setValue("true", "id");
 		assertEquals(lpv.getValue(), "2");
 		
 		LocalPrimitiveVariable lpv2 = new LocalPrimitiveVariable("Name", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.BOOLEAN);
-		lpv2.setValue("true");
+		lpv2.setValue("true", "id");
 		assertEquals(lpv2.getValue(), "true");
-		lpv2.setValue("1");
+		lpv2.setValue("1", "id");
 		assertEquals(lpv2.getValue(), "true");
-		lpv2.setValue("false");
+		lpv2.setValue("false", "id");
 		assertEquals(lpv2.getValue(), "false");
+		
+		LocalObjectVariable obj = new LocalObjectVariable("Name", "ClassName", "id", "MethodName", VariableScope.LOCAL, VariableType.OBJECT);
+		obj.setValue("idk", "id");
+		assertEquals(lpv.getValue(), "id");
 	}
 
 	
