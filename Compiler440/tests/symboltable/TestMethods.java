@@ -1,13 +1,10 @@
-package tests.symboltable;
-import static org.junit.Assert.*;
+package symboltable;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
 import org.junit.Test;
 
-import symboltable.Variable;
-import symboltable.VariableScope;
-import symboltable.VariableType;
 import symboltable.method.impl.PublicMethod;
 import symboltable.variable.impl.MethodObjectVariable;
 import symboltable.variable.impl.MethodPrimitiveVariable;

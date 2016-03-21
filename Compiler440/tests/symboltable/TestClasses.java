@@ -51,7 +51,7 @@ public class TestClasses {
 	public void testExtensionWhenFalse() {
 		Class cl = new Class("name", null, null, null);
 		assertFalse(cl.checkExtension());
-		assertEqual("name", cl.getName());
+		assertEquals("name", cl.getName());
 	}
 	
 	/**

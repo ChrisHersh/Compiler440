@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import symboltable.Method;
 import symboltable.Variable;
 import symboltable.VariableType;
-import symboltable.variable.impl.MethodPrimitiveVariable;
 
 /**
  * Concrete version of a method to use for Parameters

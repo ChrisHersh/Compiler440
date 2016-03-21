@@ -2,8 +2,6 @@ package symboltable;
 
 import java.util.ArrayList;
 
-import symboltable.variable.impl.MethodPrimitiveVariable;
-
 /**
  * Method that is inserted into a symbol table.
  * 

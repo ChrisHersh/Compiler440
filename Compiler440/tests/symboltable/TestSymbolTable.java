@@ -38,6 +38,22 @@ public class TestSymbolTable {
 	}
 	
 	/**
+	 * Test the order of parameters from methods being stored in the symbol table
+	 */
+	@Test
+	public void testOrderParams()
+	{
+		MethodPrimitiveVariable mpv1 = new MethodPrimitiveVariable("Name1", "ClassName", "MethodName", VariableScope.METHOD, VariableType.INTEGER);
+		MethodPrimitiveVariable mpv2 = new MethodPrimitiveVariable("Name2", "ClassName", "MethodName", VariableScope.METHOD, VariableType.BOOLEAN);
+		ArrayList<Variable> params = new ArrayList<Variable>();
+		params.add(mpv1);
+		params.add(mpv2);
+		SymbolTable.getInstance().getTable().put("Method1", params);
+		assertEquals(mpv1, SymbolTable.getInstance().getTable().get("Method1").get(0));
+		assertEquals(mpv2, SymbolTable.getInstance().getTable().get("Method1").get(1));
+	}
+	
+	/**
 	 * Test the storing of parameters from methods into the symbol table
 	 */
 	@Test
