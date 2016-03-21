@@ -100,4 +100,24 @@ public abstract class Method
     {
     	return grandParent;
     }
+    
+    /**
+     * Validates parameter comparison against current method
+     * @param vars Variables to test
+     * @return If parameters are in correct order, correct type, correct count
+     */
+    public boolean validParameters(ArrayList<Variable> vars)
+    {
+    	if(vars.size() != params.size()) {
+    		return false;
+    	}
+    	
+    	for(int i = 0; i < vars.size(); i++) {
+    		if(params.get(i).getType() != vars.get(i).getType()) {
+    			return false;
+    		}
+    	}
+    	
+    	return true;
+    }
 }
