@@ -19,9 +19,9 @@ public class TestSymbolTable {
 	@Test
 	public void testInitialization() {
 		assertNotNull(SymbolTable.getInstance());
-		assertNotNull(SymbolTable.getInstance().getTable());
+		assertNotNull(SymbolTable.getInstance().getVariableTable());
 		//Added by Curtis Rabe
-		assertNotNull(SymbolTable.getInstance().getTableMethod());
+		assertNotNull(SymbolTable.getInstance().getMethodTable());
 	}
 	
 	/**
@@ -33,8 +33,8 @@ public class TestSymbolTable {
 		MethodPrimitiveVariable mpv1 = new MethodPrimitiveVariable("Name1", "ClassName", "MethodName", VariableScope.METHOD, VariableType.INTEGER);
 		ArrayList<Variable> params = new ArrayList<Variable>();
 		params.add(mpv1);
-		SymbolTable.getInstance().getTable().put(mpv1.getName(), params);
-		assertEquals(mpv1, SymbolTable.getInstance().getTable().get("Name1").get(0));
+		SymbolTable.getInstance().getVariableTable().put(mpv1.getName(), params);
+		assertEquals(mpv1, SymbolTable.getInstance().getVariableTable().get("Name1").get(0));
 	}
 	
 	/**
@@ -48,9 +48,9 @@ public class TestSymbolTable {
 		ArrayList<Variable> params = new ArrayList<Variable>();
 		params.add(mpv1);
 		params.add(mpv2);
-		SymbolTable.getInstance().getTable().put("Method1", params);
-		assertEquals(mpv1, SymbolTable.getInstance().getTable().get("Method1").get(0));
-		assertEquals(mpv2, SymbolTable.getInstance().getTable().get("Method1").get(1));
+		SymbolTable.getInstance().getVariableTable().put("Method1", params);
+		assertEquals(mpv1, SymbolTable.getInstance().getVariableTable().get("Method1").get(0));
+		assertEquals(mpv2, SymbolTable.getInstance().getVariableTable().get("Method1").get(1));
 	}
 	
 	/**
@@ -62,8 +62,8 @@ public class TestSymbolTable {
 		MethodPrimitiveVariable mpv1 = new MethodPrimitiveVariable("Name1", "ClassName", "MethodName", VariableScope.METHOD, VariableType.INTEGER);
 		ArrayList<Variable> params = new ArrayList<Variable>();
 		//Note: No parameters added to "params"
-		SymbolTable.getInstance().getTable().put(mpv1.getName(), params);
-		assertEquals(0, SymbolTable.getInstance().getTable().get(mpv1.getName()).size());
+		SymbolTable.getInstance().getVariableTable().put(mpv1.getName(), params);
+		assertEquals(0, SymbolTable.getInstance().getVariableTable().get(mpv1.getName()).size());
 	}
 
 }
