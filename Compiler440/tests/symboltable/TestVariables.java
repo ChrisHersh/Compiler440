@@ -2,6 +2,8 @@ package symboltable;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 
 import symboltable.variable.impl.InstanceObjectVariable;
@@ -159,4 +161,40 @@ public class TestVariables {
 		assertFalse(lpv.validOperator("<="));
 	}
 
+	@Test
+	public void testIfVaribleIsInMethod()
+	{
+		//Proudly stolen from above
+		LocalPrimitiveVariable lpv = new LocalPrimitiveVariable("local", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.INTEGER);
+		InstancePrimitiveVariable ipv = new InstancePrimitiveVariable("instance", "ClassName", VariableScope.INSTANCE, VariableType.BOOLEAN);
+		MethodPrimitiveVariable mpv = new MethodPrimitiveVariable("parameter", "ClassName", "MethodName", VariableScope.METHOD, VariableType.INTEGER);
+		
+		LocalPrimitiveVariable lpv_class2 = new LocalPrimitiveVariable("local2", "ClassName2", "MethodName", VariableScope.LOCAL, VariableType.INTEGER);
+		
+		//Each variable name has it's own list, this should get much cleaner once we have an insertion method
+		ArrayList<Variable> local = new ArrayList<Variable>();
+		local.add(lpv);
+		ArrayList<Variable> ins = new ArrayList<Variable>();
+		ins.add(ipv);
+		ArrayList<Variable> para = new ArrayList<Variable>();
+		para.add(mpv);
+		ArrayList<Variable> local2 = new ArrayList<Variable>();
+		local2.add(lpv_class2);
+		
+		SymbolTable symbol = SymbolTable.getInstance();
+		symbol.getTable().put(lpv.getName(), local);
+		symbol.getTable().put(ipv.getName(), ins);
+		symbol.getTable().put(mpv.getName(), para);
+		symbol.getTable().put(lpv_class2.getName(), local2);
+		
+		assertTrue(symbol.checkIfVariableIsInMethod("local", "MethodName", "ClassName"));
+		assertTrue(symbol.checkIfVariableIsInMethod("parameter", "MethodName", "ClassName"));
+		
+		//Should fail, it's an instance variable
+		assertFalse(symbol.checkIfVariableIsInMethod("instance", "MethodName", "ClassName"));
+		
+		//Should fail, it's in a different class
+		assertFalse(symbol.checkIfVariableIsInMethod("local2", "MethodName", "ClassName"));
+	}
+	
 }

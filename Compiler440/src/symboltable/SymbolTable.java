@@ -52,5 +52,18 @@ public class SymbolTable
     	return symbolTable;
     }
    
+    public boolean checkIfVariableIsInMethod(String varName, String methodName, String className)
+    {
+    	ArrayList<Variable> varList = table.get(varName);
+    	for(Variable v : varList)
+    	{
+    		if( (v.getMethodName().equals(methodName) && v.getClassName().equals(className)) && 
+    				(v.getScope() == VariableScope.METHOD || v.getScope() == VariableScope.LOCAL) )
+    		{
+    			return true;
+    		}
+    	}
+    	return false;
+    }
 
 }
