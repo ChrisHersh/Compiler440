@@ -14,29 +14,29 @@ public class SymbolTable
 	private static SymbolTable symbolTable;
 	
     // Mapping from name to list of all variables with that name.
-	private HashMap<String, ArrayList<Variable>> table;
-	private HashMap<String, ArrayList<Method>> tableMethod;
+	private HashMap<String, ArrayList<Variable>> variableTable;
+	private HashMap<String, ArrayList<Method>> methodTable;
 	
 	private SymbolTable() 
 	{
-		table = new HashMap<String, ArrayList<Variable>>();
-		tableMethod = new HashMap<String, ArrayList<Method>>();
+		variableTable = new HashMap<String, ArrayList<Variable>>();
+		methodTable = new HashMap<String, ArrayList<Method>>();
 	}
 	
     /**
 	 * @return the table
 	 */
-	public HashMap<String, ArrayList<Variable>> getTable() 
+	public HashMap<String, ArrayList<Variable>> getVariableTable() 
 	{
-		return table;
+		return variableTable;
 	}
 	
 	 /**
 	 * @return the table
 	 */
-	public HashMap<String, ArrayList<Method>> getTableMethod() 
+	public HashMap<String, ArrayList<Method>> getMethodTable() 
 	{
-		return tableMethod;
+		return methodTable;
 	}
 
 
@@ -52,5 +52,18 @@ public class SymbolTable
     	return symbolTable;
     }
    
+    public boolean checkIfVariableIsInMethod(String varName, String methodName, String className)
+    {
+    	ArrayList<Variable> varList = variableTable.get(varName);
+    	for(Variable v : varList)
+    	{
+    		if( (v.getMethodName().equals(methodName) && v.getClassName().equals(className)) && 
+    				(v.getScope() == VariableScope.METHOD || v.getScope() == VariableScope.LOCAL) )
+    		{
+    			return true;
+    		}
+    	}
+    	return false;
+    }
 
 }
