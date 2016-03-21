@@ -10,10 +10,11 @@ import com.sun.java.util.jar.pack.Package.Class.Method;
 
 import symboltable.variable.impl.InstancePrimitiveVariable;
 
+
 /**
  * The Testclass to test classes 
  * @author Michael Zimmerman
- *
+ * 
  */
 public class TestClasses {
 	
@@ -41,5 +42,37 @@ public class TestClasses {
 		assertTrue(cla1.getVars().get(0).getName() == "Name1");
 		assertTrue(cla2.getVars().get(0).getName() == "Name2");
 		assertTrue(cla2.getVars().get(1).getName() == "Name1");
+	}
+	
+	/**
+	 * Test the extension when there is no extension
+	 * and check the name
+	 * @author Shannon Jones 
+	 */
+	@Test
+	public void testExtensionWhenFalse() {
+		Class cl = new Class("name", null, null, null);
+		assertFalse(cl.checkExtension());
+		assertEquals("name", cl.getName());
+	}
+	
+	/**
+	 * Test to check that the class is keeping track of what is being extended
+	 * and check the name
+	 * @author Shannon Jones
+	 */
+	@Test
+	public void testExtensionWhenTrue()
+	{
+		Class cl = new Class("name", null, null, null);
+		Class cl2 = new Class("name2",null, null, cl);
+		cl2.setExtention(cl);
+		assertFalse(cl.checkExtension());
+		assertEquals(null, cl.getExtention());
+		assertEquals("name", cl.getName());
+		
+		assertTrue(cl2.checkExtension());
+		assertEquals(cl, cl2.getExtention());
+		assertEquals("name2", cl2.getName());
 	}
 }
