@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import symboltable.Method;
 import symboltable.Variable;
 import symboltable.VariableType;
-import symboltable.variable.impl.MethodPrimitiveVariable;
+import symboltable.Class;
 
 /**
  * Concrete version of a method to use for Parameters
@@ -20,8 +20,8 @@ public class PublicMethod extends Method
 	 * @param type the return type of the method
 	 * @param params the parameters of the method
 	 */
-	public PublicMethod(String name, String className, VariableType type, ArrayList<Variable> params)
+	public PublicMethod(String name, Class className, VariableType type, ArrayList<Variable> params)
 	{
-		super(className, className, type, params);
+		super(name, className, type, params);
 	}
 }
