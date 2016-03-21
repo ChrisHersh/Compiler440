@@ -84,35 +84,58 @@ public class TestTokenizer
     @Test
     public void testKeywords()
     {
-        String keywords = "int double char boolean if while void";
+        String keywords = "int boolean if while void main class static extends new public else return System.out.println length this true false";
         ArrayList<Token> list = Tokenizer.tokenizeString(keywords, 0);
-        assertEquals(list.size(), 7);
+        assertEquals(list.size(), 18);
         assertEquals(list.get(0).token, "int");
-        assertEquals(list.get(1).token, "double");
-        assertEquals(list.get(2).token, "char");
-        assertEquals(list.get(3).token, "boolean");
-        assertEquals(list.get(4).token, "if");
-        assertEquals(list.get(5).token, "while");
-        assertEquals(list.get(6).token, "void");
+        assertEquals(list.get(1).token, "boolean");
+        assertEquals(list.get(2).token, "if");
+        assertEquals(list.get(3).token, "while");
+        assertEquals(list.get(4).token, "void");
+        assertEquals(list.get(5).token, "main");
+        assertEquals(list.get(6).token, "class");
+        assertEquals(list.get(7).token, "static");
+        assertEquals(list.get(8).token, "extends");
+        assertEquals(list.get(9).token, "new");
+        assertEquals(list.get(10).token, "public");
+        assertEquals(list.get(11).token, "else");
+        assertEquals(list.get(12).token, "return");
+        assertEquals(list.get(13).token, "System.out.println");
+        assertEquals(list.get(14).token, "length");
+        assertEquals(list.get(15).token, "this");
+        assertEquals(list.get(16).token, "true");
+        assertEquals(list.get(17).token, "false");
 
         assertEquals(list.get(0).tokenName, "INT");
-        assertEquals(list.get(1).tokenName, "DOUBLE");
-        assertEquals(list.get(2).tokenName, "CHAR");
-        assertEquals(list.get(3).tokenName, "BOOLEAN");
-        assertEquals(list.get(4).tokenName, "IF");
-        assertEquals(list.get(5).tokenName, "WHILE");
-        assertEquals(list.get(6).tokenName, "VOID");
+        assertEquals(list.get(1).tokenName, "BOOLEAN");
+        assertEquals(list.get(2).tokenName, "IF");
+        assertEquals(list.get(3).tokenName, "WHILE");
+        assertEquals(list.get(4).tokenName, "VOID");
+        assertEquals(list.get(5).tokenName, "MAIN");
+        assertEquals(list.get(6).tokenName, "CLASS");
+        assertEquals(list.get(7).tokenName, "STATIC");
+        assertEquals(list.get(8).tokenName, "EXTENDS");
+        assertEquals(list.get(9).tokenName, "NEW");
+        assertEquals(list.get(10).tokenName, "PUBLIC");
+        assertEquals(list.get(11).tokenName, "ELSE");
+        assertEquals(list.get(12).tokenName, "RETURN");
+        assertEquals(list.get(13).tokenName, "SYSTEM_OUT");
+        assertEquals(list.get(14).tokenName, "LENGTH");
+        assertEquals(list.get(15).tokenName, "THIS");
+        assertEquals(list.get(16).tokenName, "TRUE");
+        assertEquals(list.get(17).tokenName, "FALSE");
     }
 
+    
     /**
      * Test to make sure the Tokenizer can find any of the symbols correctly
      */
     @Test
     public void testSymbols()
     {
-        String keywords = "; + - * = . && || ! == > < >= <= >> << -> % !=";
+        String keywords = "; + - * = . && || ! == > < >= <= != ,";
         ArrayList<Token> list = Tokenizer.tokenizeString(keywords, 0);
-        assertEquals(list.size(), 19);
+        assertEquals(list.size(), 16);
         assertEquals(list.get(0).token, ";");
         assertEquals(list.get(1).token, "+");
         assertEquals(list.get(2).token, "-");
@@ -127,11 +150,8 @@ public class TestTokenizer
         assertEquals(list.get(11).token, "<");
         assertEquals(list.get(12).token, ">=");
         assertEquals(list.get(13).token, "<=");
-        assertEquals(list.get(14).token, ">>");
-        assertEquals(list.get(15).token, "<<");
-        assertEquals(list.get(16).token, "->");
-        assertEquals(list.get(17).token, "%");
-        assertEquals(list.get(18).token, "!=");
+        assertEquals(list.get(14).token, "!=");
+        assertEquals(list.get(15).token, ",");
 
         assertEquals(list.get(0).tokenName, "SEMI");
         assertEquals(list.get(1).tokenName, "PLUS");
@@ -147,11 +167,8 @@ public class TestTokenizer
         assertEquals(list.get(11).tokenName, "LT");
         assertEquals(list.get(12).tokenName, "GT_EQ");
         assertEquals(list.get(13).tokenName, "LT_EQ");
-        assertEquals(list.get(14).tokenName, "RT_SHIFT");
-        assertEquals(list.get(15).tokenName, "LFT_SHIFT");
-        assertEquals(list.get(16).tokenName, "PRT");
-        assertEquals(list.get(17).tokenName, "PERCENT");
-        assertEquals(list.get(18).tokenName, "NOT_EQ");
+        assertEquals(list.get(14).tokenName, "NOT_EQ");
+        assertEquals(list.get(15).tokenName, "COMMA");
 
     }
 
@@ -177,29 +194,6 @@ public class TestTokenizer
         assertEquals(list.get(4).tokenName, "INT_NUM");
     }
 
-    /**
-     * Test to make sure the Tokenizer can parse floats correctly
-     */
-    @Test
-    public void testFloats()
-    {
-        String brackets = "0.0 100.56 .5 -50.5";
-        ArrayList<Token> list = Tokenizer.tokenizeString(brackets, 0);
-        assertEquals(list.size(), 6);
-        assertEquals(list.get(0).token, "0.0");
-        assertEquals(list.get(1).token, "100.56");
-        assertEquals(list.get(2).token, ".");
-        assertEquals(list.get(3).token, "5");
-        assertEquals(list.get(4).token, "-");
-        assertEquals(list.get(5).token, "50.5");
-
-        assertEquals(list.get(0).tokenName, "FLOAT_NUM");
-        assertEquals(list.get(1).tokenName, "FLOAT_NUM");
-        assertEquals(list.get(2).tokenName, "PERIOD");
-        assertEquals(list.get(3).tokenName, "INT_NUM");
-        assertEquals(list.get(4).tokenName, "MINUS");
-        assertEquals(list.get(5).tokenName, "FLOAT_NUM");
-    }
 
     /**
      * Test to make sure the Tokenizer will find the IDs correctly
