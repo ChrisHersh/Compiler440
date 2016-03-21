@@ -9,7 +9,7 @@ import symboltable.variable.impl.InstancePrimitiveVariable;
  * @author Michael Zimmerman
  * 
  */
-public class Class {
+public class Class { 
 	
 	private String name;
     private Class ext; 
@@ -28,6 +28,11 @@ public class Class {
     	this.ext = ext;
     	this.methods = methods;
     	this.vars = vars;
+    	
+    	if(ext != null)
+    	{
+    		extend = true;
+    	}
     }
     
 	/**
