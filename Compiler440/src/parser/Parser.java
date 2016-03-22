@@ -15,10 +15,12 @@ public class Parser
 	
 	private static Parser parser;
 	Stack<Token> holdStack;
+	Stack<Token> inputStack;
 	
 	private Parser()
 	{
 		holdStack = new Stack<Token>();
+		inputStack = new Stack<Token>();
 	}
 	
 	/**
@@ -40,5 +42,14 @@ public class Parser
     public Stack<Token> getHoldStack()
     {
     	return holdStack;
+    }
+    
+    /**
+     * Getter to return the inputStack
+     * @return the inputStack
+     */
+    public Stack<Token> getInputStack()
+    {
+    	return inputStack;
     }
 }

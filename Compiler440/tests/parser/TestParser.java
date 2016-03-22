@@ -43,8 +43,31 @@ public class TestParser
 		Parser.getInstance().getHoldStack().push(tok2);
 		assertEquals(tok2, Parser.getInstance().getHoldStack().pop());
 		assertEquals(tok1, Parser.getInstance().getHoldStack().pop());
-
-
 	}
+	/**
+	 * Test to make sure the inputStack is properly created
+	 * Michael Zimmerman
+	 */
+	@Test
+	public void testInputStackInitialization()
+	{
+		assertTrue(Parser.getInstance().getInputStack().empty());
+	}
+	
+	/**
+	 * Test to make sure the inputStack can successfully hold tokens
+	 * Michael Zimmerman
+	 */
+	@Test
+	public void testInputStackCanStoreTokens()
+	{
+		Token tok1 = new Token();
+		Token tok2 = new Token();
+		Parser.getInstance().getInputStack().push(tok1);
+		Parser.getInstance().getInputStack().push(tok2);
+		assertEquals(tok2, Parser.getInstance().getInputStack().pop());
+		assertEquals(tok1, Parser.getInstance().getInputStack().pop());
+	}
+	
 
 }
