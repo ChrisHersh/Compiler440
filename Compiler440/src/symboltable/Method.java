@@ -2,47 +2,35 @@ package symboltable;
 
 import java.util.ArrayList;
 
-
-
 /**
  * Method that is inserted into a symbol table.
  * 
  * NOTE: at the moment, this does not take into account MethodObjectVariables (Objects)
  * 			it only handles primitives
  * @author Curtis Rabe
- *
+ *@update by Mohammed 
+ *change the privet class classname to string classname 
+ *remove the abstract from the method class declaration 
  */
 
-public abstract class Method
+public class Method
 {
 	private String name;
-    private Class className;
+    private String className;
     private VariableType type;
     private ArrayList<Variable> params = new ArrayList<Variable>();
-    private Class grandParent;
-    
     /**
      * @param name the Method name
-     * @param className the class in which the method is located
+     * @param className the name of the class in which the method is located
      * @param type the return type
      * @param params the parameters of the method
      */
-    public Method(String name, Class className, VariableType type, ArrayList<Variable> params)
+    public Method(String name, String className, VariableType type, ArrayList<Variable> params)
     {
     	this.name = name;
     	this.className = className;
     	this.type = type;
     	this.params = params;
-    	
-    	//Check to see if this Method has grandparents.  
-    	if(className.checkExtension())
-    	{
-    		this.grandParent = className.getExtention();
-    	}
-    	else
-    	{
-    		this.grandParent = null;
-    	}
     }
     
     /**
@@ -58,7 +46,7 @@ public abstract class Method
      * Getter for the className variable
      * @return the class name
      */
-    public Class getClassName()
+    public String getClassName()
     {
     	return className;
     }
@@ -92,33 +80,4 @@ public abstract class Method
     {
     	name = s;
     }//Not sure if this is needed since the name is passed through the constructor - Curtis R.
-    
-    /**
-     * Getter for method inheritance
-     * @return this method's grandparent, if any. Returns null if it has none.
-     */
-    public Class getGrandParent()
-    {
-    	return grandParent;
-    }
-    
-    /**
-     * Validates parameter comparison against current method
-     * @param vars Variables to test
-     * @return If parameters are in correct order, correct type, correct count
-     */
-    public boolean validParameters(ArrayList<Variable> vars)
-    {
-    	if(vars.size() != params.size()) {
-    		return false;
-    	}
-    	
-    	for(int i = 0; i < vars.size(); i++) {
-    		if(params.get(i).getType() != vars.get(i).getType()) {
-    			return false;
-    		}
-    	}
-    	
-    	return true;
-    }
 }

@@ -21,7 +21,7 @@ public class PublicMethod extends Method
 	 * @param type the return type of the method
 	 * @param params the parameters of the method
 	 */
-	public PublicMethod(String name, Class className, VariableType type, ArrayList<Variable> params)
+	public PublicMethod(String name, String className, VariableType type, ArrayList<Variable> params)
 	{
 		super(name, className, type, params);
 	}
