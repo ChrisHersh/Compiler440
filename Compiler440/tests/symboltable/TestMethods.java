@@ -209,23 +209,32 @@ public class TestMethods
 
     /**
      * Tests whether the getter well gets the name
+     * Method name changed by Curtis Rabe to eliminate errors
+     * 			Also, changed test to run properly - added arrayList "params" and class "cl1"
      */
     @Test
-    public void testMethodParamOrder()
+    public void testGetMethodName()
     {
+    	ArrayList<Variable> params = new ArrayList <Variable>();
+    	Class cl1 = new Class("Class",null, null, null);
         String test = "Name";
-        PublicMethod pm = new PublicMethod("Name", "Class", VariableType.INTEGER, params);
+        PublicMethod pm = new PublicMethod("Name", cl1, VariableType.INTEGER, params);
         assertTrue(test.equals(pm.getMethodName()));
     }
 
     /**
      * Tests whether the setter well sets the name
+     * Method name changed by Curtis Rabe to eliminate errors
+     * 			Also, changed test to run properly - added arrayList "params" and class "cl1"
+     * 		Note: I am still not sure if method names need to be set outside of the creation of the method...
      */
     @Test
-    public void testMethodParamOrder()
+    public void testSetMethodName()
     {
+    	ArrayList<Variable> params = new ArrayList <Variable>();
+    	Class cl1 = new Class("Class",null, null, null);
         String test = "TestName";
-        PublicMethod pm = new PublicMethod("Name", "Class", VariableType.INTEGER, params);
+        PublicMethod pm = new PublicMethod("Name", cl1, VariableType.INTEGER, params);
         pm.setMethodName("TestName");
         assertTrue(test.equals(pm.getMethodName()));
     }
