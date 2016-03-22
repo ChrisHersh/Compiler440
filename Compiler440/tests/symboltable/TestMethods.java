@@ -1,4 +1,4 @@
-package symboltable;
+package tests.symboltable;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import symboltable.VariableScope;
+import symboltable.VariableType;
 import symboltable.method.impl.PublicMethod;
 import symboltable.variable.impl.InstancePrimitiveVariable;
 import symboltable.variable.impl.MethodObjectVariable;
