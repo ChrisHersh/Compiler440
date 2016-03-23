@@ -1,11 +1,13 @@
 package parser.states;
 
+import parser.Parser;
+
 public class ExampleState extends State
 {
 
-	public ExampleState() 
+	public ExampleState(Parser currentParser)
 	{
-		super();
+		super(currentParser);
 	}
 	
 }
