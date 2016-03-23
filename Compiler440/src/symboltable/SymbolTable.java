@@ -17,7 +17,7 @@ public class SymbolTable
 	private HashMap<String, ArrayList<Variable>> variableTable;
 	private HashMap<String, ArrayList<Method>> methodTable;
 	
-	SymbolTable() 
+	private SymbolTable() 
 	{
 		variableTable = new HashMap<String, ArrayList<Variable>>();
 		methodTable = new HashMap<String, ArrayList<Method>>();

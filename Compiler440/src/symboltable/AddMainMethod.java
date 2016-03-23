@@ -8,7 +8,7 @@ import java.util.HashMap;
  *
  */
 public class AddMainMethod {
-	SymbolTable st = new  SymbolTable();
+	SymbolTable st = SymbolTable.getInstance();
 	public Method createMethod(String name, String className, VariableType type, ArrayList<Variable> params)
 	{
 		Method main = new Method(name,className,type,params);
