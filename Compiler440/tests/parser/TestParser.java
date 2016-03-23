@@ -86,11 +86,11 @@ public class TestParser
 	@Test
 	public void testStateStackCanStoreTokens()
 	{
-		ExampleState tok1 = new ExampleState();
-		ExampleState tok2 = new ExampleState();
-		Parser.getInstance().getStateStack().push(tok1);
-		Parser.getInstance().getStateStack().push(tok2);
-		assertEquals(tok2, Parser.getInstance().getStateStack().pop());
-		assertEquals(tok1, Parser.getInstance().getStateStack().pop());
+		ExampleState state1 = new ExampleState();
+		ExampleState state2 = new ExampleState();
+		Parser.getInstance().getStateStack().push(state1);
+		Parser.getInstance().getStateStack().push(state2);
+		assertEquals(state2, Parser.getInstance().getStateStack().pop());
+		assertEquals(state1, Parser.getInstance().getStateStack().pop());
 	}
 }
