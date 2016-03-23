@@ -5,9 +5,9 @@ import parser.Parser;
 public class ExampleState extends State
 {
 
-	public ExampleState(Parser currentParser)
+	public ExampleState()
 	{
-		super(currentParser);
+		super();
 	}
 	
 }

@@ -7,9 +7,9 @@ public abstract class State
 	private State currentState;
 	private Parser currentParser;
 	
-	public State (Parser currentParser)
+	public State ()
 	{
-		this.currentParser = currentParser;
+		this.currentParser = Parser.getInstance();
 //		this.currentState = currentParser.getStartState();//Sets the state to be the inital state in the state diagram
 	}
 	
