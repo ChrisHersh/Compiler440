@@ -10,3 +10,4 @@ hows it goin */
 so lol */
 
 intOne = 2;
+public void main ()
