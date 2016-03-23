@@ -7,7 +7,7 @@ import org.junit.Test;
 import tokenizer.Token;
 
 /**
- * Test class to ensure the proper creation and usage
+ * Test class to ensure the proper creation and usage with
  * of the parser and the stacks that comprises it
  * @author Curtis Rabe
  */
