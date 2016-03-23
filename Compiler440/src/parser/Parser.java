@@ -13,8 +13,8 @@ import parser.states.State;
  */
 public class Parser
 {
-	
 	private static Parser parser;
+	private State currentState;
 	Stack<Token> holdStack;
 	Stack<Token> inputStack;
 	Stack<State> stateStack;
