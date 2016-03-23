@@ -3,6 +3,7 @@ package parser;
 import java.util.Stack;
 
 import tokenizer.Token;
+import parser.states.State;
 
 /**
  * Class created for the parser. It should be comprised of
@@ -16,11 +17,13 @@ public class Parser
 	private static Parser parser;
 	Stack<Token> holdStack;
 	Stack<Token> inputStack;
+	Stack<State> stateStack;
 	
 	private Parser()
 	{
 		holdStack = new Stack<Token>();
 		inputStack = new Stack<Token>();
+		stateStack = new Stack<State>();
 	}
 	
 	/**
@@ -36,6 +39,15 @@ public class Parser
     }
     
     /**
+     * Getter to return the stateStack
+     * @return the stateStack
+     */
+    public Stack<State> getStateStack() 
+    {
+		return stateStack;
+	}
+
+	/**
      * Getter to return the holdStack
      * @return the holdStack
      */

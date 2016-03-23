@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import parser.states.ExampleState;
 import tokenizer.Token;
 
 /**
@@ -69,5 +70,28 @@ public class TestParser
 		assertEquals(tok1, Parser.getInstance().getInputStack().pop());
 	}
 	
-
+	/**
+	 * Test to make sure the stateStack is properly created
+	 * Jared Good
+	 */
+	@Test
+	public void testStateStackInitialization()
+	{
+		assertTrue(Parser.getInstance().getStateStack().empty());
+	}
+	
+	/**
+	 * Test to make sure the stateStack can successfully hold states
+	 * Jared Good
+	 */
+	@Test
+	public void testStateStackCanStoreTokens()
+	{
+		ExampleState tok1 = new ExampleState();
+		ExampleState tok2 = new ExampleState();
+		Parser.getInstance().getStateStack().push(tok1);
+		Parser.getInstance().getStateStack().push(tok2);
+		assertEquals(tok2, Parser.getInstance().getStateStack().pop());
+		assertEquals(tok1, Parser.getInstance().getStateStack().pop());
+	}
 }
