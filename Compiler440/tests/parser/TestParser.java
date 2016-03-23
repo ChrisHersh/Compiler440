@@ -9,7 +9,7 @@ import tokenizer.Token;
 /**
  * Test class to ensure the proper creation and usage
  * of the parser and the stacks that comprises it
- * @author Curtis Rabe
+ * @author Curtis Rabe, Michael Zimmerman, Jared Good
  */
 public class TestParser
 {
