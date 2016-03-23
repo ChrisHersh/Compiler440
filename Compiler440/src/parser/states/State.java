@@ -4,7 +4,7 @@ import parser.Parser;
 
 public abstract class State
 {
-	private Parser currentParser;
+	protected Parser currentParser;
 	
 	public State()
 	{
@@ -22,8 +22,75 @@ public abstract class State
 	    throw new ParserException();
 	}
 	
+	/**
+	 * Method to handle any common code for every state transition
+	 * @param state New state to transition to
+	 */
+	protected void changeToState(State state)
+	{
+	    currentParser.pushHoldStack(currentParser.popInputStack());
+        currentParser.pushStateStack(this);
+        currentParser.changeState(state);
+	}
+	
 	//Below here add all the methods for the different shift calls with our default logic
 	public void shiftEXP1 () throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftEXP2() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftEXP3() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftEXP4() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftEXP5() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftEXP6() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftEXP7() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftId() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftIntegerLiteral() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftTrue() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftFalse() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftThis() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftNew() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftExclamation() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftLeftBracket() throws ParserException
 	{
 		invalidState();
 	}
