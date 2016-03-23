@@ -22,6 +22,13 @@ public abstract class State
 	    throw new ParserException();
 	}
 	
+	protected void changeToState(State state)
+	{
+	    currentParser.pushHoldStack(currentParser.popInputStack());
+        currentParser.pushStateStack(this);
+        currentParser.changeState(state);
+	}
+	
 	//Below here add all the methods for the different shift calls with our default logic
 	public void shiftEXP1 () throws ParserException
 	{
