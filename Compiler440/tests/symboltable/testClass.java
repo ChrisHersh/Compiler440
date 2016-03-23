@@ -1,5 +1,5 @@
 
-package Test;
+package symboltable;
 
 import static org.junit.Assert.*;
 
