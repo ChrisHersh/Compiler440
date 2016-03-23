@@ -9,7 +9,7 @@ import parser.states.State;
  * Class created for the parser. It should be comprised of
  * three independent stacks - the input stack, state stack, and hold stack
  * Just like the SymbolTable, there can only be one parser.
- * @author Curtis Rabe
+ * @author Curtis Rabe, TJ Renninger
  */
 public class Parser
 {
@@ -39,6 +39,15 @@ public class Parser
     }
     
     /**
+     * Changes the current state
+     * @param newState that will be the current state
+     */
+    public void changeState(State newState)
+	{
+		currentState = newState;
+	}
+    
+    /**
      * Getter to return the stateStack
      * @return the stateStack
      */
@@ -63,5 +72,89 @@ public class Parser
     public Stack<Token> getInputStack()
     {
     	return inputStack;
+    }
+    
+    /**
+     * @author TJ Renninger
+     * @return the top element of the state stack and remove it
+     */
+    public State popStateStack()
+    {
+    	return stateStack.pop();
+    }
+    
+    /**
+     * @author TJ Renninger
+     * @return the top element of the state stack but keep it
+     */
+    public State peekStateStack()
+    {
+    	return stateStack.peek();
+    }
+    
+    /**
+     * @author TJ Renninger
+     * Adds a state to the top of the state stack
+     * @param state to be added to the state stack
+     */
+    public void pushStateStack(State state)
+    {
+    	stateStack.push(state);
+    }
+    
+    /**
+     * @author TJ Renninger
+     * @return the top element of the hold stack and remove it
+     */
+    public Token popHoldStack()
+    {
+    	return holdStack.pop();
+    }
+    
+    /**
+     * @author TJ Renninger
+     * @return the top element of the hold stack but keep it
+     */
+    public Token peekHoldStack()
+    {
+    	return holdStack.peek();
+    }
+    
+    /**
+     * @author TJ Renninger
+     * Adds a token to the top of the hold stack
+     * @param token to be added to the hold stack
+     */
+    public void pushHoldStack(Token token)
+    {
+    	holdStack.push(token);
+    }
+    
+    /**
+     * @author TJ Renninger
+     * @return the top element of the input stack and remove it
+     */
+    public Token popInputStack()
+    {
+    	return inputStack.pop();
+    }
+    
+    /**
+     * @author TJ Renninger
+     * @return the top element of the input stack but keep it
+     */
+    public Token peekInputStack()
+    {
+    	return inputStack.peek();
+    }
+    
+    /**
+     * @author TJ Renninger
+     * Adds a token to the top of the input stack
+     * @param token to be added to the input stack
+     */
+    public void pushInputStack(Token token)
+    {
+    	inputStack.push(token);
     }
 }
