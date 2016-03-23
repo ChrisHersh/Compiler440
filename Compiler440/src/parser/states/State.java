@@ -4,7 +4,7 @@ import parser.Parser;
 
 public abstract class State
 {
-	private Parser currentParser;
+	protected Parser currentParser;
 	
 	public State()
 	{
