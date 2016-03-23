@@ -27,5 +27,61 @@ public abstract class State
 	{
 		invalidState();
 	}
+	public void shiftEXP2() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftEXP3() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftEXP4() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftEXP5() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftEXP6() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftEXP7() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftId() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftIntegerLiteral() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftTrue() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftFalse() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftThis() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftNew() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftExclamation() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftLeftBracket() throws ParserException
+	{
+		invalidState();
+	}
 	
 }
