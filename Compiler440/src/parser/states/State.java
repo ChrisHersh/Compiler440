@@ -22,6 +22,10 @@ public abstract class State
 	    throw new ParserException();
 	}
 	
+	/**
+	 * Method to handle any common code for every state transition
+	 * @param state New state to transition to
+	 */
 	protected void changeToState(State state)
 	{
 	    currentParser.pushHoldStack(currentParser.popInputStack());
