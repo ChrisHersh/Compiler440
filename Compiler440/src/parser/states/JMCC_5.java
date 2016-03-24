@@ -90,7 +90,7 @@ public class JMCC_5 extends State
 	/**
 	 * @author Chris Kjeldgaard
 	 */
-	public void shiftLeftBracket()
+	public void shiftLeftBrace()
 	{
 	    changeToState(new JCTM_29());
 	}

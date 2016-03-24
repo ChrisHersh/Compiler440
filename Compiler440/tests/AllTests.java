@@ -12,6 +12,10 @@ import parser.states.*;
 @Suite.SuiteClasses
 ( 
 	{  
+		TestCheckMainMethod.class,
+		testClass.class,
+		TestClasses.class,
+		TestMainMethod.class,
 		TestMethods.class,
 		TestVariables.class,
 		TestParser.class,
@@ -20,6 +24,7 @@ import parser.states.*;
 		TestSymbolTable.class,
 		
 		TestJMCC_27.class,
+		TestJMCC_5.class,
 	}
 ) 
  
