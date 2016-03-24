@@ -1,5 +1,10 @@
 package parser.states;
 
+/**
+ * 
+ * @author Ian Keefer, Chris Hersh
+ *
+ */
 public class JMCC_27 extends State
 {
     @Override
@@ -13,4 +18,28 @@ public class JMCC_27 extends State
     {
         changeToState(new JCTM_18());
     }
+    
+    @Override
+	public void shiftTrue()
+	{
+	    changeToState(new JCTM_15());
+	}
+    
+    @Override
+	public void shiftFalse()
+	{
+	    changeToState(new JCTM_16());
+	}
+
+    @Override
+	public void shiftThis()
+	{
+	    changeToState(new JCTM_17());
+	}
+	
+    @Override
+	public void shiftId()
+	{
+	    changeToState(new JCTM_1());
+	}
 }
