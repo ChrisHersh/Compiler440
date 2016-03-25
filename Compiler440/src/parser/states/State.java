@@ -98,4 +98,8 @@ public abstract class State
 	{
 		invalidState();
 	}
+	public void shiftLeftPara() throws ParserException
+	{
+		invalidState();
+	}
 }
