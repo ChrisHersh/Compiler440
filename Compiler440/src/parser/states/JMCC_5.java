@@ -1,5 +1,9 @@
 package parser.states;
-
+/**
+ * 
+ * @author Ledny Joseph, Jason LoBianco, TJ Renninger, Chris Kjeldgaard
+ *
+ */
 
 public class JMCC_5 extends State
 {

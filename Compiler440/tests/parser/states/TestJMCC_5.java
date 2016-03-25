@@ -7,8 +7,8 @@ import parser.Parser;
 import tokenizer.Token;
 
 /**
- * 
- * @author Chris Kjeldgaard
+ * Test class to check the methods of the JMCC_5 class.
+ * @author Chris Kjeldgaard, Jason LoBianco
  *
  */
 public class TestJMCC_5 
@@ -19,6 +19,10 @@ public class TestJMCC_5
         Parser.resetParser();
     }
 	
+    /**
+     * @author Chris Kjeldgaard
+     * @throws ParserException
+     */
     @Test
 	public void testShiftLeftBrace() throws ParserException
 	{
@@ -46,6 +50,10 @@ public class TestJMCC_5
 	    assertTrue(p.getCurrentState() instanceof JCTM_27);
 	}
     
+    /**
+     * @author Chris Kjeldgaard
+     * @throws ParserException
+     */
     @Test
 	public void testShiftExclamation() throws ParserException
 	{
@@ -73,6 +81,10 @@ public class TestJMCC_5
 	    assertTrue(p.getCurrentState() instanceof JCTM_27);
 	}
     
+    /**
+     * @author Chris Kjeldgaard
+     * @throws ParserException
+     */
     @Test
 	public void testShiftNew() throws ParserException
 	{
@@ -99,4 +111,97 @@ public class TestJMCC_5
 	    
 	    assertTrue(p.getCurrentState() instanceof JCTM_19);
 	}
+    
+    /**
+     * @author Jason LoBianco
+     * @throws ParserException
+     */
+    @Test
+    public void testShiftEXP7() throws ParserException
+    {
+    	Parser p = Parser.getInstance();
+	    State s = new JMCC_5();
+	        
+	    Token token = new Token("EXP7", "EXP7", 5);
+	    
+	    p.getInputStack().push(token);
+	    
+	    assertFalse(p.getInputStack().empty());
+	    assertEquals(p.getInputStack().peek(), token);
+	    assertTrue(p.getHoldStack().empty());
+	    assertTrue(p.getStateStack().empty());
+	    
+	    s.shiftEXP7();
+	    
+	    assertTrue(p.getInputStack().empty());
+	    assertFalse(p.getHoldStack().empty());
+	    assertFalse(p.getStateStack().empty());
+	    
+	    assertEquals(p.getHoldStack().peek(), token);
+	    assertEquals(p.getStateStack().peek(), s);
+	    
+	    assertTrue(p.getCurrentState() instanceof JMCC_29);
+    }
+    
+    /**
+     * @author Jason LoBianco
+     * @throws ParserException
+     */
+    @Test
+    public void testShiftId() throws ParserException
+    {
+    	Parser p = Parser.getInstance();
+	    State s = new JMCC_5();
+	        
+	    Token token = new Token("id", "Id", 5);
+	    
+	    p.getInputStack().push(token);
+	    
+	    assertFalse(p.getInputStack().empty());
+	    assertEquals(p.getInputStack().peek(), token);
+	    assertTrue(p.getHoldStack().empty());
+	    assertTrue(p.getStateStack().empty());
+	    
+	    s.shiftId();
+	    
+	    assertTrue(p.getInputStack().empty());
+	    assertFalse(p.getHoldStack().empty());
+	    assertFalse(p.getStateStack().empty());
+	    
+	    assertEquals(p.getHoldStack().peek(), token);
+	    assertEquals(p.getStateStack().peek(), s);
+	    
+	    assertTrue(p.getCurrentState() instanceof JCTM_1);
+    }
+    
+    /**
+     * @author Jason LoBianco
+     * @throws ParserException
+     */
+    @Test
+    public void testShiftIntegerLiteral() throws ParserException
+    {
+    	Parser p = Parser.getInstance();
+	    State s = new JMCC_5();
+	        
+	    Token token = new Token("integerLiteral", "IntegerLiteral", 5);
+	    
+	    p.getInputStack().push(token);
+	    
+	    assertFalse(p.getInputStack().empty());
+	    assertEquals(p.getInputStack().peek(), token);
+	    assertTrue(p.getHoldStack().empty());
+	    assertTrue(p.getStateStack().empty());
+	    
+	    s.shiftIntegerLiteral();
+	    
+	    assertTrue(p.getInputStack().empty());
+	    assertFalse(p.getHoldStack().empty());
+	    assertFalse(p.getStateStack().empty());
+	    
+	    assertEquals(p.getHoldStack().peek(), token);
+	    assertEquals(p.getStateStack().peek(), s);
+	    
+	    assertTrue(p.getCurrentState() instanceof JCTM_18);
+    }
 }
