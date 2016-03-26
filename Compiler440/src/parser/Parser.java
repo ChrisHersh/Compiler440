@@ -39,6 +39,15 @@ public class Parser
     }
     
     /**
+     * For testing
+     * Resets the parser so the tests can run independent of each other
+     */
+    public static void resetParser()
+    {
+        parser = new Parser();
+    }
+    
+    /**
      * Changes the current state
      * @param newState that will be the current state
      */
@@ -72,6 +81,16 @@ public class Parser
     public Stack<Token> getInputStack()
     {
     	return inputStack;
+    }
+    
+    /**
+     * Returns the current state
+     * Mainly for tests
+     * @return
+     */
+    public State getCurrentState()
+    {
+        return currentState;
     }
     
     /**

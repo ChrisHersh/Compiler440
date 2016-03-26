@@ -1,5 +1,9 @@
 package parser.states;
-
+/**
+ * 
+ * @author Ledny Joseph, Jason LoBianco, TJ Renninger, Chris Kjeldgaard
+ *
+ */
 
 public class JMCC_5 extends State
 {
@@ -90,7 +94,7 @@ public class JMCC_5 extends State
 	/**
 	 * @author Chris Kjeldgaard
 	 */
-	public void shiftLeftBracket()
+	public void shiftLeftBrace()
 	{
 	    changeToState(new JCTM_29());
 	}

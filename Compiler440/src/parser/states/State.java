@@ -94,5 +94,12 @@ public abstract class State
 	{
 		invalidState();
 	}
-	
+	public void shiftLeftBrace() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftLeftPara() throws ParserException
+	{
+		invalidState();
+	}
 }

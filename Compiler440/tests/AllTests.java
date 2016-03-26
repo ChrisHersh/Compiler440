@@ -4,22 +4,27 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 import parser.TestParser;
-import symboltable.TestClasses;
-import symboltable.TestMethods;
-import symboltable.TestSymbolTable;
-import symboltable.TestVariables;
+import symboltable.*;
 import tokenizer.TestTokenizer;
+import parser.states.*;
 
 @RunWith(Suite.class) 
 @Suite.SuiteClasses
 ( 
 	{  
+		TestCheckMainMethod.class,
+		testClass.class,
+		TestClasses.class,
+		TestMainMethod.class,
 		TestMethods.class,
 		TestVariables.class,
 		TestParser.class,
 		TestTokenizer.class,
 		TestClasses.class,
-		TestSymbolTable.class
+		TestSymbolTable.class,
+		
+		TestJMCC_27.class,
+		TestJMCC_5.class,
 	}
 ) 
  
