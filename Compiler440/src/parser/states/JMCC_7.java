@@ -65,4 +65,37 @@ public class JMCC_7 extends State
 		changeToState(new JCTM_27());
 	}
 	
+	/**
+	 * @author Jessica Schlesiger
+	 */
+	@Override
+	public void shiftEXP6()
+	{
+		changeToState(new JMCC_32());
+	}
+	/**
+	 * @author Jessica Schlesiger
+	 */
+	@Override
+	public void shiftEXP7()
+	{
+		changeToState(new JMCC_29());
+	}
+	/**
+	 * @author Jessica Schlesiger
+	 */
+	@Override
+	public void shiftTrue()
+	{
+		changeToState(new JCTM_15());
+	}
+	/**
+	 * @author Jessica Schlesiger
+	 */
+	@Override
+	public void shiftNew()
+	{
+		changeToState(new JCTM_19());
+	}
+	
 }

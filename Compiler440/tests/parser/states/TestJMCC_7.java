@@ -221,4 +221,128 @@ public class TestJMCC_7
         
         assertTrue(par.getCurrentState() instanceof JCTM_27);
     }
+	
+	/**
+	 * Tests Shift EXP6 works
+	 * @author Jessica Schlesiger
+	 */
+	@Test
+    public void testShiftEXP6() throws ParserException
+    {
+        Parser par = Parser.getInstance();
+        State st = new JMCC_7();
+        
+        Token tok = new Token("EXP6", "EXP6", 3);
+        
+        par.getInputStack().push(tok);
+        
+        assertFalse(par.getInputStack().empty());
+        assertEquals(par.getInputStack().peek(), tok);
+        assertTrue(par.getHoldStack().empty());
+        assertTrue(par.getStateStack().empty());
+        
+        st.shiftEXP6();
+        
+        assertTrue(par.getInputStack().empty());
+        assertFalse(par.getHoldStack().empty());
+        assertFalse(par.getStateStack().empty());
+        
+        assertEquals(par.getHoldStack().peek(), tok);
+        assertEquals(par.getStateStack().peek(), st);
+        
+        assertTrue(par.getCurrentState() instanceof JMCC_32);
+    }
+
+	/**
+	 * Tests Shift EXP7 works
+	 * @author Jessica Schlesiger
+	 */
+	@Test
+    public void testShiftEXP7() throws ParserException
+    {
+        Parser par = Parser.getInstance();
+        State st = new JMCC_7();
+        
+        Token tok = new Token("EXP7", "EXP7", 3);
+        
+        par.getInputStack().push(tok);
+        
+        assertFalse(par.getInputStack().empty());
+        assertEquals(par.getInputStack().peek(), tok);
+        assertTrue(par.getHoldStack().empty());
+        assertTrue(par.getStateStack().empty());
+        
+        st.shiftEXP7();
+        
+        assertTrue(par.getInputStack().empty());
+        assertFalse(par.getHoldStack().empty());
+        assertFalse(par.getStateStack().empty());
+        
+        assertEquals(par.getHoldStack().peek(), tok);
+        assertEquals(par.getStateStack().peek(), st);
+        
+        assertTrue(par.getCurrentState() instanceof JMCC_29);
+    }
+
+	/**
+	 * Tests Shift true works
+	 * @author Jessica Schlesiger
+	 */
+	@Test
+    public void testShiftTrue() throws ParserException
+    {
+        Parser par = Parser.getInstance();
+        State st = new JMCC_7();
+        
+        Token tok = new Token("true", "TRUE", 3);
+        
+        par.getInputStack().push(tok);
+        
+        assertFalse(par.getInputStack().empty());
+        assertEquals(par.getInputStack().peek(), tok);
+        assertTrue(par.getHoldStack().empty());
+        assertTrue(par.getStateStack().empty());
+        
+        st.shiftTrue();
+        
+        assertTrue(par.getInputStack().empty());
+        assertFalse(par.getHoldStack().empty());
+        assertFalse(par.getStateStack().empty());
+        
+        assertEquals(par.getHoldStack().peek(), tok);
+        assertEquals(par.getStateStack().peek(), st);
+        
+        assertTrue(par.getCurrentState() instanceof JCTM_15);
+    }
+
+	/**
+	 * Tests Shift new works
+	 * @author Jessica Schlesiger
+	 */
+	@Test
+    public void testShiftNew() throws ParserException
+    {
+        Parser par = Parser.getInstance();
+        State st = new JMCC_7();
+        
+        Token tok = new Token("new", "NEW", 3);
+        
+        par.getInputStack().push(tok);
+        
+        assertFalse(par.getInputStack().empty());
+        assertEquals(par.getInputStack().peek(), tok);
+        assertTrue(par.getHoldStack().empty());
+        assertTrue(par.getStateStack().empty());
+        
+        st.shiftNew();
+        
+        assertTrue(par.getInputStack().empty());
+        assertFalse(par.getHoldStack().empty());
+        assertFalse(par.getStateStack().empty());
+        
+        assertEquals(par.getHoldStack().peek(), tok);
+        assertEquals(par.getStateStack().peek(), st);
+        
+        assertTrue(par.getCurrentState() instanceof JCTM_19);
+    }
 }
