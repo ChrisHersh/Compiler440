@@ -2,7 +2,7 @@ package parser.states;
 
 /**
  * 
- * @author Ian Keefer, Chris Hersh
+ * @author Ian Keefer, Chris Hersh, Daniel Breitigan
  *
  */
 public class JMCC_27 extends State
@@ -42,4 +42,22 @@ public class JMCC_27 extends State
 	{
 	    changeToState(new JCTM_1());
 	}
+    
+    @Override
+    public void shiftNew()
+    {
+        changeToState(new JCTM_19());
+    }
+    
+    @Override
+    public void shiftExclamation()
+    {
+        changeToState(new JCTM_27());
+    }
+    
+    @Override
+    public void shiftLeftPara()
+    {
+        changeToState(new JCTM_29());
+    }
 }
