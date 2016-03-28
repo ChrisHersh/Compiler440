@@ -204,4 +204,100 @@ public class TestJMCC_5
 	    
 	    assertTrue(p.getCurrentState() instanceof JCTM_18);
     }
+    
+    /**
+     * Test to make sure shifting on true works for JMCC_5
+     * @author TJ Renninger
+     * @throws ParserException
+     */
+    @Test
+    public void testShiftTrue() throws ParserException
+    {
+    	Parser p = Parser.getInstance();
+	    State s = new JMCC_5();
+	        
+	    Token token = new Token("true", "TRUE", 5);
+	    
+	    p.getInputStack().push(token);
+	    
+	    assertFalse(p.getInputStack().empty());
+	    assertEquals(p.getInputStack().peek(), token);
+	    assertTrue(p.getHoldStack().empty());
+	    assertTrue(p.getStateStack().empty());
+	    
+	    s.shiftTrue();
+	    
+	    assertTrue(p.getInputStack().empty());
+	    assertFalse(p.getHoldStack().empty());
+	    assertFalse(p.getStateStack().empty());
+	    
+	    assertEquals(p.getHoldStack().peek(), token);
+	    assertEquals(p.getStateStack().peek(), s);
+	    
+	    assertTrue(p.getCurrentState() instanceof JCTM_15);
+    }
+    
+    /**
+     * Test to make sure shifting on false works for JMCC_5
+     * @author TJ Renninger
+     * @throws ParserException
+     */
+    @Test
+    public void testShiftFalse() throws ParserException
+    {
+    	Parser p = Parser.getInstance();
+	    State s = new JMCC_5();
+	        
+	    Token token = new Token("false", "FALSE", 5);
+	    
+	    p.getInputStack().push(token);
+	    
+	    assertFalse(p.getInputStack().empty());
+	    assertEquals(p.getInputStack().peek(), token);
+	    assertTrue(p.getHoldStack().empty());
+	    assertTrue(p.getStateStack().empty());
+	    
+	    s.shiftFalse();
+	    
+	    assertTrue(p.getInputStack().empty());
+	    assertFalse(p.getHoldStack().empty());
+	    assertFalse(p.getStateStack().empty());
+	    
+	    assertEquals(p.getHoldStack().peek(), token);
+	    assertEquals(p.getStateStack().peek(), s);
+	    
+	    assertTrue(p.getCurrentState() instanceof JCTM_16);
+    }
+    
+    /**
+     * Test to make sure shifting on this works for JMCC_5
+     * @author TJ Renninger
+     * @throws ParserException
+     */
+    @Test
+    public void testShiftThis() throws ParserException
+    {
+    	Parser p = Parser.getInstance();
+	    State s = new JMCC_5();
+	        
+	    Token token = new Token("this", "THIS", 5);
+	    
+	    p.getInputStack().push(token);
+	    
+	    assertFalse(p.getInputStack().empty());
+	    assertEquals(p.getInputStack().peek(), token);
+	    assertTrue(p.getHoldStack().empty());
+	    assertTrue(p.getStateStack().empty());
+	    
+	    s.shiftThis();
+	    
+	    assertTrue(p.getInputStack().empty());
+	    assertFalse(p.getHoldStack().empty());
+	    assertFalse(p.getStateStack().empty());
+	    
+	    assertEquals(p.getHoldStack().peek(), token);
+	    assertEquals(p.getStateStack().peek(), s);
+	    
+	    assertTrue(p.getCurrentState() instanceof JCTM_17);
+    }
 }
