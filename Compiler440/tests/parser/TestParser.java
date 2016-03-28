@@ -2,6 +2,8 @@ package parser;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 
 import tokenizer.Token;
@@ -92,5 +94,23 @@ public class TestParser
 		Parser.getInstance().getStateStack().push(state2);
 		assertEquals(state2, Parser.getInstance().getStateStack().pop());
 		assertEquals(state1, Parser.getInstance().getStateStack().pop());
+	}
+	
+	/**
+	 * Test to ensure that we properly create an Input Stack from an ArrayList
+	 * Daniel Breitigan & Matt Mousetis
+	 */
+	@Test
+	public void testCreateInputStack()
+	{
+	       Token tok1 = new Token();
+	       Token tok2 = new Token();
+	       ArrayList<Token> tok = new ArrayList<Token>();
+	       tok.add(tok1);
+	       tok.add(tok2);
+	       
+	       Parser.getInstance().createInputStack(tok);
+	       assertEquals(tok1, Parser.getInstance().popInputStack());
+	       assertEquals(tok2, Parser.getInstance().popInputStack());
 	}
 }
