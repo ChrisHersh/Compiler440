@@ -1,5 +1,6 @@
 package parser;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 import tokenizer.Token;
@@ -175,5 +176,20 @@ public class Parser
     public void pushInputStack(Token token)
     {
     	inputStack.push(token);
+    }
+    
+    /**
+     * puts the ArrayList of tokens into the parser's input stack
+     * Daniel Breitigan & matt Mousetis
+     * @param tok - ArrayList of tokens
+     */
+    public void createInputStack(ArrayList<Token> tok)
+    {
+        
+        int size = tok.size();
+        for(int i = size - 1; i >= 0; i--)
+        {
+            pushInputStack(tok.get(i));
+        }
     }
 }
