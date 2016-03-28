@@ -32,12 +32,14 @@ public class JMCC_23 extends State
         changeToState(new JCTM_29());
     }
     
-    public void shiftid() throws ParserException
+    @Override
+    public void shiftId() throws ParserException
     {
         changeToState(new JCTM_1());
     }
     
-    public void shiftTHIS() throws ParserException
+    @Override
+    public void shiftThis() throws ParserException
     {
         changeToState(new JCTM_17());
     }

@@ -161,7 +161,7 @@ public class TestJMCC_23
     public void testshiftid() throws ParserException
     {
         Parser p = Parser.getInstance();
-        State s = new JCTM_1();
+        State s = new JMCC_23();
         
         Token inpToken = new Token("id", "ID", 42);
         
@@ -172,7 +172,7 @@ public class TestJMCC_23
         assertTrue(p.getHoldStack().empty());
         assertTrue(p.getStateStack().empty());
         
-        s.shiftid();
+        s.shiftId();
         
         assertTrue(p.getInputStack().empty());
         assertFalse(p.getHoldStack().empty());
@@ -188,7 +188,7 @@ public class TestJMCC_23
     public void testshiftthis() throws ParserException
     {
         Parser p = Parser.getInstance();
-        State s = new JCTM_17();
+        State s = new JMCC_23();
         
         Token inpToken = new Token("this", "THIS", 42);
         
@@ -199,7 +199,7 @@ public class TestJMCC_23
         assertTrue(p.getHoldStack().empty());
         assertTrue(p.getStateStack().empty());
         
-        s.shiftthis();
+        s.shiftThis();
         
         assertTrue(p.getInputStack().empty());
         assertFalse(p.getHoldStack().empty());
@@ -208,6 +208,6 @@ public class TestJMCC_23
         assertEquals(p.getHoldStack().peek(), inpToken);
         assertEquals(p.getStateStack().peek(), s);
         
-        assertTrue(p.getCurrentState() instanceof JJCTM_17);
+        assertTrue(p.getCurrentState() instanceof JCTM_17);
     }
 }
