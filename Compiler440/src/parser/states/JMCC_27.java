@@ -20,43 +20,43 @@ public class JMCC_27 extends State
     }
     
     @Override
-	public void shiftTrue()
+	public void shiftTrue() throws ParserException
 	{
 	    changeToState(new JCTM_15());
 	}
     
     @Override
-	public void shiftFalse()
+	public void shiftFalse() throws ParserException
 	{
 	    changeToState(new JCTM_16());
 	}
 
     @Override
-	public void shiftThis()
+	public void shiftThis()throws ParserException
 	{
 	    changeToState(new JCTM_17());
 	}
 	
     @Override
-	public void shiftId()
+	public void shiftId() throws ParserException
 	{
 	    changeToState(new JCTM_1());
 	}
     
     @Override
-    public void shiftNew()
+    public void shiftNew() throws ParserException
     {
         changeToState(new JCTM_19());
     }
     
     @Override
-    public void shiftExclamation()
+    public void shiftExclamation() throws ParserException
     {
         changeToState(new JCTM_27());
     }
     
     @Override
-    public void shiftLeftPara()
+    public void shiftLeftPara() throws ParserException
     {
         changeToState(new JCTM_29());
     }
