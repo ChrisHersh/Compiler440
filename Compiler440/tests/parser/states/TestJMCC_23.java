@@ -38,7 +38,7 @@ public class TestJMCC_23
         assertTrue(p.getHoldStack().empty());
         assertTrue(p.getStateStack().empty());
         
-        s.shiftEXP7();
+        s.shiftEXP6();
         
         assertTrue(p.getInputStack().empty());
         assertFalse(p.getHoldStack().empty());
@@ -75,5 +75,86 @@ public class TestJMCC_23
         assertEquals(p.getStateStack().peek(), s);
         
         assertTrue(p.getCurrentState() instanceof JMCC_29);
+    }
+    
+    @Test
+    public void testShiftNew() throws ParserException
+    {
+        Parser p = Parser.getInstance();
+        State s = new JMCC_23();
+        
+        Token inpToken = new Token("new", "NEW", 42);
+        
+        p.getInputStack().push(inpToken);
+        
+        assertFalse(p.getInputStack().empty());
+        assertEquals(p.getInputStack().peek(), inpToken);
+        assertTrue(p.getHoldStack().empty());
+        assertTrue(p.getStateStack().empty());
+        
+        s.shiftNew();
+        
+        assertTrue(p.getInputStack().empty());
+        assertFalse(p.getHoldStack().empty());
+        assertFalse(p.getStateStack().empty());
+        
+        assertEquals(p.getHoldStack().peek(), inpToken);
+        assertEquals(p.getStateStack().peek(), s);
+        
+        assertTrue(p.getCurrentState() instanceof JCTM_19);
+    }
+    
+    @Test
+    public void testShiftExclamation() throws ParserException
+    {
+        Parser p = Parser.getInstance();
+        State s = new JMCC_23();
+        
+        Token inpToken = new Token("!", "NOT", 42);
+        
+        p.getInputStack().push(inpToken);
+        
+        assertFalse(p.getInputStack().empty());
+        assertEquals(p.getInputStack().peek(), inpToken);
+        assertTrue(p.getHoldStack().empty());
+        assertTrue(p.getStateStack().empty());
+        
+        s.shiftExclamation();
+        
+        assertTrue(p.getInputStack().empty());
+        assertFalse(p.getHoldStack().empty());
+        assertFalse(p.getStateStack().empty());
+        
+        assertEquals(p.getHoldStack().peek(), inpToken);
+        assertEquals(p.getStateStack().peek(), s);
+        
+        assertTrue(p.getCurrentState() instanceof JCTM_27);
+    }
+    
+    @Test
+    public void testShiftLeftPara() throws ParserException
+    {
+        Parser p = Parser.getInstance();
+        State s = new JMCC_23();
+        
+        Token inpToken = new Token("(", "LEFT_PARA", 42);
+        
+        p.getInputStack().push(inpToken);
+        
+        assertFalse(p.getInputStack().empty());
+        assertEquals(p.getInputStack().peek(), inpToken);
+        assertTrue(p.getHoldStack().empty());
+        assertTrue(p.getStateStack().empty());
+        
+        s.shiftLeftPara();
+        
+        assertTrue(p.getInputStack().empty());
+        assertFalse(p.getHoldStack().empty());
+        assertFalse(p.getStateStack().empty());
+        
+        assertEquals(p.getHoldStack().peek(), inpToken);
+        assertEquals(p.getStateStack().peek(), s);
+        
+        assertTrue(p.getCurrentState() instanceof JCTM_29);
     }
 }
