@@ -267,14 +267,13 @@ public class TestTokenizer
     @Test
     public void testToken()
     {
-        Token t = new Token();
-        t.token = "name";
-        t.tokenName = "NAME";
-        t.lineNumber = 1;
+    	Token token = new Token("name", "NAME", 1);
 
-        assertEquals(t.getToken(), "name");
-        assertEquals(t.getTokenName(), "NAME");
-        assertEquals(t.getLineNumber(), 1);
+        assertEquals(token.getToken(), "name");
+        assertEquals(token.getTokenName(), "NAME");
+        assertEquals(token.getLineNumber(), 1);
+        assertEquals(token.getChildren().size(), 0);
+        
     }
 
     /**

@@ -26,57 +26,57 @@ public class Tokenizer
      */
     public static String[][] POSSIBLE_TOKENS = {
             //Single Comment
-            { "^(//.*)", "SL_COMMENT" },
+            { "^(//.*)", TokenTypes.SLComment.name() },
             //Parentheses, Brackets, and Braces.
-            { "^(\\{)", "L_BRACE" }, { "^(})", "R_BRACE" },
+            { "^(\\{)", TokenTypes.LBrace.name() }, { "^(})", TokenTypes.RBrace.name() },
 
-            { "^(\\[)", "L_BRACKET" }, { "^(\\])", "R_BRACKET" },
+            { "^(\\[)", TokenTypes.LBracket.name() }, { "^(\\])", TokenTypes.RBracket.name() },
 
-            { "^(\\()", "L_PARA" },
-            { "^(\\))", "R_PARA" },
+            { "^(\\()", TokenTypes.LPara.name() },
+            { "^(\\))", TokenTypes.RPara.name() },
             
             //Key Words
-            { "^(int)(\\W|\\Z)", "INT" }, 
-            { "^(boolean)(\\W|\\Z)", "BOOLEAN" }, 
-            { "^(if)(\\W|\\Z)", "IF" },
-            { "^(while)(\\W|\\Z)", "WHILE" },
-            { "^(void)(\\W|\\Z)", "VOID" },
-            { "^(main)(\\W|\\Z)", "MAIN" },
-            { "^(class)(\\W|\\Z)", "CLASS" },
-            { "^(static)(\\W|\\Z)", "STATIC" },
-            { "^(extends)(\\W|\\Z)", "EXTENDS" },
-            { "^(new)(\\W|\\Z)", "NEW" },
-            { "^(,)(\\W|\\Z)", "COMMA" },
-            { "^(public)(\\W|\\Z)", "PUBLIC" },
-            { "^(else)(\\W|\\Z)", "ELSE" },
-            { "^(return)(\\W|\\Z)", "RETURN" },
-            { "^(System\\.out\\.println)(\\W|\\Z)", "SYSTEM_OUT" },
-            { "^(length)(\\W|\\Z)", "LENGTH" },
-            { "^(this)(\\W|\\Z)", "THIS" },
-            { "^(true)(\\W|\\Z)", "TRUE" },
-            { "^(false)(\\W|\\Z)", "FALSE" },
+            { "^(int)(\\W|\\Z)", TokenTypes.Int.name() }, 
+            { "^(boolean)(\\W|\\Z)", TokenTypes.Boolean.name() }, 
+            { "^(if)(\\W|\\Z)", TokenTypes.If.name() },
+            { "^(while)(\\W|\\Z)", TokenTypes.While.name() },
+            { "^(void)(\\W|\\Z)", TokenTypes.Void.name() },
+            { "^(main)(\\W|\\Z)", TokenTypes.Main.name() },
+            { "^(class)(\\W|\\Z)", TokenTypes.Class.name() },
+            { "^(static)(\\W|\\Z)", TokenTypes.Static.name() },
+            { "^(extends)(\\W|\\Z)", TokenTypes.Extends.name() },
+            { "^(new)(\\W|\\Z)", TokenTypes.New.name() },
+            { "^(,)(\\W|\\Z)", TokenTypes.Comma.name() },
+            { "^(public)(\\W|\\Z)", TokenTypes.Public.name() },
+            { "^(else)(\\W|\\Z)", TokenTypes.Else.name() },
+            { "^(return)(\\W|\\Z)", TokenTypes.Return.name() },
+            { "^(System\\.out\\.println)(\\W|\\Z)", TokenTypes.SystemOutPrintln.name() },
+            { "^(length)(\\W|\\Z)", TokenTypes.Length.name() },
+            { "^(this)(\\W|\\Z)", TokenTypes.This.name() },
+            { "^(true)(\\W|\\Z)", TokenTypes.True.name() },
+            { "^(false)(\\W|\\Z)", TokenTypes.False.name() },
             
             //Symbols
-            { "^(&&)", "AND" }, { "^(\\|\\|)", "OR" }, 
-            { "^(==)", "EQ" }, 
-            { "^(>=)", "GT_EQ" }, { "^(<=)", "LT_EQ" },
-            { "^(!=)", "NOT_EQ" }, 
-            { "^(;)", "SEMI" }, 
-            { "^(\\+)", "PLUS" }, { "^(-)", "MINUS" }, 
-            { "^(\\*)", "MULT" }, 
-            { "^(=)", "ASGN" }, 
-            { "^(\\.)", "PERIOD" },
-            { "^(>)", "GT" }, { "^(<)", "LT" }, 
-            { "^(!)", "NOT" },
+            { "^(&&)", TokenTypes.And.name() }, { "^(\\|\\|)", TokenTypes.Or.name() }, 
+            { "^(==)", TokenTypes.Equals.name() }, 
+            { "^(>=)", TokenTypes.GtEquals.name() }, { "^(<=)", TokenTypes.LtEquals.name() },
+            { "^(!=)", TokenTypes.NotEquals.name() }, 
+            { "^(;)", TokenTypes.SemiColon.name() }, 
+            { "^(\\+)", TokenTypes.Plus.name() }, { "^(-)", TokenTypes.Minus.name() }, 
+            { "^(\\*)", TokenTypes.Mult.name() }, 
+            { "^(=)", TokenTypes.Assignment.name() }, 
+            { "^(\\.)", TokenTypes.Period.name() },
+            { "^(>)", TokenTypes.Gt.name() }, { "^(<)", TokenTypes.Lt.name() }, 
+            { "^(!)", TokenTypes.Not.name() },
             
             //Int Num
-            { "^(\\d+)", "INT_NUM" },
+            { "^(\\d+)", TokenTypes.IntNum.name() },
             
             //ID -- Java only allows ids that start with a letter
-            { "^([A-Za-z]\\w*)", "ID" },
+            { "^([A-Za-z]\\w*)", TokenTypes.Id.name() },
             
             //Junk, if it's gotten this far without a match, it must be junk
-            { "^(\\S+)", "JUNK" }
+            { "^(\\S+)", TokenTypes.Junk.name() }
 
     };
 
