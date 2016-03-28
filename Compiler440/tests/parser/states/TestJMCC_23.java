@@ -6,11 +6,24 @@ import org.junit.Before;
 import org.junit.Test;
 
 import parser.Parser;
+import parser.states.JCTM_1;
+import parser.states.JCTM_15;
+import parser.states.JCTM_16;
+import parser.states.JCTM_17;
+import parser.states.JCTM_18;
+import parser.states.JCTM_19;
+import parser.states.JCTM_27;
+import parser.states.JCTM_29;
+import parser.states.JMCC_23;
+import parser.states.JMCC_24;
+import parser.states.JMCC_29;
+import parser.states.ParserException;
+import parser.states.State;
 import tokenizer.Token;
 
 /**
  * 
- * @author Chad Nunemaker
+ * @author Chad Nunemaker, Manal Ibrahim
  * 
  * In Ian and Chris's test style. 
  *
@@ -78,6 +91,89 @@ public class TestJMCC_23
     }
     
     @Test
+    public void testShiftIntegerLiteral() throws ParserException
+    {
+        Parser p = Parser.getInstance();
+        State s = new JMCC_23();
+        
+        Token inpToken = new Token("5", "INT_NUM", 6);
+        
+        p.getInputStack().push(inpToken);
+        
+        assertFalse(p.getInputStack().empty());
+        assertEquals(p.getInputStack().peek(), inpToken);
+        assertTrue(p.getHoldStack().empty());
+        assertTrue(p.getStateStack().empty());
+        
+        s.shiftIntegerLiteral();
+        
+        assertTrue(p.getInputStack().empty());
+        assertFalse(p.getHoldStack().empty());
+        assertFalse(p.getStateStack().empty());
+        
+        assertEquals(p.getHoldStack().peek(), inpToken);
+        assertEquals(p.getStateStack().peek(), s);
+        
+        assertTrue(p.getCurrentState() instanceof JCTM_18);
+    }
+    
+    @Test
+    public void testTrue() throws ParserException 
+    {
+    	Parser parser = Parser.getInstance();
+    	 State s = new JMCC_23();
+    	
+    	Token token = new Token("true", "TRUE", 23);
+    	
+    	parser.getInputStack().push(token);
+    	
+    	assertFalse(parser.getInputStack().empty());
+    	assertEquals(parser.getInputStack().peek(), token);
+        assertTrue(parser.getHoldStack().empty());
+        assertTrue(parser.getStateStack().empty());
+        
+        s.shiftTrue();
+        
+        assertTrue(parser.getInputStack().empty());
+        assertFalse(parser.getHoldStack().empty());
+        assertFalse(parser.getStateStack().empty());
+        
+        assertEquals(parser.getHoldStack().peek(), token);
+        assertEquals(parser.getStateStack().peek(), s);
+        
+        assertTrue(parser.getCurrentState() instanceof JCTM_15);
+        
+    }
+    
+    @Test
+    public void testFalse() throws ParserException 
+    {
+    	Parser parser = Parser.getInstance();
+    	State state = new JMCC_23();
+    	
+    	Token token = new Token("false", "FALSE", 23);
+    	
+    	parser.getInputStack().push(token);
+    	
+    	assertFalse(parser.getInputStack().empty());
+    	assertEquals(parser.getInputStack().peek(), token);
+        assertTrue(parser.getHoldStack().empty());
+        assertTrue(parser.getStateStack().empty());
+        
+        state.shiftFalse();
+        
+        assertTrue(parser.getInputStack().empty());
+        assertFalse(parser.getHoldStack().empty());
+        assertFalse(parser.getStateStack().empty());
+        
+        assertEquals(parser.getHoldStack().peek(), token);
+        assertEquals(parser.getStateStack().peek(), state);
+        
+        assertTrue(parser.getCurrentState() instanceof JCTM_16);
+        
+    }
+    
+
     public void testShiftNew() throws ParserException
     {
         Parser p = Parser.getInstance();
