@@ -10,7 +10,7 @@ import tokenizer.Token;
 
 /**
  * 
- * @author Ian Keefer, Chris Hersh
+ * @author Ian Keefer, Chris Hersh, Matt Mousetis
  *
  */
 public class TestJMCC_27
