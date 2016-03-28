@@ -25,6 +25,8 @@ import parser.states.*;
 		
 		TestJMCC_27.class,
 		TestJMCC_5.class,
+		TestJMCC_23.class,
+		TestJMCC_7.class,
 	}
 ) 
  
