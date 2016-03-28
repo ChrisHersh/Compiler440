@@ -2,7 +2,7 @@ package parser.states;
 
 /**
  * 
- * @author Ian Keefer, Chris Hersh, Daniel Breitigan
+ * @author Ian Keefer, Chris Hersh, Daniel Breitigan, Matt Mousetis
  *
  */
 public class JMCC_27 extends State
