@@ -44,6 +44,25 @@ public class Token
     }
     
     /**
+     * constructor to set the values for nonterminal tokens
+     * @param tokenName
+     * @param lineNumber
+     */
+    public Token(TokenTypes token, ArrayList<Token> children)
+    {
+        this.token = token.name();
+        this.tokenName = token.name();
+        this.childTokens = children;
+        for(Token t : children)
+        {
+            if(t.lineNumber < this.lineNumber)
+                this.lineNumber = t.lineNumber;
+        }
+
+    }
+    
+    
+    /**
      * Constructor to set the values for the token
      * @param token
      * @param tokenName

@@ -1,6 +1,10 @@
 package parser.states;
 
+import java.util.ArrayList;
+
 import parser.Parser;
+import tokenizer.Token;
+import tokenizer.TokenTypes;
 
 public abstract class State
 {
@@ -17,7 +21,7 @@ public abstract class State
 	 * @author Chris Hersh
 	 * @throws ParserException 
 	 */
-	private void invalidState() throws ParserException
+	protected void invalidState() throws ParserException
 	{
 	    throw new ParserException();
 	}
@@ -31,6 +35,31 @@ public abstract class State
 	    currentParser.pushHoldStack(currentParser.popInputStack());
         currentParser.pushStateStack(this);
         currentParser.changeState(state);
+	}
+	/**
+	 * Takes the state that you would be in after reducing and the name of the non terminal created by the reduce
+	 * It then pops states and holds off the stack and adds the new nonterminal to the input stack
+	 * @author Chris Kjeldgaard
+	 * @param state
+	 * @param tokenName
+	 */
+	protected void reduceToState(State state, TokenTypes tokenName)
+	{
+		ArrayList<Token> children = new ArrayList<Token>();
+		
+		while(!(currentParser.peekStateStack().getClass().equals(state.getClass())))
+		{
+			currentParser.popStateStack();
+			children.add(currentParser.popHoldStack());
+		}
+		
+		currentParser.popStateStack();
+		children.add(currentParser.popHoldStack());
+		currentParser.changeState(state);
+		
+		Token newToken = new Token(tokenName, children);
+		currentParser.pushInputStack(newToken);
+		
 	}
 	
 	//Below here add all the methods for the different shift calls with our default logic
@@ -102,6 +131,13 @@ public abstract class State
 	{
 		invalidState();
 	}
-
+	public void shiftVAR_DECL_L() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftVAR_DECL() throws ParserException
+	{
+		invalidState();
+	}
 
 }

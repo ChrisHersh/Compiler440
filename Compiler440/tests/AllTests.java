@@ -22,11 +22,15 @@ import parser.states.*;
 		TestTokenizer.class,
 		TestClasses.class,
 		TestSymbolTable.class,
+		TestState.class,
 		
 		TestJMCC_27.class,
 		TestJMCC_5.class,
 		TestJMCC_23.class,
 		TestJMCC_7.class,
+		TestCRM_1.class,
+		TestCRM_2.class,
+		TestCRM_3.class,
 	}
 ) 
  

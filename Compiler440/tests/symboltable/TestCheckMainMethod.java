@@ -1,3 +1,5 @@
+package symboltable;
+
 
  import static org.junit.Assert.assertEquals;
 
