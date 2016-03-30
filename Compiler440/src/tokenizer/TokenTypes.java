@@ -11,6 +11,9 @@ public enum TokenTypes
     //Single comment
     SLComment,
     
+    //Multi line comment
+    MLComment,
+    
     // Parenthesis and braces
     LBrace,
     RBrace,
