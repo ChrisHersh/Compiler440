@@ -5,6 +5,7 @@ package tokenizer;
  * @author Chris Hersh
  *
  */
+@SuppressWarnings("javadoc")
 public enum TokenTypes
 {
     //Terminals
