@@ -1,6 +1,6 @@
 package parser.states;
 
-/*
+/**
  * @author Jared Good
  */
 public class MDJ_11 extends State 
