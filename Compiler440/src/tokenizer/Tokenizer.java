@@ -46,7 +46,6 @@ public class Tokenizer
             { "^(static)(\\W|\\Z)", TokenTypes.Static.name() },
             { "^(extends)(\\W|\\Z)", TokenTypes.Extends.name() },
             { "^(new)(\\W|\\Z)", TokenTypes.New.name() },
-            { "^(,)(\\W|\\Z)", TokenTypes.Comma.name() },
             { "^(public)(\\W|\\Z)", TokenTypes.Public.name() },
             { "^(else)(\\W|\\Z)", TokenTypes.Else.name() },
             { "^(return)(\\W|\\Z)", TokenTypes.Return.name() },
@@ -57,6 +56,7 @@ public class Tokenizer
             { "^(false)(\\W|\\Z)", TokenTypes.False.name() },
             
             //Symbols
+            { "^(,)(\\W|\\Z)", TokenTypes.Comma.name() },
             { "^(&&)", TokenTypes.And.name() }, { "^(\\|\\|)", TokenTypes.Or.name() }, 
             { "^(==)", TokenTypes.Equals.name() }, 
             { "^(>=)", TokenTypes.GtEquals.name() }, { "^(<=)", TokenTypes.LtEquals.name() },
@@ -79,6 +79,8 @@ public class Tokenizer
             { "^(\\S+)", TokenTypes.Junk.name() }
 
     };
+    
+    public static String multiLineComment = TokenTypes.MLComment.name();
 
     /**
      * This method will take a string filename, open it, and parse it line by line
@@ -115,7 +117,7 @@ public class Tokenizer
                     Token tmp = new Token();
                     tmp.lineNumber = mlLineStart;
                     tmp.token = mlBuffer;
-                    tmp.tokenName = "ML_COMMENT";
+                    tmp.tokenName = multiLineComment;
                     tokens.add(tmp);
                     mlBuffer = "";
 
@@ -138,7 +140,7 @@ public class Tokenizer
                         Token tmp = new Token();
                         tmp.lineNumber = mlLineStart;
                         tmp.token = mlBuffer;
-                        tmp.tokenName = "ML_COMMENT";
+                        tmp.tokenName = multiLineComment;
                         tokens.add(tmp);
                         mlBuffer = "";
 

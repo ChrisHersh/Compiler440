@@ -28,7 +28,7 @@ public class TestTokenizer
         assertEquals(list.size(), 1);
         assertEquals(list.get(0).token, sl_comment);
 
-        assertEquals(list.get(0).tokenName, "SL_COMMENT");
+        assertEquals(list.get(0).tokenName, TokenTypes.SLComment.name());
     }
 
     /**
@@ -43,8 +43,8 @@ public class TestTokenizer
         assertEquals(list.get(0).token, "{");
         assertEquals(list.get(1).token, "}");
 
-        assertEquals(list.get(0).tokenName, "L_BRACE");
-        assertEquals(list.get(1).tokenName, "R_BRACE");
+        assertEquals(list.get(0).tokenName, TokenTypes.LBrace.name());
+        assertEquals(list.get(1).tokenName, TokenTypes.RBrace.name());
     }
 
     /**
@@ -59,8 +59,8 @@ public class TestTokenizer
         assertEquals(list.get(0).token, "(");
         assertEquals(list.get(1).token, ")");
 
-        assertEquals(list.get(0).tokenName, "L_PARA");
-        assertEquals(list.get(1).tokenName, "R_PARA");
+        assertEquals(list.get(0).tokenName, TokenTypes.LPara.name());
+        assertEquals(list.get(1).tokenName, TokenTypes.RPara.name());
     }
 
     /**
@@ -75,8 +75,8 @@ public class TestTokenizer
         assertEquals(list.get(0).token, "[");
         assertEquals(list.get(1).token, "]");
 
-        assertEquals(list.get(0).tokenName, "L_BRACKET");
-        assertEquals(list.get(1).tokenName, "R_BRACKET");
+        assertEquals(list.get(0).tokenName, TokenTypes.LBracket.name());
+        assertEquals(list.get(1).tokenName, TokenTypes.RBracket.name());
     }
 
     /**
@@ -107,24 +107,24 @@ public class TestTokenizer
         assertEquals(list.get(16).token, "true");
         assertEquals(list.get(17).token, "false");
 
-        assertEquals(list.get(0).tokenName, "INT");
-        assertEquals(list.get(1).tokenName, "BOOLEAN");
-        assertEquals(list.get(2).tokenName, "IF");
-        assertEquals(list.get(3).tokenName, "WHILE");
-        assertEquals(list.get(4).tokenName, "VOID");
-        assertEquals(list.get(5).tokenName, "MAIN");
-        assertEquals(list.get(6).tokenName, "CLASS");
-        assertEquals(list.get(7).tokenName, "STATIC");
-        assertEquals(list.get(8).tokenName, "EXTENDS");
-        assertEquals(list.get(9).tokenName, "NEW");
-        assertEquals(list.get(10).tokenName, "PUBLIC");
-        assertEquals(list.get(11).tokenName, "ELSE");
-        assertEquals(list.get(12).tokenName, "RETURN");
-        assertEquals(list.get(13).tokenName, "SYSTEM_OUT");
-        assertEquals(list.get(14).tokenName, "LENGTH");
-        assertEquals(list.get(15).tokenName, "THIS");
-        assertEquals(list.get(16).tokenName, "TRUE");
-        assertEquals(list.get(17).tokenName, "FALSE");
+        assertEquals(list.get(0).tokenName, TokenTypes.Int.name() );
+        assertEquals(list.get(1).tokenName, TokenTypes.Boolean.name());
+        assertEquals(list.get(2).tokenName, TokenTypes.If.name());
+        assertEquals(list.get(3).tokenName, TokenTypes.While.name());
+        assertEquals(list.get(4).tokenName, TokenTypes.Void.name());
+        assertEquals(list.get(5).tokenName, TokenTypes.Main.name());
+        assertEquals(list.get(6).tokenName, TokenTypes.Class.name());
+        assertEquals(list.get(7).tokenName, TokenTypes.Static.name());
+        assertEquals(list.get(8).tokenName, TokenTypes.Extends.name());
+        assertEquals(list.get(9).tokenName, TokenTypes.New.name());
+        assertEquals(list.get(10).tokenName, TokenTypes.Public.name());
+        assertEquals(list.get(11).tokenName, TokenTypes.Else.name());
+        assertEquals(list.get(12).tokenName, TokenTypes.Return.name());
+        assertEquals(list.get(13).tokenName, TokenTypes.SystemOutPrintln.name());
+        assertEquals(list.get(14).tokenName, TokenTypes.Length.name());
+        assertEquals(list.get(15).tokenName, TokenTypes.This.name());
+        assertEquals(list.get(16).tokenName, TokenTypes.True.name());
+        assertEquals(list.get(17).tokenName, TokenTypes.False.name());
     }
 
     
@@ -154,22 +154,22 @@ public class TestTokenizer
         assertEquals(list.get(14).token, "!=");
         assertEquals(list.get(15).token, ",");
 
-        assertEquals(list.get(0).tokenName, "SEMI");
-        assertEquals(list.get(1).tokenName, "PLUS");
-        assertEquals(list.get(2).tokenName, "MINUS");
-        assertEquals(list.get(3).tokenName, "MULT");
-        assertEquals(list.get(4).tokenName, "ASGN");
-        assertEquals(list.get(5).tokenName, "PERIOD");
-        assertEquals(list.get(6).tokenName, "AND");
-        assertEquals(list.get(7).tokenName, "OR");
-        assertEquals(list.get(8).tokenName, "NOT");
-        assertEquals(list.get(9).tokenName, "EQ");
-        assertEquals(list.get(10).tokenName, "GT");
-        assertEquals(list.get(11).tokenName, "LT");
-        assertEquals(list.get(12).tokenName, "GT_EQ");
-        assertEquals(list.get(13).tokenName, "LT_EQ");
-        assertEquals(list.get(14).tokenName, "NOT_EQ");
-        assertEquals(list.get(15).tokenName, "COMMA");
+        assertEquals(list.get(0).tokenName, TokenTypes.SemiColon.name());
+        assertEquals(list.get(1).tokenName, TokenTypes.Plus.name());
+        assertEquals(list.get(2).tokenName, TokenTypes.Minus.name());
+        assertEquals(list.get(3).tokenName, TokenTypes.Mult.name());
+        assertEquals(list.get(4).tokenName, TokenTypes.Assignment.name());
+        assertEquals(list.get(5).tokenName, TokenTypes.Period.name());
+        assertEquals(list.get(6).tokenName, TokenTypes.And.name());
+        assertEquals(list.get(7).tokenName, TokenTypes.Or.name());
+        assertEquals(list.get(8).tokenName, TokenTypes.Not.name());
+        assertEquals(list.get(9).tokenName, TokenTypes.Equals.name());
+        assertEquals(list.get(10).tokenName, TokenTypes.Gt.name());
+        assertEquals(list.get(11).tokenName, TokenTypes.Lt.name());
+        assertEquals(list.get(12).tokenName, TokenTypes.GtEquals.name());
+        assertEquals(list.get(13).tokenName, TokenTypes.LtEquals.name());
+        assertEquals(list.get(14).tokenName, TokenTypes.NotEquals.name());
+        assertEquals(list.get(15).tokenName, TokenTypes.Comma.name());
 
     }
 
@@ -188,11 +188,11 @@ public class TestTokenizer
         assertEquals(list.get(3).token, "-");
         assertEquals(list.get(4).token, "50");
 
-        assertEquals(list.get(0).tokenName, "INT_NUM");
-        assertEquals(list.get(1).tokenName, "INT_NUM");
-        assertEquals(list.get(2).tokenName, "INT_NUM");
-        assertEquals(list.get(3).tokenName, "MINUS");
-        assertEquals(list.get(4).tokenName, "INT_NUM");
+        assertEquals(list.get(0).tokenName, TokenTypes.IntNum.name());
+        assertEquals(list.get(1).tokenName, TokenTypes.IntNum.name());
+        assertEquals(list.get(2).tokenName, TokenTypes.IntNum.name());
+        assertEquals(list.get(3).tokenName, TokenTypes.Minus.name());
+        assertEquals(list.get(4).tokenName, TokenTypes.IntNum.name());
     }
 
 
@@ -209,9 +209,9 @@ public class TestTokenizer
         assertEquals(list.get(1).token, "bestStringNameEver");
         assertEquals(list.get(2).token, "year2016yay");
 
-        assertEquals(list.get(0).tokenName, "ID");
-        assertEquals(list.get(1).tokenName, "ID");
-        assertEquals(list.get(2).tokenName, "ID");
+        assertEquals(list.get(0).tokenName, TokenTypes.Id.name());
+        assertEquals(list.get(1).tokenName, TokenTypes.Id.name());
+        assertEquals(list.get(2).tokenName, TokenTypes.Id.name());
     }
 
     /**
@@ -228,10 +228,10 @@ public class TestTokenizer
         assertEquals(list.get(2).token, "$");
         assertEquals(list.get(3).token, "^");
 
-        assertEquals(list.get(0).tokenName, "JUNK");
-        assertEquals(list.get(1).tokenName, "JUNK");
-        assertEquals(list.get(2).tokenName, "JUNK");
-        assertEquals(list.get(3).tokenName, "JUNK");
+        assertEquals(list.get(0).tokenName, TokenTypes.Junk.name());
+        assertEquals(list.get(1).tokenName, TokenTypes.Junk.name());
+        assertEquals(list.get(2).tokenName, TokenTypes.Junk.name());
+        assertEquals(list.get(3).tokenName, TokenTypes.Junk.name());
     }
 
     /**
@@ -252,12 +252,12 @@ public class TestTokenizer
         assertEquals(list.get(4).token, "/*single line*/");
         assertEquals(list.get(5).token, "after2");
 
-        assertEquals(list.get(0).tokenName, "ID");
-        assertEquals(list.get(1).tokenName, "ML_COMMENT");
-        assertEquals(list.get(2).tokenName, "ID");
-        assertEquals(list.get(3).tokenName, "ID");
-        assertEquals(list.get(4).tokenName, "ML_COMMENT");
-        assertEquals(list.get(5).tokenName, "ID");
+        assertEquals(list.get(0).tokenName, TokenTypes.Id.name());
+        assertEquals(list.get(1).tokenName, TokenTypes.MLComment.name());
+        assertEquals(list.get(2).tokenName, TokenTypes.Id.name());
+        assertEquals(list.get(3).tokenName, TokenTypes.Id.name());
+        assertEquals(list.get(4).tokenName, TokenTypes.MLComment.name());
+        assertEquals(list.get(5).tokenName, TokenTypes.Id.name());
     }
 
     /**

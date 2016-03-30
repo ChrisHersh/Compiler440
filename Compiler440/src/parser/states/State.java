@@ -140,4 +140,29 @@ public abstract class State
 		invalidState();
 	}
 
+	public void shiftPublic() throws ParserException 
+	{
+		invalidState();
+	}
+
+	public void shiftStatic() throws ParserException 
+	{
+		invalidState();
+	}
+
+	public void shiftVoid() throws ParserException 
+	{
+		invalidState();
+	}
+
+	public void shiftMain() throws ParserException 
+	{
+		invalidState();
+	}
+
+	public void shiftRightPara() throws ParserException 
+	{
+		invalidState();
+	}
+
 }
