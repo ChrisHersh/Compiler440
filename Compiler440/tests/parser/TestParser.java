@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import tokenizer.Token;
@@ -16,6 +17,14 @@ import tokenizer.Token;
 public class TestParser
 {
 
+    /**
+     * This will ensure each test is run in isolation
+     */
+    @Before
+    public void setUp()
+    {
+        Parser.resetParser();
+    }
 	/**
 	 * Test the singleton initialization of a parser.
 	 */
