@@ -1,5 +1,7 @@
 package parser.states;
-
+/**
+ * @author Chris Kjeldgaard, Jason LoBianco
+ */
 import tokenizer.TokenTypes;
 
 public class CRM_1 extends State
@@ -13,6 +15,10 @@ public class CRM_1 extends State
 		changeToState(new CRM_2());
 	}
 	
+	/**
+	 * reduces to the current state and generates the token VAR_DECL_L
+	 * @author Jason LoBianco
+	 */
 	@Override
 	protected void invalidState() throws ParserException
 	{
