@@ -1,4 +1,6 @@
 package parser.states;
+
+import tokenizer.Token;
 /**
  * @author Chris Kjeldgaard, Jason LoBianco
  */
@@ -22,6 +24,6 @@ public class CRM_1 extends State
 	@Override
 	protected void invalidState() throws ParserException
 	{
-		reduceToState(this, TokenTypes.VAR_DECL_L);
+		currentParser.pushInputStack(new Token(TokenTypes.VAR_DECL_L.name(), TokenTypes.VAR_DECL_L.toString(), currentParser.peekInputStack().getLineNumber()));
 	}
 }
