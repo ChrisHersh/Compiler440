@@ -5,6 +5,9 @@ package parser.states;
  */
 public class MDJ_14 extends State 
 {
+	/**
+	 * Changes to state MDJ_15
+	 */
 	@Override
     public void shiftRightPara() throws ParserException
     {

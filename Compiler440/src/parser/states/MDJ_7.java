@@ -5,6 +5,9 @@ package parser.states;
  */
 public class MDJ_7 extends State
 {
+	/**
+	 * Changes to state MDJ_10
+	 */
 	@Override
     public void shiftPublic() throws ParserException
     {
