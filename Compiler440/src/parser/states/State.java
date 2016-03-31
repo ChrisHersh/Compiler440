@@ -165,4 +165,13 @@ public abstract class State
 		invalidState();
 	}
 
+	/**
+	 * @author Michael Zimmerman
+	 * @throws ParserException
+	 */
+	public void shiftM_METH_BODY() throws ParserException
+	{
+		invalidState();
+	}
+
 }
