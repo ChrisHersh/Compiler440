@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 import tokenizer.Token;
+import parser.states.ParserException;
 import parser.states.State;
 
 /**
@@ -190,6 +191,98 @@ public class Parser
         for(int i = size - 1; i >= 0; i--)
         {
             pushInputStack(tok.get(i));
+        }
+    }
+    /**
+     * Method to tell the state which shift to use depending on the next token.
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
+    public void NextState() throws ParserException
+    {
+        switch (peekInputStack().getTokenName())
+        {
+        case "EXP7":
+            peekStateStack().shiftEXP7();
+            break;
+        case "EXP6":
+            peekStateStack().shiftEXP6();
+            break;
+        case "EXP5":
+            peekStateStack().shiftEXP5();
+            break;
+        case "EXP4":
+            peekStateStack().shiftEXP4();
+            break;
+        case "EXP3":
+            peekStateStack().shiftEXP3();
+            break;
+        case "EXP2":
+            peekStateStack().shiftEXP2();
+            break;
+        case "EXP1":
+            peekStateStack().shiftEXP1();
+            break;
+        case "Id":
+            peekStateStack().shiftId();
+            break;
+        case "IntNum":
+            peekStateStack().shiftIntegerLiteral();
+            break;
+        case "True":
+            peekStateStack().shiftTrue();
+            break;
+        case "False":
+            peekStateStack().shiftFalse();
+            break;
+        case "This":
+            peekStateStack().shiftThis();
+            break;
+        case "New":
+            peekStateStack().shiftNew();
+            break;
+        case "Not":
+            peekStateStack().shiftExclamation();
+            break;
+        case "LBracket":
+            peekStateStack().shiftLeftBracket();
+            break;
+        case "LBrace":
+            peekStateStack().shiftLeftBrace();
+            break;
+        case "LPara":
+            peekStateStack().shiftLeftPara();
+            break;
+        case "RPara":
+            peekStateStack().shiftRightPara();
+            break;
+        case "VAR_DECL_L":
+            peekStateStack().shiftVAR_DECL_L();
+            break;
+        case "VAR_DECL":
+            peekStateStack().shiftVAR_DECL();
+            break;
+        case "Public":
+            peekStateStack().shiftPublic();
+            break;
+        case "Static":
+            peekStateStack().shiftStatic();
+            break;
+        case "Void":
+            peekStateStack().shiftVoid();
+            break;
+        case "Main":
+            peekStateStack().shiftMain();
+            break;
+            
+            
+//      These are not used at the moment, but could be needed later
+//        case "RBracket":
+//            peekStateStack().shiftRightBracket();
+//            break;
+//        case "RBrace":
+//            peekStateStack().shiftRightBrace();
+//            break;
         }
     }
 }

@@ -3,10 +3,14 @@ package parser;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import parser.states.MDJ_10;
+import parser.states.ParserException;
+import parser.states.State;
 import tokenizer.Token;
 
 /**
@@ -122,4 +126,130 @@ public class TestParser
 	       assertEquals(tok1, Parser.getInstance().popInputStack());
 	       assertEquals(tok2, Parser.getInstance().popInputStack());
 	}
+	/**
+	 * Test that our parser properly shifts to the next state
+	 * @throws ParserException 
+	 */
+	@Test
+	public void testNextState() throws ParserException
+	{
+	    Token tok1 = new Token("EXP1", "EXP1", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().NextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof MDJ_10);  
+	}
 }
+
+    /**
+     * Mock State Class to test the next state method
+     *
+     */
+    class MockState extends State
+    {
+        public void shiftEXP1 () throws ParserException
+        {
+            changeToState(new MDJ_10());
+        }
+        public void shiftEXP2() throws ParserException
+        {
+            invalidState();
+        }
+        public void shiftEXP3() throws ParserException
+        {
+            invalidState();
+        }
+        public void shiftEXP4() throws ParserException
+        {
+            invalidState();
+        }
+        public void shiftEXP5() throws ParserException
+        {
+            invalidState();
+        }
+        public void shiftEXP6() throws ParserException
+        {
+            invalidState();
+        }
+        public void shiftEXP7() throws ParserException
+        {
+            invalidState();
+        }
+        public void shiftId() throws ParserException
+        {
+            invalidState();
+        }
+        public void shiftIntegerLiteral() throws ParserException
+        {
+            invalidState();
+        }
+        public void shiftTrue() throws ParserException
+        {
+            invalidState();
+        }
+        public void shiftFalse() throws ParserException
+        {
+            invalidState();
+        }
+        public void shiftThis() throws ParserException
+        {
+            invalidState();
+        }
+        public void shiftNew() throws ParserException
+        {
+            invalidState();
+        }
+        public void shiftExclamation() throws ParserException
+        {
+            invalidState();
+        }
+        public void shiftLeftBracket() throws ParserException
+        {
+            invalidState();
+        }
+        public void shiftLeftBrace() throws ParserException
+        {
+            invalidState();
+        }
+        public void shiftLeftPara() throws ParserException
+        {
+            invalidState();
+        }
+        public void shiftVAR_DECL_L() throws ParserException
+        {
+            invalidState();
+        }
+        public void shiftVAR_DECL() throws ParserException
+        {
+            invalidState();
+        }
+
+        public void shiftPublic() throws ParserException 
+        {
+            invalidState();
+        }
+
+        public void shiftStatic() throws ParserException 
+        {
+            invalidState();
+        }
+
+        public void shiftVoid() throws ParserException 
+        {
+            invalidState();
+        }
+
+        public void shiftMain() throws ParserException 
+        {
+            invalidState();
+        }
+
+        public void shiftRightPara() throws ParserException 
+        {
+            invalidState();
+        }
+    }
