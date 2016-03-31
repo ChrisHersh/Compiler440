@@ -68,6 +68,7 @@ public class TestCRM_1
 	    Token token = new Token(";", "Semi", 5);
 	    
 	    p.getInputStack().push(token);
+	    p.changeState(s);
 	    
 	    assertFalse(p.getInputStack().empty());
 	    assertEquals(p.getInputStack().peek(), token);
@@ -79,5 +80,7 @@ public class TestCRM_1
 	    assertFalse(p.getInputStack().empty());
 	    assertTrue(p.getHoldStack().empty());
 	    assertTrue(p.getStateStack().empty());
+	    
+	    assertTrue(p.getCurrentState() instanceof CRM_1);
     }
 }
