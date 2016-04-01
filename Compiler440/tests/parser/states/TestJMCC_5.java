@@ -73,7 +73,7 @@ public class TestJMCC_5
 	    assertEquals(p.getHoldStack().peek(), token);
 	    assertEquals(p.getStateStack().peek(), s);
 	    
-	    assertTrue(p.getCurrentState() instanceof JJMCC_8);
+	    assertTrue(p.getCurrentState() instanceof JMCC_8);
     }
     public void testShiftEXP5() throws ParserException
     {
@@ -124,7 +124,7 @@ public class TestJMCC_5
 	    assertEquals(p.getHoldStack().peek(), token);
 	    assertEquals(p.getStateStack().peek(), s);
 	    
-	    assertTrue(p.getCurrentState() instanceof JMCC_32;
+	    assertTrue(p.getCurrentState() instanceof JMCC_32);
     }
 	
     /**
