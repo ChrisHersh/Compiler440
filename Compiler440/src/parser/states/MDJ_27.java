@@ -1,6 +1,6 @@
 package parser.states;
 /**
- * shift on VAR_DECL_L
+ * shift on }
  * change to state 29
  * @author Shannon Lee
  *
@@ -8,8 +8,8 @@ package parser.states;
 public class MDJ_27 extends State
 {
 	@Override
-	public void shiftVAR_DECL_L() throws ParserException
+	public void shiftRightBracket() throws ParserException
 	{
-		changeToState(new MDJ_29());
+		changeToState(new MDJ_28());
 	}
 }

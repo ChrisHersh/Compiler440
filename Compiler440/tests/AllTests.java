@@ -32,8 +32,12 @@ import parser.states.*;
 		TestCRM_2.class,
 		TestCRM_3.class,
 		
-		TestMDJ_25Shifts.class,
-		TestMDJ_32.class,
+		TestMDJ_21.class,
+		TestMDJ_23.class,
+		TestMDJ_25.class,
+		TestMDJ_27.class,
+		TestMDJ_28.class,
+		
 		
 		TestMDJ_0.class,
 		TestMDJ_5.class,
