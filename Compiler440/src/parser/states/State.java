@@ -174,4 +174,13 @@ public abstract class State
 		invalidState();
 	}
 
+	public void shiftMETH_DECL_L() throws ParserException
+	{
+		invalidState();
+	}
+	
+	public void shiftRightBracket() throws ParserException
+	{
+		invalidState();
+	}
 }
