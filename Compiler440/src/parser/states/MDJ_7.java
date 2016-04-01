@@ -1,7 +1,9 @@
 package parser.states;
 
 /**
- * @author Jared Good
+ * @author Jared Good and Curtis Rabe
+ * MDJ_7 state. Ensure this state can properly shift to MDJ_8 on "MAIN_METHOD" token
+ * and to MDJ_10 on "public" token
  */
 public class MDJ_7 extends State
 {
@@ -13,4 +15,13 @@ public class MDJ_7 extends State
     {
         changeToState(new MDJ_10());
     }
+	
+	/**
+	 * Changes to state MDJ_8 on "MAIN_METHOD" token
+	 */
+	@Override
+	public void shiftMAIN_METHOD() throws ParserException
+	{
+		changeToState(new MDJ_8());
+	}
 }

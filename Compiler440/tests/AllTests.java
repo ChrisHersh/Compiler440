@@ -34,6 +34,12 @@ import parser.states.*;
 		
 		TestMDJ_25Shifts.class,
 		TestMDJ_32.class,
+		
+		TestMDJ_0.class,
+		TestMDJ_5.class,
+		TestMDJ_6.class,
+		TestMDJ_7.class,
+		TestMDJ_8.class,
 	}
 ) 
  

@@ -183,4 +183,28 @@ public abstract class State
 	{
 		invalidState();
 	}
+	
+	/**
+	 * @author Curtis Rabe
+	 * @throws ParserException
+	 */
+	public void shiftClass() throws ParserException
+	{
+		invalidState();
+	}
+	
+	public void shiftMAIN_CLASS() throws ParserException
+	{
+		invalidState();
+	}
+	
+	public void shiftMAIN_METHOD() throws ParserException
+	{
+		invalidState();
+	}
+	
+	public void shiftRightBrace() throws ParserException
+	{
+		invalidState();
+	}
 }
