@@ -241,7 +241,7 @@ public class Parser
         case "New":
             peekStateStack().shiftNew();
             break;
-        case "Not":
+        case "Exclamation":
             peekStateStack().shiftExclamation();
             break;
         case "LBracket":
@@ -274,15 +274,153 @@ public class Parser
         case "Main":
             peekStateStack().shiftMain();
             break;
-            
-            
-//      These are not used at the moment, but could be needed later
-//        case "RBracket":
-//            peekStateStack().shiftRightBracket();
-//            break;
-//        case "RBrace":
-//            peekStateStack().shiftRightBrace();
-//            break;
+        case "RBracket":
+            peekStateStack().shiftRightBracket();
+            break;
+        case "RBrace":
+            peekStateStack().shiftRightBrace();
+            break;
+        case "int":
+            peekStateStack().shiftInt();
+            break;
+        case "Boolean":
+            peekStateStack().shiftBoolean();
+            break;
+        case "If":
+            peekStateStack().shiftIf();
+            break;
+        case "While":
+            peekStateStack().shiftWhile();
+            break;
+        case "Class":
+            peekStateStack().shiftClass();
+            break;
+        case "Extends":
+            peekStateStack().shiftExtends();
+            break;
+        case "Else":
+            peekStateStack().shiftElse();
+            break;
+        case "Return":
+            peekStateStack().shiftReturn();
+            break;
+        case "SystemOutPrintln":
+            peekStateStack().shiftSystemOutPrintln();
+            break;
+        case "Length":
+            peekStateStack().shiftLength();
+            break;
+        case "Comma":
+            peekStateStack().shiftComa();
+            break;
+        case "And":
+            peekStateStack().shiftAnd();
+            break;
+        case "Or":
+            peekStateStack().shiftOr();
+            break;
+        case "Equals":
+            peekStateStack().shiftEquals();
+            break;
+        case "GtEquals":
+            peekStateStack().shiftGtEquals();
+            break;
+        case "LtEquals":
+            peekStateStack().shiftLtEquals();
+            break;
+        case "NotEquals":
+            peekStateStack().shiftNotEquals();
+            break;
+        case "SemiColon":
+            peekStateStack().shiftSemiColon();
+            break;
+        case "Plus":
+            peekStateStack().shiftPlus();
+            break;
+        case "Minus":
+            peekStateStack().shiftMinus();
+            break;
+        case "Mult":
+            peekStateStack().shiftMult();
+            break;
+        case "Assignment":
+            peekStateStack().shiftAssignment();
+            break;
+        case "Period":
+            peekStateStack().shiftPeriod();
+            break;
+        case "Gt":
+            peekStateStack().shiftGt();
+            break;
+        case "Lt":
+            peekStateStack().shiftLt();
+            break;
+        case "Prog":
+            peekStateStack().shiftProg();
+            break;
+        case "CLASS_DECL_L":
+            peekStateStack().shiftCLASS_DECL_L();
+            break;
+        case "MAIN_CLASS":
+            peekStateStack().shiftMAIN_CLASS();
+            break;
+        case "MAIN_METHOD":
+            peekStateStack().shiftMAIN_METHOD();
+            break;
+        case "CLASS_DECL":
+            peekStateStack().shiftCLASS_DECL();
+            break;
+        case "M_METH_BODY":
+            peekStateStack().shiftM_METH_BODY();
+            break;
+        case "METH_DECL_L":
+            peekStateStack().shiftMETH_DECL_L();
+            break;
+        case "METH_DECL":
+            peekStateStack().shiftMETH_DECL();
+            break;
+        case "METH_BODY":
+            peekStateStack().shiftMETH_BODY();
+            break;
+        case "FORMAL_L":
+            peekStateStack().shiftFORMAL_L();
+            break;
+        case "FORMAL_R":
+            peekStateStack().shiftFORMAL_R();
+            break;
+        case "TYPE":
+            peekStateStack().shiftTYPE();
+            break;
+        case "STMT":
+            peekStateStack().shiftSTMT();
+            break;
+        case "STMT_P":
+            peekStateStack().shiftSTMT_P();
+            break;
+        case "OP1":
+            peekStateStack().shiftOP1();
+            break;
+        case "OP2":
+            peekStateStack().shiftOP2();
+            break;
+        case "OP3":
+            peekStateStack().shiftOP3();
+            break;
+        case "OP4":
+            peekStateStack().shiftOP4();
+            break;
+        case "OP5":
+            peekStateStack().shiftOP5();
+            break;
+        case "OP6":
+            peekStateStack().shiftOP6();
+            break;
+        case "EXP_L":
+            peekStateStack().shiftEXP_L();
+            break;
+        case "EXP_R":
+            peekStateStack().shiftEXP_R();
+            break;  
         }
     }
 }
