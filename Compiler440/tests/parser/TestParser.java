@@ -8,6 +8,12 @@ import java.util.Stack;
 import org.junit.Before;
 import org.junit.Test;
 
+import parser.states.CRM_1;
+import parser.states.CRM_2;
+import parser.states.CRM_3;
+import parser.states.JCTM_1;
+import parser.states.JCTM_15;
+import parser.states.JCTM_16;
 import parser.states.MDJ_10;
 import parser.states.ParserException;
 import parser.states.State;
@@ -155,7 +161,7 @@ public class TestParser
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
 	    Parser.getInstance().NextState();
-	    assertTrue(Parser.getInstance().getCurrentState() instanceof CRM_1());  
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof CRM_1);  
 	}
 	
 	@Test
@@ -169,11 +175,11 @@ public class TestParser
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
 	    Parser.getInstance().NextState();
-	    assertTrue(Parser.getInstance().getCurrentState() instanceof CRM_2());  
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof CRM_2);  
 	}
 	
 	@Test
-	public void testEXP3Shift() throws ParserException
+	public void testEXP4Shift() throws ParserException
 	{
 	    Token tok1 = new Token("EXP4", "EXP4", 1);
 	    ArrayList<Token> tok = new ArrayList<Token>();
@@ -183,11 +189,11 @@ public class TestParser
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
 	    Parser.getInstance().NextState();
-	    assertTrue(Parser.getInstance().getCurrentState() instanceof CRM_3());  
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof CRM_3);  
 	}
 	
 	@Test
-	public void testEXP3Shift() throws ParserException
+	public void testEXP5Shift() throws ParserException
 	{
 	    Token tok1 = new Token("EXP5", "EXP5", 1);
 	    ArrayList<Token> tok = new ArrayList<Token>();
@@ -197,11 +203,11 @@ public class TestParser
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
 	    Parser.getInstance().NextState();
-	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_1());  
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_1);  
 	}
 	
 	@Test
-	public void testEXP3Shift() throws ParserException
+	public void testEXP6Shift() throws ParserException
 	{
 	    Token tok1 = new Token("EXP6", "EXP6", 1);
 	    ArrayList<Token> tok = new ArrayList<Token>();
@@ -211,11 +217,11 @@ public class TestParser
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
 	    Parser.getInstance().NextState();
-	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_15());  
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_15);  
 	}
 	
 	@Test
-	public void testEXP3Shift() throws ParserException
+	public void testEXP7Shift() throws ParserException
 	{
 	    Token tok1 = new Token("EXP7", "EXP7", 1);
 	    ArrayList<Token> tok = new ArrayList<Token>();
@@ -225,7 +231,7 @@ public class TestParser
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
 	    Parser.getInstance().NextState();
-	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_16());  
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_16);  
 	}
 }
 
