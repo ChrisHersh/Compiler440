@@ -23,6 +23,7 @@ public class TestMDJ_1
     }
     
     /**
+     * Test CLASS_DECL_L shift.
      * @throws ParserException
      */
     @Test
