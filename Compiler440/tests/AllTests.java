@@ -41,6 +41,7 @@ import parser.states.*;
 		
 		
 		TestMDJ_0.class,
+		TestMDJ_1.class,
 		TestMDJ_5.class,
 		TestMDJ_6.class,
 		TestMDJ_7.class,
