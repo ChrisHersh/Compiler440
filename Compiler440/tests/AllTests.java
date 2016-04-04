@@ -1,12 +1,40 @@
-import static org.junit.Assert.*;
-
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 import parser.TestParser;
-import symboltable.*;
+import parser.states.TestCRM_1;
+import parser.states.TestCRM_2;
+import parser.states.TestCRM_3;
+import parser.states.TestJMCC_23;
+import parser.states.TestJMCC_27;
+import parser.states.TestJMCC_5;
+import parser.states.TestJMCC_7;
+import parser.states.TestMDJ_0;
+import parser.states.TestMDJ_1;
+import parser.states.TestMDJ_10;
+import parser.states.TestMDJ_11;
+import parser.states.TestMDJ_12;
+import parser.states.TestMDJ_13;
+import parser.states.TestMDJ_14;
+import parser.states.TestMDJ_21;
+import parser.states.TestMDJ_22;
+import parser.states.TestMDJ_23;
+import parser.states.TestMDJ_25;
+import parser.states.TestMDJ_27;
+import parser.states.TestMDJ_28;
+import parser.states.TestMDJ_5;
+import parser.states.TestMDJ_6;
+import parser.states.TestMDJ_7;
+import parser.states.TestMDJ_8;
+import parser.states.TestState;
+import symboltable.TestCheckMainMethod;
+import symboltable.TestClasses;
+import symboltable.TestMainMethod;
+import symboltable.TestMethods;
+import symboltable.TestSymbolTable;
+import symboltable.TestVariables;
+import symboltable.testClass;
 import tokenizer.TestTokenizer;
-import parser.states.*;
 
 @RunWith(Suite.class) 
 @Suite.SuiteClasses
@@ -46,6 +74,11 @@ import parser.states.*;
 		TestMDJ_6.class,
 		TestMDJ_7.class,
 		TestMDJ_8.class,
+		TestMDJ_10.class,
+		TestMDJ_11.class,
+		TestMDJ_12.class,
+		TestMDJ_13.class,
+		TestMDJ_14.class,
 	}
 ) 
  
