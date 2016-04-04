@@ -229,7 +229,7 @@ public class TestParser
 	@Test
 	public void testShiftId() throws ParserException
 	{
-	    Token tok1 = new Token("ID", "id", 1);
+	    Token tok1 = new Token("ID", "Id", 1);
 	    ArrayList<Token> tok = new ArrayList<Token>();
 	    tok.add(tok1);
 	    
@@ -271,7 +271,7 @@ public class TestParser
 	@Test
 	public void testShiftFalse() throws ParserException
 	{
-	    Token tok1 = new Token("FALSE", "false", 1);
+	    Token tok1 = new Token("FALSE", "False", 1);
 	    ArrayList<Token> tok = new ArrayList<Token>();
 	    tok.add(tok1);
 	    
@@ -285,7 +285,8 @@ public class TestParser
 	@Test
 	public void testShiftThis() throws ParserException
 	{
-	    Token tok1 = new Token("THIS", "this", 1);
+	    Token tok1 = new Token("THIS", "T"
+	            + "his", 1);
 	    ArrayList<Token> tok = new ArrayList<Token>();
 	    tok.add(tok1);
 	    
@@ -313,7 +314,7 @@ public class TestParser
 	@Test
 	public void testShiftNot() throws ParserException
 	{
-	    Token tok1 = new Token("NOT", "Not", 1);
+	    Token tok1 = new Token("Exclamation", "Exclamation", 1);
 	    ArrayList<Token> tok = new ArrayList<Token>();
 	    tok.add(tok1);
 	    
