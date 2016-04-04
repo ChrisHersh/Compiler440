@@ -8,15 +8,7 @@ import java.util.Stack;
 import org.junit.Before;
 import org.junit.Test;
 
-import parser.states.CRM_1;
-import parser.states.CRM_2;
-import parser.states.CRM_3;
-import parser.states.JCTM_1;
-import parser.states.JCTM_15;
-import parser.states.JCTM_16;
-import parser.states.MDJ_10;
-import parser.states.ParserException;
-import parser.states.State;
+import parser.states.*;
 import tokenizer.Token;
 
 /**
@@ -445,7 +437,7 @@ public class TestParser
 	}
 	
 	@Test
-	public void testShiftStatic() throws ParserException
+	public void testShiftVoid() throws ParserException
 	{
 	    Token tok1 = new Token("VOID", "Void", 1);
 	    ArrayList<Token> tok = new ArrayList<Token>();
@@ -459,7 +451,7 @@ public class TestParser
 	}
 	
 	@Test
-	public void testShiftStatic() throws ParserException
+	public void testShiftMain() throws ParserException
 	{
 	    Token tok1 = new Token("MAIN", "Main", 1);
 	    ArrayList<Token> tok = new ArrayList<Token>();
