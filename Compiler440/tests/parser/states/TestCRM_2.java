@@ -53,4 +53,36 @@ public class TestCRM_2
 	    
 	    assertTrue(p.getCurrentState() instanceof CRM_3);
 	}
+    
+    /**
+     * Test to make sure that shifting on STMT_P works
+     * @author TJ Renninger
+     * @throws ParserException
+     */
+    @Test
+	public void testShiftSTMT_P() throws ParserException
+	{
+	    Parser p = Parser.getInstance();
+	    State s = new CRM_2();
+	        
+	    Token token = new Token("STMT_P", "STMT_P", 25);
+	    
+	    p.getInputStack().push(token);
+	    
+	    assertFalse(p.getInputStack().empty());
+	    assertEquals(p.getInputStack().peek(), token);
+	    assertTrue(p.getHoldStack().empty());
+	    assertTrue(p.getStateStack().empty());
+	    
+	    s.shiftSTMT_P();
+	    
+	    assertTrue(p.getInputStack().empty());
+	    assertFalse(p.getHoldStack().empty());
+	    assertFalse(p.getStateStack().empty());
+	    
+	    assertEquals(p.getHoldStack().peek(), token);
+	    assertEquals(p.getStateStack().peek(), s);
+	    
+	    assertTrue(p.getCurrentState() instanceof CRM_4);
+	}
 }
