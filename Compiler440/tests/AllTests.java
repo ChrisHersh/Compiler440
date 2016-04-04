@@ -34,6 +34,7 @@ import symboltable.TestMethods;
 import symboltable.TestSymbolTable;
 import symboltable.TestVariables;
 import symboltable.testClass;
+import parser.states.TestMDJ_4;
 import tokenizer.TestTokenizer;
 
 @RunWith(Suite.class) 
