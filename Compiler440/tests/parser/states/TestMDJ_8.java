@@ -29,7 +29,7 @@ public class TestMDJ_8 {
 	 * Tests that MDJ_8 can properly shift to MDJ_9 when reading a "}" token
 	 */
 	@Test
-	public void testShiftClass() throws ParserException
+	public void testShiftRightBrace() throws ParserException
 	{
 		Parser p = Parser.getInstance();
 		State s = new MDJ_8();

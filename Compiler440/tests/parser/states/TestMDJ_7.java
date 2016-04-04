@@ -30,7 +30,7 @@ public class TestMDJ_7
 	 * Tests that MDJ_7 can properly shift to MDJ_8 when reading a "MAIN_METHOD" token
 	 */
 	@Test
-	public void testShiftClass() throws ParserException
+	public void testShiftMAIN_METHOD() throws ParserException
 	{
 		Parser p = Parser.getInstance();
 		State s = new MDJ_7();

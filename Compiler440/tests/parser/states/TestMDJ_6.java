@@ -30,7 +30,7 @@ public class TestMDJ_6
 	 * Tests that MDJ_6 can properly shift to MDJ_7 when reading a "{" token
 	 */
 	@Test
-	public void testShiftClass() throws ParserException
+	public void testShiftLeftBrace() throws ParserException
 	{
 		Parser p = Parser.getInstance();
 		State s = new MDJ_6();
