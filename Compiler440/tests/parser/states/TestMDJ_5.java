@@ -30,7 +30,7 @@ public class TestMDJ_5
 	 * Tests that MDJ_5 shifts to MDJ_6 when reading an "id" token
 	 */
 	@Test
-	public void testShiftClass() throws ParserException {
+	public void testShiftId() throws ParserException {
 		Parser p = Parser.getInstance();
 		State s = new MDJ_5();
 
