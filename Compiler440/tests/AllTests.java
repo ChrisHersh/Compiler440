@@ -57,6 +57,11 @@ import parser.states.*;
 		TestMDJ_12.class,
 		TestMDJ_13.class,
 		TestMDJ_14.class,
+		
+		TestCILS_2.class,
+		TestCILS_7.class,
+		TestCILS_12.class,
+		TestCILS_16.class,
 	}
 ) 
  
