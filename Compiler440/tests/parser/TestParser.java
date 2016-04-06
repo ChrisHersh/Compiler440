@@ -138,6 +138,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof MDJ_10);  
 	}
@@ -152,6 +153,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof CRM_1);  
 	}
@@ -166,6 +168,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof CRM_2);  
 	}
@@ -180,6 +183,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof CRM_3);  
 	}
@@ -194,6 +198,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_1);  
 	}
@@ -208,6 +213,8 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_15);  
 	}
@@ -222,6 +229,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_16);  
 	}
@@ -236,6 +244,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_17);  
 	}
@@ -250,6 +259,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_18);  
 	}
@@ -264,6 +274,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_19);  
 	}
@@ -278,6 +289,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_27);  
 	}
@@ -293,6 +305,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_29);  
 	}
@@ -307,6 +320,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_1);  
 	}
@@ -321,6 +335,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_5);  
 	}
@@ -335,6 +350,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_6);  
 	}
@@ -349,6 +365,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_7);  
 	}
@@ -363,6 +380,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_8);
 	}
@@ -377,6 +395,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_18);  
 	}
@@ -391,6 +410,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_19);  
 	}
@@ -405,6 +425,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_20);  
 	}
@@ -419,6 +440,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_23);  
 	}
@@ -433,6 +455,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_24);  
 	}
@@ -447,6 +470,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_27);  
 	}
@@ -461,6 +485,7 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
 	    Parser.getInstance().NextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_28);  
 	}
