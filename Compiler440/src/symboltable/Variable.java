@@ -139,7 +139,10 @@ public abstract class Variable
 	{
 		if(isAssignablePrimitive(value)) {
 			this.value = value;
-		} else if(isAssignableObject(value, id));
+		} else if(isAssignableObject(value, id))
+		{
+			this.value = value;
+		}
 	}
 	
 	/**
