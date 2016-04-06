@@ -1,13 +1,11 @@
 package parser.states;
-/**
- * shift if
- * change state to 7
- * @author Shannon Lee
- *
- */
+
 public class CILS_2 extends State
 {
-
+	/**
+	 * Method used to shift on  if and change to state 7
+	 * @author Shannon Jones
+	 */
 	@Override
 	public void shiftIf() throws ParserException
 	{

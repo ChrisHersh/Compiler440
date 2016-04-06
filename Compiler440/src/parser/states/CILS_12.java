@@ -1,14 +1,13 @@
 package parser.states;
 
-/**
- * shift EXP1
- * change to state 16
- * @author Shannon Lee
- *
- */
 public class CILS_12 extends State
 {
 
+
+	/**
+	 * Method used to shift on  EXP1 and change to state 16
+	 * @author Shannon Jones
+	 */
 	@Override
 	public void shiftEXP1() throws ParserException
 	{
