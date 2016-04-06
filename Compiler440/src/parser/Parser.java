@@ -11,7 +11,7 @@ import parser.states.State;
  * Class created for the parser. It should be comprised of
  * three independent stacks - the input stack, state stack, and hold stack
  * Just like the SymbolTable, there can only be one parser.
- * @author Curtis Rabe, TJ Renninger, Michael Zimmerman, Jared Good
+ * @author Curtis Rabe, TJ Renninger, Michael Zimmerman, Jared Good, Daniel Breitigan, Matt Mousetis
  */
 public class Parser
 {
