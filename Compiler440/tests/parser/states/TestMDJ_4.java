@@ -1,4 +1,11 @@
-package tests.parser.states;
+package parser.states;
+
+import static org.junit.Assert.*;
+
+import org.junit.*;
+
+import parser.Parser;
+import tokenizer.Token;
 
 /**
  * Test class to check the methods of the MDJ_1 class.
@@ -33,7 +40,7 @@ public class TestMDJ_4 {
 		    assertTrue(p.getHoldStack().empty());
 		    assertTrue(p.getStateStack().empty());
 		    
-		    s.ReduceCLASS_DECL();
+		    s.shiftCLASS_DECL();
 		    
 		    assertTrue(p.getInputStack().empty());
 		    assertFalse(p.getHoldStack().empty());
