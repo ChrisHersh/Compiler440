@@ -355,6 +355,9 @@ public class Parser
         case "Lt":
             getCurrentState().shiftLt();
             break;
+        case "Not":
+            getCurrentState().shiftNot();
+            break;
         case "Prog":
             getCurrentState().shiftProg();
             break;
