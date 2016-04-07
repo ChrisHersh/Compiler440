@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import symboltable.variable.impl.LocalObjectVariable;
+import symboltable.variable.impl.LocalPrimitiveVariable;
 import symboltable.variable.impl.MethodPrimitiveVariable;
 
 /**
@@ -64,6 +66,29 @@ public class TestSymbolTable {
 		//Note: No parameters added to "params"
 		SymbolTable.getInstance().getVariableTable().put(mpv1.getName(), params);
 		assertEquals(0, SymbolTable.getInstance().getVariableTable().get(mpv1.getName()).size());
+	}
+	
+	/**
+	 * Test the storing of variables into the symbol table
+	 */
+	@Test
+	public void testStoringVars()
+	{
+		MethodPrimitiveVariable mpv1 = new MethodPrimitiveVariable("Name1", "ClassName", "MethodName", VariableScope.METHOD, VariableType.INTEGER);
+		LocalPrimitiveVariable lpv1 = new LocalPrimitiveVariable("Name2", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.INTEGER);
+		LocalPrimitiveVariable lpv2 = new LocalPrimitiveVariable("Name3", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.INTEGER);
+		LocalObjectVariable lov1 = new LocalObjectVariable("Name4", "ClassName", "id", "MethodName", VariableScope.LOCAL, VariableType.OBJECT);
+		ArrayList<Variable> vars = new ArrayList<Variable>();
+		vars.add(mpv1);
+		vars.add(lpv1);
+		vars.add(lpv2);
+		vars.add(lov1);
+		//passes in the method name and the list of variables within it
+		SymbolTable.getInstance().getVariableTable().put("MethodName", vars);
+		assertEquals(mpv1, SymbolTable.getInstance().getVariableTable().get("MethodName").get(0));
+		assertEquals(lpv1, SymbolTable.getInstance().getVariableTable().get("MethodName").get(1));
+		assertEquals(lpv2, SymbolTable.getInstance().getVariableTable().get("MethodName").get(2));
+		assertEquals(lov1, SymbolTable.getInstance().getVariableTable().get("MethodName").get(3));
 	}
 
 }
