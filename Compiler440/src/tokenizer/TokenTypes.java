@@ -60,6 +60,7 @@ public enum TokenTypes
     Gt,
     Lt,
     Not,
+    Epsilon,
     
     //Integer
     IntNum,
