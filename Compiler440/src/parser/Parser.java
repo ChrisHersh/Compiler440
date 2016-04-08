@@ -198,7 +198,7 @@ public class Parser
      * @Author Daniel Breitigan & Matt Mousetis
      * @throws ParserException
      */
-    public void NextState() throws ParserException
+    public void nextState() throws ParserException
     {
         switch (peekInputStack().getTokenName())
         {
@@ -354,6 +354,9 @@ public class Parser
             break;
         case "Lt":
             getCurrentState().shiftLt();
+            break;
+        case "Not":
+            getCurrentState().shiftNot();
             break;
         case "Prog":
             getCurrentState().shiftProg();

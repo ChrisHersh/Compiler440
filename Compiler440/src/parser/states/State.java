@@ -415,6 +415,11 @@ public abstract class State
 
     public void shiftComa() throws ParserException
     {
-        invalidState();
+    	invalidState();
     }
+
+	public void shiftNot() throws ParserException
+	{
+		invalidState();
+	}
 }
