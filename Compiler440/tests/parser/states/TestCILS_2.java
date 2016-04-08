@@ -1,12 +1,14 @@
 package parser.states;
 
 import static org.junit.Assert.*;
+import jdk.nashorn.internal.parser.TokenType;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import parser.Parser;
 import tokenizer.Token;
+import tokenizer.TokenTypes;
 
 /**
  * Tests the functionality of CILS_2
@@ -32,7 +34,7 @@ public class TestCILS_2 {
 	{
 		Parser parser = Parser.getInstance();
     	State state = new CILS_2();
-    	Token token = new Token("if","IF",1);
+    	Token token = new Token("if",TokenTypes.If.name(),1);
     	
     	parser.getInputStack().push(token);
     	

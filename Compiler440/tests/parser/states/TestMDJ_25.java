@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import parser.Parser;
 import tokenizer.Token;
+import tokenizer.TokenTypes;
 
 public class TestMDJ_25 
 {
@@ -32,7 +33,7 @@ public class TestMDJ_25
 			    Parser p = Parser.getInstance();
 			    State s = new MDJ_25();
 			        
-			    Token token = new Token("METH_DECL_L", "METH_DECL_L", 4);
+			    Token token = new Token("METH_DECL_L", TokenTypes.METH_DECL_L.name(), 4);
 			    
 			    p.getInputStack().push(token);
 			    

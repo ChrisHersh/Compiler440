@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import parser.Parser;
 import tokenizer.Token;
+import tokenizer.TokenTypes;
 
 public class TestMDJ_27 {
 
@@ -32,7 +33,7 @@ public class TestMDJ_27 {
 			    Parser p = Parser.getInstance();
 			    State s = new MDJ_27();
 			        
-			    Token token = new Token("}", "RT_BRACKET", 4);
+			    Token token = new Token("}", TokenTypes.RBracket.name(), 4);
 			    
 			    p.getInputStack().push(token);
 			    

@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import parser.Parser;
 import tokenizer.Token;
+import tokenizer.TokenTypes;
 
 /**
  * Tests that the shift are working correctly. 
@@ -37,7 +38,7 @@ public class TestMDJ_21 {
 			    Parser p = Parser.getInstance();
 			    State s = new MDJ_21();
 			        
-			    Token token = new Token("{", "LT_BRACKET", 4);
+			    Token token = new Token("{", TokenTypes.LBracket.name(), 4);
 			    
 			    p.getInputStack().push(token);
 			    
