@@ -207,4 +207,15 @@ public abstract class State
 	{
 		invalidState();
 	}
+	/**
+	 * @author Jessica Schlesiger
+	 */
+	public void shiftSTMT() throws ParserException
+	{
+		invalidState();
+	}
+	public void shiftSTMT_P() throws ParserException
+	{
+		invalidState();
+	}
 }
