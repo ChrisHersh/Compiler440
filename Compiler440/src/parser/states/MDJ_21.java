@@ -1,12 +1,12 @@
 package parser.states;
 
-/**
- * shift on {
- * @author Shannon Lee
- *
- */
-public class MDJ_21 extends State{
 
+public class MDJ_21 extends State{
+	/**
+	 * method for shift on { and change to state 23
+	 * @author Shannon Lee
+	 *
+	 */
 	@Override
 	public void shiftLeftBracket() throws ParserException
 	{

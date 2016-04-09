@@ -12,7 +12,7 @@ import tokenizer.Token;
 
 /**
  * Test class to check the methods of the CILS_2 class.
- * @author Jessica Schlesiger
+ * @author Jessica Schlesiger, Shannon Lee
  *
  */
 public class TestCILS_2 {
@@ -83,5 +83,28 @@ public class TestCILS_2 {
 	    assertEquals(p.getStateStack().peek(), s);
 	    
 	    assertTrue(p.getCurrentState() instanceof CILS_6);
+	}
+	@Test
+	public void testIf() throws ParserException
+	{
+		Parser parser = Parser.getInstance();
+    	State state = new CILS_2();
+    	Token token = new Token("if",TokenTypes.If.name(),1);
+    	
+    	parser.getInputStack().push(token);
+    	
+    	assertEquals(parser.getInputStack().peek(), token);
+        assertTrue(parser.getHoldStack().empty());
+        assertTrue(parser.getStateStack().empty());
+        
+        state.shiftIf();
+        
+        assertTrue(parser.getInputStack().empty());
+        assertFalse(parser.getHoldStack().empty());
+        assertFalse(parser.getStateStack().empty());
+        
+        assertEquals(parser.getHoldStack().peek(), token);
+        assertEquals(parser.getStateStack().peek(), state);
+        assertTrue(parser.getCurrentState() instanceof CILS_7);
 	}
 }

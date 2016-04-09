@@ -104,7 +104,7 @@ public class TestVariables {
 		
 		LocalObjectVariable obj = new LocalObjectVariable("Name", "ClassName", "id", "MethodName", VariableScope.LOCAL, VariableType.OBJECT);
 		obj.setValue("idk", "id");
-		assertEquals(lpv.getValue(), "id");
+		assertEquals(obj.getValue(), "idk");
 	}
 
 	

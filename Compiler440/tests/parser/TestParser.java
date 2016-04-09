@@ -8,9 +8,7 @@ import java.util.Stack;
 import org.junit.Before;
 import org.junit.Test;
 
-import parser.states.MDJ_10;
-import parser.states.ParserException;
-import parser.states.State;
+import parser.states.*;
 import tokenizer.Token;
 
 /**
@@ -140,8 +138,356 @@ public class TestParser
 	    
 	    Parser.getInstance().createInputStack(tok);
 	    Parser.getInstance().pushStateStack(new MockState());
-	    Parser.getInstance().NextState();
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof MDJ_10);  
+	}
+	
+	@Test
+	public void testEXP2shift() throws ParserException
+	{
+	    Token tok1 = new Token("EXP2", "EXP2", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof CRM_1);  
+	}
+	
+	@Test
+	public void testEXP3Shift() throws ParserException
+	{
+	    Token tok1 = new Token("EXP3", "EXP3", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof CRM_2);  
+	}
+	
+	@Test
+	public void testEXP4Shift() throws ParserException
+	{
+	    Token tok1 = new Token("EXP4", "EXP4", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof CRM_3);  
+	}
+	
+	@Test
+	public void testEXP5Shift() throws ParserException
+	{
+	    Token tok1 = new Token("EXP5", "EXP5", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_1);  
+	}
+	
+	@Test
+	public void testEXP6Shift() throws ParserException
+	{
+	    Token tok1 = new Token("EXP6", "EXP6", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_15);  
+	}
+	
+	@Test
+	public void testEXP7Shift() throws ParserException
+	{
+	    Token tok1 = new Token("EXP7", "EXP7", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_16);  
+	}
+
+	@Test
+	public void testShiftId() throws ParserException
+	{
+	    Token tok1 = new Token("ID", "Id", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_17);  
+	}
+	
+	@Test
+	public void testShiftIntegerLiteral() throws ParserException
+	{
+	    Token tok1 = new Token("IntNum", "IntNum", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_18);  
+	}
+	
+	@Test
+	public void testShiftTrue() throws ParserException
+	{
+	    Token tok1 = new Token("TRUE", "True", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_19);  
+	}
+	
+	@Test
+	public void testShiftFalse() throws ParserException
+	{
+	    Token tok1 = new Token("FALSE", "False", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_27);  
+	}
+	
+	@Test
+	public void testShiftThis() throws ParserException
+	{
+	    Token tok1 = new Token("THIS", "T"
+	            + "his", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_29);  
+	}
+	
+	@Test
+	public void testShiftNew() throws ParserException
+	{
+	    Token tok1 = new Token("NEW", "New", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_1);  
+	}
+	
+	@Test
+	public void testShiftNot() throws ParserException
+	{
+	    Token tok1 = new Token("Exclamation", "Exclamation", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_5);  
+	}
+	
+	@Test
+	public void testShiftLBracket() throws ParserException
+	{
+	    Token tok1 = new Token("LBRACKET", "LBracket", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_6);  
+	}
+	
+	@Test
+	public void testShiftLBrace() throws ParserException
+	{
+	    Token tok1 = new Token("LBRACE", "LBrace", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_7);  
+	}
+	
+	@Test
+	public void testShiftLeftPara() throws ParserException
+	{
+	    Token tok1 = new Token("LPARA", "LPara", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_8);
+	}
+	
+	@Test
+	public void testShiftRightPara() throws ParserException
+	{
+	    Token tok1 = new Token("RPARA", "RPara", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_18);  
+	}
+
+	@Test
+	public void testShiftVarDec_l() throws ParserException
+	{
+	    Token tok1 = new Token("VAR_DECL_L", "VAR_DECL_L", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_19);  
+	}
+	
+	@Test
+	public void testShiftVarDecl() throws ParserException
+	{
+	    Token tok1 = new Token("VAR_DECL", "VAR_DECL", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_20);  
+	}
+	
+	@Test
+	public void testShiftPublic() throws ParserException
+	{
+	    Token tok1 = new Token("PUBLIC", "Public", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_23);  
+	}
+	
+	@Test
+	public void testShiftStatic() throws ParserException
+	{
+	    Token tok1 = new Token("STATIC", "Static", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_24);  
+	}
+	
+	@Test
+	public void testShiftVoid() throws ParserException
+	{
+	    Token tok1 = new Token("VOID", "Void", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_27);  
+	}
+	
+	@Test
+	public void testShiftMain() throws ParserException
+	{
+	    Token tok1 = new Token("MAIN", "Main", 1);
+	    ArrayList<Token> tok = new ArrayList<Token>();
+	    tok.add(tok1);
+	    
+	    
+	    Parser.getInstance().createInputStack(tok);
+	    Parser.getInstance().pushStateStack(new MockState());
+	    Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+	    Parser.getInstance().nextState();
+	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_28);  
 	}
 }
 
@@ -157,99 +503,98 @@ public class TestParser
         }
         public void shiftEXP2() throws ParserException
         {
-            invalidState();
+        	changeToState(new CRM_1());
         }
         public void shiftEXP3() throws ParserException
         {
-            invalidState();
+        	changeToState(new CRM_2());
         }
         public void shiftEXP4() throws ParserException
         {
-            invalidState();
+        	changeToState(new CRM_3());
         }
         public void shiftEXP5() throws ParserException
         {
-            invalidState();
+        	changeToState(new JCTM_1());
         }
         public void shiftEXP6() throws ParserException
         {
-            invalidState();
+        	changeToState(new JCTM_15());
         }
         public void shiftEXP7() throws ParserException
         {
-            invalidState();
+        	changeToState(new JCTM_16());
         }
         public void shiftId() throws ParserException
         {
-            invalidState();
+        	changeToState(new JCTM_17());
         }
         public void shiftIntegerLiteral() throws ParserException
         {
-            invalidState();
+        	changeToState(new JCTM_18());
         }
         public void shiftTrue() throws ParserException
         {
-            invalidState();
+        	changeToState(new JCTM_19());
         }
         public void shiftFalse() throws ParserException
         {
-            invalidState();
+        	changeToState(new JCTM_27());
         }
         public void shiftThis() throws ParserException
         {
-            invalidState();
+        	changeToState(new JCTM_29());
         }
         public void shiftNew() throws ParserException
         {
-            invalidState();
+        	changeToState(new JMCC_1());
         }
         public void shiftExclamation() throws ParserException
         {
-            invalidState();
+        	changeToState(new JMCC_5());
         }
         public void shiftLeftBracket() throws ParserException
         {
-            invalidState();
+        	changeToState(new JMCC_6());
         }
         public void shiftLeftBrace() throws ParserException
         {
-            invalidState();
+        	changeToState(new JMCC_7());
         }
         public void shiftLeftPara() throws ParserException
         {
-            invalidState();
+        	changeToState(new JMCC_8());
+        }
+        public void shiftRightPara() throws ParserException
+        {
+        	changeToState(new JMCC_18());
         }
         public void shiftVAR_DECL_L() throws ParserException
         {
-            invalidState();
+        	changeToState(new JMCC_19());
         }
         public void shiftVAR_DECL() throws ParserException
         {
-            invalidState();
+        	changeToState(new JMCC_20());
         }
 
         public void shiftPublic() throws ParserException 
         {
-            invalidState();
+        	changeToState(new JMCC_23());
         }
 
         public void shiftStatic() throws ParserException 
         {
-            invalidState();
+        	changeToState(new JMCC_24());
         }
 
         public void shiftVoid() throws ParserException 
         {
-            invalidState();
+        	changeToState(new JMCC_27());
         }
 
         public void shiftMain() throws ParserException 
         {
-            invalidState();
-        }
-
-        public void shiftRightPara() throws ParserException 
-        {
-            invalidState();
+        	changeToState(new JMCC_28());
         }
     }

@@ -207,14 +207,219 @@ public abstract class State
 	{
 		invalidState();
 	}
-	/**
-	 * @author Jessica Schlesiger
-	 */
-	public void shiftSTMT() throws ParserException
-	{
-		invalidState();
-	}
-	public void shiftSTMT_P() throws ParserException
+	
+
+    public void shiftInt() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftBoolean() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftIf() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftWhile() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftElse() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftReturn() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftSystemOutPrintln() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftExtends() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftLength() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftEXP_R() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftEXP_L() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftOP6() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftOP5() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftOP4() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftOP3() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftOP2() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftOP1() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftSTMT_P() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftSTMT() throws ParserException
+    {
+        invalidState(); 
+    }
+
+    public void shiftTYPE() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftFORMAL_R() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftFORMAL_L() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftMETH_BODY() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftMETH_DECL() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftCLASS_DECL() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftCLASS_DECL_L() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftProg() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftLt() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftGt() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftPeriod() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftAssignment() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftMult() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftMinus() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftPlus() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftSemiColon() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftNotEquals() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftLtEquals() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftGtEquals() throws ParserException
+    {
+        invalidState(); 
+    }
+
+    public void shiftEquals() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftOr() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftAnd() throws ParserException
+    {
+        invalidState();
+    }
+
+    public void shiftComa() throws ParserException
+    {
+    	invalidState();
+    }
+
+	public void shiftNot() throws ParserException
 	{
 		invalidState();
 	}

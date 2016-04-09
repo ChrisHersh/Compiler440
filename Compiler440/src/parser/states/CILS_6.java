@@ -1,3 +1,4 @@
+
 package parser.states;
 import tokenizer.Token;
 import tokenizer.TokenTypes;
@@ -15,3 +16,4 @@ public class CILS_6 extends State {
 		changeToState(new CILS_5());
 	}
 }
+

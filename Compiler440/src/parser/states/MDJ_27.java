@@ -1,12 +1,11 @@
 package parser.states;
-/**
- * shift on }
- * change to state 29
- * @author Shannon Lee
- *
- */
+
 public class MDJ_27 extends State
 {
+	/**
+	 * Method used to shift on  right bracket '}' and change to state 28
+	 * @author Shannon Jones
+	 */
 	@Override
 	public void shiftRightBracket() throws ParserException
 	{

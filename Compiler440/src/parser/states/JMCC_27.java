@@ -7,12 +7,18 @@ package parser.states;
  */
 public class JMCC_27 extends State
 {
+	/**
+	 * Shift state to {@link JMCC_28} on a EXP7 token
+	 */
     @Override
     public void shiftEXP7() throws ParserException
     {
         changeToState(new JMCC_28());
     }
     
+    /**
+     * Shift state to {@link JMCC_18} on an IntegerLiteral token
+     */
     @Override
     public void shiftIntegerLiteral() throws ParserException
     {

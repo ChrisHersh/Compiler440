@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import parser.Parser;
 import tokenizer.Token;
+import tokenizer.TokenTypes;
 
 /**
  * 
@@ -16,19 +17,26 @@ import tokenizer.Token;
 public class TestJMCC_27
 {
 
+	/**
+	 * Reset the parser so each test is run in isolation
+	 */
     @Before
     public void setUp()
     {
         Parser.resetParser();
     }
     
+    /**
+     * Make sure that the state will change to JMCC_28
+     * @throws ParserException
+     */
     @Test
     public void testShiftEXP7() throws ParserException
     {
         Parser p = Parser.getInstance();
         State s = new JMCC_27();
         
-        Token inpToken = new Token("exp7", "EXP7", 6);
+        Token inpToken = new Token("exp7", TokenTypes.EXP7.name(), 6);
         
         p.getInputStack().push(inpToken);
         
@@ -37,7 +45,10 @@ public class TestJMCC_27
         assertTrue(p.getHoldStack().empty());
         assertTrue(p.getStateStack().empty());
         
-        s.shiftEXP7();
+        //Make the current state the one we're testing
+        p.changeState(s);
+        
+        p.nextState();
         
         assertTrue(p.getInputStack().empty());
         assertFalse(p.getHoldStack().empty());
@@ -49,13 +60,17 @@ public class TestJMCC_27
         assertTrue(p.getCurrentState() instanceof JMCC_28);
     }
     
+    /**
+     * Make sure that the state will change to JMCC_28
+     * @throws ParserException
+     */
     @Test
     public void testShiftIntegerLiteral() throws ParserException
     {
         Parser p = Parser.getInstance();
         State s = new JMCC_27();
         
-        Token inpToken = new Token("5", "INT_NUM", 6);
+        Token inpToken = new Token("5", TokenTypes.IntNum.name(), 6);
         
         p.getInputStack().push(inpToken);
         
@@ -64,7 +79,10 @@ public class TestJMCC_27
         assertTrue(p.getHoldStack().empty());
         assertTrue(p.getStateStack().empty());
         
-        s.shiftIntegerLiteral();
+        //Make the current state the one we're testing
+        p.changeState(s);
+        
+        p.nextState();
         
         assertTrue(p.getInputStack().empty());
         assertFalse(p.getHoldStack().empty());

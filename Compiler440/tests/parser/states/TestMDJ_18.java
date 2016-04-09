@@ -1,15 +1,14 @@
 package parser.states;
 
 import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import parser.Parser;
 import tokenizer.Token;
+import tokenizer.TokenTypes;
 /**
  * 
- * @author Jessica Schlesiger
+ * @author Jessica Schlesiger and Raistlin Hess
  * Test cases to ensure the MDJ_18 can properly shift when reading tokens
  */
 public class TestMDJ_18 {
@@ -55,4 +54,30 @@ public class TestMDJ_18 {
 		assertTrue(p.getCurrentState() instanceof MDJ_20);
 	}
 
+	/**
+	 * Make sure handles extends input correctly.
+	 * It should shift to MDJ_19
+	 */
+	@Test
+	public void testRightBrace() throws ParserException
+	{
+		Parser parser = Parser.getInstance();
+    	State state = new MDJ_18();
+    	Token token = new Token("^(extends)(\\W|\\Z)", TokenTypes.Extends.name(),1);
+    	parser.getInputStack().push(token);
+    	
+    	assertEquals(parser.getInputStack().peek(), token);
+        assertTrue(parser.getHoldStack().empty());
+        assertTrue(parser.getStateStack().empty());
+        
+        state.shiftExtends();
+        
+        assertTrue(parser.getInputStack().empty());
+        assertFalse(parser.getHoldStack().empty());
+        assertFalse(parser.getStateStack().empty());
+        
+        assertEquals(parser.getHoldStack().peek(), token);
+        assertEquals(parser.getStateStack().peek(), state);
+        assertTrue(parser.getCurrentState() instanceof MDJ_19);
+	}
 }

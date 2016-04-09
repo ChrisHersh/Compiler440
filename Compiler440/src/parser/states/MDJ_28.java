@@ -1,13 +1,13 @@
 package parser.states;
 
 import tokenizer.TokenTypes;
-/**
- * reduce State
- * @author Shannon Lee
- *
- */
+
 public class MDJ_28 extends State 
 {
+	/**
+	 * method for the reduce state for CLASS_DECL	
+	 * @author Shannon Jones
+	 */
 	@Override
 	protected void invalidState() throws ParserException
 	{

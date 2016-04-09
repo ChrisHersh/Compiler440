@@ -23,6 +23,14 @@ public class CILS_2 extends State
 	public void shiftLeftBrace() throws ParserException	{
 		changeToState(new CILS_6());
 	}
-	
+	/**
+	 * Method used to shift on  if and change to state 7
+	 * @author Shannon Jones
+	 */
+	@Override
+	public void shiftIf() throws ParserException
+	{
+		changeToState(new CILS_7());
+	}
 
 }

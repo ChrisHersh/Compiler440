@@ -3,12 +3,12 @@ package parser.states;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import parser.Parser;
 import tokenizer.Token;
+import tokenizer.TokenTypes;
 
 public class TestJMCC_7 
 {
@@ -105,7 +105,7 @@ public class TestJMCC_7
         Parser par = Parser.getInstance();
         State st = new JMCC_7();
         
-        Token tok = new Token("7", "INT_NUM", 3);
+        Token tok = new Token("7", TokenTypes.IntNum.name(), 3);
         
         par.getInputStack().push(tok);
         
@@ -137,7 +137,7 @@ public class TestJMCC_7
         Parser par = Parser.getInstance();
         State st = new JMCC_7();
         
-        Token tok = new Token("false", "FALSE", 3);
+        Token tok = new Token("false", TokenTypes.False.name(), 3);
         
         par.getInputStack().push(tok);
         
@@ -169,7 +169,7 @@ public class TestJMCC_7
         Parser par = Parser.getInstance();
         State st = new JMCC_7();
         
-        Token tok = new Token("id", "ID", 3);
+        Token tok = new Token("id", TokenTypes.Id.name(), 3);
         
         par.getInputStack().push(tok);
         
@@ -201,7 +201,7 @@ public class TestJMCC_7
         Parser par = Parser.getInstance();
         State st = new JMCC_7();
         
-        Token tok = new Token("!", "NOT", 3);
+        Token tok = new Token("!", TokenTypes.Not.name(), 3);
         
         par.getInputStack().push(tok);
         
