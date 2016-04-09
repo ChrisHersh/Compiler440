@@ -1,32 +1,40 @@
 package symboltable;
 
 import static org.junit.Assert.assertEquals;
-
-import java.util.ArrayList;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import symboltable.AddMainMethod;
-import symboltable.Method;
-import symboltable.VariableType;
+import symboltable.method.impl.MainMethod;
 /**
- *  Test Add Main Method.
- * @author Mohammad Alharbi
+ * Test main method
+ * @author Jared Good
  *
  */
 
 public class TestMainMethod {
 	
+	/**
+	 * Tests creating the main method
+	 */
+	@Test
+	public void testMainMethod()
+    {
+		
+		Class testClass = new Class("Test", null, null, null);
+		
+		//Tests that the main method is created properly
+		assertNotNull(MainMethod.getInstance(testClass));
+		
+		MainMethod mainMethod = MainMethod.getInstance(testClass);
+		
+		//Tests that the class of the main method is in the class it is supposed to be in
+		assertEquals( testClass.getName(), mainMethod.getClassName() );
+		
+		//Tests that main method is named as such
+		assertEquals( "main", mainMethod.getMethodName() );
+
+    }
 	
-	ArrayList<Method> methodList = new ArrayList<Method>();
-	AddMainMethod amm = new AddMainMethod();
-	/** add method name as main */
-	 @Test
-	    public void testAddMethod1()
-	    {
-	        
-		 	methodList.add(amm.createMethod("main","abstract",VariableType.OBJECT,null));
-	        assertEquals(methodList.get(0).getMethodName(), "main");
-	    }
 }
 
