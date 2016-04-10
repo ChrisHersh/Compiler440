@@ -3,10 +3,10 @@ package parser.states;
 import tokenizer.TokenTypes;
 
 /**
- * Implements the methods from state CRM_12
+ * Implements the methods from state CRM_11
  * @author Jason LoBianco
  */
-public class CRM_12 extends State 
+public class CRM_11 extends State 
 {
 	/**
 	 * reduces back to state CRM_2 and creates a TYPE token
@@ -15,6 +15,6 @@ public class CRM_12 extends State
 	@Override
 	public void invalidState() throws ParserException
 	{
-		reduceNumberOfStates(1, TokenTypes.TYPE);
+		reduceNumberOfStates(3, TokenTypes.TYPE);
 	}
 }
