@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import parser.Parser;
 import tokenizer.Token;
+import tokenizer.TokenTypes;
 
 /**
  * Test class to check the methods of the CILS_2 class.
