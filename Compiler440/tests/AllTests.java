@@ -93,6 +93,7 @@ import tokenizer.TestTokenizer;
 		TestCILS_15.class,
 		TestCILS_16.class,
 		TestCILS_19.class,
+		TestCILS_20.class,
 	}
 ) 
  
