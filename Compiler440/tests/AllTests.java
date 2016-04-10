@@ -77,6 +77,7 @@ import tokenizer.TestTokenizer;
 		TestCILS_20.class,
 		TestCILS_25.class,
 		TestCILS_26.class,
+		TestCILS_27.class,
 	}
 ) 
  
