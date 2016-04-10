@@ -7,8 +7,17 @@ import parser.states.TestCILS_16;
 import parser.states.TestCILS_2;
 import parser.states.TestCILS_7;
 import parser.states.TestCRM_1;
+import parser.states.TestCRM_10;
+import parser.states.TestCRM_11;
+import parser.states.TestCRM_12;
+import parser.states.TestCRM_13;
+import parser.states.TestCRM_16;
 import parser.states.TestCRM_2;
 import parser.states.TestCRM_3;
+import parser.states.TestCRM_6;
+import parser.states.TestCRM_7;
+import parser.states.TestCRM_8;
+import parser.states.TestCRM_9;
 import parser.states.TestJMCC_23;
 import parser.states.TestJMCC_27;
 import parser.states.TestJMCC_5;
@@ -67,7 +76,16 @@ import tokenizer.TestTokenizer;
 		TestCRM_1.class,
 		TestCRM_2.class,
 		TestCRM_3.class,
-
+		TestCRM_6.class,
+		TestCRM_7.class,
+		TestCRM_8.class,
+		TestCRM_9.class,
+		TestCRM_10.class,
+		TestCRM_11.class,
+		TestCRM_12.class,
+		TestCRM_13.class,
+		TestCRM_16.class,
+		
 		TestMDJ_0.class,
 		TestMDJ_1.class,
 		TestMDJ_4.class,
