@@ -18,6 +18,19 @@ import parser.states.State;
  * */
 public class JMCC_23 extends State
 {
+	
+	/**
+	 * Shift to JMCC_20 if the shift is EXP5.
+	 */
+	@Override
+	public void shiftEXP5() throws ParserException
+	{
+		changeToState(new JMCC_20());
+	}
+	
+	/**
+	 * Shift to JMCC_24 if the shift is EXP6
+	 */
     @Override
     public void shiftEXP6() throws ParserException
     {

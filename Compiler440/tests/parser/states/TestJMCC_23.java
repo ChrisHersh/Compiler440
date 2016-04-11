@@ -36,6 +36,37 @@ public class TestJMCC_23
         Parser.resetParser();
     }
     
+    /**
+     * Test that the state can shift to JMCC_20
+     * @throws ParserException
+     */
+    @Test
+    public void testShiftEXP5() throws ParserException
+    {
+        Parser p = Parser.getInstance();
+        State s = new JMCC_23();
+        
+        Token inpToken = new Token("exp5", "EXP5", 42);
+        
+        p.getInputStack().push(inpToken);
+        
+        assertFalse(p.getInputStack().empty());
+        assertEquals(p.getInputStack().peek(), inpToken);
+        assertTrue(p.getHoldStack().empty());
+        assertTrue(p.getStateStack().empty());
+        
+        s.shiftEXP5();
+        
+        assertTrue(p.getInputStack().empty());
+        assertFalse(p.getHoldStack().empty());
+        assertFalse(p.getStateStack().empty());
+        
+        assertEquals(p.getHoldStack().peek(), inpToken);
+        assertEquals(p.getStateStack().peek(), s);
+        
+        assertTrue(p.getCurrentState() instanceof JMCC_20);
+    }
+    
     @Test
     public void testShiftEXP6() throws ParserException
     {
