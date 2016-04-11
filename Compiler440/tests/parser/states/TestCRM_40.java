@@ -26,7 +26,7 @@ public class TestCRM_40 {
 	public void testShiftId() throws ParserException 
 	{
 		Parser p = Parser.getInstance();
-	    State s = new CRM_39();
+	    State s = new CRM_40();
 	        
 	    Token token = new Token("METH_DECL_L", "METH_DECL_L", 25);
 	    
