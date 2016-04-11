@@ -32,13 +32,13 @@ public class TestMDJ_21 {
 	 * @throws ParserException
 	 */
 	@Test
-	public void testShiftLeftBracket() throws ParserException 
+	public void testShiftLeftBrace() throws ParserException 
 	{
 		 
 			    Parser p = Parser.getInstance();
 			    State s = new MDJ_21();
 			        
-			    Token token = new Token("{", TokenTypes.LBracket.name(), 4);
+			    Token token = new Token("{", TokenTypes.LBrace.name(), 4);
 			    
 			    p.getInputStack().push(token);
 			    
@@ -47,7 +47,7 @@ public class TestMDJ_21 {
 			    assertTrue(p.getHoldStack().empty());
 			    assertTrue(p.getStateStack().empty());
 			    
-			    s.shiftLeftBracket();
+			    s.shiftLeftBrace();
 			   
 			    assertTrue(p.getInputStack().empty());
 			    assertFalse(p.getHoldStack().empty());

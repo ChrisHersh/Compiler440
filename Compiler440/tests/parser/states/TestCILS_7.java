@@ -28,11 +28,11 @@ public class TestCILS_7 {
     } 
 	
 		@Test
-		public void testLeftBrace() throws ParserException
+		public void testLeftPara() throws ParserException
 		{
 			Parser parser = Parser.getInstance();
 	    	State state = new CILS_7();
-	    	Token token = new Token("(",TokenTypes.LBrace.name(),1);
+	    	Token token = new Token("(",TokenTypes.LPara.name(),1);
 	    	
 	    	parser.getInputStack().push(token);
 	    	
@@ -40,7 +40,7 @@ public class TestCILS_7 {
 	        assertTrue(parser.getHoldStack().empty());
 	        assertTrue(parser.getStateStack().empty());
 	        
-	        state.shiftLeftBrace();
+	        state.shiftLeftPara();
 	        
 	        assertTrue(parser.getInputStack().empty());
 	        assertFalse(parser.getHoldStack().empty());
