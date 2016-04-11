@@ -11,7 +11,7 @@ import parser.Parser;
 import tokenizer.Token;
 import tokenizer.TokenTypes;
 
-public class TestJMCC_1
+public class TestJMCC_4
 {
     @Before
     public void setUp()
@@ -20,12 +20,12 @@ public class TestJMCC_1
     }
     
     @Test
-    public void testShiftOP1() throws ParserException
+    public void testShiftAnd() throws ParserException
     {
         Parser p = Parser.getInstance();
-        State s = new JMCC_1();
+        State s = new JMCC_4();
         
-        Token inpToken = new Token("op1", TokenTypes.OP1.name(), 6);
+        Token inpToken = new Token("||", TokenTypes.And.name(), 6);
         
         p.getInputStack().push(inpToken);
         
@@ -46,16 +46,16 @@ public class TestJMCC_1
         assertEquals(p.getHoldStack().peek(), inpToken);
         assertEquals(p.getStateStack().peek(), s);
         
-        assertTrue(p.getCurrentState() instanceof JMCC_3);
+        assertTrue(p.getCurrentState() instanceof JMCC_10);
     }
     
     @Test
-    public void testShiftNotEquals() throws ParserException
+    public void testShiftOP2() throws ParserException
     {
         Parser p = Parser.getInstance();
-        State s = new JMCC_1();
+        State s = new JMCC_4();
         
-        Token inpToken = new Token("||", TokenTypes.Or.name(), 6);
+        Token inpToken = new Token("||", TokenTypes.OP2.name(), 6);
         
         p.getInputStack().push(inpToken);
         
@@ -76,6 +76,6 @@ public class TestJMCC_1
         assertEquals(p.getHoldStack().peek(), inpToken);
         assertEquals(p.getStateStack().peek(), s);
         
-        assertTrue(p.getCurrentState() instanceof JMCC_2);
+        assertTrue(p.getCurrentState() instanceof JMCC_5);
     }
 }

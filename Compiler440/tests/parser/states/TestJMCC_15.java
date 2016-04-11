@@ -36,7 +36,7 @@ public class TestJMCC_15
         //Make the current state the one we're testing
         p.changeState(s);
         
-        p.NextState();
+        p.nextState();
         
         assertTrue(p.getInputStack().empty());
         assertFalse(p.getHoldStack().empty());
@@ -66,7 +66,7 @@ public class TestJMCC_15
         //Make the current state the one we're testing
         p.changeState(s);
         
-        p.NextState();
+        p.nextState();
         
         assertTrue(p.getInputStack().empty());
         assertFalse(p.getHoldStack().empty());
@@ -96,7 +96,7 @@ public class TestJMCC_15
         //Make the current state the one we're testing
         p.changeState(s);
         
-        p.NextState();
+        p.nextState();
         
         assertTrue(p.getInputStack().empty());
         assertFalse(p.getHoldStack().empty());
