@@ -47,4 +47,36 @@ public class TestCILS_15
 		assertEquals(parser.getStateStack().peek(), state);
 		assertTrue(parser.getCurrentState() instanceof CILS_19);
 	}
+	
+
+	/**
+	 * @author Mohammed
+	 * Make sure handles RightBrace input correctly.
+	 * It should shift to CILS_31
+	 */
+
+	@Test
+	public void testLeftBrace() throws ParserException
+	{
+		Parser parser = Parser.getInstance();
+    	State state = new CILS_15();
+    	Token token = new Token("}",TokenTypes.LBrace.name(),1);
+    	
+    	parser.getInputStack().push(token);
+    	
+    	assertEquals(parser.getInputStack().peek(), token);
+        assertTrue(parser.getHoldStack().empty());
+        assertTrue(parser.getStateStack().empty());
+        
+        state.shiftRightBrace();
+        
+        assertTrue(parser.getInputStack().empty());
+        assertFalse(parser.getHoldStack().empty());
+        assertFalse(parser.getStateStack().empty());
+        
+        assertEquals(parser.getHoldStack().peek(), token);
+        assertEquals(parser.getStateStack().peek(), state);
+        assertTrue(parser.getCurrentState() instanceof CILS_31);
+	}
+
 }
