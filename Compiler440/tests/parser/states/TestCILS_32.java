@@ -45,7 +45,7 @@ public class TestCILS_32
 	    assertTrue(p.getHoldStack().empty());
 	    assertTrue(p.getStateStack().empty());
 	    
-	    s.reduceSTMT();
+	    s.shiftSTMT();
 	    
 	    assertTrue(p.getInputStack().empty());
 	    assertFalse(p.getHoldStack().empty());

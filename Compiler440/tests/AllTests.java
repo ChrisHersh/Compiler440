@@ -83,6 +83,7 @@ import tokenizer.TestTokenizer;
 		TestCILS_2.class,
 		TestCILS_7.class,
 		TestCILS_8.class,
+		TestCILS_10.class,
 		TestCILS_12.class,
 		TestCILS_13.class,
 		TestCILS_15.class,
@@ -95,6 +96,8 @@ import tokenizer.TestTokenizer;
 		TestCILS_25.class,
 		TestCILS_26.class,
 		TestCILS_27.class,
+		TestCILS_31.class,
+		TestCILS_32.class,
 	}
 ) 
  
