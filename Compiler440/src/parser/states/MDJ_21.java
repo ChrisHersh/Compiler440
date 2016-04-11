@@ -8,7 +8,7 @@ public class MDJ_21 extends State{
 	 *
 	 */
 	@Override
-	public void shiftLeftBracket() throws ParserException
+	public void shiftLeftBrace() throws ParserException
 	{
 		changeToState(new MDJ_23());
 	}

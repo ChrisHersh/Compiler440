@@ -8,7 +8,7 @@ public class CILS_16 extends State
 	 * @author Shannon Jones
 	 */
 	@Override
-	public void shiftRightBrace() throws ParserException
+	public void shiftRightPara() throws ParserException
 	{
 		changeToState(new CILS_23());
 	}
