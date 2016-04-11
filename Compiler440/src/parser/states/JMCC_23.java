@@ -13,7 +13,7 @@ import parser.states.JMCC_29;
 import parser.states.ParserException;
 import parser.states.State;
 
-/*
+/**
  * @author Manal Ibrahim, 
  * */
 public class JMCC_23 extends State
@@ -43,8 +43,9 @@ public class JMCC_23 extends State
         changeToState(new JMCC_29());
     }
     
-    /*
+    /**
      * @author Manal Ibrahim, 
+     * handle id transition Shift state to {JCTM_18} 
      * */
     @Override
     public void shiftIntegerLiteral() throws ParserException
@@ -52,8 +53,9 @@ public class JMCC_23 extends State
         changeToState(new JCTM_18());
     }
     
-    /*
+    /**
      * @author Manal Ibrahim, 
+     * handle True transition Shift state to {JCTM_15} 
      * */ 
     
     @Override
@@ -62,8 +64,9 @@ public class JMCC_23 extends State
  	    changeToState(new JCTM_15());
  	}
     
-    /*
-     * @author Manal Ibrahim, 
+    /**
+     * @author Manal Ibrahim,
+     * handle False transition Shift state to {JCTM_16}  
      * */ 
      @Override
  	public void shiftFalse() throws ParserException
