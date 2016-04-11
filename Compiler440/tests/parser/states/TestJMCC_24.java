@@ -40,7 +40,6 @@ public class TestJMCC_24 {
 	    tokens.add(new Token("exp5", "EXP5", 5));
 	    tokens.add(new Token("op5", "OP5", 5));
 	    tokens.add(new Token("exp6", "EXP6", 5));
-
 	    
 	    //push the tokens on the holdStack in the order that they are expected to be found in
 	    p.pushHoldStack(tokens.get(2)); 
