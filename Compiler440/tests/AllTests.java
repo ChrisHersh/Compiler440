@@ -120,6 +120,7 @@ import tokenizer.TestTokenizer;
 		TestCILS_27.class,
 		TestCILS_28.class,
 		TestCILS_29.class,
+		TestCILS_30.class,
 		TestCILS_31.class,
 		TestCILS_32.class,
 	}
