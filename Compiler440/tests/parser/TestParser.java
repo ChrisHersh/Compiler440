@@ -382,6 +382,22 @@ public class TestParser
 	}
 	
 	@Test
+	public void testShiftInvalid() throws ParserException
+	{
+	    //Invalid Token (So it should shift to invalid state)
+	    Token tok1 = new Token("LCKET", "LBrac", 1);
+        ArrayList<Token> tok = new ArrayList<Token>();
+        tok.add(tok1);
+        
+        
+        Parser.getInstance().createInputStack(tok);
+        Parser.getInstance().pushStateStack(new MockState());
+        Parser.getInstance().changeState(Parser.getInstance().peekStateStack());
+        Parser.getInstance().nextState();
+        assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_6); 
+	}
+	
+	@Test
 	public void testShiftLBrace() throws ParserException
 	{
 	    Token tok1 = new Token("LBRACE", "LBrace", 1);
@@ -622,5 +638,10 @@ public class TestParser
         public void shiftMain() throws ParserException 
         {
         	changeToState(new JMCC_28());
+        }
+        
+        public void shiftInvalidState() throws ParserException
+        {
+            changeToState(new JMCC_6());
         }
     }

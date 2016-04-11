@@ -31,6 +31,9 @@ public class JMCC_7 extends State
 		changeToState(st);
 	}
 	
+	/**
+	 * Shift to JMCC_20 if the shift is EXP5.
+	 */
 	@Override
 	public void shiftEXP5()
 	{
@@ -80,6 +83,7 @@ public class JMCC_7 extends State
 	}
 	
 	/**
+	 * Shift to JMCC_32 if the shift is exp6
 	 * @author Jessica Schlesiger
 	 */
 	@Override

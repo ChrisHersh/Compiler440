@@ -7,6 +7,16 @@ package parser.states;
  */
 public class JMCC_27 extends State
 {
+	
+	/**
+	 * Shift to JMCC_32 if the shift is EXP6.
+	 */
+	@Override
+	public void shiftEXP6() throws ParserException
+	{
+		changeToState(new JMCC_32());
+	}
+	
 	/**
 	 * Shift state to {@link JMCC_28} on a EXP7 token
 	 */
