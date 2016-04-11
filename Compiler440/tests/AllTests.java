@@ -1,24 +1,26 @@
-import static org.junit.Assert.*;
-
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 import parser.TestParser;
-import symboltable.*;
+import parser.states.*;
+import parser.states.TestState;
+import symboltable.TestClasses;
+import symboltable.TestMainMethod;
+import symboltable.TestMethods;
+import symboltable.TestSymbolTable;
+import symboltable.TestVariables;
+import symboltable.testClass;
 import tokenizer.TestToken;
 import tokenizer.TestTokenTypes;
-import parser.states.TestMDJ_4;
 import tokenizer.TestTokenizer;
-import parser.states.*;
 
 @RunWith(Suite.class) 
 @Suite.SuiteClasses
 ( 
 	{  
-		TestCheckMainMethod.class,
+		TestMainMethod.class,
 		testClass.class,
 		TestClasses.class,
-		TestMainMethod.class,
 		TestMethods.class,
 		TestVariables.class,
 		TestParser.class,
@@ -33,11 +35,32 @@ import parser.states.*;
 		TestJMCC_7.class,
 		TestJMCC_23.class,
 		TestJMCC_27.class,
+		TestJMCC_30.class,
 		
 		TestCRM_1.class,
 		TestCRM_2.class,
 		TestCRM_3.class,
-
+		TestCRM_6.class,
+		TestCRM_7.class,
+		TestCRM_8.class,
+		TestCRM_9.class,
+		TestCRM_10.class,
+		TestCRM_11.class,
+		TestCRM_12.class,
+		TestCRM_13.class,
+		TestCRM_16.class,
+		TestCRM_18.class,
+		TestCRM_31.class,
+		TestCRM_32.class,
+		TestCRM_33.class,
+		TestCRM_34.class,
+		TestCRM_35.class,
+		TestCRM_36.class,
+		TestCRM_38.class,
+		TestCRM_39.class,
+		TestCRM_40.class,
+		TestCRM_41.class,
+		
 		TestMDJ_0.class,
 		TestMDJ_1.class,
 		TestMDJ_4.class,
@@ -59,8 +82,19 @@ import parser.states.*;
 		
 		TestCILS_2.class,
 		TestCILS_7.class,
+		TestCILS_8.class,
 		TestCILS_12.class,
+		TestCILS_13.class,
+		TestCILS_15.class,
 		TestCILS_16.class,
+		TestCILS_17.class,
+		TestCILS_19.class,
+		TestCILS_20.class,
+		TestCILS_22.class,
+		TestCILS_24.class,
+		TestCILS_25.class,
+		TestCILS_26.class,
+		TestCILS_27.class,
 	}
 ) 
  

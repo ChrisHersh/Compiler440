@@ -1,6 +1,5 @@
 package parser.states;
 
-public class JMCC_2 extends State
-{
+public class JMCC_2 extends State {
 
 }

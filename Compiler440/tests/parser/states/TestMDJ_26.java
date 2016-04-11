@@ -38,13 +38,13 @@ public class TestMDJ_26
 		Parser parser = Parser.getInstance();
 		State state = new MDJ_26();
 		ArrayList<Token> tokens = new ArrayList<Token>();
-		tokens.add(new Token("^(class)(\\W|\\Z)", TokenTypes.Class.name(),1));
-		tokens.add(new Token("^([A-Za-z]\\w*)", TokenTypes.Id.name(),1));
-		tokens.add(new Token("^(\\{)", TokenTypes.LBrace.name(),1));
-		tokens.add(new Token("^(VAR_DECL_L)", TokenTypes.Junk.name(),1));
-		tokens.add(new Token("^(METH_DECL_L)", TokenTypes.Junk.name(),1));
-		tokens.add(new Token("^(\\})", TokenTypes.RBrace.name(),1));
-		tokens.add(new Token("^(public)", TokenTypes.Public.name(),1));
+		tokens.add(new Token("class", TokenTypes.Class.name(),1));
+		tokens.add(new Token("iAmVariable", TokenTypes.Id.name(),1));
+		tokens.add(new Token("{", TokenTypes.LBrace.name(),1));
+		tokens.add(new Token("VAR_DECL_L", TokenTypes.VAR_DECL_L.name(),1));
+		tokens.add(new Token("METH_DECL_L", TokenTypes.METH_DECL_L.name(),1));
+		tokens.add(new Token("}", TokenTypes.RBrace.name(),1));
+		tokens.add(new Token("public", TokenTypes.Public.name(),1));
 		
 		parser.pushHoldStack(tokens.get(6));
 		parser.pushHoldStack(tokens.get(5));

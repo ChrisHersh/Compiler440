@@ -39,6 +39,7 @@ public abstract class State
 	/**
 	 * Takes the state that you would be in after reducing and the name of the non terminal created by the reduce
 	 * It then pops states and holds off the stack and adds the new nonterminal to the input stack
+	 * This method only works if the state in the state machine only reduces to one state ever
 	 * @author Chris Kjeldgaard
 	 * @param state
 	 * @param tokenName
@@ -56,6 +57,28 @@ public abstract class State
 		currentParser.popStateStack();
 		children.add(currentParser.popHoldStack());
 		currentParser.changeState(state);
+		
+		Token newToken = new Token(tokenName, children);
+		currentParser.pushInputStack(newToken);
+		
+	}
+	
+	/**
+	 * This takes the number of tokens you need to pop off the stack in order to reduce
+	 * It then pops them and their states off the stack and creates the new token.
+	 * @author Chris Kjeldgaard
+	 * @param state
+	 * @param tokenName
+	 */
+	protected void reduceNumberOfStates(int count, TokenTypes tokenName)
+	{
+		ArrayList<Token> children = new ArrayList<Token>();
+		
+		for(int x = 0; x < count; x++)
+		{
+			currentParser.changeState(currentParser.popStateStack());
+			children.add(currentParser.popHoldStack());
+		}
 		
 		Token newToken = new Token(tokenName, children);
 		currentParser.pushInputStack(newToken);
@@ -207,6 +230,7 @@ public abstract class State
 	{
 		invalidState();
 	}
+	
 
     public void shiftInt() throws ParserException
     {
@@ -415,6 +439,11 @@ public abstract class State
 
     public void shiftComa() throws ParserException
     {
-        invalidState();
+    	invalidState();
     }
+
+	public void shiftNot() throws ParserException
+	{
+		invalidState();
+	}
 }

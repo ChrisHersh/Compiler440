@@ -38,14 +38,14 @@ public class TestMDJ_28 {
 	    /*
 	     * the tokens in CLASS_DECL -> class id extends is { VAR_DECL_L METH_DECL_L }
 	     */
-	    tokens.add(new Token("}","RT_BRACKET",5));
-	    tokens.add(new Token("METH_DECL_L","METH_DECL_L",5));
-	    tokens.add(new Token("VAR_DECL_L","VAR_DECL_L",5));
-	    tokens.add(new Token("{","LT_BRACKET",5));
-	    tokens.add(new Token("id","ID",5));
-	    tokens.add(new Token("extends","EXTENDS",5));
-	    tokens.add(new Token("id","ID",5));
-	    tokens.add(new Token("class","CLASS",5));
+	    tokens.add(new Token("}",TokenTypes.RBracket.name(),5));
+	    tokens.add(new Token("METH_DECL_L",TokenTypes.METH_DECL_L.name(),5));
+	    tokens.add(new Token("VAR_DECL_L",TokenTypes.VAR_DECL_L.name(),5));
+	    tokens.add(new Token("{", TokenTypes.LBracket.name(),5));
+	    tokens.add(new Token("id",TokenTypes.Id.name(),5));
+	    tokens.add(new Token("extends",TokenTypes.Extends.name(),5));
+	    tokens.add(new Token("id",TokenTypes.Id.name(),5));
+	    tokens.add(new Token("class",TokenTypes.Class.name(),5));
 	    
 	    /*
 	     * pushes the token in stack order

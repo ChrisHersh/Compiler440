@@ -39,26 +39,40 @@ public class JMCC_7 extends State
 	}
 	
 	/***** shifts; id, false, !, inter_literal ****/
-	
+	/**
+	 * @author Shannon Lee
+	 * shifts an inter_literal
+	 */
 	@Override
 	public void shiftIntegerLiteral()
 	{
 		changeToState(new JCTM_18());
 	}
 	
-	
+	/**
+	 * @author Shannon Lee
+	 * shifts on false
+	 */
 	@Override
 	public void shiftFalse()
 	{
 		changeToState(new JCTM_16());
 	}
 	
+	/**
+	 * @author Shannon Lee
+	 * shift on id
+	 */
 	@Override
 	public void shiftId()
 	{
 		changeToState(new JCTM_1());
 	}
 	
+	/**
+	 * @author Shannon Lee
+	 * shift on !
+	 */
 	@Override
 	public void shiftExclamation()
 	{

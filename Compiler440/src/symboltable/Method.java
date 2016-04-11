@@ -7,10 +7,7 @@ import java.util.ArrayList;
  * 
  * NOTE: at the moment, this does not take into account MethodObjectVariables (Objects)
  * 			it only handles primitives
- * @author Curtis Rabe
- *@update by Mohammed 
- *change the privet class classname to string classname 
- *remove the abstract from the method class declaration 
+ * @author Curtis Rabe 
  */
 
 public abstract class Method

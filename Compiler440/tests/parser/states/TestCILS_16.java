@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import parser.Parser;
 import tokenizer.Token;
+import tokenizer.TokenTypes;
 /**
 	 * Tests the functionality of CILS_2
 	 * making sure it changes state correctly
@@ -27,11 +28,11 @@ public class TestCILS_16 {
         Parser.resetParser();
     } 
 		@Test
-		public void testIf() throws ParserException
+		public void testRightBrace() throws ParserException
 		{
 			Parser parser = Parser.getInstance();
 	    	State state = new CILS_16();
-	    	Token token = new Token(")","RT_BRACE",1);
+	    	Token token = new Token(")",TokenTypes.RBrace.name(),1);
 	    	
 	    	parser.getInputStack().push(token);
 	    	

@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import parser.Parser;
 import tokenizer.Token;
+import tokenizer.TokenTypes;
 	/**
 	 * Tests the functionality of CILS_2
 	 * making sure it changes state correctly
@@ -31,7 +32,7 @@ public class TestCILS_12 {
 		{
 			Parser parser = Parser.getInstance();
 	    	State state = new CILS_12();
-	    	Token token = new Token("EXP1","EXP1",1);
+	    	Token token = new Token("EXP1",TokenTypes.EXP1.name(),1);
 	    	
 	    	parser.getInputStack().push(token);
 	    	
