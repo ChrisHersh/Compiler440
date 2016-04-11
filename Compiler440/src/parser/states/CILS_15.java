@@ -17,7 +17,7 @@ public class CILS_15 extends State
 	 * If the input is RightBrace, this shifts to CILS_31
 	 */
 	@Override
-	public void shiftRightBarce()
+	public void shiftRightBrace()
 	{
 		changeToState(new CILS_31());
 	}
