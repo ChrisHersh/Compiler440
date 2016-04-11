@@ -75,12 +75,19 @@ public class JMCC_23 extends State
     {
         changeToState(new JCTM_29());
     }
-    
+    /**
+     * Mohammed
+     * handle id transition Shift state to {JCTM_1} 
+     */
     @Override
     public void shiftId() throws ParserException
     {
         changeToState(new JCTM_1());
     }
+    /**
+     * Mohammed
+     * handle THIS transition Shift state to {JCTM_17} 
+     */
     
     @Override
     public void shiftThis() throws ParserException

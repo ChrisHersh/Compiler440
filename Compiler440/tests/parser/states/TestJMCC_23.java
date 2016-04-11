@@ -253,6 +253,11 @@ public class TestJMCC_23
         
         assertTrue(p.getCurrentState() instanceof JCTM_29);
     }
+    /**
+     * Mohammed
+     * Make sure that the state will change to JCTM_1
+     * @throws ParserException
+     */
     @Test
     public void testshiftid() throws ParserException
     {
@@ -280,6 +285,11 @@ public class TestJMCC_23
         assertTrue(p.getCurrentState() instanceof JCTM_1);
     }
     
+    /**
+     * Mohammed
+     * Make sure that the state will change to JCTM_17
+     * @throws ParserException
+     */
     @Test
     public void testshiftthis() throws ParserException
     {
