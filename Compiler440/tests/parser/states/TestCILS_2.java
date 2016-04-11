@@ -108,4 +108,88 @@ public class TestCILS_2 {
         assertEquals(parser.getStateStack().peek(), state);
         assertTrue(parser.getCurrentState() instanceof CILS_7);
 	}
+	
+    /**
+     * Tests shifting to CILS_10 when while is received. 
+     * @throws ParserException
+     */
+	@Test
+	public void testWhile() throws ParserException
+	{
+		Parser parser = Parser.getInstance();
+    	State state = new CILS_2();
+    	Token token = new Token("while",TokenTypes.While.name(),1);
+    	
+    	parser.getInputStack().push(token);
+    	
+    	assertEquals(parser.getInputStack().peek(), token);
+        assertTrue(parser.getHoldStack().empty());
+        assertTrue(parser.getStateStack().empty());
+        
+        state.shiftWhile();
+        
+        assertTrue(parser.getInputStack().empty());
+        assertFalse(parser.getHoldStack().empty());
+        assertFalse(parser.getStateStack().empty());
+        
+        assertEquals(parser.getHoldStack().peek(), token);
+        assertEquals(parser.getStateStack().peek(), state);
+        assertTrue(parser.getCurrentState() instanceof CILS_10);
+	}
+	
+    /**
+     * Tests shifting to CILS_8 when System.out.println is received. 
+     * @throws ParserException
+     */
+	@Test
+	public void testSystemOutPrintln() throws ParserException
+	{
+		Parser parser = Parser.getInstance();
+    	State state = new CILS_2();
+    	Token token = new Token("System.out.println",TokenTypes.SystemOutPrintln.name(),1);
+    	
+    	parser.getInputStack().push(token);
+    	
+    	assertEquals(parser.getInputStack().peek(), token);
+        assertTrue(parser.getHoldStack().empty());
+        assertTrue(parser.getStateStack().empty());
+        
+        state.shiftSystemOutPrintln();
+        
+        assertTrue(parser.getInputStack().empty());
+        assertFalse(parser.getHoldStack().empty());
+        assertFalse(parser.getStateStack().empty());
+        
+        assertEquals(parser.getHoldStack().peek(), token);
+        assertEquals(parser.getStateStack().peek(), state);
+        assertTrue(parser.getCurrentState() instanceof CILS_8);
+	}
+	
+    /**
+     * Tests shifting to CILS_9 when id is received. 
+     * @throws ParserException
+     */
+	@Test
+	public void testId() throws ParserException
+	{
+		Parser parser = Parser.getInstance();
+    	State state = new CILS_2();
+    	Token token = new Token("id",TokenTypes.Id.name(),1);
+    	
+    	parser.getInputStack().push(token);
+    	
+    	assertEquals(parser.getInputStack().peek(), token);
+        assertTrue(parser.getHoldStack().empty());
+        assertTrue(parser.getStateStack().empty());
+        
+        state.shiftId();
+        
+        assertTrue(parser.getInputStack().empty());
+        assertFalse(parser.getHoldStack().empty());
+        assertFalse(parser.getStateStack().empty());
+        
+        assertEquals(parser.getHoldStack().peek(), token);
+        assertEquals(parser.getStateStack().peek(), state);
+        assertTrue(parser.getCurrentState() instanceof CILS_9);
+	}
 }

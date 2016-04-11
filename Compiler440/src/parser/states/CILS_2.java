@@ -32,5 +32,32 @@ public class CILS_2 extends State
 	{
 		changeToState(new CILS_7());
 	}
+	
+	/**
+	 * Method used to shift on while and change to state 10
+	 */
+	@Override
+	public void shiftWhile() throws ParserException
+	{
+		changeToState(new CILS_10());
+	}
+	
+	/**
+	 * Method used to shift on System.out.println and change to state 8
+	 */
+	@Override
+	public void shiftSystemOutPrintln() throws ParserException
+	{
+		changeToState(new CILS_8());
+	}
+	
+	/**
+	 * Method used to shift on id and change to state 10
+	 */
+	@Override
+	public void shiftId() throws ParserException
+	{
+		changeToState(new CILS_9());
+	}
 
 }
