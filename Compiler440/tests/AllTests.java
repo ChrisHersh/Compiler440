@@ -35,6 +35,7 @@ import tokenizer.TestTokenizer;
 		TestJMCC_7.class,
 		TestJMCC_23.class,
 		TestJMCC_27.class,
+		TestJMCC_30.class,
 		
 		TestCRM_1.class,
 		TestCRM_2.class,
@@ -77,6 +78,7 @@ import tokenizer.TestTokenizer;
 		TestCILS_20.class,
 		TestCILS_25.class,
 		TestCILS_26.class,
+		TestCILS_27.class,
 	}
 ) 
  
