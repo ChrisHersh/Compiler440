@@ -1,6 +1,5 @@
 package parser.states;
 
-import tokenizer.Token;
 import tokenizer.TokenTypes;
 
 public class CRM_38 extends State {

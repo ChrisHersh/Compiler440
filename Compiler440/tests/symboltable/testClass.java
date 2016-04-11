@@ -1,18 +1,15 @@
 
 package symboltable;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
 import org.junit.Test;
 
 import symboltable.variable.impl.InstancePrimitiveVariable;
-import symboltable.Class;
-import symboltable.Method;
-import symboltable.Variable;
-import symboltable.VariableScope;
-import symboltable.VariableType;
 
 
 /**

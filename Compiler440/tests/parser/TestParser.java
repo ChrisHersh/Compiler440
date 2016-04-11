@@ -1,14 +1,40 @@
 package parser;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
-import java.util.Stack;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import parser.states.*;
+import parser.states.CRM_1;
+import parser.states.CRM_2;
+import parser.states.CRM_3;
+import parser.states.JCTM_1;
+import parser.states.JCTM_15;
+import parser.states.JCTM_16;
+import parser.states.JCTM_17;
+import parser.states.JCTM_18;
+import parser.states.JCTM_19;
+import parser.states.JCTM_27;
+import parser.states.JCTM_29;
+import parser.states.JMCC_1;
+import parser.states.JMCC_18;
+import parser.states.JMCC_19;
+import parser.states.JMCC_20;
+import parser.states.JMCC_23;
+import parser.states.JMCC_24;
+import parser.states.JMCC_27;
+import parser.states.JMCC_28;
+import parser.states.JMCC_5;
+import parser.states.JMCC_6;
+import parser.states.JMCC_7;
+import parser.states.JMCC_8;
+import parser.states.MDJ_10;
+import parser.states.ParserException;
+import parser.states.State;
 import tokenizer.Token;
 
 /**

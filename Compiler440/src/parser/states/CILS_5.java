@@ -1,6 +1,4 @@
 package parser.states;
-import tokenizer.Token;
-import tokenizer.TokenTypes;
 
 
 /**

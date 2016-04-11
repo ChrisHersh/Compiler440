@@ -1,10 +1,8 @@
 package parser.states;
 
-import tokenizer.Token;
 /**
  * @author Jessica Schlesiger
  */
-import tokenizer.TokenTypes;
 
 public class CILS_2 extends State
 {
