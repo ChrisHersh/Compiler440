@@ -44,7 +44,7 @@ public class JMCC_7 extends State
 	/***** shifts; id, false, !, inter_literal ****/
 	/**
 	 * @author Shannon Lee
-	 * shifts an inter_literal
+	 * method shifts an inter_literal
 	 */
 	@Override
 	public void shiftIntegerLiteral()
@@ -54,7 +54,7 @@ public class JMCC_7 extends State
 	
 	/**
 	 * @author Shannon Lee
-	 * shifts on false
+	 * method shifts on false
 	 */
 	@Override
 	public void shiftFalse()
@@ -64,7 +64,7 @@ public class JMCC_7 extends State
 	
 	/**
 	 * @author Shannon Lee
-	 * shift on id
+	 * method shift on id
 	 */
 	@Override
 	public void shiftId()
@@ -74,7 +74,7 @@ public class JMCC_7 extends State
 	
 	/**
 	 * @author Shannon Lee
-	 * shift on !
+	 * method shift on !
 	 */
 	@Override
 	public void shiftExclamation()

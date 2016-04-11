@@ -7,7 +7,7 @@ public class MDJ_27 extends State
 	 * @author Shannon Jones
 	 */
 	@Override
-	public void shiftRightBracket() throws ParserException
+	public void shiftRightBrace() throws ParserException
 	{
 		changeToState(new MDJ_28());
 	}

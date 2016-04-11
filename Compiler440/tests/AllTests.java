@@ -41,8 +41,11 @@ import tokenizer.TestTokenizer;
 		TestJMCC_9.class,
 		TestJMCC_15.class,
 		TestJMCC_23.class,
+		TestJMCC_24.class,
 		TestJMCC_27.class,
 		TestJMCC_30.class,
+		TestJMCC_32.class,
+		TestJMCC_33.class,
 		
 		TestCRM_1.class,
 		TestCRM_2.class,
