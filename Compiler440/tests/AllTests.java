@@ -49,6 +49,7 @@ import tokenizer.TestTokenizer;
 		TestCRM_12.class,
 		TestCRM_13.class,
 		TestCRM_16.class,
+		TestCRM_18.class,
 		TestCRM_31.class,
 		TestCRM_32.class,
 		TestCRM_33.class,
