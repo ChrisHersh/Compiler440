@@ -39,7 +39,7 @@ public class JMCC_0 extends State {
 	@Override
 	
 	public void shiftEXP7() throws ParserException {
-		changeToState(new JMCC_33());
+		changeToState(new JMCC_32());
 	}
 	
 	@Override
