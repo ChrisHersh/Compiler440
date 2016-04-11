@@ -47,7 +47,7 @@ public class TestCRM_41 {
 	    assertTrue(p.getHoldStack().empty());
 	    assertTrue(p.getStateStack().empty());
 	    
-	    assertEquals(p.getInputStack().peek().getToken(),TokenTypes.METH_BODY.name());
+	    assertEquals(p.getInputStack().peek().getToken(),TokenTypes.FORMAL_R.name());
 	    
 	    assertTrue(p.getCurrentState() instanceof JMCC_2);
 	}
