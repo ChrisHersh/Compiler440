@@ -424,6 +424,9 @@ public class Parser
         case "EXP_R":
             getCurrentState().shiftEXP_R();
             break;  
+        default:
+            getCurrentState().shiftInvalidState();
+            break;
         }
     }
 }

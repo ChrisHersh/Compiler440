@@ -27,6 +27,39 @@ public class TestJMCC_27
     }
     
     /**
+     * Make sure that the state will change to JMCC_24
+     */
+    @Test
+    public void testShiftEXP6() throws ParserException
+    {
+        Parser p = Parser.getInstance();
+        State s = new JMCC_27();
+        
+        Token inpToken = new Token("exp6", TokenTypes.EXP6.name(), 6);
+        
+        p.getInputStack().push(inpToken);
+        
+        assertFalse(p.getInputStack().empty());
+        assertEquals(p.getInputStack().peek(), inpToken);
+        assertTrue(p.getHoldStack().empty());
+        assertTrue(p.getStateStack().empty());
+        
+        //Make the current state the one we're testing
+        p.changeState(s);
+        
+        p.nextState();
+        
+        assertTrue(p.getInputStack().empty());
+        assertFalse(p.getHoldStack().empty());
+        assertFalse(p.getStateStack().empty());
+        
+        assertEquals(p.getHoldStack().peek(), inpToken);
+        assertEquals(p.getStateStack().peek(), s);
+        
+        assertTrue(p.getCurrentState() instanceof JMCC_32);
+    }
+    
+    /**
      * Make sure that the state will change to JMCC_28
      * @throws ParserException
      */

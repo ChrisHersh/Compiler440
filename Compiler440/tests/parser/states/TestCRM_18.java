@@ -2,6 +2,7 @@ package parser.states;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import parser.Parser;
@@ -9,6 +10,11 @@ import tokenizer.Token;
 
 public class TestCRM_18 
 {
+	@Before
+    public void setUp()
+    {
+        Parser.resetParser();
+    }
 
 	/**
 	 * checks that shiftMETH_DECL works correctly

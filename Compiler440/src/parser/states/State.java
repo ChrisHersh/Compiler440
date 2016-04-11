@@ -446,4 +446,8 @@ public abstract class State
 	{
 		invalidState();
 	}
+	public void shiftInvalidState() throws ParserException
+	{
+	    invalidState();
+	}
 }

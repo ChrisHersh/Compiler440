@@ -29,7 +29,7 @@ public class TestCRM_35 {
 		Parser p = Parser.getInstance();
 	    State s = new CRM_35();
 	        
-	    Token token = new Token("METH_DECL_L", "METH_DECL_L", 25);
+	    Token token = new Token("Id", "Id", 25);
 	    
 	    p.getInputStack().push(token);
 	    
@@ -47,7 +47,7 @@ public class TestCRM_35 {
 	    assertEquals(p.getHoldStack().peek(), token);
 	    assertEquals(p.getStateStack().peek(), s);
 	    
-	    assertTrue(p.getCurrentState() instanceof CRM_38);
+	    assertTrue(p.getCurrentState() instanceof CRM_36);
 	}
 
 }
