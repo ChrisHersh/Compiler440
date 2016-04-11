@@ -426,6 +426,7 @@ public class Parser
             break;  
         default:
             getCurrentState().shiftInvalidState();
+            break;
         }
     }
 }
