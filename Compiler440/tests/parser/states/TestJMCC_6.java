@@ -12,8 +12,8 @@ import tokenizer.Token;
 import tokenizer.TokenTypes;
 
 /**
- * 
- * @author Chris Hersh
+ * Tests for JMCC_6
+ * @author Chris Hersh & Daniel Breitigan
  *
  */
 public class TestJMCC_6
@@ -23,6 +23,44 @@ public class TestJMCC_6
     public void setUp()
     {
         Parser.resetParser();
+    }
+    
+    //Ensure that State JMCC_6 properly reduces to state JMCC_3 when it is supposed to
+    @Test
+    public void testReduce() throws ParserException
+    {
+        Parser p = Parser.getInstance();
+        State s = new JMCC_6();
+        
+        //If it sees anything other than NotEquals, Equals, or OP3 it should reduce
+        
+        ArrayList<Token> tokens = new ArrayList<Token>();
+        //the tokens that should be found to make a MAIN_CLASS token
+        tokens.add(new Token("EXP3","EXP3",5));
+        tokens.add(new Token("OP2","OP2",5));
+        tokens.add(new Token("EXP2","EXP2",5));
+        //Push Tokens to Hold Stack
+        p.pushHoldStack(tokens.get(2)); 
+        p.pushHoldStack(tokens.get(1));
+        p.pushHoldStack(tokens.get(0));
+        //push the states that stateStack in the order that they are expected to be found in
+        p.pushStateStack(new JMCC_3());
+        p.pushStateStack(new JMCC_4());
+        p.pushStateStack(new JMCC_5());
+        //try to handle "bad" token to start the reduce
+        s.shiftVAR_DECL();
+        //test that the stacks are appropriately filled
+        assertFalse(p.getInputStack().empty());
+        assertTrue(p.getHoldStack().empty());
+        assertTrue(p.getStateStack().empty());
+        
+        Token testee = new Token(TokenTypes.EXP2, tokens);
+        //test that the new token is correct and stacks correctly
+        assertEquals(p.peekInputStack().getLineNumber(), testee.getLineNumber());
+        assertEquals(p.peekInputStack().getToken(), testee.getToken());
+        assertEquals(p.peekInputStack().getTokenName(), testee.getTokenName());
+        assertEquals(p.peekInputStack().getChildren(), testee.getChildren());
+        assertEquals(p.getCurrentState().getClass(), new JMCC_3().getClass());
     }
     
     @Test
