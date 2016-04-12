@@ -44,6 +44,7 @@ public abstract class State
 	 * @param state
 	 * @param tokenName
 	 */
+	@Deprecated
 	protected void reduceToState(State state, TokenTypes tokenName)
 	{
 		ArrayList<Token> children = new ArrayList<Token>();
