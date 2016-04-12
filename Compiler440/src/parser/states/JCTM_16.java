@@ -1,5 +1,16 @@
 package parser.states;
 
-public class JCTM_16 extends State {
-
+/**
+ * 
+ * @author Matt Mousetis
+ * 
+ * reduces state back to EXP 7 
+ */
+public class JCTM_16 extends State 
+{
+    @Override
+    protected void invalidState() throws ParserException
+    {
+        reduceToState(new JCTM_0(), TokenTypes.EXP7);
+    }
 }
