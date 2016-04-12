@@ -121,6 +121,11 @@ public class TestJMCC_23
         assertTrue(p.getCurrentState() instanceof JMCC_29);
     }
     
+    /**
+     * Test class to check the IntegerLitera methods of the JCTM_18 class.
+     * @author Manal Ibrahim
+     *
+     */
     @Test
     public void testShiftIntegerLiteral() throws ParserException
     {
@@ -147,7 +152,11 @@ public class TestJMCC_23
         
         assertTrue(p.getCurrentState() instanceof JCTM_18);
     }
-    
+    /**
+     * Test class to check the True methods of the JCTM_15 class.
+     * @author Manal Ibrahim
+     *
+     */
     @Test
     public void testTrue() throws ParserException 
     {
@@ -175,7 +184,11 @@ public class TestJMCC_23
         assertTrue(parser.getCurrentState() instanceof JCTM_15);
         
     }
-    
+    /**
+     * Test class to check the False methods of the JCTM_16 class.
+     * @author Manal Ibrahim
+     *
+     */
     @Test
     public void testFalse() throws ParserException 
     {
