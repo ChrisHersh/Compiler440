@@ -1,5 +1,7 @@
 package parser.states;
 
+import tokenizer.TokenTypes;
+
 /**
  * 
  * @author Chris Hersh
@@ -7,6 +9,12 @@ package parser.states;
  */
 public class JMCC_4 extends State
 {
+    @Override
+    protected void invalidState() throws ParserException
+    {
+        reduceNumberOfStates(3, TokenTypes.EXP1);
+    }
+    
     @Override
     public void shiftAnd() throws ParserException
     {
