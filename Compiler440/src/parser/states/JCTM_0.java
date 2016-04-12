@@ -41,7 +41,7 @@ public class JCTM_0 extends State
 	@Override
 	public void shiftNot() throws ParserException
 	{
-		changeToState(new JCTM_16());
+		changeToState(new JCTM_27());
 	}
 	
 	@Override
