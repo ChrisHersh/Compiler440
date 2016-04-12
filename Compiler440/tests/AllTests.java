@@ -3,7 +3,6 @@ import org.junit.runners.Suite;
 
 import parser.TestParser;
 import parser.states.*;
-import parser.states.TestState;
 import symboltable.TestClasses;
 import symboltable.TestMainMethod;
 import symboltable.TestMethods;
@@ -40,10 +39,12 @@ import tokenizer.TestTokenizer;
 		TestJMCC_7.class,
 		TestJMCC_9.class,
 		TestJMCC_15.class,
+		TestJMCC_19.class,
 		TestJMCC_23.class,
 		TestJMCC_24.class,
 		TestJMCC_27.class,
 		TestJMCC_30.class,
+		TestJMCC_31.class,
 		TestJMCC_32.class,
 		TestJMCC_33.class,
 		
