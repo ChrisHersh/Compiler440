@@ -18,13 +18,9 @@ public class TestJCTM_16 {
         //the tokens that should be found to make a MAIN_CLASS token
         tokens.add(new Token("FALSE","False",5));
         //Push Tokens to Hold Stack
-        p.pushHoldStack(tokens.get(2)); 
-        p.pushHoldStack(tokens.get(1));
         p.pushHoldStack(tokens.get(0));
         //push the states that stateStack in the order that they are expected to be found in
-        p.pushStateStack(new JMCC_3());
-        p.pushStateStack(new JMCC_4());
-        p.pushStateStack(new JMCC_5());
+        p.pushStateStack(new JCTM_0());
         //try to handle "bad" token to start the reduce
         s.shiftVAR_DECL();
         //test that the stacks are appropriately filled
