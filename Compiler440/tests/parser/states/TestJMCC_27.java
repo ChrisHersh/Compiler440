@@ -127,6 +127,10 @@ public class TestJMCC_27
         assertTrue(p.getCurrentState() instanceof JCTM_18);
     }
     
+    /**
+     * Make sure that the state will change to JMCC_18 with true
+     * @throws ParserException
+     */
     @Test
     public void testTrue() throws ParserException 
     {
@@ -155,6 +159,10 @@ public class TestJMCC_27
         
     }
     
+    /**
+     * Make sure that the state will change to JMCC_18 with false
+     * @throws ParserException
+     */
     @Test
     public void testFalse() throws ParserException 
     {
@@ -183,6 +191,10 @@ public class TestJMCC_27
         
     }
     
+    /**
+     * Make sure that the state will change to JMCC_18 with this
+     * @throws ParserException
+     */
     @Test
     public void testThis() throws ParserException 
     {
@@ -211,6 +223,10 @@ public class TestJMCC_27
         
     }
     
+    /**
+     * Make sure that the state will change to JMCC_18 with id
+     * @throws ParserException
+     */
     @Test
     public void testId() throws ParserException 
     {
