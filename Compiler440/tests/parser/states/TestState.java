@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import parser.Parser;
-import parser.states.JMCC_27;
-import parser.states.JMCC_5;
 import parser.states.State;
+import parser.states.JMCC.JMCC_27;
+import parser.states.JMCC.JMCC_5;
 import tokenizer.Token;
 import tokenizer.TokenTypes;
 
