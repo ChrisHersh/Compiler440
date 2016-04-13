@@ -1,0 +1,16 @@
+package parser.states.CILS;
+
+import parser.states.ParserException;
+import parser.states.State;
+
+public class CILS_20 extends State
+{
+	/**
+	 * Method used to shift on assignment and change to state 25.
+	 */
+	@Override
+	public void shiftAssignment() throws ParserException
+	{
+		changeToState(new CILS_25());
+	}
+}
