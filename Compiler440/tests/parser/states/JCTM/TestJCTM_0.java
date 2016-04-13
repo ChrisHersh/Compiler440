@@ -2,6 +2,7 @@ package parser.states.JCTM;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import parser.Parser;
@@ -15,9 +16,17 @@ import parser.states.JCTM.JCTM_17;
 import parser.states.JCTM.JCTM_18;
 import parser.states.JCTM.JCTM_29;
 import tokenizer.Token;
+import tokenizer.TokenTypes;
 
 public class TestJCTM_0 {
 
+    @Before
+    public void setUp()
+    {
+        Parser.resetParser();
+    }
+    
+	
     public void testShiftIntegerLiteral() throws ParserException
     {
         Parser p = Parser.getInstance();
@@ -62,7 +71,7 @@ public class TestJCTM_0 {
         assertTrue(parser.getHoldStack().empty());
         assertTrue(parser.getStateStack().empty());
         
-        state.shiftIntegerLiteral();
+        state.shiftTrue();
         
         assertTrue(parser.getInputStack().empty());
         assertFalse(parser.getHoldStack().empty());
@@ -90,7 +99,7 @@ public class TestJCTM_0 {
         assertTrue(parser.getHoldStack().empty());
         assertTrue(parser.getStateStack().empty());
         
-        state.shiftIntegerLiteral();
+        state.shiftFalse();
         
         assertTrue(parser.getInputStack().empty());
         assertFalse(parser.getHoldStack().empty());
@@ -118,7 +127,7 @@ public class TestJCTM_0 {
         assertTrue(parser.getHoldStack().empty());
         assertTrue(parser.getStateStack().empty());
         
-        state.shiftIntegerLiteral();
+        state.shiftThis();
         
         assertTrue(parser.getInputStack().empty());
         assertFalse(parser.getHoldStack().empty());
@@ -146,7 +155,7 @@ public class TestJCTM_0 {
         assertTrue(parser.getHoldStack().empty());
         assertTrue(parser.getStateStack().empty());
         
-        state.shiftIntegerLiteral();
+        state.shiftId();
         
         assertTrue(parser.getInputStack().empty());
         assertFalse(parser.getHoldStack().empty());
@@ -175,9 +184,7 @@ public class TestJCTM_0 {
         assertTrue(p.getStateStack().empty());
         
         //Make the current state the one we're testing
-        p.changeState(s);
-        
-        p.nextState();
+        s.shiftLeftBrace();
         
         assertTrue(p.getInputStack().empty());
         assertFalse(p.getHoldStack().empty());
