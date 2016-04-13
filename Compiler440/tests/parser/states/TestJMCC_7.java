@@ -22,6 +22,10 @@ public class TestJMCC_7
         Parser.resetParser();
     }
 
+	/**
+	 * Make sure handles this input correctly.
+	 * It should shift to JMCC_7
+	 */
 	@Test
 	public void testThis() throws ParserException
 	{
@@ -46,6 +50,10 @@ public class TestJMCC_7
         assertTrue(parser.getCurrentState() instanceof JCTM_17);
 	}
 	
+	/**
+	 * Make sure handles ( input correctly.
+	 * It should shift to JMCC_7
+	 */
 	@Test
 	public void testLeftPara() throws ParserException
 	{
@@ -70,6 +78,10 @@ public class TestJMCC_7
         assertTrue(parser.getCurrentState() instanceof JCTM_29);
 	}
 	
+	/**
+	 * Make sure handles EXP5 input correctly.
+	 * It should shift to JMCC_7
+	 */
 	@Test
 	public void testEXP5() throws ParserException
 	{

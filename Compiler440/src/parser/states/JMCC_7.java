@@ -17,6 +17,9 @@ import parser.states.State;
  */
 public class JMCC_7 extends State
 {
+	/**
+	 * If the input is this, this shifts to JCTM_17
+	 */
 	@Override
 	public void shiftThis()
 	{
@@ -24,6 +27,9 @@ public class JMCC_7 extends State
 		changeToState(st);
 	}
 	
+	/**
+	 * If the input is (, this shifts to JCTM_29
+	 */
 	@Override
 	public void shiftLeftPara()
 	{
