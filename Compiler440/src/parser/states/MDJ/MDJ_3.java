@@ -33,7 +33,7 @@ public class MDJ_3 extends State
 	 * Reduces to MDJ_0 and generates the token "PROG"
 	 */
 	@Override
-	protected void invalidState() throws ParserException
+	public void invalidState() throws ParserException
 	{
 		reduceToState(new MDJ_0(), TokenTypes.PROG);
 	}

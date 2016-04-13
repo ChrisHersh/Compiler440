@@ -18,7 +18,7 @@ public class MDJ_1 extends State
 	 * reduces to MDJ_1 (itself) and generates a CLASS_DECL_L token
 	 */
 	@Override
-	protected void invalidState() throws ParserException
+	public void invalidState() throws ParserException
 	{
 		currentParser.pushInputStack(new Token(TokenTypes.CLASS_DECL_L.name(), TokenTypes.CLASS_DECL_L.toString(), currentParser.peekInputStack().getLineNumber()));
 	}

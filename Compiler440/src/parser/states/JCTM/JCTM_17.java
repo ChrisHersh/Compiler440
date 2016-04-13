@@ -12,7 +12,7 @@ import parser.states.State;
 public class JCTM_17 extends State 
 {
     @Override
-    protected void invalidState() throws ParserException
+    public void invalidState() throws ParserException
     {
         reduceToState(new JCTM_0(), TokenTypes.EXP7);
     }

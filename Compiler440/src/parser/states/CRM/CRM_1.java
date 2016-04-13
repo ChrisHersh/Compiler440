@@ -24,7 +24,7 @@ public class CRM_1 extends State
 	 * @author Jason LoBianco
 	 */
 	@Override
-	protected void invalidState() throws ParserException
+	public void invalidState() throws ParserException
 	{
 		currentParser.pushInputStack(new Token(TokenTypes.VAR_DECL_L.name(), TokenTypes.VAR_DECL_L.toString(), currentParser.peekInputStack().getLineNumber()));
 	}

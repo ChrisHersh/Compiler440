@@ -14,7 +14,7 @@ public class JMCC_19 extends State
 {
     //Override the invalidState so that we can reduce when none of the other options are found.
     @Override
-    protected void invalidState() throws ParserException
+    public void invalidState() throws ParserException
     {
         reduceToState(new JMCC_5(), TokenTypes.EXP3);
     }

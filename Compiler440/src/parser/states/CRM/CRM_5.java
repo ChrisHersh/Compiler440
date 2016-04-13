@@ -11,7 +11,7 @@ public class CRM_5 extends State
 	 * @author thepure12
 	 */
 	@Override
-	protected void invalidState() throws ParserException
+	public void invalidState() throws ParserException
 	{
 		reduceToState(new CRM_0(), TokenTypes.M_METH_BODY);
 	}

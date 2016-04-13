@@ -11,7 +11,7 @@ public class MDJ_28 extends State
 	 * @author Shannon Jones
 	 */
 	@Override
-	protected void invalidState() throws ParserException
+	public void invalidState() throws ParserException
 	{
 		reduceToState(new MDJ_3(), TokenTypes.CLASS_DECL);
 	}

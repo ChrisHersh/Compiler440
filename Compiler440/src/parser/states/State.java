@@ -21,7 +21,7 @@ public abstract class State
 	 * @author Chris Hersh
 	 * @throws ParserException 
 	 */
-	protected void invalidState() throws ParserException
+	public void invalidState() throws ParserException
 	{
 	    throw new ParserException();
 	}

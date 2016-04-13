@@ -14,7 +14,7 @@ public class CILS_3 extends State {
 	 * @author Jessica Schlesiger
 	 */
 	@Override
-	protected void invalidState() throws ParserException
+	public void invalidState() throws ParserException
 	{
 		currentParser.pushInputStack(new Token(TokenTypes.STMT_P.name(), TokenTypes.STMT_P.toString(), currentParser.peekInputStack().getLineNumber()));
 	}

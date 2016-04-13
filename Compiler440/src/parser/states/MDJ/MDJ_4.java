@@ -14,7 +14,7 @@ public class MDJ_4 extends State{
 		 * Because we do not have more inputs we do reduce to MDJ_3
 		 */
 		@Override
-		protected void invalidState() throws ParserException
+		public void invalidState() throws ParserException
 		{
 			reduceToState(new MDJ_3(), TokenTypes.CLASS_DECL);
 		}

@@ -11,7 +11,7 @@ import tokenizer.TokenTypes;
 public class JMCC_15 extends State
 {
     @Override
-    protected void invalidState() throws ParserException
+    public void invalidState() throws ParserException
     {
         reduceNumberOfStates(1, TokenTypes.EXP2);
     }

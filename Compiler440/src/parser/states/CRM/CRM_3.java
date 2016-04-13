@@ -11,7 +11,7 @@ public class CRM_3 extends State
 	 * @author Chris Kjeldgaard
 	 */
 	@Override
-	protected void invalidState() throws ParserException
+	public void invalidState() throws ParserException
 	{
 		reduceToState(new CRM_1(), TokenTypes.VAR_DECL_L);
 	}
