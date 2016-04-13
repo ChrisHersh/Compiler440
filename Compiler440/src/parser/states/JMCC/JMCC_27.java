@@ -12,7 +12,8 @@ import parser.states.JCTM.JCTM_27;
 import parser.states.JCTM.JCTM_29;
 
 /**
- * 
+ * JMCC_27.java
+ * Our state looking into EXP7
  * @author Ian Keefer, Chris Hersh, Daniel Breitigan, Matt Mousetis
  *
  */
