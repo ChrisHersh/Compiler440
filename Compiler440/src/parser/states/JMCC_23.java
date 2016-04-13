@@ -74,18 +74,27 @@ public class JMCC_23 extends State
  	    changeToState(new JCTM_16());
  	}
  
+ 	/**
+ 	 * Shift to JMCC_19 if the shift is new
+ 	 */
     @Override
     public void shiftNew() throws ParserException
     {
         changeToState(new JCTM_19());
     }
     
+	/**
+	 * Shift to JMCC_27 if the shift is !
+	 */
     @Override
     public void shiftExclamation() throws ParserException
     {
         changeToState(new JCTM_27());
     }
     
+	/**
+	 * Shift to JMCC_2p if the shift is (
+	 */
     @Override
     public void shiftLeftPara() throws ParserException
     {

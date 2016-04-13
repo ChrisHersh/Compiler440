@@ -217,7 +217,10 @@ public class TestJMCC_23
         
     }
     
-
+    /**
+     * Test that the state can shift to JMCC_19 on new
+     * @throws ParserException
+     */
     public void testShiftNew() throws ParserException
     {
         Parser p = Parser.getInstance();
@@ -244,6 +247,10 @@ public class TestJMCC_23
         assertTrue(p.getCurrentState() instanceof JCTM_19);
     }
     
+    /**
+     * Test that the state can shift to JMCC_27 on !
+     * @throws ParserException
+     */
     @Test
     public void testShiftExclamation() throws ParserException
     {
@@ -271,6 +278,10 @@ public class TestJMCC_23
         assertTrue(p.getCurrentState() instanceof JCTM_27);
     }
     
+    /**
+     * Test that the state can shift to JMCC_29 on (
+     * @throws ParserException
+     */
     @Test
     public void testShiftLeftPara() throws ParserException
     {
