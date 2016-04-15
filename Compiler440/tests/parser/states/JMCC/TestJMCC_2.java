@@ -22,13 +22,19 @@ import tokenizer.TokenTypes;
  */
 public class TestJMCC_2
 {
-
+	/**
+	 * Reset the parser
+	 */
     @Before
     public void setUp()
     {
         Parser.resetParser();
     }
     
+    /**
+     * Make sure the reduce works
+     * @throws ParserException
+     */
     @Test
     public void testInvalidState() throws ParserException
     {

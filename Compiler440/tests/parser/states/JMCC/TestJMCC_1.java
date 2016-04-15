@@ -18,12 +18,19 @@ import tokenizer.TokenTypes;
 
 public class TestJMCC_1
 {
+	/**
+	 * Reset the parsers
+	 */
     @Before
     public void setUp()
     {
         Parser.resetParser();
     }
     
+    /**
+     * Make sure OP1 works
+     * @throws ParserException
+     */
     @Test
     public void testShiftOP1() throws ParserException
     {
@@ -54,6 +61,10 @@ public class TestJMCC_1
         assertTrue(p.getCurrentState() instanceof JMCC_3);
     }
     
+    /**
+     * Make sure != works
+     * @throws ParserException
+     */
     @Test
     public void testShiftNotEquals() throws ParserException
     {

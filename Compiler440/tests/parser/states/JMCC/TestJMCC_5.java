@@ -32,6 +32,9 @@ import tokenizer.TokenTypes;
  */
 public class TestJMCC_5 
 {
+	/**
+	 * Reset the parser
+	 */
     @Before
     public void setUp()
     {
@@ -39,6 +42,7 @@ public class TestJMCC_5
     }
     
     /**
+     * Make sure EXP3 works
      * @author Ledny Joseph
      * @throws ParserException
      */
@@ -68,6 +72,11 @@ public class TestJMCC_5
 	    
 	    assertTrue(p.getCurrentState() instanceof JMCC_6);
     }
+    
+    /**
+     * Make sure EXP4 works
+     * @throws ParserException
+     */
     @Test
     public void testShiftEXP4() throws ParserException
     {
@@ -95,6 +104,10 @@ public class TestJMCC_5
 	    assertTrue(p.getCurrentState() instanceof JMCC_8);
     }
     
+    /**
+     * Make sure EXP5 works
+     * @throws ParserException
+     */
     @Test
     public void testShiftEXP5() throws ParserException
     {
@@ -121,6 +134,11 @@ public class TestJMCC_5
 	    
 	    assertTrue(p.getCurrentState() instanceof JMCC_20);
     }
+    
+    /**
+     * Make sure EXP2 works
+     * @throws ParserException
+     */
     @Test
     public void testShiftEXP2() throws ParserException
     {
@@ -149,6 +167,7 @@ public class TestJMCC_5
     }
 	
     /**
+     * Make sure { works
      * @author Chris Kjeldgaard
      * @throws ParserException
      */
@@ -182,6 +201,7 @@ public class TestJMCC_5
 	}
     
     /**
+     * Make sure ! works
      * @author Chris Kjeldgaard
      * @throws ParserException
      */
@@ -213,6 +233,7 @@ public class TestJMCC_5
 	}
     
     /**
+     * Make sure new works
      * @author Chris Kjeldgaard
      * @throws ParserException
      */
@@ -244,6 +265,7 @@ public class TestJMCC_5
 	}
     
     /**
+     * Make sure EXP7 works
      * @author Jason LoBianco
      * @throws ParserException
      */
@@ -275,6 +297,7 @@ public class TestJMCC_5
     }
     
     /**
+     * Make sure id works
      * @author Jason LoBianco
      * @throws ParserException
      */
@@ -306,6 +329,7 @@ public class TestJMCC_5
     }
     
     /**
+     * Make sure integer literal works
      * @author Jason LoBianco
      * @throws ParserException
      */

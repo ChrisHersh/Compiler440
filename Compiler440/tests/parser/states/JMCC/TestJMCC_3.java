@@ -33,12 +33,19 @@ import tokenizer.TokenTypes;
 public class TestJMCC_3
 {
 
+	/**
+	 * Reset the parser
+	 */
     @Before
     public void setUp()
     {
         Parser.resetParser();
     }
     
+    /**
+     * Make sure EXP2 works
+     * @throws ParserException
+     */
     @Test
     public void testShiftEXP2() throws ParserException
     {
@@ -69,6 +76,10 @@ public class TestJMCC_3
         assertTrue(p.getCurrentState() instanceof JMCC_4);
     }
     
+    /**
+     * Make sure EXP3 works
+     * @throws ParserException
+     */
     @Test
     public void testShiftEXP3() throws ParserException
     {
@@ -99,6 +110,10 @@ public class TestJMCC_3
         assertTrue(p.getCurrentState() instanceof JMCC_15);
     }
     
+    /**
+     * Make sure EXP4 works
+     * @throws ParserException
+     */
     @Test
     public void testShiftEXP4() throws ParserException
     {
@@ -129,6 +144,10 @@ public class TestJMCC_3
         assertTrue(p.getCurrentState() instanceof JMCC_8);
     }
     
+    /**
+     * Make sure EXP5 works
+     * @throws ParserException
+     */
     @Test
     public void testShiftEXP5() throws ParserException
     {
@@ -159,6 +178,10 @@ public class TestJMCC_3
         assertTrue(p.getCurrentState() instanceof JMCC_20);
     }
     
+    /**
+     * Make sure EXP6 works
+     * @throws ParserException
+     */
     @Test
     public void testShiftEXP6() throws ParserException
     {
@@ -189,6 +212,10 @@ public class TestJMCC_3
         assertTrue(p.getCurrentState() instanceof JMCC_32);
     }
     
+    /**
+     * Make sure EXP7 works
+     * @throws ParserException
+     */
     @Test
     public void testShiftEXP7() throws ParserException
     {
@@ -219,6 +246,10 @@ public class TestJMCC_3
         assertTrue(p.getCurrentState() instanceof JMCC_29);
     }
     
+    /**
+     * Make sure true works
+     * @throws ParserException
+     */
     @Test
     public void testShiftTrue() throws ParserException
     {
@@ -249,6 +280,10 @@ public class TestJMCC_3
         assertTrue(p.getCurrentState() instanceof JCTM_15);
     }
     
+    /**
+     * Make sure this works
+     * @throws ParserException
+     */
     @Test
     public void testShiftThis() throws ParserException
     {
@@ -279,6 +314,10 @@ public class TestJMCC_3
         assertTrue(p.getCurrentState() instanceof JCTM_17);
     }
     
+    /**
+     * Make sure { works
+     * @throws ParserException
+     */
     @Test
     public void testShiftLeftBrace() throws ParserException
     {
@@ -309,6 +348,10 @@ public class TestJMCC_3
         assertTrue(p.getCurrentState() instanceof JCTM_29);
     }
     
+    /**
+     * Make sure id works
+     * @throws ParserException
+     */
     @Test
     public void testShiftId() throws ParserException
     {
@@ -339,6 +382,10 @@ public class TestJMCC_3
         assertTrue(p.getCurrentState() instanceof JCTM_1);
     }
     
+    /**
+     * Make sure false works
+     * @throws ParserException
+     */
     @Test
     public void testShiftFalse() throws ParserException
     {
@@ -369,6 +416,10 @@ public class TestJMCC_3
         assertTrue(p.getCurrentState() instanceof JCTM_16);
     }
     
+    /**
+     * Make sure ! works
+     * @throws ParserException
+     */
     @Test
     public void testShiftNot() throws ParserException
     {
@@ -399,6 +450,10 @@ public class TestJMCC_3
         assertTrue(p.getCurrentState() instanceof JCTM_16);
     }
     
+    /**
+     * Make sure integer literal works
+     * @throws ParserException
+     */
     @Test
     public void testShiftIntegerLiteral() throws ParserException
     {
@@ -429,6 +484,10 @@ public class TestJMCC_3
         assertTrue(p.getCurrentState() instanceof JCTM_18);
     }
     
+    /**
+     * Make sure new works
+     * @throws ParserException
+     */
     @Test
     public void testShiftNew() throws ParserException
     {
