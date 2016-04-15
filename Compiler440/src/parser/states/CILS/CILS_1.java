@@ -27,6 +27,6 @@ public class CILS_1 extends State
 	@Override
 	public void invalidState()
 	{
-		reduceToState(new CILS_1(), TokenTypes.Epsilon);
+		reduceNumberOfStates(0, null);
 	}
 }
