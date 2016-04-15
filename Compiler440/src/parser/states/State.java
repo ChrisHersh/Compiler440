@@ -45,24 +45,24 @@ public abstract class State
 	 * @param tokenName
 	 */
 	@Deprecated
-	protected void reduceToState(State state, TokenTypes tokenName)
-	{
-		ArrayList<Token> children = new ArrayList<Token>();
-		
-		while(!(currentParser.peekStateStack().getClass().equals(state.getClass())))
-		{
-			currentParser.popStateStack();
-			children.add(currentParser.popHoldStack());
-		}
-		
-		currentParser.popStateStack();
-		children.add(currentParser.popHoldStack());
-		currentParser.changeState(state);
-		
-		Token newToken = new Token(tokenName, children);
-		currentParser.pushInputStack(newToken);
-		
-	}
+//	protected void reduceToState(State state, TokenTypes tokenName)
+//	{
+//		ArrayList<Token> children = new ArrayList<Token>();
+//		
+//		while(!(currentParser.peekStateStack().getClass().equals(state.getClass())))
+//		{
+//			currentParser.popStateStack();
+//			children.add(currentParser.popHoldStack());
+//		}
+//		
+//		currentParser.popStateStack();
+//		children.add(currentParser.popHoldStack());
+//		currentParser.changeState(state);
+//		
+//		Token newToken = new Token(tokenName, children);
+//		currentParser.pushInputStack(newToken);
+//		
+//	}
 	
 	/**
 	 * This takes the number of tokens you need to pop off the stack in order to reduce
