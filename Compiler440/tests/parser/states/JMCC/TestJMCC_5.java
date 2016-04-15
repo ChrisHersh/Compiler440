@@ -15,6 +15,7 @@ import parser.states.JCTM.JCTM_17;
 import parser.states.JCTM.JCTM_18;
 import parser.states.JCTM.JCTM_19;
 import parser.states.JCTM.JCTM_27;
+import parser.states.JCTM.JCTM_29;
 import parser.states.JMCC.JMCC_20;
 import parser.states.JMCC.JMCC_29;
 import parser.states.JMCC.JMCC_32;
@@ -22,6 +23,7 @@ import parser.states.JMCC.JMCC_5;
 import parser.states.JMCC.JMCC_6;
 import parser.states.JMCC.JMCC_8;
 import tokenizer.Token;
+import tokenizer.TokenTypes;
 
 /**
  * Test class to check the methods of the JMCC_5 class.
@@ -92,6 +94,8 @@ public class TestJMCC_5
 	    
 	    assertTrue(p.getCurrentState() instanceof JMCC_8);
     }
+    
+    @Test
     public void testShiftEXP5() throws ParserException
     {
     	Parser p = Parser.getInstance();
@@ -154,7 +158,7 @@ public class TestJMCC_5
 	    Parser p = Parser.getInstance();
 	    State s = new JMCC_5();
 	        
-	    Token token = new Token("{", "L_Brace", 5);
+	    Token token = new Token("{", TokenTypes.LBrace.name(), 5);
 	    
 	    p.getInputStack().push(token);
 	    
@@ -163,7 +167,9 @@ public class TestJMCC_5
 	    assertTrue(p.getHoldStack().empty());
 	    assertTrue(p.getStateStack().empty());
 	    
-	    s.shiftExclamation();
+	    p.changeState(s);
+        
+        p.nextState();
 	    
 	    assertTrue(p.getInputStack().empty());
 	    assertFalse(p.getHoldStack().empty());
@@ -172,7 +178,7 @@ public class TestJMCC_5
 	    assertEquals(p.getHoldStack().peek(), token);
 	    assertEquals(p.getStateStack().peek(), s);
 	    
-	    assertTrue(p.getCurrentState() instanceof JCTM_27);
+	    assertTrue(p.getCurrentState() instanceof JCTM_29);
 	}
     
     /**
