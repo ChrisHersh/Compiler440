@@ -92,6 +92,8 @@ public class TestJMCC_5
 	    
 	    assertTrue(p.getCurrentState() instanceof JMCC_8);
     }
+    
+    @Test
     public void testShiftEXP5() throws ParserException
     {
     	Parser p = Parser.getInstance();
