@@ -16,6 +16,6 @@ public class CILS_30 extends State
 	@Override
 	public void invalidState()
 	{
-		reduceToState(new CILS_5(), TokenTypes.STMT);
+		reduceNumberOfStates(7, TokenTypes.STMT);
 	}
 }
