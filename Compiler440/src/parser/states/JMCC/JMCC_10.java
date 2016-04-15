@@ -11,6 +11,9 @@ import tokenizer.TokenTypes;
  */
 public class JMCC_10 extends State
 {
+	/**
+	 * Reduce state
+	 */
     @Override
     public void invalidState() throws ParserException
     {
