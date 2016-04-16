@@ -47,7 +47,7 @@ public class TestMDJ_28 {
 	    ArrayList<Token> tokens = new ArrayList<Token>();
 	   
 	    /*
-	     * the tokens in CLASS_DECL -> class id extends is { VAR_DECL_L METH_DECL_L }
+	     * the tokens in CLASS_DECL -> class id extends id { VAR_DECL_L METH_DECL_L }
 	     */
 	    tokens.add(new Token("}",TokenTypes.RBracket.name(),5));
 	    tokens.add(new Token("METH_DECL_L",TokenTypes.METH_DECL_L.name(),5));
