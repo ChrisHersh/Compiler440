@@ -16,6 +16,6 @@ public class MDJ_9 extends State
 	@Override
 	public void invalidState() throws ParserException
 	{
-		reduceToState(new MDJ_0(), TokenTypes.MAIN_CLASS);
+		reduceNumberOfStates(5, TokenTypes.MAIN_CLASS);
 	}
 }
