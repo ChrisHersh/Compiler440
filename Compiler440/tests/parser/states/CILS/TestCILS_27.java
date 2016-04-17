@@ -69,7 +69,6 @@ public class TestCILS_27
 		parser.pushStateStack(new CILS_20());
 		parser.pushStateStack(new CILS_25());
 		parser.pushStateStack(new CILS_26());
-		parser.pushStateStack(new CILS_27());
 
 		state.invalidState();
 
