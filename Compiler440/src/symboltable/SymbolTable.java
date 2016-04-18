@@ -47,6 +47,11 @@ public class SymbolTable
 			methodTable.put(key, am);
 		}
 	}
+	
+	public ArrayList<Method> getMethodList(String key) 
+	{
+		return methodTable.get(key);
+	}
 	/**
 	 * Adds variable to symboltable
 	 */
