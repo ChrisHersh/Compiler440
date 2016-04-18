@@ -21,7 +21,7 @@ public class JMCC_32 extends State {
 	@Override
 	public void invalidState() throws ParserException
 	{
-		reduceToState(new JMCC_0(), TokenTypes.EXP5);
+		reduceNumberOfStates(1, TokenTypes.EXP5);
 	}
 
 }

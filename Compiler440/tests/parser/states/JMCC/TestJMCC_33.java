@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import parser.Parser;
@@ -14,6 +15,15 @@ import parser.states.JMCC.JMCC_33;
 import tokenizer.Token;
 
 public class TestJMCC_33 {
+	
+	/**
+	 * prepares the parser from former test
+	 */
+	@Before
+    public void setUp()
+    {
+        Parser.resetParser();
+    }
 	
 	/**
 	 * Tests that JMCC_33 can shift on EXP6
