@@ -100,6 +100,7 @@ public class JMCC_7 extends State
 		changeToState(new JMCC_32());
 	}
 	/**
+	 * Shift to JMCC_29 if it entered EXP7
 	 * @author Jessica Schlesiger
 	 */
 	@Override
@@ -108,6 +109,7 @@ public class JMCC_7 extends State
 		changeToState(new JMCC_29());
 	}
 	/**
+	 * Shift to JMCC_15 if it entered true
 	 * @author Jessica Schlesiger
 	 */
 	@Override
@@ -116,6 +118,7 @@ public class JMCC_7 extends State
 		changeToState(new JCTM_15());
 	}
 	/**
+	 *  Shift to JMCC_19 if it entered new
 	 * @author Jessica Schlesiger
 	 */
 	@Override

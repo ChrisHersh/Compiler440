@@ -34,6 +34,12 @@ public class SymbolTable
 		methodTable.put(key,m);
 	}
 	
+	public void addMethod(String key, Method m)
+	{
+		ArrayList<Method> am = new ArrayList<Method>();
+		am.add(m);
+		methodTable.put(key, am);
+	}
 	/**
 	 * Adds variable to symboltable
 	 */

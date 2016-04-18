@@ -1,7 +1,9 @@
 package parser.states.CRM;
 
 import parser.states.State;
-
+/**
+ * @author Chris Kjeldgaard
+ */
 public class CRM_40 extends State 
 {
 	/**

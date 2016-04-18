@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import parser.Parser;
@@ -22,6 +23,16 @@ import tokenizer.TokenTypes;
  */
 public class testJMCC_11
 {
+    
+    /**
+     * Reset the parser
+     */
+    @Before
+    public void setUp()
+    {
+        Parser.resetParser();
+    }
+    
     @Test
     public void testReduce() throws ParserException
     {
