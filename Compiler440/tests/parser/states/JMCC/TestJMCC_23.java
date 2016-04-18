@@ -219,6 +219,7 @@ public class TestJMCC_23
     }
     
     /**
+     * @author Corey Peregord 
      * Test that the state can shift to JMCC_19 on new
      * @throws ParserException
      */
@@ -249,6 +250,7 @@ public class TestJMCC_23
     }
     
     /**
+     * @author Corey Peregord 
      * Test that the state can shift to JMCC_27 on !
      * @throws ParserException
      */
@@ -280,6 +282,7 @@ public class TestJMCC_23
     }
     
     /**
+     * @author Corey Peregord 
      * Test that the state can shift to JMCC_29 on (
      * @throws ParserException
      */

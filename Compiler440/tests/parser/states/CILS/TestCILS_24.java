@@ -33,6 +33,7 @@ public class TestCILS_24 {
     
 
     /**
+     * @author Corey Peregord 
      * Tests reduce to CILS_2
      * @throws ParserException
      */

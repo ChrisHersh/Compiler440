@@ -75,6 +75,7 @@ public class JMCC_23 extends State
  	}
  
  	/**
+ 	 * @author Corey Peregord 
  	 * Shift to JMCC_19 if the shift is new
  	 */
     @Override
@@ -84,6 +85,7 @@ public class JMCC_23 extends State
     }
     
 	/**
+	 * @author Corey Peregord 
 	 * Shift to JMCC_27 if the shift is !
 	 */
     @Override
@@ -93,6 +95,7 @@ public class JMCC_23 extends State
     }
     
 	/**
+	 * @author Corey Peregord 
 	 * Shift to JMCC_2p if the shift is (
 	 */
     @Override

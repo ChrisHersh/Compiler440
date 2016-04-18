@@ -17,7 +17,8 @@ public class CILS_5 extends State {
 	}
 	
 	/**
-	 * Method used to shift on while and change to state 10
+	 * @author Corey Peregord 
+	 * Method used to shift on while and change to CILS_10
 	 */
 	@Override
 	public void shiftWhile() throws ParserException
@@ -26,7 +27,8 @@ public class CILS_5 extends State {
 	}
 	
 	/**
-	 * Method used to shift on System.out.println and change to state 8
+	 * @author Corey Peregord 
+	 * Method used to shift on System.out.println and change to CILS_8
 	 */
 	@Override
 	public void shiftSystemOutPrintln() throws ParserException
@@ -35,7 +37,8 @@ public class CILS_5 extends State {
 	}
 	
 	/**
-	 * Method used to shift on id and change to state 10
+	 * @author Corey Peregord 
+	 * Method used to shift on id and change to CILS_9
 	 */
 	@Override
 	public void shiftId() throws ParserException

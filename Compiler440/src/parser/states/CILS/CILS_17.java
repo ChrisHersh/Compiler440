@@ -6,7 +6,8 @@ import parser.states.State;
 public class CILS_17 extends State {
 
 	/**
-	 * Method used to shift on ( and change to state 13
+	 * @author Corey Peregord 
+	 * Method used to shift on ( and change to CILS_22
 	 */
 	@Override
 	public void shiftRightPara() throws ParserException

@@ -21,6 +21,7 @@ public class MDJ_3 extends State
 	}
 	
 	/**
+	 * @author Corey Peregord 
 	 * Changes to state MDJ_4 on "CLASS_DECL" token
 	 */
 	@Override
@@ -30,11 +31,12 @@ public class MDJ_3 extends State
 	}
 	
 	/**
+	 * @author Corey Peregord 
 	 * Reduces to MDJ_0 and generates the token "PROG"
 	 */
 	@Override
 	public void invalidState() throws ParserException
 	{
-		reduceToState(new MDJ_0(), TokenTypes.PROG);
+		reduceNumberOfStates(2, TokenTypes.PROG);
 	}
 }
