@@ -25,9 +25,29 @@ public class SymbolTable
 		methodTable = new HashMap<String, ArrayList<Method>>();
 		classTable = new HashMap<String, ArrayList<Class>>();
 	}
-	public void add(String key, ArrayList<Method> v)
+	
+	/**
+	 * Adds method to symboltable
+	 */
+	public void addMethod(String key, ArrayList<Method> m)
 	{
-		methodTable.put(key,v);
+		methodTable.put(key,m);
+	}
+	
+	/**
+	 * Adds variable to symboltable
+	 */
+	public void addVariable(String key, ArrayList<Variable> v)
+	{
+		variableTable.put(key,v);
+	}
+	
+	/**
+	 * Adds class to symboltable
+	 */
+	public void addClass(String key, ArrayList<Class> c)
+	{
+		classTable.put(key,c);
 	}
     /**
 	 * @return the table
