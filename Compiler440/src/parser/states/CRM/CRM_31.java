@@ -15,7 +15,9 @@ import parser.states.JMCC.JMCC_20;
 import parser.states.JMCC.JMCC_32;
 import parser.states.JMCC.JMCC_8;
 import parser.states.JMCC.JMCC_9;
-
+/**
+ * @author Chris Kjeldgaard
+ */
 public class CRM_31 extends State {
 	/**
 	 * Changes to state CRM_32
