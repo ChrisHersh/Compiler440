@@ -15,7 +15,9 @@ import parser.states.CRM.CRM_33;
 import parser.states.JMCC.JMCC_2;
 import parser.states.JMCC.JMCC_3;
 import tokenizer.Token;
-
+/**
+ * @author Chris Kjeldgaard
+ */
 public class TestCRM_32 {
 
 	@Before

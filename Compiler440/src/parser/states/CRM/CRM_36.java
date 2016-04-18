@@ -3,7 +3,9 @@ package parser.states.CRM;
 import parser.states.State;
 import tokenizer.Token;
 import tokenizer.TokenTypes;
-
+/**
+ * @author Chris Kjeldgaard
+ */
 public class CRM_36 extends State {
 	/**
 	 * Changes to state CRM_38

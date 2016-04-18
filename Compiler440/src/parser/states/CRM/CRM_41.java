@@ -2,7 +2,9 @@ package parser.states.CRM;
 
 import parser.states.State;
 import tokenizer.TokenTypes;
-
+/**
+ * @author Chris Kjeldgaard
+ */
 public class CRM_41 extends State {
 	/**
 	 * Reduce that puts the FORMAL_R token on the input stack
