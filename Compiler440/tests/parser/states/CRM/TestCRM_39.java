@@ -16,7 +16,9 @@ import parser.states.CRM.CRM_39;
 import parser.states.CRM.CRM_40;
 import parser.states.CRM.CRM_9;
 import tokenizer.Token;
-
+/**
+ * @author Chris Kjeldgaard
+ */
 public class TestCRM_39 {
 
 	@Before
