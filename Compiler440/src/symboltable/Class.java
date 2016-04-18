@@ -14,20 +14,14 @@ public class Class {
 	private String name;
     private Class ext; 
     private boolean extend = false;
-    private ArrayList<Method> methods = new ArrayList<Method>();
-    private ArrayList<InstancePrimitiveVariable> vars = new ArrayList<InstancePrimitiveVariable>();
     /**
      * @param name the class name
-     * @param methods 
-     * @param vars 
      * @param ext 
      */
-    public Class(String name, ArrayList<Method> methods, ArrayList<InstancePrimitiveVariable> vars, Class ext)
+    public Class(String name, Class ext)
     {
     	this.name = name;
     	this.ext = ext;
-    	this.methods = methods;
-    	this.vars = vars;
     	
     	if(ext != null)
     	{
@@ -77,43 +71,6 @@ public class Class {
 		return extend;
 	}
 
-	/**
-	 * @return the arraylist of methods 
-     */
-    public ArrayList<Method> getMethods()
-    {
-    	return methods;
-    }
-    
-    /**
-     * @param methods sets the methods of a class
-     */
-    public void setMethods(ArrayList<Method> methods)
-    {
-    	this.methods = methods;
-    }
-    /**
-     * checks for the potential super class if there is one 
-     * for instance variables within that superclass
-     * @return the variables of the class
-     */
-    public ArrayList<InstancePrimitiveVariable> getVars()
-    {
-    	if(ext != null)
-    		if(!ext.vars.isEmpty())
-    		{
-    			vars.addAll(ext.vars);
-    		}
-    	return vars;
-    }
-    
-    /**
-     * @param vars sets the variables of the class 
-     */
-    public void setVars(ArrayList<InstancePrimitiveVariable> vars)
-    {
-    	this.vars = vars;
-    }
     
     
 }
