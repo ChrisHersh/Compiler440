@@ -54,9 +54,7 @@ public class TestMDJ_26
 		tokens.add(new Token("VAR_DECL_L", TokenTypes.VAR_DECL_L.name(),1));
 		tokens.add(new Token("METH_DECL_L", TokenTypes.METH_DECL_L.name(),1));
 		tokens.add(new Token("}", TokenTypes.RBrace.name(),1));
-		tokens.add(new Token("public", TokenTypes.Public.name(),1));
-		
-		parser.pushHoldStack(tokens.get(6));
+
 		parser.pushHoldStack(tokens.get(5));
 		parser.pushHoldStack(tokens.get(4));
 		parser.pushHoldStack(tokens.get(3));
@@ -70,7 +68,6 @@ public class TestMDJ_26
 		parser.pushStateStack(new MDJ_20());
 		parser.pushStateStack(new MDJ_22());
 		parser.pushStateStack(new MDJ_24());
-		parser.pushStateStack(new MDJ_26());
 		
 		state.invalidState();
 		

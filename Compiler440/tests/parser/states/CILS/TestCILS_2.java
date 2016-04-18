@@ -119,6 +119,7 @@ public class TestCILS_2 {
 	}
 	
     /**
+     * @author Corey Peregord 
      * Tests shifting to CILS_10 when while is received. 
      * @throws ParserException
      */
@@ -147,6 +148,7 @@ public class TestCILS_2 {
 	}
 	
     /**
+     * @author Corey Peregord 
      * Tests shifting to CILS_8 when System.out.println is received. 
      * @throws ParserException
      */
@@ -175,6 +177,7 @@ public class TestCILS_2 {
 	}
 	
     /**
+     * @author Corey Peregord 
      * Tests shifting to CILS_9 when id is received. 
      * @throws ParserException
      */

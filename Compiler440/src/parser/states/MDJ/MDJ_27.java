@@ -3,6 +3,11 @@ package parser.states.MDJ;
 import parser.states.ParserException;
 import parser.states.State;
 
+/**
+ * Class for MDJ_27 states
+ * @author Shannon Lee
+ *
+ */
 public class MDJ_27 extends State
 {
 	/**

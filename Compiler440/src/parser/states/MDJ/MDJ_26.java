@@ -16,6 +16,6 @@ public class MDJ_26 extends State
 	@Override
 	public void invalidState()
 	{
-		reduceToState(new MDJ_3(), TokenTypes.CLASS_DECL);
+		reduceNumberOfStates(6, TokenTypes.CLASS_DECL);
 	}
 }

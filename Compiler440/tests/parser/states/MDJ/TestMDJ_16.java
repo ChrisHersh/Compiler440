@@ -59,7 +59,8 @@ public class TestMDJ_16 {
 	    tokens.add(new Token("static","STATIC",5));
 	    tokens.add(new Token("public","PUBLIC",5));
 	    //push the tokens on the holdStack in the order that they are expected to be found in
-	    p.pushHoldStack(tokens.get(6));	    p.pushHoldStack(tokens.get(5));
+	    p.pushHoldStack(tokens.get(6));	
+	    p.pushHoldStack(tokens.get(5));
 	    p.pushHoldStack(tokens.get(4)); 
 	    p.pushHoldStack(tokens.get(3));
 	    p.pushHoldStack(tokens.get(2)); 

@@ -19,6 +19,7 @@ public class JMCC_5 extends State
 {
 	/**
 	 * changes to state JMCC_6
+	 * Shift on EXP3
 	 * @author Ledny Joseph
 	 */
 	public void shiftEXP3()
@@ -28,6 +29,7 @@ public class JMCC_5 extends State
 	
 	/**
 	 * changes to state JMCC_8
+	 * Shift on EXP4
 	 * @author Ledny Joseph
 	 */
 	public void shiftEXP4()
@@ -37,6 +39,7 @@ public class JMCC_5 extends State
 	
 	/**
 	 * changes to state JMCC_20
+	 * Shift on EXP5
 	 * @author Ledny Joseph
 	 */
 	public void shiftEXP5()
@@ -46,6 +49,7 @@ public class JMCC_5 extends State
 	
 	/**
 	 * changes to state JMCC_32
+	 * Shift on EXP6
 	 * @author Ledny Joseph
 	 */
 	public void shiftEXP6()
@@ -55,6 +59,7 @@ public class JMCC_5 extends State
 	
 	/**
 	 * changes to state JMCC_29
+	 * Shift on EXP7
 	 * @author Jason LoBianco
 	 */
 	public void shiftEXP7()
@@ -64,6 +69,7 @@ public class JMCC_5 extends State
 	
 	/**
 	 * changes to state JCTM_1
+	 * Shift on id
 	 * @author Jason LoBianco
 	 */
 	public void shiftId()
@@ -73,6 +79,7 @@ public class JMCC_5 extends State
 	
 	/**
 	 * changes to state JCTM_18
+	 * Shift on integer literal
 	 * @author Jason LoBianco
 	 */
 	public void shiftIntegerLiteral()
@@ -82,6 +89,7 @@ public class JMCC_5 extends State
 	
 	/**
 	 * changes to state JCTM_15
+	 * Shift on true
 	 * @author TJ Renninger
 	 */
 	public void shiftTrue()
@@ -91,6 +99,7 @@ public class JMCC_5 extends State
 	
 	/**
 	 * changes to state JCTM_16
+	 * Shift on false
 	 * @author TJ Renninger
 	 */
 	public void shiftFalse()
@@ -100,6 +109,7 @@ public class JMCC_5 extends State
 	
 	/**
 	 * changes to state JCTM_17
+	 * Shift on this
 	 * @author TJ Renninger
 	 */
 	public void shiftThis()
@@ -109,6 +119,7 @@ public class JMCC_5 extends State
 	
 	/**
 	 * changes to state JCTM_19
+	 * Shift on new
 	 * @author Chris Kjeldgaard
 	 */
 	public void shiftNew()
@@ -118,6 +129,7 @@ public class JMCC_5 extends State
 	
 	/**
 	 * changes to state JCTM_27
+	 * Shift on !
 	 * @author Chris Kjeldgaard
 	 */
 	public void shiftExclamation()
@@ -127,6 +139,7 @@ public class JMCC_5 extends State
 	
 	/**
 	 * changes to state JCTM_29
+	 * Shift on {
 	 * @author Chris Kjeldgaard
 	 */
 	public void shiftLeftBrace()

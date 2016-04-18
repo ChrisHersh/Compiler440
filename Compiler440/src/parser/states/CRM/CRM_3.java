@@ -13,6 +13,6 @@ public class CRM_3 extends State
 	@Override
 	public void invalidState() throws ParserException
 	{
-		reduceToState(new CRM_1(), TokenTypes.VAR_DECL_L);
+		reduceNumberOfStates(2, TokenTypes.VAR_DECL_L);
 	}
 }

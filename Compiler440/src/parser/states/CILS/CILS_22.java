@@ -6,7 +6,8 @@ import parser.states.State;
 public class CILS_22 extends State {
 
 	/**
-	 * Method used to shift on ( and change to state 13
+	 * @author Corey Peregord 
+	 * Method used to shift on ( and change to CILS_24
 	 */
 	@Override
 	public void shiftSemiColon() throws ParserException

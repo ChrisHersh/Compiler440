@@ -3,100 +3,11 @@ import org.junit.runners.Suite;
 
 import parser.TestParser;
 import parser.states.*;
-import parser.states.CILS.TestCILS_1;
-import parser.states.CILS.TestCILS_10;
-import parser.states.CILS.TestCILS_11;
-import parser.states.CILS.TestCILS_12;
-import parser.states.CILS.TestCILS_13;
-import parser.states.CILS.TestCILS_14;
-import parser.states.CILS.TestCILS_15;
-import parser.states.CILS.TestCILS_16;
-import parser.states.CILS.TestCILS_17;
-import parser.states.CILS.TestCILS_19;
-import parser.states.CILS.TestCILS_2;
-import parser.states.CILS.TestCILS_20;
-import parser.states.CILS.TestCILS_22;
-import parser.states.CILS.TestCILS_24;
-import parser.states.CILS.TestCILS_25;
-import parser.states.CILS.TestCILS_26;
-import parser.states.CILS.TestCILS_27;
-import parser.states.CILS.TestCILS_28;
-import parser.states.CILS.TestCILS_29;
-import parser.states.CILS.TestCILS_3;
-import parser.states.CILS.TestCILS_30;
-import parser.states.CILS.TestCILS_31;
-import parser.states.CILS.TestCILS_32;
-import parser.states.CILS.TestCILS_5;
-import parser.states.CILS.TestCILS_6;
-import parser.states.CILS.TestCILS_7;
-import parser.states.CILS.TestCILS_8;
-import parser.states.CILS.TestCILS_9;
-import parser.states.CRM.TestCRM_1;
-import parser.states.CRM.TestCRM_10;
-import parser.states.CRM.TestCRM_11;
-import parser.states.CRM.TestCRM_12;
-import parser.states.CRM.TestCRM_13;
-import parser.states.CRM.TestCRM_16;
-import parser.states.CRM.TestCRM_18;
-import parser.states.CRM.TestCRM_2;
-import parser.states.CRM.TestCRM_3;
-import parser.states.CRM.TestCRM_31;
-import parser.states.CRM.TestCRM_32;
-import parser.states.CRM.TestCRM_33;
-import parser.states.CRM.TestCRM_34;
-import parser.states.CRM.TestCRM_35;
-import parser.states.CRM.TestCRM_36;
-import parser.states.CRM.TestCRM_38;
-import parser.states.CRM.TestCRM_39;
-import parser.states.CRM.TestCRM_40;
-import parser.states.CRM.TestCRM_41;
-import parser.states.CRM.TestCRM_6;
-import parser.states.CRM.TestCRM_7;
-import parser.states.CRM.TestCRM_8;
-import parser.states.CRM.TestCRM_9;
-import parser.states.JMCC.TestJMCC_0;
-import parser.states.JMCC.TestJMCC_1;
-import parser.states.JMCC.TestJMCC_15;
-import parser.states.JMCC.TestJMCC_19;
-import parser.states.JMCC.TestJMCC_23;
-import parser.states.JMCC.TestJMCC_24;
-import parser.states.JMCC.TestJMCC_27;
-import parser.states.JMCC.TestJMCC_3;
-import parser.states.JMCC.TestJMCC_30;
-import parser.states.JMCC.TestJMCC_31;
-import parser.states.JMCC.TestJMCC_32;
-import parser.states.JMCC.TestJMCC_33;
-import parser.states.JMCC.TestJMCC_4;
-import parser.states.JMCC.TestJMCC_5;
-import parser.states.JMCC.TestJMCC_6;
-import parser.states.JMCC.TestJMCC_7;
-import parser.states.JMCC.TestJMCC_9;
-import parser.states.MDJ.TestMDJ_0;
-import parser.states.MDJ.TestMDJ_1;
-import parser.states.MDJ.TestMDJ_10;
-import parser.states.MDJ.TestMDJ_11;
-import parser.states.MDJ.TestMDJ_12;
-import parser.states.MDJ.TestMDJ_13;
-import parser.states.MDJ.TestMDJ_14;
-import parser.states.MDJ.TestMDJ_15;
-import parser.states.MDJ.TestMDJ_16;
-import parser.states.MDJ.TestMDJ_17;
-import parser.states.MDJ.TestMDJ_18;
-import parser.states.MDJ.TestMDJ_19;
-import parser.states.MDJ.TestMDJ_20;
-import parser.states.MDJ.TestMDJ_21;
-import parser.states.MDJ.TestMDJ_22;
-import parser.states.MDJ.TestMDJ_23;
-import parser.states.MDJ.TestMDJ_24;
-import parser.states.MDJ.TestMDJ_25;
-import parser.states.MDJ.TestMDJ_26;
-import parser.states.MDJ.TestMDJ_27;
-import parser.states.MDJ.TestMDJ_28;
-import parser.states.MDJ.TestMDJ_4;
-import parser.states.MDJ.TestMDJ_5;
-import parser.states.MDJ.TestMDJ_6;
-import parser.states.MDJ.TestMDJ_7;
-import parser.states.MDJ.TestMDJ_8;
+import parser.states.CILS.*;
+import parser.states.CRM.*;
+import parser.states.JCTM.*;
+import parser.states.JMCC.*;
+import parser.states.MDJ.*;
 import symboltable.TestClasses;
 import symboltable.TestMainMethod;
 import symboltable.TestMethods;
@@ -126,13 +37,21 @@ import tokenizer.TestTokenizer;
 
 		TestJMCC_0.class,
 		TestJMCC_1.class,
+		TestJMCC_2.class,
 		TestJMCC_3.class,
 		TestJMCC_4.class,
 		TestJMCC_5.class,
 		TestJMCC_6.class,
 		TestJMCC_7.class,
 		TestJMCC_9.class,
+		TestJMCC_10.class,
+		testJMCC_11.class,
+		TestJMCC_12.class,
+		TestJMCC_13.class,
+		TestJMCC_14.class,
 		TestJMCC_15.class,
+		TestJMCC_16.class,
+		TestJMCC_17.class,
 		TestJMCC_19.class,
 		TestJMCC_23.class,
 		TestJMCC_24.class,
@@ -142,9 +61,12 @@ import tokenizer.TestTokenizer;
 		TestJMCC_32.class,
 		TestJMCC_33.class,
 		
+		TestCRM_0.class,
 		TestCRM_1.class,
 		TestCRM_2.class,
 		TestCRM_3.class,
+		TestCRM_4.class,
+		TestCRM_5.class,
 		TestCRM_6.class,
 		TestCRM_7.class,
 		TestCRM_8.class,
@@ -155,6 +77,7 @@ import tokenizer.TestTokenizer;
 		TestCRM_13.class,
 		TestCRM_16.class,
 		TestCRM_18.class,
+		TestCRM_20.class,
 		TestCRM_31.class,
 		TestCRM_32.class,
 		TestCRM_33.class,
@@ -166,13 +89,21 @@ import tokenizer.TestTokenizer;
 		TestCRM_40.class,
 		TestCRM_41.class,
 		
+		TestJCTM_0.class,
+		TestJCTM_15.class,
+		TestJCTM_16.class,
+		TestJCTM_17Test.class,
+		TestJCTM_18.class,
+		
 		TestMDJ_0.class,
 		TestMDJ_1.class,
+		TestMDJ_3.class,
 		TestMDJ_4.class,
 		TestMDJ_5.class,
 		TestMDJ_6.class,
 		TestMDJ_7.class,
 		TestMDJ_8.class,
+		TestMDJ_9.class,
 		TestMDJ_10.class,
 		TestMDJ_11.class,
 		TestMDJ_12.class,
@@ -209,9 +140,12 @@ import tokenizer.TestTokenizer;
 		TestCILS_15.class,
 		TestCILS_16.class,
 		TestCILS_17.class,
+		TestCILS_18.class,
 		TestCILS_19.class,
 		TestCILS_20.class,
+		TestCILS_21.class,
 		TestCILS_22.class,
+		TestCILS_23.class,
 		TestCILS_24.class,
 		TestCILS_25.class,
 		TestCILS_26.class,

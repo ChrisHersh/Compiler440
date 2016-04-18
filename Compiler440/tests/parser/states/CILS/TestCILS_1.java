@@ -71,16 +71,18 @@ public class TestCILS_1
 		State state = new CILS_1();
 		ArrayList<Token> tokens = new ArrayList<Token>();
 		tokens.add(new Token("else", TokenTypes.Else.name(),1));
-		parser.pushHoldStack(tokens.get(0));
+		parser.changeState(new CILS_1());
 		
-		parser.pushStateStack(new CILS_1());
+		parser.pushInputStack(tokens.get(0));
+		
+//		parser.pushStateStack(new CILS_1());
 		
 		state.invalidState();
 		
 		assertFalse(parser.getInputStack().empty());
 		assertTrue(parser.getHoldStack().empty());
 		assertTrue(parser.getStateStack().empty());
-		Token token = new Token(TokenTypes.Epsilon, tokens);
+		Token token = new Token(TokenTypes.Else, tokens);
 		assertEquals(parser.peekInputStack().getLineNumber(), token.getLineNumber());
 		assertEquals(parser.peekInputStack().getToken(), token.getToken());
 		assertEquals(parser.peekInputStack().getTokenName(), token.getTokenName());

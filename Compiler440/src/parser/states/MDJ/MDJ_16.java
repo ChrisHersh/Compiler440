@@ -6,7 +6,7 @@ import tokenizer.TokenTypes;
 
 /**
  * changes to state MDJ_7
- * @author Mike
+ * @author Mike Zimmerman
  *
  */
 public class MDJ_16 extends State
@@ -17,7 +17,7 @@ public class MDJ_16 extends State
 	@Override
 	public void invalidState() throws ParserException
 	{
-		reduceToState(new MDJ_7(), TokenTypes.MAIN_METHOD);
+		reduceNumberOfStates(7, TokenTypes.MAIN_METHOD);
 	}
 
 }

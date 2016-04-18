@@ -27,6 +27,7 @@ public class TestCILS_17 {
     
 
     /**
+     * @author Corey Peregord 
      * Tests shifting to CILS_22 when ) is received. 
      * @throws ParserException
      */

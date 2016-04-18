@@ -28,12 +28,19 @@ import tokenizer.TokenTypes;
  */
 public class TestJMCC_4
 {
+	/**
+	 * Reset Parser
+	 */
     @Before
     public void setUp()
     {
         Parser.resetParser();
     }
     
+    /**
+     * Make sure and works
+     * @throws ParserException
+     */
     @Test
     public void testShiftAnd() throws ParserException
     {
@@ -64,6 +71,10 @@ public class TestJMCC_4
         assertTrue(p.getCurrentState() instanceof JMCC_10);
     }
     
+    /**
+     * Make sure OP2 works
+     * @throws ParserException
+     */
     @Test
     public void testShiftOP2() throws ParserException
     {
@@ -94,6 +105,10 @@ public class TestJMCC_4
         assertTrue(p.getCurrentState() instanceof JMCC_5);
     }
     
+    /**
+     * Make sure the reduce works
+     * @throws ParserException
+     */
     @Test
     public void testInvalidState() throws ParserException
     {

@@ -3,9 +3,9 @@ package parser;
 import java.util.ArrayList;
 import java.util.Stack;
 
-import tokenizer.Token;
 import parser.states.ParserException;
 import parser.states.State;
+import tokenizer.Token;
 
 /**
  * Class created for the parser. It should be comprised of

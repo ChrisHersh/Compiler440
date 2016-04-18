@@ -66,6 +66,7 @@ public class TestMDJ_3 {
 	}
 	
 	/**
+	 * @author Corey Peregord 
 	 * @throws ParserException
 	 * Tests that MDJ_3 can properly shift to MDJ_4 when reading a "CLASS_DECL" token
 	 */
@@ -97,6 +98,7 @@ public class TestMDJ_3 {
 	}
 
 	/**
+	 * @author Corey Peregord 
 	 * Tests the reduce from MDJ_3 to MDJ_0 for PROG
      * @throws ParserException
      */
