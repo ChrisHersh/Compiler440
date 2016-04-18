@@ -8,7 +8,8 @@ import tokenizer.Token;
  */
 import tokenizer.TokenTypes;
 
-public class CILS_3 extends State {
+public class CILS_3 extends State 
+{
 	/**
 	 * reduces to the current state and generates the token STMT_P
 	 * @author Jessica Schlesiger

@@ -14,7 +14,8 @@ public class CILS_2 extends State
 	 * Changes state to CILS_3
 	 * @auther Jessica Schlesiger
 	 */
-	public void shiftSTMT() throws ParserException	{
+	public void shiftSTMT() throws ParserException	
+	{
 		changeToState(new CILS_3());
 	}
 	
@@ -22,7 +23,8 @@ public class CILS_2 extends State
 	 * Changes state to CILS_3
 	 * @auther Jessica Schlesiger
 	 */
-	public void shiftLeftBrace() throws ParserException	{
+	public void shiftLeftBrace() throws ParserException	
+	{
 		changeToState(new CILS_6());
 	}
 	

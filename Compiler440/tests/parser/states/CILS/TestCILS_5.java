@@ -23,9 +23,11 @@ import tokenizer.TokenTypes;
  * @author Jessica Schlesiger
  *
  */
-public class TestCILS_5 {
+public class TestCILS_5 
+{
     @Before
-    public void setUp() {
+    public void setUp() 
+    {
         Parser.resetParser();
     }
     
