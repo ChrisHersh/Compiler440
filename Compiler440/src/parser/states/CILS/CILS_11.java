@@ -2,7 +2,9 @@ package parser.states.CILS;
 
 import parser.states.State;
 
-/*
+/**
+ *This class is CILS_11 which represents this: STMT -> While ( EXP1 ) STMT
+ * 
  * @author Mohammed
  */
 public class CILS_11 extends State {

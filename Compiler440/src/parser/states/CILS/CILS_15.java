@@ -3,6 +3,11 @@ package parser.states.CILS;
 import parser.states.ParserException;
 import parser.states.State;
 
+/**
+ *This class is CILS_31 which represents this: STMT -> While ( EXP1 ) STMT, ?????
+ * 
+ * @author Mohammed, ????
+ */
 public class CILS_15 extends State
 {
 	/**
