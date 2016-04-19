@@ -11,7 +11,6 @@ import parser.Parser;
 import parser.states.ParserException;
 import parser.states.State;
 import parser.states.CRM.CRM_1;
-import parser.states.CRM.CRM_4;
 import tokenizer.Token;
 /**
  * Test class to check the methods of the CRM_0 class.

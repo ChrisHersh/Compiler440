@@ -2,10 +2,11 @@ package parser.states.MDJ;
 
 import parser.states.ParserException;
 import parser.states.State;
+import parser.states.CRM.CRM_1;
 
 /**
- * changes to state MDJ_16
- * @author Michael Zimmerman
+ * Implements the methods from state MDJ_15
+ * @author Michael Zimmerman, Jason LoBianco
  */
 public class MDJ_15 extends State
 {
@@ -16,5 +17,14 @@ public class MDJ_15 extends State
 	public void shiftM_METH_BODY() throws ParserException
 	{
 		changeToState(new MDJ_16());
+	}
+	
+	/**
+	 * Changes to the state CRM_1
+	 * @author Jason LoBianco
+	 */
+	public void shiftLeftBrace()
+	{
+		changeToState(new CRM_1());
 	}
 }
