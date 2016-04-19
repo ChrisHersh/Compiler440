@@ -1,9 +1,5 @@
 package symboltable;
 
-import java.util.ArrayList;
-
-import symboltable.variable.impl.InstancePrimitiveVariable;
-
 /**
  * Class to handle the classes 
  * @author Michael Zimmerman

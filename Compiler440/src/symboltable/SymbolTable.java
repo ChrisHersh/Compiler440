@@ -19,6 +19,9 @@ public class SymbolTable
 	//added by Mike Zimmerman to store classes in symbol table
 	private HashMap<String, ArrayList<Class>> classTable;
 	
+	/**
+	 * Constructor for the symbol table. Initializes the different hashmaps to being empty
+	 */
 	private SymbolTable() 
 	{
 		variableTable = new HashMap<String, ArrayList<Variable>>();
@@ -27,70 +30,143 @@ public class SymbolTable
 	}
 	
 	/**
-	 * Adds method to symboltable
+	 * Checks to see if the variable table is empty
+	 * @return true if the variable table is empty, false if it is not empty
 	 */
-	public void addMethod(String key, ArrayList<Method> m)
+	public boolean variableTableIsEmpty()
 	{
-		methodTable.put(key,m);
+		if(variableTable.isEmpty())
+		{
+			return true;
+		}else
+		{
+			return false;
+		}
 	}
 	
+	/**
+	 * Checks to see if the method table is empty
+	 * @return true if the method table is empty, false if it is not empty
+	 */
+	public boolean methodTableIsEmpty()
+	{
+		if(methodTable.isEmpty())
+		{
+			return true;
+		}else
+		{
+			return false;
+		}
+	}
+	
+	/**
+	 * Checks to see if the class table is empty
+	 * @return true if the class table is empty, false if it is not empty
+	 */
+	public boolean classTableIsEmpty()
+	{
+		if(classTable.isEmpty())
+		{
+			return true;
+		}else
+		{
+			return false;
+		}
+	}
+	
+	
+	
+	/**
+	 * Add a method to the methodTable of the symboltable
+	 * 		NOTE: This ALSO adds the variables from the method parameters if they exist
+	 * @param key - the key that refers to the method
+	 * @param m - the variable holding the created method
+	 */
 	public void addMethod(String key, Method m)
 	{
 		if( methodTable.containsKey(key) )
 		{
 			methodTable.get(key).add(m);
+			for(int i = 0; i<m.getParams().size(); i++)
+			{
+				addVariable(m.getParams().get(i).getName(), m.getParams().get(i));
+			}
 		}
 		else
 		{
 			ArrayList<Method> am = new ArrayList<Method>();
 			am.add(m);
 			methodTable.put(key, am);
+			for(int i = 0; i<m.getParams().size(); i++)
+			{
+				addVariable(m.getParams().get(i).getName(), m.getParams().get(i));
+			}
 		}
 	}
 	
+	/**
+	 * @param key - the key (name) referring to the variable
+	 * @return the list of variables with the same name
+	 */
+	public ArrayList<Variable> getVariableList(String key) 
+	{
+		return variableTable.get(key);
+	}
+	
+	/**
+	 * @param key - the key (name) referring to the method
+	 * @return the list of methods with the same name
+	 */
 	public ArrayList<Method> getMethodList(String key) 
 	{
 		return methodTable.get(key);
 	}
-	/**
-	 * Adds variable to symboltable
-	 */
-	public void addVariable(String key, ArrayList<Variable> v)
-	{
-		variableTable.put(key,v);
-	}
+	
 	
 	/**
-	 * Adds class to symboltable
+	 * Add a variable to the variableTable of the symboltable
+	 * @param key - the key that refers to the variable
+	 * @param v - the variable holding the created Variable
 	 */
-	public void addClass(String key, ArrayList<Class> c)
+	public void addVariable(String key, Variable v)
 	{
-		classTable.put(key,c);
-	}
-    /**
-	 * @return the table
-	 */
-	public HashMap<String, ArrayList<Variable>> getVariableTable() 
-	{
-		return variableTable;
+		if( variableTable.containsKey(key) )
+		{
+			variableTable.get(key).add(v);
+		}
+		else
+		{
+			ArrayList<Variable> av = new ArrayList<Variable>();
+			av.add(v);
+			variableTable.put(key, av);
+		}
 	}
 	
-	 /**
-	 * @return the table
+	
+	/**
+	 * Add a class to the classTable of the symboltable
+	 * @param key - the key that refers to the class
+	 * @param m - the variable holding the created class
 	 */
-	public HashMap<String, ArrayList<Method>> getMethodTable() 
+	public void addClass(String key, Class c)
 	{
-		return methodTable;
+		if( classTable.containsKey(key) )
+		{
+			classTable.get(key).add(c);
+		}
+		else
+		{
+			ArrayList<Class> ac = new ArrayList<Class>();
+			ac.add(c);
+			classTable.put(key, ac);
+		}
 	}
+	
+/**
+ * Should not be returning the actual data structures. This way we can avoid accessing
+ * them directly in the test
+ */
 
-	/**
-	 * By Mike Zimmerman
-	 * @return the table
-	 */
-	public HashMap<String, ArrayList<Class>> getClassTable()
-	{
-		return classTable;
-	}
 
 	/**
      * @return singleton of SymbolTable
@@ -104,6 +180,13 @@ public class SymbolTable
     	return symbolTable;
     }
    
+    /**
+     * 
+     * @param varName the name of the variable
+     * @param methodName the name of the method
+     * @param className the name of the class
+     * @return true of false if the variable is in the method
+     */
     public boolean checkIfVariableIsInMethod(String varName, String methodName, String className)
     {
     	ArrayList<Variable> varList = variableTable.get(varName);
