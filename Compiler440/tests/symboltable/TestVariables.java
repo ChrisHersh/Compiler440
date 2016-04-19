@@ -1,14 +1,10 @@
 package symboltable;
-import static org.junit.Assert.*;
-
-import java.util.ArrayList;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import symboltable.SymbolTable;
-import symboltable.Variable;
-import symboltable.VariableScope;
-import symboltable.VariableType;
 import symboltable.variable.impl.InstanceObjectVariable;
 import symboltable.variable.impl.InstancePrimitiveVariable;
 import symboltable.variable.impl.LocalObjectVariable;
@@ -179,21 +175,11 @@ public class TestVariables {
 		
 		LocalPrimitiveVariable lpv_class2 = new LocalPrimitiveVariable("local2", "ClassName2", "MethodName", VariableScope.LOCAL, VariableType.INTEGER);
 		
-		//Each variable name has it's own list, this should get much cleaner once we have an insertion method
-		ArrayList<Variable> local = new ArrayList<Variable>();
-		local.add(lpv);
-		ArrayList<Variable> ins = new ArrayList<Variable>();
-		ins.add(ipv);
-		ArrayList<Variable> para = new ArrayList<Variable>();
-		para.add(mpv);
-		ArrayList<Variable> local2 = new ArrayList<Variable>();
-		local2.add(lpv_class2);
-		
 		SymbolTable symbol = SymbolTable.getInstance();
-		symbol.getVariableTable().put(lpv.getName(), local);
-		symbol.getVariableTable().put(ipv.getName(), ins);
-		symbol.getVariableTable().put(mpv.getName(), para);
-		symbol.getVariableTable().put(lpv_class2.getName(), local2);
+		symbol.addVariable(lpv.getName(), lpv);
+		symbol.addVariable(ipv.getName(), ipv);
+		symbol.addVariable(mpv.getName(), mpv);
+		symbol.addVariable(lpv_class2.getName(), lpv_class2);
 		
 		assertTrue(symbol.checkIfVariableIsInMethod("local", "MethodName", "ClassName"));
 		assertTrue(symbol.checkIfVariableIsInMethod("parameter", "MethodName", "ClassName"));
