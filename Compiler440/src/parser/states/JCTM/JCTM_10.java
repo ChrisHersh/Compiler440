@@ -11,11 +11,11 @@ import tokenizer.TokenTypes;
  * 
  * reduces state back to EXP 7 
  */
-public class JCTM_15 extends State 
+public class JCTM_10 extends State 
 {	
     @Override
     public void invalidState() throws ParserException
     {
-    	reduceNumberOfStates(1, TokenTypes.EXP7);
+    	reduceNumberOfStates(4, TokenTypes.EXP7);
     }
 }

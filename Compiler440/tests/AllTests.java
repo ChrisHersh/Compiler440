@@ -97,6 +97,8 @@ import tokenizer.TestTokenizer;
 		TestCRM_41.class,
 		
 		TestJCTM_0.class,
+		TestJCTM_10.class,
+		TestJCTM_11.class,
 		TestJCTM_15.class,
 		TestJCTM_16.class,
 		TestJCTM_17Test.class,

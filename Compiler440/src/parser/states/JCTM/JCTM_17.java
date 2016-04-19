@@ -1,8 +1,6 @@
 package parser.states.JCTM;
 
-import org.junit.Before;
 
-import parser.Parser;
 import parser.states.ParserException;
 import parser.states.State;
 import tokenizer.TokenTypes;
