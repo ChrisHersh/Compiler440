@@ -10,6 +10,7 @@ import org.junit.Test;
 import parser.Parser;
 import parser.states.ParserException;
 import parser.states.State;
+import parser.states.CRM.CRM_1;
 import parser.states.MDJ.MDJ_15;
 import parser.states.MDJ.MDJ_16;
 import tokenizer.Token;
@@ -60,4 +61,35 @@ public class TestMDJ_15
 	    assertTrue(p.getCurrentState() instanceof MDJ_16);
 	}
 
+    /**
+     * checks to see that shiftLeftBrace() works correctly
+     * @author Jason LoBianco
+     * @throws ParserException
+     */
+    @Test
+	public void testShiftLeftBrace() throws ParserException
+	{
+	    Parser p = Parser.getInstance();
+	    State s = new MDJ_15();
+	        
+	    Token token = new Token("{", "L_BRACE", 4);
+	    
+	    p.getInputStack().push(token);
+	    
+	    assertFalse(p.getInputStack().empty());
+	    assertEquals(p.getInputStack().peek(), token);
+	    assertTrue(p.getHoldStack().empty());
+	    assertTrue(p.getStateStack().empty());
+	    
+	    s.shiftLeftBrace();
+	   
+	    assertTrue(p.getInputStack().empty());
+	    assertFalse(p.getHoldStack().empty());
+	    assertFalse(p.getStateStack().empty());
+	    
+	    assertEquals(p.getHoldStack().peek(), token);
+	    assertEquals(p.getStateStack().peek(), s);
+	    
+	    assertTrue(p.getCurrentState() instanceof CRM_1);
+	}
 }

@@ -59,4 +59,33 @@ public class TestMDJ_20 {
 		assertTrue(p.getCurrentState() instanceof MDJ_22);
 	}
 
+	/**
+     * Tests to see that InvalidState method works correctly
+     * @author Jason LoBianco
+     * @throws ParserException
+     */
+    @Test
+    public void testInvalidState() throws ParserException
+    {
+    	Parser p = Parser.getInstance();
+	    State s = new MDJ_20();
+	        
+	    Token token = new Token(";", "Semi", 5);
+	    
+	    p.getInputStack().push(token);
+	    p.changeState(s);
+	    
+	    assertFalse(p.getInputStack().empty());
+	    assertEquals(p.getInputStack().peek(), token);
+	    assertTrue(p.getHoldStack().empty());
+	    assertTrue(p.getStateStack().empty());
+	    
+	    s.invalidState();
+	    
+	    assertFalse(p.getInputStack().empty());
+	    assertTrue(p.getHoldStack().empty());
+	    assertTrue(p.getStateStack().empty());
+	    
+	    assertTrue(p.getCurrentState() instanceof MDJ_20);
+    }
 }
