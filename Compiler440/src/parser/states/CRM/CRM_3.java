@@ -3,7 +3,10 @@ package parser.states.CRM;
 import parser.states.ParserException;
 import parser.states.State;
 import tokenizer.TokenTypes;
-
+/**
+ * Implements the methods from state CRM_3
+ * @author Chris Kjeldgaard
+ */
 public class CRM_3 extends State
 {
 	/**

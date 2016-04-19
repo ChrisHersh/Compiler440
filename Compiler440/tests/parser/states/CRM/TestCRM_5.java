@@ -18,17 +18,20 @@ import parser.states.CRM.CRM_4;
 import parser.states.CRM.CRM_5;
 import tokenizer.Token;
 import tokenizer.TokenTypes;
-
+/**
+ * Test class to check the methods of the CRM_5 class.
+ * @author TJ Renninger
+ */
 public class TestCRM_5
 {
 	/**
+	 * checks to see that the reduce works correctly
      * @author TJ Renninger
      * @throws ParserException
      */
     @Test
 	public void testReduce() throws ParserException
 	{
-//    	Test needs fixed
 	    Parser p = Parser.getInstance();
 	    State s = new CRM_5();
 	    

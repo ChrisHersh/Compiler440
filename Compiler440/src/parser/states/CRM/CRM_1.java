@@ -7,7 +7,10 @@ import tokenizer.Token;
  * @author Chris Kjeldgaard, Jason LoBianco
  */
 import tokenizer.TokenTypes;
-
+/**
+ * Implements the methods from state CRM_1
+ * @author Chris Kjeldgaard, Jason LoBianco
+ */
 public class CRM_1 extends State
 {
 	/**

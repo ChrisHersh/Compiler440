@@ -2,15 +2,18 @@ package parser.states.CRM;
 
 import parser.states.ParserException;
 import parser.states.State;
-
+/**
+ * Implements the methods from state CRM_0
+ * @author Ledny Joseph, Jason LoBianco
+ */
 
 public class CRM_0 extends State
 {
 	/**
-	 * Reduces to state CMR_1 and generates a new token
-	 * @author Ledny Joseph
+	 * changes state to CRM_1
+	 * @author Ledny Joseph, Jason LoBianco
 	 */
-	public void shiftLBrace() throws ParserException
+	public void shiftLeftBrace() throws ParserException
 	{
 		changeToState(new CRM_1());
 	}

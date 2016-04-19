@@ -17,8 +17,15 @@ import parser.states.CRM.CRM_2;
 import parser.states.CRM.CRM_3;
 import tokenizer.Token;
 import tokenizer.TokenTypes;
-
-public class TestCRM_3 {
+/**
+ * Test class to check the methods of the CRM_3 class.
+ * @author Chris Kjeldgaard
+ */
+public class TestCRM_3 
+{
+	/**
+	 * Clears the parser before each test
+	 */
 	@Before
     public void setUp()
     {
@@ -26,6 +33,7 @@ public class TestCRM_3 {
     }
 	
 	/**
+	 * Checks to see that the reduce works correctly
      * @author Chris Kjeldgaard
      * @throws ParserException
      */

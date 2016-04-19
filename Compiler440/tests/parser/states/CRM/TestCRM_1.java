@@ -16,11 +16,14 @@ import tokenizer.Token;
 
 /**
  * Test class to check the methods of the CRM_1 class.
- * @author Chris Kjeldgaard
+ * @author Chris Kjeldgaard, Jason LoBianco
  *
  */
 public class TestCRM_1
 {
+	/**
+	 * Clears the parser before each test
+	 */
     @Before
     public void setUp()
     {
