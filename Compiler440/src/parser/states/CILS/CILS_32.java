@@ -17,6 +17,6 @@ public class CILS_32 extends State
 	@Override
 	public void invalidState() throws ParserException
 	{
-		reduceToState(new CILS_5(), TokenTypes.STMT);
+		reduceNumberOfStates(5, TokenTypes.STMT);
 	}
 }
