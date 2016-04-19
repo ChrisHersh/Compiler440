@@ -21,7 +21,7 @@ public class TestMainMethod {
 	public void testMainMethod()
     {
 		
-		Class testClass = new Class("Test", null, null, null);
+		Class testClass = new Class("Test", null);
 		
 		//Tests that the main method is created properly
 		assertNotNull(MainMethod.getInstance(testClass));
