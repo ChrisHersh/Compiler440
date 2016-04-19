@@ -39,7 +39,7 @@ public class TestMethods
 		params.add(mpv2);
 		params.add(mov3);
 
-		Class cl1 = new Class("Class",null, null, null);
+		Class cl1 = new Class("Class", null);
 		PublicMethod pm = new PublicMethod("Name", cl1, VariableType.INTEGER, params);
 		assertTrue(pm.getParams().contains(mpv1));
 		assertTrue(pm.getParams().contains(mpv2));
@@ -71,7 +71,7 @@ public class TestMethods
 		ArrayList<Variable> params = new ArrayList <Variable>();
 		params.add(mpv1);
 		params.add(mpv2);
-		Class cl1 = new Class("Class",null, null, null);
+		Class cl1 = new Class("Class", null);
 		PublicMethod pm = new PublicMethod("Name", cl1, VariableType.INTEGER, params);
 		assertTrue(pm.getParams().get(0).equals(mpv1));
 		assertTrue(pm.getParams().get(1).equals(mpv2));
@@ -129,7 +129,7 @@ public class TestMethods
 		ArrayList<Variable> params = new ArrayList <Variable>();
 		params.add(mpv1);
 		params.add(mpv2);
-		Class cl1 = new Class("Class",null, null, null);
+		Class cl1 = new Class("Class", null);
 		PublicMethod pm = new PublicMethod("Name", cl1, VariableType.INTEGER, params);
 		
 		ArrayList<Variable> params2 = new ArrayList <Variable>();
@@ -152,7 +152,7 @@ public class TestMethods
 		ArrayList<Variable> params1 = new ArrayList <Variable>();
 		params1.add(mpv1);
 		params1.add(mpv2);
-		Class cl1 = new Class("Class",null, null, null);
+		Class cl1 = new Class("Class",null);
 		PublicMethod pm1 = new PublicMethod("Name", cl1, VariableType.INTEGER, params1);
 		
 		ArrayList<Variable> params2 = new ArrayList <Variable>();
@@ -173,7 +173,7 @@ public class TestMethods
 		ArrayList<Variable> params1 = new ArrayList <Variable>();
 		params1.add(mpv1);
 		params1.add(mpv2);
-		Class cl1 = new Class("Class",null, null, null);
+		Class cl1 = new Class("Class", null);
 		PublicMethod pm1 = new PublicMethod("Name", cl1, VariableType.INTEGER, params1);
 		
 		ArrayList<Variable> params2 = new ArrayList <Variable>();
@@ -197,7 +197,7 @@ public class TestMethods
 		ArrayList<Variable> params1 = new ArrayList <Variable>();
 		params1.add(mpv1);
 		params1.add(mpv2);
-		Class cl1 = new Class("Class",null, null, null);
+		Class cl1 = new Class("Class",null);
 		PublicMethod pm1 = new PublicMethod("Name", cl1, VariableType.INTEGER, params1);
 		
 		ArrayList<Variable> params2 = new ArrayList <Variable>();
@@ -216,28 +216,12 @@ public class TestMethods
     public void testGetMethodName()
     {
     	ArrayList<Variable> params = new ArrayList <Variable>();
-    	Class cl1 = new Class("Class",null, null, null);
+    	Class cl1 = new Class("Class", null);
         String test = "Name";
         PublicMethod pm = new PublicMethod("Name", cl1, VariableType.INTEGER, params);
         assertTrue(test.equals(pm.getMethodName()));
     }
 
-    /**
-     * Tests whether the setter well sets the name
-     * Method name changed by Curtis Rabe to eliminate errors
-     * 			Also, changed test to run properly - added arrayList "params" and class "cl1"
-     * 		Note: I am still not sure if method names need to be set outside of the creation of the method...
-     */
-    @Test
-    public void testSetMethodName()
-    {
-    	ArrayList<Variable> params = new ArrayList <Variable>();
-    	Class cl1 = new Class("Class",null, null, null);
-        String test = "TestName";
-        PublicMethod pm = new PublicMethod("Name", cl1, VariableType.INTEGER, params);
-        pm.setMethodName("TestName");
-        assertTrue(test.equals(pm.getMethodName()));
-    }
 
 }
 

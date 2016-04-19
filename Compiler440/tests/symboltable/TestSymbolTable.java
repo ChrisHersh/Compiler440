@@ -109,17 +109,18 @@ public class TestSymbolTable {
 		LocalPrimitiveVariable lpv1 = new LocalPrimitiveVariable("Name2", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.INTEGER);
 		LocalPrimitiveVariable lpv2 = new LocalPrimitiveVariable("Name3", "ClassName", "MethodName", VariableScope.LOCAL, VariableType.INTEGER);
 		LocalObjectVariable lov1 = new LocalObjectVariable("Name4", "ClassName", "id", "MethodName", VariableScope.LOCAL, VariableType.OBJECT);
-		ArrayList<Variable> vars = new ArrayList<Variable>();
-		vars.add(mpv1);
-		vars.add(lpv1);
-		vars.add(lpv2);
-		vars.add(lov1);
+
 		//passes in the method name and the list of variables within it
-		SymbolTable.getInstance().getVariableTable().put("MethodName", vars);
-		assertEquals(mpv1, SymbolTable.getInstance().getVariableTable().get("MethodName").get(0));
-		assertEquals(lpv1, SymbolTable.getInstance().getVariableTable().get("MethodName").get(1));
-		assertEquals(lpv2, SymbolTable.getInstance().getVariableTable().get("MethodName").get(2));
-		assertEquals(lov1, SymbolTable.getInstance().getVariableTable().get("MethodName").get(3));
+		
+		SymbolTable.getInstance().addVariable("Name1", mpv1);
+		SymbolTable.getInstance().addVariable("Name2", lpv1);
+		SymbolTable.getInstance().addVariable("Name3", lpv2);
+		SymbolTable.getInstance().addVariable("Name4", lov1);
+		assertTrue(SymbolTable.getInstance().getVariableList("Name1").contains(mpv1));
+		assertTrue(SymbolTable.getInstance().getVariableList("Name2").contains(lpv1));
+		assertTrue(SymbolTable.getInstance().getVariableList("Name3").contains(lpv2));
+		assertTrue(SymbolTable.getInstance().getVariableList("Name4").contains(lov1));
+
 	}
 	
 	/**
@@ -132,8 +133,10 @@ public class TestSymbolTable {
 		Class cla1 = new Class("Name1", null );
 		ArrayList<Class> list = new ArrayList<Class>();
 		list.add(cla1);
-		SymbolTable.getInstance().getClassTable().put("list of classes", list);
-		assertEquals(1, SymbolTable.getInstance().getClassTable().get("list of classes").size());	
+		
+		
+//		SymbolTable.getInstance().getClassTable().put("list of classes", list);
+//		assertEquals(1, SymbolTable.getInstance().getClassTable().get("list of classes").size());	
 	}
 	
 	/**
