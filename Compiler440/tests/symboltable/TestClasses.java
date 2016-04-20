@@ -2,7 +2,11 @@ package symboltable;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
+
+import symboltable.variable.impl.InstancePrimitiveVariable;
 
 
 /**
@@ -17,43 +21,29 @@ public class TestClasses {
 	 * Curtis Rabe - Not sure if this test is required. If so, it must be restructured
 	 * because we are going toward a one way (bottom up) visibility approach
 	 */
-//	@Test @Ignore
-//	public void testSuperClassInstanceVariables()
-//	{
-//		ArrayList<Method> methodSet1 = new ArrayList <Method>();
-//		ArrayList<Method> methodSet2 = new ArrayList <Method>();
-//		
-//		ArrayList<InstancePrimitiveVariable> varSet1 = new ArrayList <InstancePrimitiveVariable>();
-//		ArrayList<InstancePrimitiveVariable> varSet2 = new ArrayList <InstancePrimitiveVariable>();
-//		
-//		InstancePrimitiveVariable ipv1 = new InstancePrimitiveVariable("Name1", "cla1", VariableScope.INSTANCE, VariableType.BOOLEAN);
-//		InstancePrimitiveVariable ipv2 = new InstancePrimitiveVariable("Name2", "cla2", VariableScope.INSTANCE, VariableType.INTEGER);
-//		
-//		varSet1.add(ipv1);
-//		varSet2.add(ipv2);
-//		
-////		Class cla1 = new Class("Name1", methodSet1, varSet1 , null );
-////		Class cla2 = new Class("Name2", methodSet2, varSet2 , cla1);
-//		
-//		Class cla1 = new Class("Name1", null );
-//		Class cla2 = new Class("Name2", cla1);
-//		
-////		assertTrue(cla1.getVars().get(0).getName() == "Name1");
-////		assertTrue(cla2.getVars().get(0).getName() == "Name2");
-////		assertTrue(cla2.getVars().get(1).getName() == "Name1");
-//	}
-	
-	/**
-	 * Test the extension when there is no extension
-	 * and check the name
-	 * @author Shannon Jones, Curtis Rabe (edits)
-	 */
 	@Test
-	public void testExtensionWhenFalse() {
-		Class cl = new Class("name", null);
-		assertFalse(cl.checkExtension());
-		assertEquals("name", cl.getName());
+	public void testSuperClassInstanceVariables()
+	{		
+		ArrayList<Variable> varSet1 = new ArrayList <Variable>();
+		ArrayList<Variable> varSet2 = new ArrayList <Variable>();
+		
+		InstancePrimitiveVariable ipv1 = new InstancePrimitiveVariable("Name1", "cla1", VariableScope.INSTANCE, VariableType.BOOLEAN);
+		InstancePrimitiveVariable ipv2 = new InstancePrimitiveVariable("Name2", "cla2", VariableScope.INSTANCE, VariableType.INTEGER);
+		
+		varSet1.add(ipv1);
+		varSet2.add(ipv2);
+		
+//		Class cla1 = new Class("Name1", methodSet1, varSet1 , null );
+//		Class cla2 = new Class("Name2", methodSet2, varSet2 , cla1);
+		
+		Class cla1 = new Class("Name1", varSet1, null );
+		Class cla2 = new Class("Name2", varSet2, cla1);
+		
+		assertTrue(cla1.getInstanceVars().get(0).getName().equals("Name1"));
+		assertTrue(cla2.getInstanceVars().get(0).getName().equals("Name2"));
+		assertTrue(cla2.getInstanceVars().get(1).getName().equals("Name1"));
 	}
+	
 	
 	/**
 	 * Test to check that the class is keeping track of what is being extended
@@ -63,15 +53,15 @@ public class TestClasses {
 	@Test
 	public void testExtensionWhenTrue()
 	{
-		Class cl = new Class("name", null);
-		Class cl2 = new Class("name2",cl);
-		cl2.setExtention(cl);
-		assertFalse(cl.checkExtension());
+		Class cl = new Class("name",null, null);
+		Class cl2 = new Class("name2", null, cl);
+		assertNull(cl.getExtention());
 		assertEquals(null, cl.getExtention());
 		assertEquals("name", cl.getName());
 		
-		assertTrue(cl2.checkExtension());
 		assertEquals(cl, cl2.getExtention());
 		assertEquals("name2", cl2.getName());
 	}
+	
+	//TODO: add test for class name
 }
