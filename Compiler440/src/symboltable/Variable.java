@@ -193,6 +193,7 @@ public abstract class Variable
 	/**
 	 * Checks if operator can be used on this variable
 	 * @author Jessica Schlesiger
+	 * @param value 
 	 * @return if it can be done
 	 */
 	public boolean validOperator(String value) {
@@ -219,6 +220,8 @@ public abstract class Variable
 	/**
 	 * Checks to see if an operation can be done between two variables.
 	 * @author TJ Renninger
+	 * @param var2 
+	 * @param op 
 	 * @return true if it is valid, else false
 	 */
 	public boolean isValidOperation(Variable var2, String op)
