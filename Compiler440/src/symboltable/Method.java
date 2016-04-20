@@ -16,7 +16,6 @@ public abstract class Method
     private Class className;
     private VariableType type;
     private ArrayList<Variable> params = new ArrayList<Variable>();
-    private Class grandParent;
     /**
      * @param name the Method name
      * @param className the name of the class in which the method is located
@@ -30,15 +29,6 @@ public abstract class Method
     	this.type = type;
     	this.params = params;
     	
-    	//Check to see if this Method has grandparents.  
-    	if(className.checkExtension())
-    	{
-    		this.grandParent = className.getExtention();
-    	}
-    	else
-    	{
-    		this.grandParent = null;
-    	}
     }
     
     /**
@@ -79,25 +69,7 @@ public abstract class Method
     {
     	return name;
     }
-    //Setter for method Name - MM
-   /**
-     * sets the name of the method
-     * @param String s the desired name of the method
-     */
-    public void setMethodName(String s)
-    {
-    	name = s;
-    }//Not sure if this is needed since the name is passed through the constructor - Curtis R.
-    
-    /**
-     * Getter for method inheritance
-     * @return this method's grandparent, if any. Returns null if it has none.
-     */
-    public Class getGrandParent()
-    {
-    	return grandParent;
-    }
-    
+ 
     /**
      * Validates parameter comparison against current method
      * @param vars Variables to test
