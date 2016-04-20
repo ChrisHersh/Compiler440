@@ -17,7 +17,7 @@ public class SymbolTable
 	private HashMap<String, ArrayList<Variable>> variableTable;
 	private HashMap<String, ArrayList<Method>> methodTable;
 	//added by Mike Zimmerman to store classes in symbol table
-	private HashMap<String, ArrayList<Class>> classTable;
+	private HashMap<String, Class> classTable;
 	
 	/**
 	 * Constructor for the symbol table. Initializes the different hashmaps to being empty
@@ -26,7 +26,7 @@ public class SymbolTable
 	{
 		variableTable = new HashMap<String, ArrayList<Variable>>();
 		methodTable = new HashMap<String, ArrayList<Method>>();
-		classTable = new HashMap<String, ArrayList<Class>>();
+		classTable = new HashMap<String, Class>();
 	}
 	
 	/**
@@ -122,6 +122,14 @@ public class SymbolTable
 		return methodTable.get(key);
 	}
 	
+	/**
+	 * @param key - the key (name) referring to the class
+	 * @return the list of classes with the same name
+	 */
+	public Class getClass(String key) 
+	{
+		return classTable.get(key);
+	}
 	
 	/**
 	 * Add a variable to the variableTable of the symboltable
@@ -152,13 +160,11 @@ public class SymbolTable
 	{
 		if( classTable.containsKey(key) )
 		{
-			classTable.get(key).add(c);
+			//some sort of exception
 		}
 		else
 		{
-			ArrayList<Class> ac = new ArrayList<Class>();
-			ac.add(c);
-			classTable.put(key, ac);
+			classTable.put(key, c);
 		}
 	}
 	
