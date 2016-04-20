@@ -1,5 +1,10 @@
 package parser.states;
 
+/**
+ * 
+ * @author Jared
+ *	Yes, I fixed this. 
+ */
 public class ParserException extends Exception
 {
 
