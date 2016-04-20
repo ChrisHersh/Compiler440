@@ -149,7 +149,6 @@ import tokenizer.TestTokenizer;
 		TestTokenizer.class,
 		TestToken.class,
 		TestTokenTypes.class,
-		TestClasses.class,
 		TestSymbolTable.class,
 		TestState.class,
 
