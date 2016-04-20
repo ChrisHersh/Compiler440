@@ -148,7 +148,7 @@ public class SymbolTable
 	/**
 	 * Add a class to the classTable of the symboltable
 	 * @param key - the key that refers to the class
-	 * @param m - the variable holding the created class
+	 * @param c - the variable holding the created class
 	 */
 	public void addClass(String key, Class c)
 	{

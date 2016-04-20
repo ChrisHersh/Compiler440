@@ -165,6 +165,9 @@ public class TestVariables {
 	}
 
 
+	/**
+	 * Tests to make sure variables are in a method
+	 */
 	@Test
 	public void testIfVaribleIsInMethod()
 	{

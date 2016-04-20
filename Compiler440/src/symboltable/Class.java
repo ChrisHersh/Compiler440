@@ -25,6 +25,7 @@ public class Class {
     }
     
 	/**
+	 * Returns the name of a class
 	 * @return the name
 	 */
 	public String getName() 
@@ -32,6 +33,10 @@ public class Class {
 		return name;
 	}
 
+	/**
+	 * Returs the instance vars of a class
+	 * @return the instance vars of a class
+	 */
 	public ArrayList<Variable> getInstanceVars()
 	{
 		ArrayList<Variable> v = new ArrayList<Variable>();

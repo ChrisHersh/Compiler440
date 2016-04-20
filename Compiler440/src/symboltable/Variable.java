@@ -16,6 +16,15 @@ public abstract class Variable
     private VariableType type;
     private String value;
     
+	/**
+	 * Constructor for the generic variable
+	 * @param name name of variable
+	 * @param className name of variable's class
+	 * @param id ....ask @IanKeefer
+	 * @param methodName name of variable's method (if in a method)
+	 * @param scope the scope of the variable
+	 * @param type the type of the variable
+	 */
 	public Variable(String name, String className, String id, String methodName, VariableScope scope, VariableType type) 
 	{
 		this.name = name;
@@ -133,6 +142,7 @@ public abstract class Variable
 	/**
 	 * Type checks to see if the value is valid before assigning it.
 	 * Will NOT assign if the types do not match.
+	 * @param value 
 	 * @param id the id to set
 	 */
 	public void setValue(String value, String id) 

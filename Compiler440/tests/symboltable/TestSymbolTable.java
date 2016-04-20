@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,10 +15,14 @@ import symboltable.variable.impl.LocalPrimitiveVariable;
 import symboltable.variable.impl.MethodPrimitiveVariable;
 
 /**
- * @author Ian Keefer, Curtis Rabe, Mike Zimmerman
+ * @author Curtis Rabe, Mike Zimmerman, Jared Good
  */
 public class TestSymbolTable {
 
+	/**
+	 * Destroys the symboltable for testing...
+	 * This method may or may not be dangerous... Use with caution.
+	 */
 	@Before
 	public void resetSymbolTable()
 	{
@@ -97,7 +100,6 @@ public class TestSymbolTable {
 	@Test
 	public void testStoringNoParams()
 	{
-		MethodPrimitiveVariable mpv1 = new MethodPrimitiveVariable("Name1", "ClassName", "MethodName", VariableScope.METHOD, VariableType.INTEGER);
 		ArrayList<Variable> params = new ArrayList<Variable>();
 		Class c1 = new Class("ClassName", null, null);
 		PublicMethod m1 = new PublicMethod("MethodName", c1, VariableType.INTEGER, params);
@@ -139,10 +141,9 @@ public class TestSymbolTable {
 	public void testStoringClasses()
 	{
 		Class cla1 = new Class("Name1", null,null );
-		ArrayList<Class> list = new ArrayList<Class>();
-		list.add(cla1);
+
 		SymbolTable.getInstance().addClass("Name1", cla1);
-		assertTrue(SymbolTable.getInstance().getClassList("Name1").contains(cla1));
+		assertEquals(cla1, SymbolTable.getInstance().getClass(cla1.getName()));
 	}
 	
 	/**
@@ -152,54 +153,21 @@ public class TestSymbolTable {
 	@Test
 	public void testInstanceVarsInClasses()
 	{
-//		InstancePrimitiveVariable(String name, String className, VariableScope scope, VariableType type) 
 		InstancePrimitiveVariable ipv = new InstancePrimitiveVariable("Name1", "cla1", VariableScope.INSTANCE, VariableType.INTEGER);
 		
 		ArrayList<Variable> vars = new ArrayList<Variable>();
 		vars.add(ipv);
 		
 		Class cla1 = new Class("Name1", vars , null );
-//		ArrayList<Class> list = new ArrayList<Class>();
-//		list.add(cla1);
+
 		SymbolTable.getInstance().addClass(cla1.getName(), cla1);
 		
-		assertTrue(SymbolTable.getInstance().getClassList(cla1.getName()).contains(cla1));
-//		assertEquals(1, SymbolTable.getInstance().getClassList(cla1.getName()).size());
-//		assertEquals(1, SymbolTable.getInstance().getClassTable().get("list of classes").get(0).getVars().size());	
-//		assertEquals("Name1", SymbolTable.getInstance().getClassTable().get("list of classes").get(0).getVars().get(0).getName());	
-//		assertEquals("cla1", SymbolTable.getInstance().getClassTable().get("list of classes").get(0).getVars().get(0).getClassName());	
-//		assertEquals(VariableScope.INSTANCE, SymbolTable.getInstance().getClassTable().get("list of classes").get(0).getVars().get(0).getScope());	
-//		assertEquals(VariableType.INTEGER, SymbolTable.getInstance().getClassTable().get("list of classes").get(0).getVars().get(0).getType());	
-		
+		assertEquals(cla1, SymbolTable.getInstance().getClass(cla1.getName()));
+		assertEquals(vars, SymbolTable.getInstance().getClass(cla1.getName()).getInstanceVars());
+		assertEquals("Name1", SymbolTable.getInstance().getClass(cla1.getName()).getInstanceVars().get(0).getName());
+		assertEquals("cla1", SymbolTable.getInstance().getClass(cla1.getName()).getInstanceVars().get(0).getClassName());	
+		assertEquals(VariableScope.INSTANCE, SymbolTable.getInstance().getClass(cla1.getName()).getInstanceVars().get(0).getScope());
+		assertEquals(VariableType.INTEGER, SymbolTable.getInstance().getClass(cla1.getName()).getInstanceVars().get(0).getType());	
 	}
-	
-	/**
-	 * By Mike Zimmerman
-	 * test to make sure the methods from a class are stored and retrievable
-	 *  **Upon doing this test I am questioning if separate HashMaps for each 
-	 * type of primary thing stored in the symbol table.**     
-	 */
-	@Test
-	public void testStoringMethodsInClasses()
-	{
-		Class cla1 = new Class("cla1", null, null, null );
-		ArrayList<Variable> params = new ArrayList<Variable>();
-		
-		PublicMethod meth1 = new PublicMethod("Name1", cla1, VariableType.INTEGER, params);
-		
-		ArrayList<Method> methods = new ArrayList<Method>();
-		methods.add(meth1);
-		
-		cla1.setMethods(methods);
-		ArrayList<Class> list = new ArrayList<Class>();
-		list.add(cla1);
-		SymbolTable.getInstance().getClassTable().put("list of classes", list);
-		
-		assertEquals(1, SymbolTable.getInstance().getClassTable().get("list of classes").get(0).getMethods().size());	
-		assertEquals("Name1", SymbolTable.getInstance().getClassTable().get("list of classes").get(0).getMethods().get(0).getMethodName());	
-		assertEquals("cla1", SymbolTable.getInstance().getClassTable().get("list of classes").get(0).getMethods().get(0).getClassName());		
-		assertEquals(VariableType.INTEGER, SymbolTable.getInstance().getClassTable().get("list of classes").get(0).getMethods().get(0).getType());
-		assertEquals(params, SymbolTable.getInstance().getClassTable().get("list of classes").get(0).getMethods().get(0).getParams());
-		
-	}
+
 }

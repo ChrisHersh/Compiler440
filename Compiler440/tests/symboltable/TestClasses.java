@@ -33,9 +33,6 @@ public class TestClasses {
 		varSet1.add(ipv1);
 		varSet2.add(ipv2);
 		
-//		Class cla1 = new Class("Name1", methodSet1, varSet1 , null );
-//		Class cla2 = new Class("Name2", methodSet2, varSet2 , cla1);
-		
 		Class cla1 = new Class("Name1", varSet1, null );
 		Class cla2 = new Class("Name2", varSet2, cla1);
 		
@@ -63,5 +60,13 @@ public class TestClasses {
 		assertEquals("name2", cl2.getName());
 	}
 	
-	//TODO: add test for class name
+	/**
+	 * Test to make sure class name can be gotten
+	 */
+	@Test
+	public void testClassName()
+	{
+		Class cl = new Class("name",null, null);
+		assertEquals("name", cl.getName());
+	}
 }
