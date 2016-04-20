@@ -217,7 +217,7 @@ public abstract class Variable
 	}
 	
 	/**
-	 * Checcks to see if an operation can be done between two variables.
+	 * Checks to see if an operation can be done between two variables.
 	 * @author TJ Renninger
 	 * @return true if it is valid, else false
 	 */
