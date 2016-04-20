@@ -17,7 +17,7 @@ public class CILS_21 extends State
 	@Override
 	public void invalidState()
 	{
-		reduceToState(new CILS_5(), TokenTypes.SemiColon);
+		reduceNumberOfStates(5, TokenTypes.SemiColon);
 	}
 }
 
