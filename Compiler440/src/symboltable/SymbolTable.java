@@ -179,6 +179,15 @@ public class SymbolTable
     	}
     	return symbolTable;
     }
+    
+    /**
+     * Method to reset static SymbolTable
+     * @author Mike Zimmerman
+     */
+    public void destroyMe()
+    {
+    	SymbolTable.symbolTable = null;
+    }
    
     /**
      * 
