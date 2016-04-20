@@ -13,8 +13,11 @@ import parser.states.State;
 import parser.states.CILS.CILS_18;
 import parser.states.CILS.CILS_21;
 import parser.states.CILS.CILS_9;
+import parser.states.JMCC.JMCC_19;
 import parser.states.JMCC.JMCC_2;
+import parser.states.JMCC.JMCC_31;
 import tokenizer.Token;
+import tokenizer.TokenTypes;
 
 /**
  * Test class to check the methods of the CILS_18 class.
@@ -64,36 +67,5 @@ public class TestCILS_18 {
 	    assertTrue(p.getCurrentState() instanceof CILS_21);
 	}
     
-    /**
-     * Tests shifting to CILS_14 when || is received. 
-     * @author Manal Ibrahim
-     * @throws ParserException
-     */
-    @Test
-	public void testshiftOP1() throws ParserException
-	{
-	    Parser p = Parser.getInstance();
-	    State s = new CILS_9();
-	        
-	    Token token = new Token("||", "||", 5);
-	    
-	    p.getInputStack().push(token);
-	    
-	    assertFalse(p.getInputStack().empty());
-	    assertEquals(p.getInputStack().peek(), token);
-	    assertTrue(p.getHoldStack().empty());
-	    assertTrue(p.getStateStack().empty());
-	    
-	    s.shiftOP1();
-	    
-	    assertTrue(p.getInputStack().empty());
-	    assertFalse(p.getHoldStack().empty());
-	    assertFalse(p.getStateStack().empty());
-	    
-	    assertEquals(p.getHoldStack().peek(), token);
-	    assertEquals(p.getStateStack().peek(), s);
-	    
-	    assertTrue(p.getCurrentState() instanceof JMCC_2);
-	}
-	
+   
 }
