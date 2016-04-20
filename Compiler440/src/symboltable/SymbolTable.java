@@ -35,13 +35,7 @@ public class SymbolTable
 	 */
 	public boolean variableTableIsEmpty()
 	{
-		if(variableTable.isEmpty())
-		{
-			return true;
-		}else
-		{
-			return false;
-		}
+		return variableTable.isEmpty();
 	}
 	
 	/**
