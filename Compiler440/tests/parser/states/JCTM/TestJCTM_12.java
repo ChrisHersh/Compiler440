@@ -12,7 +12,10 @@ import parser.states.ParserException;
 import parser.states.State;
 import tokenizer.Token;
 import tokenizer.TokenTypes;
-
+/**
+ * 
+ * @author Matt Mousetis
+ */
 public class TestJCTM_12 {
 
     @Before

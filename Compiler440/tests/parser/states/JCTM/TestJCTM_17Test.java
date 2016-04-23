@@ -14,7 +14,10 @@ import parser.states.JCTM.JCTM_0;
 import parser.states.JCTM.JCTM_17;
 import tokenizer.Token;
 import tokenizer.TokenTypes;
-
+/**
+ * 
+ * @author Matt Mousetis
+ */
 public class TestJCTM_17Test {
 
     @Before

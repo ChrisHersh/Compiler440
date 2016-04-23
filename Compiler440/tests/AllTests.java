@@ -68,6 +68,8 @@ import parser.states.JCTM.TestJCTM_15;
 import parser.states.JCTM.TestJCTM_16;
 import parser.states.JCTM.TestJCTM_17Test;
 import parser.states.JCTM.TestJCTM_18;
+import parser.states.JCTM.TestJCTM_19;
+import parser.states.JCTM.TestJCTM_20;
 import parser.states.JMCC.TestJMCC_0;
 import parser.states.JMCC.TestJMCC_1;
 import parser.states.JMCC.TestJMCC_10;
@@ -220,6 +222,8 @@ import tokenizer.TestTokenizer;
 		TestJCTM_16.class,
 		TestJCTM_17Test.class,
 		TestJCTM_18.class,
+		TestJCTM_19.class,
+		TestJCTM_20.class,
 		
 		TestMDJ_0.class,
 		TestMDJ_1.class,

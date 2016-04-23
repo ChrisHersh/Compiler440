@@ -8,7 +8,7 @@ import tokenizer.TokenTypes;
 /**
  * 
  * @author Matt Mousetis
- * 
+ *
  * reduces state back to EXP 7 
  */
 public class JCTM_18 extends State 
