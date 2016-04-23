@@ -14,32 +14,12 @@ public class ProcessSTMT_P {
 		
 	}
 
-	public static void processPass3(Token subject) throws ProcessException
+	public static void processPass3(Token subject)
 	{
-		
 		if(subject.getChildren().get(0).getTokenName() == TokenTypes.STMT_P.name())
 		{
 			ProcessSTMT_P.processPass3(subject.getChildren().get(0));
-			if(subject.getChildren().get(1).getTokenName() == TokenTypes.STMT.name())
-			{
-				ProcessSTMT_P.processPass3(subject.getChildren().get(1));
-			}
-			else 
-			{
-				throw new ProcessException();
-			}
+			ProcessSTMT.processPass3(subject.getChildren().get(1));
 		}
-		else{
-			if(subject.getChildren().get(1).getTokenName() == TokenTypes.STMT.name())
-			{
-				ProcessSTMT_P.processPass3(subject.getChildren().get(1));
-			}
-			else 
-			{
-				throw new ProcessException();
-			}	
-		}
-		// TODO
-		
 	}
 }
