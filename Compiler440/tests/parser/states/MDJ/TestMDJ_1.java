@@ -16,6 +16,7 @@ import tokenizer.Token;
 
 /**
  * Test class to check the methods of the MDJ_1 class.
+ * @author Chad Nunemaker
  *
  */
 public class TestMDJ_1

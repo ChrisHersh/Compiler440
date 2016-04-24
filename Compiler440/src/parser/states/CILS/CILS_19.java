@@ -3,6 +3,9 @@ package parser.states.CILS;
 import parser.states.ParserException;
 import parser.states.State;
 
+/**
+ * @author Chad Nunemaker
+ */
 public class CILS_19 extends State
 {
 	/**

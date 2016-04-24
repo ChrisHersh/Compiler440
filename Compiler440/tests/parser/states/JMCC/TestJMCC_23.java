@@ -68,6 +68,10 @@ public class TestJMCC_23
         assertTrue(p.getCurrentState() instanceof JMCC_20);
     }
     
+    /**
+     * @author Chad Nunemaker
+     * @throws ParserException
+     */
     @Test
     public void testShiftEXP6() throws ParserException
     {
@@ -95,6 +99,10 @@ public class TestJMCC_23
         assertTrue(p.getCurrentState() instanceof JMCC_24);
     }
     
+    /**
+     * @author Chad Nunemaker
+     * @throws ParserException
+     */
     @Test
     public void testShiftEXP7() throws ParserException
     {

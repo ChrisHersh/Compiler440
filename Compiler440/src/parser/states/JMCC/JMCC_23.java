@@ -14,7 +14,7 @@ import parser.states.JMCC.JMCC_24;
 import parser.states.JMCC.JMCC_29;
 
 /**
- * @author Manal Ibrahim, 
+ * @author Manal Ibrahim, Chad Nunemaker
  * */
 public class JMCC_23 extends State
 {
@@ -30,6 +30,7 @@ public class JMCC_23 extends State
 	
 	/**
 	 * Shift to JMCC_24 if the shift is EXP6
+	 * @author Chad Nunemaker
 	 */
     @Override
     public void shiftEXP6() throws ParserException
@@ -37,6 +38,9 @@ public class JMCC_23 extends State
         changeToState(new JMCC_24());
     }
     
+    /**
+     * @author Chad Nunemaker
+     */
     @Override
     public void shiftEXP7() throws ParserException
     {

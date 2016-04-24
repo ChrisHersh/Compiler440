@@ -6,12 +6,13 @@ import parser.states.State;
 /**
  *This class is CILS_31 which represents this: STMT -> While ( EXP1 ) STMT, ?????
  * 
- * @author Mohammed, ????
+ * @author Mohammed, Chad Nunemaker
  */
 public class CILS_15 extends State
 {
 	/**
 	 * Method used to shift on EXP1 and change to state 19.
+	 * @author Chad Nunemaker
 	 */
 	@Override
 	public void shiftEXP1() throws ParserException

@@ -25,6 +25,7 @@ import tokenizer.TokenTypes;
 
 /**
  * Test all of the state shifts for CILS_27
+ * @author Chad Nunemaker
  */
 public class TestCILS_27
 {

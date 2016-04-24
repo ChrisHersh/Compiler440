@@ -4,6 +4,9 @@ import parser.states.State;
 import tokenizer.Token;
 import tokenizer.TokenTypes;
 
+/**
+ * @author Chad Nunemaker
+ */
 public class MDJ_1 extends State
 {
 	/**
