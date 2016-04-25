@@ -151,15 +151,25 @@ public class Token
     	return childTokens;
     }
     
+    /**
+     * Takes the children token and calls the switch statement on each of them.
+     * @author chris Kjeldgaard
+     * @param children
+     */
     // Shouldn't this just use childTokens? allowing a passed in child array doesnt seem like the best route
-    public void Pass1 (ArrayList<Token> children)
+    private void Pass1 (ArrayList<Token> children)
     {
     	for(Token t: children)
     	{
     		Pass1(t);
     	}
     }
-    
+    /**
+     * Takes the token and based on the token name calls the correct class based on the switch statement.
+     * This method calls the class method that implements the Pass1 code for that token.
+     * @author Chris Kjeldgard
+     * @param subject
+     */
     public void Pass1 (Token subject)
     {
     	switch (subject.getTokenName())
@@ -263,15 +273,24 @@ public class Token
     		Pass1(subject.getChildren());
     	}
     }
-    
-    public void Pass2 (ArrayList<Token> children)
+    /**
+     * Takes the children token and calls the switch statement on each of them.
+     * @author chris Kjeldgaard
+     * @param children
+     */
+    private void Pass2 (ArrayList<Token> children)
     {
     	for(Token t: children)
     	{
     		Pass2(t);
     	}
     }
-    
+    /**
+     * Takes the token and based on the token name calls the correct class based on the switch statement.
+     * This method calls the class method that implements the Pass2 code for that token.
+     * @author Chris Kjeldgard
+     * @param subject
+     */
     public void Pass2 (Token subject)
     {
     	switch (subject.getTokenName())
@@ -375,15 +394,24 @@ public class Token
     		Pass2(subject.getChildren());
     	}
     }
-    
-    public void Pass3 (ArrayList<Token> children)
+    /**
+     * Takes the children token and calls the switch statement on each of them.
+     * @author chris Kjeldgaard
+     * @param children
+     */
+    private void Pass3 (ArrayList<Token> children)
     {
     	for(Token t: children)
     	{
     		Pass3(t);
     	}
     }
-    
+    /**
+     * Takes the token and based on the token name calls the correct class based on the switch statement.
+     * This method calls the class method that implements the Pass3 code for that token.
+     * @author Chris Kjeldgard
+     * @param subject
+     */
     public void Pass3 (Token subject)
     {
     	switch (subject.getTokenName())
