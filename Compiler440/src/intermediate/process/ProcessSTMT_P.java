@@ -4,7 +4,7 @@ import tokenizer.Token;
 import tokenizer.TokenTypes;
 
 /**
- * @author Curtis Rabe
+ * @author Curtis Rabe, Mike Zimmerman
  * 
  * Class to process STMT_P
  */
@@ -27,9 +27,16 @@ public class ProcessSTMT_P
 		}
 	}
 
+	/**
+	 * the second pass of the processing of STMT_P
+	 * @param subject the incoming token
+	 */
 	public static void processPass2(Token subject) {
-		// TODO Auto-generated method stub
-		
+		if(subject.getChildren() != null)
+		{
+			ProcessSTMT_P.processPass2(subject.getChildren().get(0));
+			ProcessSTMT.processPass2(subject.getChildren().get(1));
+		}
 	}
 
 	public static void processPass3(Token subject)
