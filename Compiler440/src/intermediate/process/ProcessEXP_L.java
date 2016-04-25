@@ -22,11 +22,16 @@ public class ProcessEXP_L
 	 */
 	public static void processPass1(Token subject)
 	{
-		if(subject.getChildren() != null)
+		subject.getChildren().get(0).setParentClass(subject.getParentClass());
+		subject.getChildren().get(0).setParentMethod(subject.getParentMethod());
+		subject.getChildren().get(1).setParentClass(subject.getParentClass());
+		subject.getChildren().get(1).setParentMethod(subject.getParentMethod());
+		if(subject.getChildren().get(0).isVisited() == false)
 		{
-			ProcessEXP1.processPass1(subject.getChildren().get(0));
-			ProcessEXP_R.processPass1(subject.getChildren().get(1));
+			Token.pass1(subject.getChildren());
 		}
+		subject.setVisited();
+		subject.setType(subject.getChildren().get(0).getType());
 		
 	}
 

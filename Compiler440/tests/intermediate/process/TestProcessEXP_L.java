@@ -5,7 +5,9 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 
 import org.junit.Test;
-
+import symboltable.Class;
+import symboltable.VariableType;
+import symboltable.method.impl.PublicMethod;
 import tokenizer.Token;
 import tokenizer.TokenTypes;
 
@@ -22,32 +24,37 @@ public class TestProcessEXP_L
 	 * A test to make sure EXP_L can properly run through and process its tokens
 	 * Note: It is my understanding that the tokens are already built, so 
 	 * building them in this structure should be ok
+	 * Note Note: For the test, the tokens are manipulated to have been visited,
+	 * so the pass does not revisit them. At conclusion of run, itself is visited.
 	 */
 	@Test
 	public void testProcessPass1()
 	{
 		//first token of EXP_L
 		Token t1 = new Token(TokenTypes.EXP1.name(), 1, null);
-		//Tokens of EXP_R
-		Token t2 = new Token(TokenTypes.Comma.name(), 1, null);
-		Token t3 = new Token(TokenTypes.EXP1.name(), 1, null);
-		ArrayList<Token> tkns = new ArrayList<Token>();
-		tkns.add(t2);
-		tkns.add(t3);
+		t1.setVisited();
+		t1.setType("boolean");
 		//EXP_R, the second token of EXP_L
-		Token t4 = new Token(TokenTypes.EXP_R.name(), 1, tkns);
+		Token t4 = new Token(TokenTypes.EXP_R.name(), 1, null);
+		t4.setVisited();
+		t4.setType("int");
 		ArrayList<Token> tkns1 = new ArrayList<Token>();
 		tkns1.add(t1);
 		tkns1.add(t4);
 		//The actual token of EXP_L to test
 		Token t5 = new Token(TokenTypes.EXP_L.name(), 1, tkns1);
-		try
-		{
-			ProcessEXP_L.processPass1(t5);
-		} catch (IndexOutOfBoundsException x)
-		{
-			fail("Failed on Children Creation");
-		}
+		Class c1 = new Class("ClassName", null, null);
+		PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+		t5.setParentMethod(pm);
+		t5.setParentClass(c1);
+		assertFalse(t5.isVisited());
+		Token.pass1(t5);
+		assertEquals(t5.getType(), t5.getChildren().get(0).getType());
+		assertEquals(t5.getChildren().get(0).getParentClass(), t5.getParentClass());
+		assertEquals(t5.getChildren().get(0).getParentMethod(), t5.getParentMethod());
+		assertEquals(t5.getChildren().get(1).getParentClass(), t5.getParentClass());
+		assertEquals(t5.getChildren().get(1).getParentMethod(), t5.getParentMethod());
+		assertTrue(t5.isVisited());
 	}
 
 	/**

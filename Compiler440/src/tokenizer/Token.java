@@ -177,7 +177,7 @@ public class Token
      * @param children
      */
     // Shouldn't this just use childTokens? allowing a passed in child array doesnt seem like the best route
-    public void pass1 (ArrayList<Token> children)
+    public static void pass1 (ArrayList<Token> children)
     {
     	if(children != null)
     	{
@@ -193,7 +193,7 @@ public class Token
      * @author Chris Kjeldgard
      * @param subject
      */
-    public void pass1 (Token subject)
+    public static void pass1 (Token subject)
     {
     	switch (subject.getTokenName())
         {
