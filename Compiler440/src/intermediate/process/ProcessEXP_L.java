@@ -62,17 +62,22 @@ public class ProcessEXP_L
 			// EXP_L -> EXP1, EXP_R
 			if(subject.getChildren().get(0).getTokenName() == TokenTypes.EXP1.name())
 			{
-				// EXP1 token
-				Token child = subject.getChildren().get(0);
+				// Tokens and string to keep track of code
+				Token exp = subject.getChildren().get(0);
+				Token expr = subject.getChildren().get(1);
+				String code;
 				
-				// Processes EXP1 to generate its intermediate code
-				ProcessEXP1.processPass3(child);
+				// Processes EXP1 and EXP_R to generate their intermediate code
+				ProcessEXP1.processPass3(exp);
+				ProcessEXP_R.processPass3(expr);
 				
-				// EXP_R token
-				child = subject.getChildren().get(1);
+				// Adds EXP1 code to the EXP_L token
+				code = exp.getCode().toString();
+				subject.getCode().append(code);
 				
-				// Processes EXP_R to generate its intermediate code
-				ProcessEXP_R.processPass3(child);
+				// Adds EXP_R code to the EXP_L token
+				code = expr.getCode().toString();
+				subject.getCode().append(code);
 			}		
 		}
 	}
