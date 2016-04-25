@@ -34,9 +34,18 @@ public class ProcessEXP_R
 		}
 	}
 
-	public static void processPass2(Token subject) {
-		// TODO Auto-generated method stub
-		
+	/**
+	 * the second pass of the processing of EXP_R
+	 * @param subject the token that is EXP_R and all its childern
+	 */
+	public static void processPass2(Token subject) 
+	{
+//		Token child = subject.getChildren().get(1);
+//		child.Pass2(child.getChildren());
+		if(subject.getChildren().get(0).getTokenName().equals(TokenTypes.Comma.name()))
+		{
+			ProcessEXP1.processPass2(subject.getChildren().get(1));
+		}
 	}
 
 	public static void processPass3(Token subject) 
