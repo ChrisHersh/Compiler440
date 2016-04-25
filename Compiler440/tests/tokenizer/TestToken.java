@@ -1,9 +1,9 @@
 package tokenizer;
-
+import symboltable.Method;
+import symboltable.method.impl.MainMethod;
+import symboltable.Class;
 import static org.junit.Assert.assertEquals;
-
 import java.util.ArrayList;
-
 import org.junit.Test;
 
 public class TestToken {
@@ -44,5 +44,56 @@ public class TestToken {
         assertEquals(newT.childTokens, children);
         assertEquals(newT.tokenName, TokenTypes.EXP7.name());
     }
-
+    
+    /**
+     * Make sure the parent for a class can be set and received
+     * @author Raistlin Hess
+     */
+    @Test
+    public void testSetAndGetClass()
+    {
+    	Token t1 = new Token("Bobby", TokenTypes.Id.name(), 1);
+    	Class c = new Class("Person", null, null);
+    	
+    	assertEquals(null,t1.getParentClass());
+    	
+    	t1.setParentClass(c);
+    	
+    	assertEquals(c,t1.getParentClass());
+    }
+    
+    /**
+     * Make sure the parent for a method can be set and received
+     * @author Raistlin Hess
+     */
+    @Test
+    public void testSetAndGetMethod()
+    {
+    	Token t1 = new Token("Bobby", TokenTypes.Id.name(), 1);
+    	Class c = new Class("Person", null, null);
+    	MainMethod mainMethod = MainMethod.getInstance(c);
+    	
+    	assertEquals(null,t1.getParentMethod());
+    	
+    	t1.setParentMethod(mainMethod);
+    	
+    	assertEquals(mainMethod,t1.getParentMethod());
+    }
+    
+    /**
+     * Make sure that we can get the Type of the token, if any
+     * @author Raistlin Hess
+     */
+    @Test
+    public void testSetAndGetType()
+    {
+    	Token t1 = new Token("Bobby", TokenTypes.Id.name(), 1);
+    	String type = "boolean";
+    	
+    	assertEquals(null,t1.getType());
+    	
+    	t1.setType(type);
+    	
+    	assertEquals(type,t1.getType());
+    }
 }

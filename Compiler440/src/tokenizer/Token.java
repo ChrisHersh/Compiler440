@@ -30,14 +30,15 @@ import intermediate.process.ProcessSTMT_P;
 import intermediate.process.ProcessTYPE;
 import intermediate.process.ProcessVAR_DECL;
 import intermediate.process.ProcessVAR_DECL_L;
-
+import symboltable.Method;
+import symboltable.Class;
 import java.util.ArrayList;
 
 
 /**
  * This class holds the information needed for the tokens
  * 
- * @author Chris Hersh, Ian Keefer, Chris Kjeldgaard
+ * @author Chris Hersh, Ian Keefer, Chris Kjeldgaard, Raistlin Hess
  *
  */
 public class Token
@@ -46,6 +47,9 @@ public class Token
     String tokenName;
     int lineNumber;
     ArrayList<Token> childTokens;
+    Class parentClass;
+    Method parentMethod;
+    String type;
 
     /**
      * Method to turn multiple tokens into one, and it marks the line number as the lowest
@@ -88,7 +92,9 @@ public class Token
             if(t.lineNumber < this.lineNumber)
                 this.lineNumber = t.lineNumber;
         }
-
+        this.parentClass = null;
+        this.parentMethod = null;
+        this.type = null;
     }
     
     
@@ -104,6 +110,9 @@ public class Token
         this.tokenName = tokenName;
         this.lineNumber = lineNumber;
         this.childTokens = new ArrayList<Token>();
+        this.parentClass = null;
+        this.parentMethod = null;
+        this.type = null;
     }
     
     /**
@@ -117,6 +126,8 @@ public class Token
         this.tokenName = tokenName;
         this.lineNumber = lineNumber;
         this.childTokens = children;
+        this.parentClass = null;
+        this.parentMethod = null;
     }
     
     /**
@@ -508,5 +519,59 @@ public class Token
         default:
             break;
         }
+    }
+    
+    /**
+     * Getter for the class this Token belongs to
+     * @author Raistlin Hess
+     */
+    public Class getParentClass()
+    {
+    	return parentClass;
+    }
+    
+    /**
+     * Getter for the method this Token belongs to
+     * @author Raistlin Hess
+     */
+    public Method getParentMethod()
+    {
+    	return parentMethod;
+    }
+    
+    /**
+     * Getter for the Type of this Token
+     * @author Raistlin Hess
+     */
+    public String getType()
+    {
+    	return this.type; 
+    }
+    
+    /**
+     * Setter for the class this Token belongs to
+     * @author Raistlin Hess
+     */
+    public void setParentClass(Class c)
+    {
+    	this.parentClass = c;
+    }
+    
+    /**
+     * Setter for the method this Token belongs to
+     * @author Raistlin Hess
+     */
+    public void setParentMethod(Method m)
+    {
+    	this.parentMethod = m;
+    }
+    
+    /**
+     * Setter for the method this Token belongs to
+     * @author Raistlin Hess
+     */
+    public void setType(String type)
+    {
+    	this.type = type;
     }
 }

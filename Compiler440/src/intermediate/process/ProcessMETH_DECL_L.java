@@ -14,15 +14,9 @@ public class ProcessMETH_DECL_L
 	 */
 	public static void processPass1(Token subject) 
 	{
-		Token child = subject.getChildren().get(0);
-		if(child.getTokenName() == TokenTypes.METH_DECL_L.name())
-		{
-			ProcessMETH_DECL_L.processPass1(child);
-		}
-		if(child.getTokenName() == TokenTypes.METHOD_DECL.name())
-		{
-			ProcessMETH_DECL.processPass1(child);
-		}
+		subject.getChildren().get(0).setClass(subject.getClass());
+		subject.pass1(subject.getChildren());
+		subject.setType(subject.getChildren().get(0));
 	}
 
 	/**
@@ -30,15 +24,7 @@ public class ProcessMETH_DECL_L
 	 */
 	public static void processPass2(Token subject) 
 	{
-		Token child = subject.getChildren().get(0);
-		if(child.getTokenName() == TokenTypes.METH_DECL_L.name())
-		{
-			ProcessMETH_DECL_L.processPass2(child);
-		}
-		if(child.getTokenName() == TokenTypes.METHOD_DECL.name())
-		{
-			ProcessMETH_DECL.processPass2(child);
-		}
+		subject.pass1(subject.getChildren());
 	}
 
 	/**
