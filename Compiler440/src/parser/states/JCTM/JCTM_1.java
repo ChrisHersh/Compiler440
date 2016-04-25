@@ -12,18 +12,21 @@ import tokenizer.TokenTypes;
 public class JCTM_1 extends State 
 {
 
+    //Shift Period
     @Override
     public void shiftPeriod() throws ParserException
     {
         changeToState(new JCTM_3());
     }
     
+  //Shift Left Brace
     @Override
     public void shiftLeftBrace() throws ParserException
     {
         changeToState(new JCTM_2());
     }
     
+  //Reduce to EXP7
     @Override
     public void invalidState() throws ParserException
     {

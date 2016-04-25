@@ -6,12 +6,14 @@ import tokenizer.TokenTypes;
 
 
 /**
+ * JMCC_28
  * Reduce to EXP6
  * @author Daniel Breitigan
  *
  */
 public class JMCC_28 extends State
 {
+    //Reduce to EXP6
     @Override
     public void invalidState() throws ParserException
     {

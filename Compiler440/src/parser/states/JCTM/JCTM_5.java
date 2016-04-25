@@ -11,6 +11,7 @@ import tokenizer.TokenTypes;
  */
 public class JCTM_5 extends State
 {
+    //Reduce state to EXP7
     @Override
     public void invalidState() throws ParserException
     {

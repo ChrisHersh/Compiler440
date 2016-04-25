@@ -10,6 +10,7 @@ import parser.states.State;
  */
 public class JCTM_7 extends State
 {
+    //Shift left parenthesis
     @Override
     public void shiftLeftPara() throws ParserException
     {

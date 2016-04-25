@@ -22,6 +22,7 @@ import tokenizer.TokenTypes;
  */
 public class TestJCTM_6
 {
+    //Reset Parser before test
     @Before
     public void setUp()
     {

@@ -24,12 +24,14 @@ import tokenizer.TokenTypes;
 public class TestJCTM_1
 {
 
+    //Reset parser before test
     @Before
     public void setUp()
     {
         Parser.resetParser();
     }
     
+    //Test shift at Period
     @Test
     public void testPeriod() throws ParserException 
     {
@@ -58,6 +60,7 @@ public class TestJCTM_1
         
     }
     
+  //Test shift at LeftBrace
     @Test
     public void testLeftBrace() throws ParserException 
     {
@@ -86,7 +89,7 @@ public class TestJCTM_1
         
     }
     
-    
+  //Test Reduce
     @Test
     public void testReduce() throws ParserException
     {

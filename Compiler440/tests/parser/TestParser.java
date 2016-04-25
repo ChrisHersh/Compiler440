@@ -169,6 +169,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof MDJ_10);  
 	}
 	
+	/**
+	 * Ensure Shift Works
+	 * @Author Daniel Breitigan & Matt Mousetis
+	 * @throws ParserException
+	 */
 	@Test
 	public void testEXP2shift() throws ParserException
 	{
@@ -184,6 +189,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof CRM_1);  
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testEXP3Shift() throws ParserException
 	{
@@ -199,6 +209,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof CRM_2);  
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testEXP4Shift() throws ParserException
 	{
@@ -214,6 +229,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof CRM_3);  
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testEXP5Shift() throws ParserException
 	{
@@ -229,6 +249,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_1);  
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testEXP6Shift() throws ParserException
 	{
@@ -245,6 +270,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_15);  
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testEXP7Shift() throws ParserException
 	{
@@ -260,6 +290,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_16);  
 	}
 
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testShiftId() throws ParserException
 	{
@@ -275,6 +310,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_17);  
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testShiftIntegerLiteral() throws ParserException
 	{
@@ -290,6 +330,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_18);  
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testShiftTrue() throws ParserException
 	{
@@ -305,6 +350,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_19);  
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testShiftFalse() throws ParserException
 	{
@@ -320,6 +370,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_27);  
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testShiftThis() throws ParserException
 	{
@@ -336,6 +391,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JCTM_29);  
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testShiftNew() throws ParserException
 	{
@@ -351,6 +411,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_1);  
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testShiftNot() throws ParserException
 	{
@@ -366,6 +431,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_5);  
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testShiftLBracket() throws ParserException
 	{
@@ -381,6 +451,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_6);  
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testShiftInvalid() throws ParserException
 	{
@@ -397,6 +472,11 @@ public class TestParser
         assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_6); 
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testShiftLBrace() throws ParserException
 	{
@@ -412,6 +492,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_7);  
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testShiftLeftPara() throws ParserException
 	{
@@ -427,6 +512,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_8);
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testShiftRightPara() throws ParserException
 	{
@@ -442,6 +532,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_18);  
 	}
 
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testShiftVarDec_l() throws ParserException
 	{
@@ -457,6 +552,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_19);  
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testShiftVarDecl() throws ParserException
 	{
@@ -472,6 +572,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_20);  
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testShiftPublic() throws ParserException
 	{
@@ -487,6 +592,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_23);  
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testShiftStatic() throws ParserException
 	{
@@ -502,6 +612,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_24);  
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testShiftVoid() throws ParserException
 	{
@@ -517,6 +632,11 @@ public class TestParser
 	    assertTrue(Parser.getInstance().getCurrentState() instanceof JMCC_27);  
 	}
 	
+	/**
+     * Ensure Shift Works
+     * @Author Daniel Breitigan & Matt Mousetis
+     * @throws ParserException
+     */
 	@Test
 	public void testShiftMain() throws ParserException
 	{
