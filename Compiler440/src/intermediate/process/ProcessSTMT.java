@@ -83,14 +83,14 @@ public class ProcessSTMT
 				pw.println("START_EXP1:");
 				
 				// Processes EXP1 to generate its intermediate code
-				exp.Pass3(exp.getChildren());
+				ProcessEXP1.processPass3(exp);
 				
 				// Jumps to the ELSE label based on the value of EXP1
 				// Should fall into the if if the value is "true"
 				pw.println("\tJMP [Value], ELSE");
 				
 				// Processes STMT1 to generate its intermediate code
-				stmt1.Pass3(stmt1.getChildren());
+				ProcessSTMT.processPass3(stmt1);
 				
 				// Jumps to END and skips the else
 				pw.println("\tJMP END");
@@ -99,7 +99,7 @@ public class ProcessSTMT
 				pw.println("ELSE:");
 				
 				// Processes STMT2 to generate its intermediate code
-				stmt2.Pass3(stmt2.getChildren());
+				ProcessSTMT.processPass3(stmt2);
 				
 				// Adds the END label
 				pw.println("END:");
@@ -115,7 +115,7 @@ public class ProcessSTMT
 				Token stmtp = subject.getChildren().get(1);
 				
 				// Processes STMT_P to generate its intermediate code
-				stmtp.Pass3(stmtp.getChildren());
+				ProcessSTMT_P.processPass3(stmtp);
 				
 			}
 			
@@ -132,13 +132,13 @@ public class ProcessSTMT
 				pw.println("START_EXP1:");
 				
 				// Processes EXP1 to generate its intermediate code
-				exp.Pass3(exp.getChildren());
+				ProcessEXP1.processPass3(exp);
 	
 				// Jumps to the end of the while loop if the value indicates so
 				pw.println("\tJMP [Value], END");
 				
 				// Processes STMT to generate its intermediate code
-				stmt.Pass3(stmt.getChildren());
+				ProcessSTMT.processPass3(stmt);
 	
 				// Jumps back to the evaluation of EXP1
 				pw.println("\tJMP START_EXP1");
@@ -157,7 +157,7 @@ public class ProcessSTMT
 				Token exp = subject.getChildren().get(2);
 				
 				// Processes EXP1 to generate its intermediate code
-				exp.Pass3(exp.getChildren());
+				ProcessEXP1.processPass3(exp);
 				
 				// TODO fix this
 				// Puts the value of EXP1 in the output register
@@ -181,7 +181,7 @@ public class ProcessSTMT
 					Token exp = subject.getChildren().get(2);
 					
 					// Processes EXP1 to generate its intermediate code
-					exp.Pass3(exp.getChildren());
+					ProcessEXP1.processPass3(exp);
 					
 					// Stores the value of EXP1 to location of id
 					pw.println("SW [Value], [id]");
@@ -196,8 +196,8 @@ public class ProcessSTMT
 					Token exp2 = subject.getChildren().get(5);
 					
 					// Processes both EXP1's to generate their intermediate code
-					exp1.Pass3(exp1.getChildren());
-					exp2.Pass3(exp2.getChildren());
+					ProcessEXP1.processPass3(exp1);
+					ProcessEXP1.processPass3(exp2);
 					
 					// Shifts the value of the first EXP1 left 2
 					// Resulting in a multiply of 4 to get address offset
