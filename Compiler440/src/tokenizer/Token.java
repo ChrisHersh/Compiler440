@@ -151,6 +151,7 @@ public class Token
     	return childTokens;
     }
     
+    // Shouldn't this just use childTokens? allowing a passed in child array doesnt seem like the best route
     public void Pass1 (ArrayList<Token> children)
     {
     	for(Token t: children)
