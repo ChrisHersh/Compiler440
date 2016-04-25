@@ -1,11 +1,15 @@
 package tokenizer;
-import symboltable.Method;
 import symboltable.method.impl.MainMethod;
 import symboltable.Class;
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import org.junit.Test;
 
+/**
+ * @author Curtis Rabe
+ *
+ */
 public class TestToken {
 	
     /**
@@ -95,5 +99,17 @@ public class TestToken {
     	t1.setType(type);
     	
     	assertEquals(type,t1.getType());
+    }
+    
+    /**
+     * Tests the setting and getting of new "visited" variable of Tokens
+     */
+    @Test
+    public void testSetAndGetVisited()
+    {
+    	Token t1 = new Token("Jimmy", TokenTypes.Id.name(), 1);
+    	assertFalse(t1.isVisited());
+    	t1.setVisited();
+    	assertTrue(t1.isVisited());
     }
 }

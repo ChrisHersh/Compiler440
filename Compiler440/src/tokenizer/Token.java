@@ -52,6 +52,7 @@ public class Token
     Method parentMethod;
     String type;
     StringBuffer intermediateCode;
+    boolean visited;
 
     /**
      * Method to turn multiple tokens into one, and it marks the line number as the lowest
@@ -98,6 +99,7 @@ public class Token
         this.parentMethod = null;
         this.type = null;
         this.intermediateCode = new StringBuffer();
+        visited = false;
     }
     
     
@@ -117,6 +119,7 @@ public class Token
         this.parentMethod = null;
         this.type = null;
         this.intermediateCode = new StringBuffer();
+        visited = false;
     }
     
     /**
@@ -133,6 +136,7 @@ public class Token
         this.parentClass = null;
         this.parentMethod = null;
         this.intermediateCode = new StringBuffer();
+        visited = false;
     }
     
     /**
@@ -587,5 +591,22 @@ public class Token
     public StringBuffer getCode()
     {
     	return this.intermediateCode;
+    }
+    
+    /**
+     * Method to set the Token to "visited"
+     */
+    public void setVisited()
+    {
+    	visited = true;
+    }
+    
+    /**
+     * Checks to see if the token has been visited
+     * @return visited - boolean value
+     */
+    public boolean isVisited()
+    {
+    	return visited;
     }
 }
