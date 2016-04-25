@@ -62,7 +62,7 @@ public class ProcessEXP_R
 			Token child = subject.getChildren().get(1);
 			
 			// Processes EXP1 to generate its intermediate code
-			ProcessEXP1.processPass3(child);
+			Token.pass3(child);
 			
 			// Adds EXP1 code to the EXP_R token
 			String code = child.getCode().toString();

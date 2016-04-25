@@ -68,8 +68,8 @@ public class ProcessEXP_L
 				String code;
 				
 				// Processes EXP1 and EXP_R to generate their intermediate code
-				ProcessEXP1.processPass3(exp);
-				ProcessEXP_R.processPass3(expr);
+				Token.pass3(exp);
+				Token.pass3(expr);
 				
 				// Adds EXP1 code to the EXP_L token
 				code = exp.getCode().toString();

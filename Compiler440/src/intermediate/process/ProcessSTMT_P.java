@@ -59,8 +59,8 @@ public class ProcessSTMT_P
 				String code;
 				
 				// Processes the tokens to generate their intermediate code
-				ProcessSTMT_P.processPass3(stmtp);
-				ProcessSTMT.processPass3(stmt);
+				Token.pass3(stmtp);
+				Token.pass3(stmt);
 				
 				// Adds STMT_P code to the current STMT_P code
 				code = stmtp.getCode().toString();

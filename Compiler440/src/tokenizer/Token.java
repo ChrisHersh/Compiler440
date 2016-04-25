@@ -415,7 +415,7 @@ public class Token
      * @author chris Kjeldgaard
      * @param children
      */
-    public void pass3 (ArrayList<Token> children)
+    public static void pass3 (ArrayList<Token> children)
     {
     	if(children != null)
     	{
@@ -431,7 +431,7 @@ public class Token
      * @author Chris Kjeldgard
      * @param subject
      */
-    public void pass3 (Token subject)
+    public static void pass3 (Token subject)
     {
     	switch (subject.getTokenName())
         {
