@@ -18,6 +18,12 @@ import parser.states.JCTM.JCTM_29;
 import tokenizer.Token;
 import tokenizer.TokenTypes;
 
+	/**
+	 * 
+	 * @author Matt Mousetis
+	 *
+	 */
+
 public class TestJCTM_0 {
 
     @Before
@@ -169,12 +175,12 @@ public class TestJCTM_0 {
     }
     
     @Test
-    public void testShiftLeftBrace() throws ParserException
+    public void testShiftLeftPara() throws ParserException
     {
         Parser p = Parser.getInstance();
         State s = new JCTM_0();
         
-        Token inpToken = new Token("||", TokenTypes.LBrace.name(), 6);
+        Token inpToken = new Token("(", TokenTypes.LPara.name(), 6);
         
         p.getInputStack().push(inpToken);
         
@@ -184,7 +190,7 @@ public class TestJCTM_0 {
         assertTrue(p.getStateStack().empty());
         
         //Make the current state the one we're testing
-        s.shiftLeftBrace();
+        s.shiftLeftPara();
         
         assertTrue(p.getInputStack().empty());
         assertFalse(p.getHoldStack().empty());
@@ -194,5 +200,33 @@ public class TestJCTM_0 {
         assertEquals(p.getStateStack().peek(), s);
         
         assertTrue(p.getCurrentState() instanceof JCTM_29);
+    }
+    
+    @Test
+    public void testShiftNew() throws ParserException
+    {
+        Parser p = Parser.getInstance();
+        State s = new JCTM_0();
+        
+        Token inpToken = new Token("new", TokenTypes.New.name(), 6);
+        
+        p.getInputStack().push(inpToken);
+        
+        assertFalse(p.getInputStack().empty());
+        assertEquals(p.getInputStack().peek(), inpToken);
+        assertTrue(p.getHoldStack().empty());
+        assertTrue(p.getStateStack().empty());
+        
+        //Make the current state the one we're testing
+        s.shiftNew();
+        
+        assertTrue(p.getInputStack().empty());
+        assertFalse(p.getHoldStack().empty());
+        assertFalse(p.getStateStack().empty());
+        
+        assertEquals(p.getHoldStack().peek(), inpToken);
+        assertEquals(p.getStateStack().peek(), s);
+        
+        assertTrue(p.getCurrentState() instanceof JCTM_19);
     }
 }

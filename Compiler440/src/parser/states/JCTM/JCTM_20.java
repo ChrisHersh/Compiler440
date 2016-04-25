@@ -11,6 +11,9 @@ import parser.states.State;
 
 public class JCTM_20 extends State 
 {
+	/**
+	 * Shift on leftBrace
+	 */
     public void shiftLeftBrace() throws ParserException
     {
     	changeToState(new JCTM_21());

@@ -30,10 +30,10 @@ public class JCTM_0 extends State
 		changeToState(new JCTM_17());
 	}
 	/**
-	 * Shift on Right Para
+	 * Shift on left Para
 	 */
 	@Override
-	public void shiftRightPara() throws ParserException 
+	public void shiftLeftPara() throws ParserException 
 	{
 		changeToState(new JCTM_29());
 	}

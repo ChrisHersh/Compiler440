@@ -270,7 +270,7 @@ public class TestJCTM_13
         assertTrue(p.getCurrentState() instanceof JMCC_32);
     }
 
-	
+	@Test
     public void testShiftIntegerLiteral() throws ParserException
     {
         Parser p = Parser.getInstance();
@@ -418,7 +418,7 @@ public class TestJCTM_13
         Parser p = Parser.getInstance();
         State s = new JCTM_13();
         
-        Token inpToken = new Token("||", TokenTypes.LBrace.name(), 6);
+        Token inpToken = new Token("[", TokenTypes.LBrace.name(), 6);
         
         p.getInputStack().push(inpToken);
         
@@ -428,7 +428,7 @@ public class TestJCTM_13
         assertTrue(p.getStateStack().empty());
         
         //Make the current state the one we're testing
-        s.shiftRightPara();
+        s.shiftLeftPara();
         
         assertTrue(p.getInputStack().empty());
         assertFalse(p.getHoldStack().empty());
@@ -438,6 +438,62 @@ public class TestJCTM_13
         assertEquals(p.getStateStack().peek(), s);
         
         assertTrue(p.getCurrentState() instanceof JCTM_29);
+    }
+
+    @Test
+    public void testShiftNew() throws ParserException
+    {
+        Parser p = Parser.getInstance();
+        State s = new JCTM_13();
+        
+        Token inpToken = new Token("new", TokenTypes.New.name(), 6);
+        
+        p.getInputStack().push(inpToken);
+        
+        assertFalse(p.getInputStack().empty());
+        assertEquals(p.getInputStack().peek(), inpToken);
+        assertTrue(p.getHoldStack().empty());
+        assertTrue(p.getStateStack().empty());
+        
+        //Make the current state the one we're testing
+        s.shiftNew();
+        
+        assertTrue(p.getInputStack().empty());
+        assertFalse(p.getHoldStack().empty());
+        assertFalse(p.getStateStack().empty());
+        
+        assertEquals(p.getHoldStack().peek(), inpToken);
+        assertEquals(p.getStateStack().peek(), s);
+        
+        assertTrue(p.getCurrentState() instanceof JCTM_19);
+    }
+    
+    @Test
+    public void testShiftNot() throws ParserException
+    {
+        Parser p = Parser.getInstance();
+        State s = new JCTM_13();
+        
+        Token inpToken = new Token("!", TokenTypes.Not.name(), 6);
+        
+        p.getInputStack().push(inpToken);
+        
+        assertFalse(p.getInputStack().empty());
+        assertEquals(p.getInputStack().peek(), inpToken);
+        assertTrue(p.getHoldStack().empty());
+        assertTrue(p.getStateStack().empty());
+        
+        //Make the current state the one we're testing
+        s.shiftNot();
+        
+        assertTrue(p.getInputStack().empty());
+        assertFalse(p.getHoldStack().empty());
+        assertFalse(p.getStateStack().empty());
+        
+        assertEquals(p.getHoldStack().peek(), inpToken);
+        assertEquals(p.getStateStack().peek(), s);
+        
+        assertTrue(p.getCurrentState() instanceof JCTM_27);
     }
 }
 

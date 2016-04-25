@@ -10,6 +10,10 @@ import parser.states.ParserException;
 import parser.states.State;
 import tokenizer.Token;
 
+/**
+ * @author Matt Mousetis
+ */
+
 public class TestJCTM_20 {
 
     @Before
@@ -19,7 +23,7 @@ public class TestJCTM_20 {
     }
 	
     @Test
-    public void testInt() throws ParserException 
+    public void testLeftBrace() throws ParserException 
     {
     	Parser parser = Parser.getInstance();
     	State state = new JCTM_20();
