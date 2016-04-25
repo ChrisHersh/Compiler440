@@ -18,8 +18,8 @@ public class ProcessSTMT_P {
 	{
 		if(subject.getChildren().get(0).getTokenName() == TokenTypes.STMT_P.name())
 		{
-			ProcessSTMT_P.processPass3(subject.getChildren().get(0));
-			ProcessSTMT.processPass3(subject.getChildren().get(1));
+			Token child = subject.getChildren().get(0);
+			child.Pass3(child.getChildren());
 		}
 	}
 }
