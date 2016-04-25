@@ -113,6 +113,12 @@ import tokenizer.TestTokenizer;
 		TestJCTM_18.class,
 		TestJCTM_19.class,
 		TestJCTM_20.class,
+		TestJCTM_26.class,
+		TestJCTM_27.class,
+		TestJCTM_28.class,
+		TestJCTM_29.class,
+		TestJCTM_30.class,
+		TestJCTM_31.class,
 		
 		TestMDJ_0.class,
 		TestMDJ_1.class,
