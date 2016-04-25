@@ -40,7 +40,7 @@ public class ProcessSTMT_P
 	}
 
 	/**
-	 * Generates intermediate code for EXP_L
+	 * Generates intermediate code for STMT_P
 	 * 
 	 * @author Jared Good
 	 * @param subject Token to be processed
@@ -54,16 +54,21 @@ public class ProcessSTMT_P
 			if( subject.getChildren().get(0).getTokenName().equals( TokenTypes.STMT_P.name() ) )
 			{
 				// STMT_P token
-				Token child = subject.getChildren().get(0);
+				Token stmtp = subject.getChildren().get(0);
+				Token stmt = subject.getChildren().get(1);
+				String code;
 				
-				// Processes STMT_P to generate its intermediate code
-				ProcessSTMT_P.processPass3(child);
+				// Processes the tokens to generate their intermediate code
+				ProcessSTMT_P.processPass3(stmtp);
+				ProcessSTMT.processPass3(stmt);
 				
-				// STMT token
-				child = subject.getChildren().get(1);
+				// Adds STMT_P code to the current STMT_P code
+				code = stmtp.getCode().toString();
+				subject.getCode().append(code);
 				
-				// Processes STMT to generate its intermediate code
-				ProcessSTMT.processPass3(child);
+				// Adds STMT code to the current STMT_P code
+				code = stmt.getCode().toString();
+				subject.getCode().append(code);
 			}
 		}
 	}

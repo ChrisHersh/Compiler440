@@ -63,6 +63,11 @@ public class ProcessEXP_R
 			
 			// Processes EXP1 to generate its intermediate code
 			ProcessEXP1.processPass3(child);
+			
+			// Adds EXP1 code to the EXP_R token
+			String code = child.getCode().toString();
+			subject.getCode().append(code);
+			
 		}
 	}
 }

@@ -44,8 +44,8 @@ public class ProcessSTMT
 	 * @author Jared Good
 	 * @param subject token to be processed
 	 */
-	public static void processPass3(Token subject) {
-		// TODO sigh.....
+	public static void processPass3(Token subject) 
+	{
 		
 		if( subject.getChildren() != null)
 		{
@@ -116,6 +116,7 @@ public class ProcessSTMT
 				// Processes STMT_P to generate its intermediate code
 				ProcessSTMT_P.processPass3(stmtp);
 				
+				// Adds the STMT_P code to the STMT token
 				String code = stmtp.getCode().toString();
 				subject.getCode().append(code);
 				
@@ -137,6 +138,7 @@ public class ProcessSTMT
 				// Processes EXP1 to generate its intermediate code
 				ProcessEXP1.processPass3(exp);
 				
+				// Adds the EXP1 code to the STMT token
 				code = exp.getCode().toString();
 				subject.getCode().append(code);
 	
@@ -146,6 +148,7 @@ public class ProcessSTMT
 				// Processes STMT to generate its intermediate code
 				ProcessSTMT.processPass3(stmt);
 				
+				// Adds the STMT code to the current STMT token
 				code = stmt.getCode().toString();
 				subject.getCode().append(code);
 	
@@ -168,6 +171,7 @@ public class ProcessSTMT
 				// Processes EXP1 to generate its intermediate code
 				ProcessEXP1.processPass3(exp);
 				
+				// Adds the EXP1 code to the STMT token
 				String code = exp.getCode().toString();
 				subject.getCode().append(code);
 				
@@ -195,6 +199,7 @@ public class ProcessSTMT
 					// Processes EXP1 to generate its intermediate code
 					ProcessEXP1.processPass3(exp);
 					
+					// Adds the EXP1 code to the STMT token
 					String code = exp.getCode().toString();
 					subject.getCode().append(code);
 					
@@ -215,9 +220,11 @@ public class ProcessSTMT
 					ProcessEXP1.processPass3(exp1);
 					ProcessEXP1.processPass3(exp2);
 					
+					// Adds the first EXP1 code to the STMT token
 					code = exp1.getCode().toString();
 					subject.getCode().append(code);
 					
+					// Adds the second EXP1 code to the STMT token
 					code = exp2.getCode().toString();
 					subject.getCode().append(code);
 					
