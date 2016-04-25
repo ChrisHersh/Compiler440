@@ -37,7 +37,7 @@ import java.util.ArrayList;
 /**
  * This class holds the information needed for the tokens
  * 
- * @author Chris Hersh, Ian Keefer
+ * @author Chris Hersh, Ian Keefer, Chris Kjeldgaard
  *
  */
 public class Token
@@ -508,10 +508,5 @@ public class Token
         default:
             break;
         }
-    	
-    	if(subject.getChildren()!=null)
-    	{
-    		pass3(subject.getChildren());
-    	}
     }
 }
