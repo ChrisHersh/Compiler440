@@ -1,5 +1,7 @@
 package tokenizer;
 
+import java.util.ArrayList;
+
 import intermediate.process.ProcessCLASS_DECL;
 import intermediate.process.ProcessCLASS_DECL_L;
 import intermediate.process.ProcessEXP1;
@@ -9,6 +11,7 @@ import intermediate.process.ProcessEXP4;
 import intermediate.process.ProcessEXP5;
 import intermediate.process.ProcessEXP6;
 import intermediate.process.ProcessEXP7;
+import intermediate.process.ProcessEXP_L;
 import intermediate.process.ProcessEXP_R;
 import intermediate.process.ProcessFORMAL_L;
 import intermediate.process.ProcessFORMAL_R;
@@ -23,16 +26,14 @@ import intermediate.process.ProcessOP3;
 import intermediate.process.ProcessOP4;
 import intermediate.process.ProcessOP5;
 import intermediate.process.ProcessOP6;
-import intermediate.process.ProcessEXP_L;
 import intermediate.process.ProcessPROG;
 import intermediate.process.ProcessSTMT;
 import intermediate.process.ProcessSTMT_P;
 import intermediate.process.ProcessTYPE;
 import intermediate.process.ProcessVAR_DECL;
 import intermediate.process.ProcessVAR_DECL_L;
-import symboltable.Method;
 import symboltable.Class;
-import java.util.ArrayList;
+import symboltable.Method;
 
 
 /**
@@ -50,6 +51,7 @@ public class Token
     Class parentClass;
     Method parentMethod;
     String type;
+    StringBuffer intermediateCode;
 
     /**
      * Method to turn multiple tokens into one, and it marks the line number as the lowest
@@ -95,6 +97,7 @@ public class Token
         this.parentClass = null;
         this.parentMethod = null;
         this.type = null;
+        this.intermediateCode = new StringBuffer();
     }
     
     
@@ -113,6 +116,7 @@ public class Token
         this.parentClass = null;
         this.parentMethod = null;
         this.type = null;
+        this.intermediateCode = new StringBuffer();
     }
     
     /**
@@ -128,6 +132,7 @@ public class Token
         this.childTokens = children;
         this.parentClass = null;
         this.parentMethod = null;
+        this.intermediateCode = new StringBuffer();
     }
     
     /**
@@ -573,5 +578,10 @@ public class Token
     public void setType(String type)
     {
     	this.type = type;
+    }
+    
+    public StringBuffer getCode()
+    {
+    	return this.intermediateCode;
     }
 }
