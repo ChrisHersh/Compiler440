@@ -3,7 +3,6 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import tokenizer.Token;
 import tokenizer.TokenTypes;
 
@@ -40,9 +39,8 @@ public class ProcessMETH_DECL
 
 	/**
 	 * Generates Intermediate code for METH_DECL
-	 * @throws IOException 
 	 */
-	public static void processPass3(Token subject) throws IOException 
+	public static void processPass3(Token subject) 
 	{
 		Token child = subject.getChildren().get(0);
 		PrintWriter pw = null;
