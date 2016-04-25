@@ -5,6 +5,10 @@ import parser.states.State;
 import parser.states.JMCC.JMCC_3;
 import tokenizer.TokenTypes;
 
+/**
+ * @author Matt Mousetis
+ */
+
 public class JCTM_14 extends State 
 {
 	/**

@@ -115,7 +115,7 @@ import tokenizer.TestTokenizer;
 		TestJCTM_11.class,
 		TestJCTM_15.class,
 		TestJCTM_16.class,
-		TestJCTM_17Test.class,
+		TestJCTM_17.class,
 		TestJCTM_18.class,
 		TestJCTM_19.class,
 		TestJCTM_20.class,

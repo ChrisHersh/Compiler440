@@ -20,6 +20,9 @@ public class JCTM_19 extends State
 		changeToState(new JCTM_24());
 	}
 	
+	/**
+	 * Shift on int
+	 */
     public void shiftInt() throws ParserException
     {
     	changeToState(new JCTM_20());

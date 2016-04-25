@@ -184,7 +184,7 @@ public class ProcessSTMT
 					ProcessEXP1.processPass3(exp);
 					
 					// Stores the value of EXP1 to location of id
-					pw.println("SW [Value], [id]");
+					pw.println("\tSW [Value], [id]");
 				}
 				
 				// Generates the code for the rule:
@@ -201,13 +201,13 @@ public class ProcessSTMT
 					
 					// Shifts the value of the first EXP1 left 2
 					// Resulting in a multiply of 4 to get address offset
-					pw.println("SLL [Value1], 2, [Value1]");
+					pw.println("\tSLL [Value1], 2, [Value1]");
 					
 					// Adds the offset to the id address
-					pw.println("ADD [Value1], [id], [Value1]");
+					pw.println("\tADD [Value1], [id], [Value1]");
 					
 					// Stores the value of the second EXP2 to the address
-					pw.println("SW [Value2], [Value1]");
+					pw.println("\tSW [Value2], [Value1]");
 				}
 			}
 			
