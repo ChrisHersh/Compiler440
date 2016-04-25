@@ -13,7 +13,7 @@ public class ProcessEXP4 {
 	public static void processPass1(Token subject) {
 		for(int i = 0; i < subject.getChildren().size(); i++){
 			Token child = subject.getChildren().get(i);
-			child.Pass1(child.getChildren());
+			child.pass1(child.getChildren());
 		}
 	}
 
@@ -24,7 +24,7 @@ public class ProcessEXP4 {
 	public static void processPass2(Token subject) {
 		for(int i = 0; i < subject.getChildren().size(); i++){
 			Token child = subject.getChildren().get(i);
-			child.Pass2(child.getChildren());
+			child.pass2(child.getChildren());
 		}
 		
 		//Type check
@@ -46,16 +46,16 @@ public class ProcessEXP4 {
 		
 		if(subject.getChildren().size() == 1){
 			Token child = subject.getChildren().get(0);
-			child.Pass3(child.getChildren());
+			child.pass3(child.getChildren());
 		} else if(subject.getChildren().size() == 3){
 			Token exp4 = subject.getChildren().get(0);
 			Token exp5 = subject.getChildren().get(2);
 			Token op = subject.getChildren().get(1);
 			
 			pw.println();
-			op.Pass3(op.getChildren());
-			exp4.Pass3(exp4.getChildren());
-			exp5.Pass3(exp5.getChildren());
+			op.pass3(op.getChildren());
+			exp4.pass3(exp4.getChildren());
+			exp5.pass3(exp5.getChildren());
 			pw.print("EXP4-MyAddress?");
 		}
 		

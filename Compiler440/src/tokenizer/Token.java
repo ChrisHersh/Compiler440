@@ -157,11 +157,14 @@ public class Token
      * @param children
      */
     // Shouldn't this just use childTokens? allowing a passed in child array doesnt seem like the best route
-    public void Pass1 (ArrayList<Token> children)
+    public void pass1 (ArrayList<Token> children)
     {
-    	for(Token t: children)
+    	if(children != null)
     	{
-    		Pass1(t);
+	    	for(Token t: children)
+	    	{
+	    		pass1(t);
+	    	}
     	}
     }
     /**
@@ -170,7 +173,7 @@ public class Token
      * @author Chris Kjeldgard
      * @param subject
      */
-    public void Pass1 (Token subject)
+    public void pass1 (Token subject)
     {
     	switch (subject.getTokenName())
         {
@@ -267,22 +270,20 @@ public class Token
         default:
             break;
         }
-    	
-    	if(subject.getChildren()!=null)
-    	{
-    		Pass1(subject.getChildren());
-    	}
     }
     /**
      * Takes the children token and calls the switch statement on each of them.
      * @author chris Kjeldgaard
      * @param children
      */
-    public void Pass2 (ArrayList<Token> children)
+    public void pass2 (ArrayList<Token> children)
     {
-    	for(Token t: children)
+    	if(children != null)
     	{
-    		Pass2(t);
+	    	for(Token t: children)
+	    	{
+	    		pass2(t);
+	    	}
     	}
     }
     /**
@@ -291,7 +292,7 @@ public class Token
      * @author Chris Kjeldgard
      * @param subject
      */
-    public void Pass2 (Token subject)
+    public void pass2 (Token subject)
     {
     	switch (subject.getTokenName())
         {
@@ -388,22 +389,20 @@ public class Token
         default:
             break;
         }
-    	
-    	if(subject.getChildren()!=null)
-    	{
-    		Pass2(subject.getChildren());
-    	}
     }
     /**
      * Takes the children token and calls the switch statement on each of them.
      * @author chris Kjeldgaard
      * @param children
      */
-    public void Pass3 (ArrayList<Token> children)
+    public void pass3 (ArrayList<Token> children)
     {
-    	for(Token t: children)
+    	if(children != null)
     	{
-    		Pass3(t);
+	    	for(Token t: children)
+	    	{
+	    		pass3(t);
+	    	}
     	}
     }
     /**
@@ -412,7 +411,7 @@ public class Token
      * @author Chris Kjeldgard
      * @param subject
      */
-    public void Pass3 (Token subject)
+    public void pass3 (Token subject)
     {
     	switch (subject.getTokenName())
         {
@@ -512,7 +511,7 @@ public class Token
     	
     	if(subject.getChildren()!=null)
     	{
-    		Pass3(subject.getChildren());
+    		pass3(subject.getChildren());
     	}
     }
 }
