@@ -150,20 +150,7 @@ public class Token
     {
     	return childTokens;
     }
-    
-    /**
-     * Takes the children token and calls the switch statement on each of them.
-     * @author chris Kjeldgaard
-     * @param children
-     */
-    // Shouldn't this just use childTokens? allowing a passed in child array doesnt seem like the best route
-    private void Pass1 (ArrayList<Token> children)
-    {
-    	for(Token t: children)
-    	{
-    		Pass1(t);
-    	}
-    }
+   
     /**
      * Takes the token and based on the token name calls the correct class based on the switch statement.
      * This method calls the class method that implements the Pass1 code for that token.
@@ -270,19 +257,13 @@ public class Token
     	
     	if(subject.getChildren()!=null)
     	{
-    		Pass1(subject.getChildren());
-    	}
-    }
-    /**
-     * Takes the children token and calls the switch statement on each of them.
-     * @author chris Kjeldgaard
-     * @param children
-     */
-    private void Pass2 (ArrayList<Token> children)
-    {
-    	for(Token t: children)
-    	{
-    		Pass2(t);
+    		if(subject.getChildren()!=null)
+        	{
+        		for(Token t: subject.getChildren())
+            	{
+            		Pass1(t);
+            	}
+        	}
     	}
     }
     /**
@@ -391,19 +372,13 @@ public class Token
     	
     	if(subject.getChildren()!=null)
     	{
-    		Pass2(subject.getChildren());
-    	}
-    }
-    /**
-     * Takes the children token and calls the switch statement on each of them.
-     * @author chris Kjeldgaard
-     * @param children
-     */
-    private void Pass3 (ArrayList<Token> children)
-    {
-    	for(Token t: children)
-    	{
-    		Pass3(t);
+    		if(subject.getChildren()!=null)
+        	{
+        		for(Token t: subject.getChildren())
+            	{
+            		Pass2(t);
+            	}
+        	}
     	}
     }
     /**
@@ -512,7 +487,10 @@ public class Token
     	
     	if(subject.getChildren()!=null)
     	{
-    		Pass3(subject.getChildren());
+    		for(Token t: subject.getChildren())
+        	{
+        		Pass3(t);
+        	}
     	}
     }
 }
