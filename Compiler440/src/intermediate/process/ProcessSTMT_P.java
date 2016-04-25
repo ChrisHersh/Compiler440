@@ -20,11 +20,17 @@ public class ProcessSTMT_P
 	 */
 	public static void processPass1(Token subject)
 	{
-		if(subject.getChildren() != null)
+		for(int i = 0; i < subject.getChildren().size(); i++)
 		{
-			ProcessSTMT_P.processPass1(subject.getChildren().get(0));
-			ProcessSTMT.processPass1(subject.getChildren().get(1));
+			subject.getChildren().get(i).setParentClass(subject.getParentClass());
+			subject.getChildren().get(i).setParentMethod(subject.getParentMethod());
 		}
+		if(subject.getChildren().get(0).isVisited() == false)
+		{
+			Token.pass1(subject.getChildren());
+		}
+		subject.setVisited();
+		subject.setType(subject.getChildren().get(1).getType());
 	}
 
 	/**
