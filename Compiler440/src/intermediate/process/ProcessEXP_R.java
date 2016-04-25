@@ -49,9 +49,18 @@ public class ProcessEXP_R
 		}
 	}
 
+	/**
+	 * Generates intermediate code for EXP_R
+	 * 
+	 * @author Jared Good
+	 * @param subject Token to be processed
+	 */
 	public static void processPass3(Token subject) 
 	{
+		// EXP1 token
 		Token child = subject.getChildren().get(1);
+		
+		// Processes EXP1 to generate its intermediate code
 		child.Pass3(child.getChildren());
 	}
 }

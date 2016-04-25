@@ -39,11 +39,28 @@ public class ProcessSTMT_P
 		}
 	}
 
+	/**
+	 * Generates intermediate code for EXP_L
+	 * 
+	 * @author Jared Good
+	 * @param subject Token to be processed
+	 */
 	public static void processPass3(Token subject)
 	{
-		if(subject.getChildren().get(0).getTokenName() == TokenTypes.STMT_P.name())
+		// Generates the code for the rule:
+		// STMT_P -> STMT_P STMT
+		if( subject.getChildren().get(0).getTokenName().equals( TokenTypes.STMT_P.name() ) )
 		{
+			// STMT_P token
 			Token child = subject.getChildren().get(0);
+			
+			// Processes STMT_P to generate its intermediate code
+			child.Pass3(child.getChildren());
+			
+			// STMT token
+			child = subject.getChildren().get(1);
+			
+			// Processes STMT to generate its intermediate code
 			child.Pass3(child.getChildren());
 		}
 	}
