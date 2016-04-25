@@ -57,10 +57,12 @@ public class ProcessEXP_R
 	 */
 	public static void processPass3(Token subject) 
 	{
-		// EXP1 token
-		Token child = subject.getChildren().get(1);
-		
-		// Processes EXP1 to generate its intermediate code
-		child.Pass3(child.getChildren());
+		if( subject.getChildren() != null ){
+			// EXP1 token
+			Token child = subject.getChildren().get(1);
+			
+			// Processes EXP1 to generate its intermediate code
+			ProcessEXP1.processPass3(child);
+		}
 	}
 }

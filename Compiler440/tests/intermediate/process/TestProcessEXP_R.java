@@ -63,4 +63,32 @@ public class TestProcessEXP_R
 			fail("failed on not having nested childern");
 		}
 	}
+	
+	/**
+	 * test to see if the EXP_R can make it through the third pass 
+	 * when processing 
+	 * @author Jared Good
+	 */
+	@Test
+	public void testProcessPass3()
+	{
+		// Children tokens for EXP_R
+		Token t1 = new Token(TokenTypes.Comma.name(), 1, null);
+		Token t2 = new Token(TokenTypes.EXP1.name(), 1, null);
+		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
+		tkns.add(t2);
+		
+		// EXP_R token
+		Token t3 = new Token(TokenTypes.EXP_R.name(), 1, tkns);
+		
+		try
+		{
+			ProcessEXP_R.processPass3(t3);
+		}
+		catch (NullPointerException x)
+		{
+			fail("failed on not having nested childern");
+		}
+	}
 }

@@ -53,7 +53,7 @@ public class TestProcessSTMT_P {
 	}
 
 	/**
-	 * A test to make sure that STMT_P can make it through pass 2 and process its childern
+	 * A test to make sure that STMT_P can make it through pass 2 and process its children
 	 */
 	@Test
 	public void testProcessPass2()
@@ -86,18 +86,32 @@ public class TestProcessSTMT_P {
 		}
 	}
 	
+	/**
+	 * A test to make sure that STMT_P can make it through pass 3 and process its children
+	 * @author Jared Good
+	 */
 	@Test
 	public void testProcessPass3()
 	{		
 		
+		//Children for STMT_P
 		Token t1 = new Token(TokenTypes.STMT_P.name(), 1, null);
 		Token t2 = new Token(TokenTypes.STMT.name(), 1, null);
 		ArrayList<Token> tkns = new ArrayList<Token>();
 		tkns.add(t1);
 		tkns.add(t2);
 		
+		// Main STMT_P		
 		Token t3 = new Token(TokenTypes.STMT_P.name(), 1, tkns);
-		ProcessSTMT_P.processPass3(t3);
+		
+		
+		try
+		{
+			ProcessSTMT_P.processPass3(t3);
+		} catch (IndexOutOfBoundsException x)
+		{
+			fail("Failed on Children Creation");
+		}
 		
 	}
 	
