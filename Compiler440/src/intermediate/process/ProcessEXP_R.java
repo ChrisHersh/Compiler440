@@ -1,6 +1,7 @@
 package intermediate.process;
 
 import tokenizer.Token;
+import tokenizer.TokenTypes;
 
 /**
  * @author Curtis Rabe, Jared Good, Mike Zimmerman
@@ -25,7 +26,7 @@ public class ProcessEXP_R
 	 */
 	public static void processPass1(Token subject)
 	{
-		if(subject.getChildren().get(0) != null)
+		if(subject.getChildren().get(0).getTokenName().equals(TokenTypes.Comma.name()))
 		{
 			//processing a terminal?
 			//ProcessComma.processPass1(subject.getChildren().get(0));

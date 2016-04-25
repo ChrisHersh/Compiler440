@@ -1,3 +1,6 @@
+import intermediate.process.TestProcessEXP_R;
+import intermediate.process.TestProcessSTMT_P;
+
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -285,6 +288,9 @@ import tokenizer.TestTokenizer;
 		TestCILS_30.class,
 		TestCILS_31.class,
 		TestCILS_32.class,
+		
+		TestProcessEXP_R.class,
+		TestProcessSTMT_P.class,
 	}
 ) 
  
