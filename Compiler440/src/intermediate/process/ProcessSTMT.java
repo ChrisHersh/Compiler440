@@ -51,128 +51,107 @@ public class ProcessSTMT
 	public static void processPass3(Token subject) {
 		// TODO sigh.....
 		
-		// First child token
-		Token child = subject.getChildren().get(0);
-		
-		PrintWriter pw = null;
-		
-		// Opens the PrintWriter to write the intermediate code
-		try {
-			FileWriter fw = new FileWriter("intermediate.txt",true);
-			pw = new PrintWriter(fw);	
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		// Generates the code for the rule:
-		// if ( EXP ) STMT1 else STMT2
-		if( child.getTokenName().equals( TokenTypes.If.name() ) )
+		if( subject.getChildren() != null)
 		{
-			
-			// Non-terminal tokens
-			Token exp = subject.getChildren().get(2);
-			Token stmt1 = subject.getChildren().get(4);
-			Token stmt2 = subject.getChildren().get(6);
-			
-			// TODO Need proper labels
-			
-			// Adds start label for the EXP1 to the intermediate code
-			pw.println("START_EXP1:");
-			
-			// Processes EXP1 to generate its intermediate code
-			exp.Pass3(exp.getChildren());
-			
-			// Jumps to the ELSE label based on the value of EXP1
-			// Should fall into the if if the value is "true"
-			pw.println("\tJMP [Value], ELSE");
-			
-			// Processes STMT1 to generate its intermediate code
-			stmt1.Pass3(stmt1.getChildren());
-			
-			// Jumps to END and skips the else
-			pw.println("\tJMP END");
-			
-			// Start of the else
-			pw.println("ELSE:");
-			
-			// Processes STMT2 to generate its intermediate code
-			stmt2.Pass3(stmt2.getChildren());
-			
-			// Adds the END label
-			pw.println("END:");
-			
-			
-		}
 		
-		// Generates the code for the rule:
-		// { STMT_P }
-		else if( child.getTokenName().equals( TokenTypes.LBrace.name() ) )
-		{
-			// Non-terminal token
-			Token stmtp = subject.getChildren().get(1);
+			// First child token
+			Token child = subject.getChildren().get(0);
 			
-			// Processes STMT_P to generate its intermediate code
-			stmtp.Pass3(stmtp.getChildren());
+			PrintWriter pw = null;
 			
-		}
-		
-		// Generates the code for the rule:
-		// while ( EXP ) STMT
-		else if( child.getTokenName().equals( TokenTypes.While.name() ) )
-		{
+			// Opens the PrintWriter to write the intermediate code
+			try {
+				FileWriter fw = new FileWriter("intermediate.txt",true);
+				pw = new PrintWriter(fw);	
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			
-			// Non-terminal tokens
-			Token exp = subject.getChildren().get(2);
-			Token stmt = subject.getChildren().get(4);
-			
-			// Adds start label to intermediate code
-			pw.println("START_EXP1:");
-			
-			// Processes EXP1 to generate its intermediate code
-			exp.Pass3(exp.getChildren());
-
-			// Jumps to the end of the while loop if the value indicates so
-			pw.println("\tJMP [Value], END");
-			
-			// Processes STMT to generate its intermediate code
-			stmt.Pass3(stmt.getChildren());
-
-			// Jumps back to the evaluation of EXP1
-			pw.println("\tJMP START_EXP1");
-			
-			// End label
-			pw.println("END:");
-			
-			
-		}
-		
-		// Generates the code for the rule:
-		// System.out.Println ( EXP1 ) ;
-		else if( child.getTokenName().equals( TokenTypes.SystemOutPrintln.name() ) )
-		{
-			// Non-terminal token
-			Token exp = subject.getChildren().get(2);
-			
-			// Processes EXP1 to generate its intermediate code
-			exp.Pass3(exp.getChildren());
-			
-			// TODO fix this
-			// Puts the value of EXP1 in the output register
-			// And the type in the output type register
-			pw.println("\tLI [Value], OUTPUT_REGISTER?");
-			pw.println("\tLI [TYPE], OUTPUT_REGISTER2?");
-			
-			// System call to output the value
-			pw.println("\tSYSCALL");
-			
-		}
-		
-		// Generates the code for the id rules
-		else if( child.getTokenName().equals( TokenTypes.Id.name() ) )
-		{
 			// Generates the code for the rule:
-			// id = EXP1 ;
-			if( subject.getChildren().get(1).getTokenName().equals( TokenTypes.Assignment.name() ) )
+			// if ( EXP ) STMT1 else STMT2
+			if( child.getTokenName().equals( TokenTypes.If.name() ) )
+			{
+				
+				// Non-terminal tokens
+				Token exp = subject.getChildren().get(2);
+				Token stmt1 = subject.getChildren().get(4);
+				Token stmt2 = subject.getChildren().get(6);
+				
+				// TODO Need proper labels
+				
+				// Adds start label for the EXP1 to the intermediate code
+				pw.println("START_EXP1:");
+				
+				// Processes EXP1 to generate its intermediate code
+				exp.Pass3(exp.getChildren());
+				
+				// Jumps to the ELSE label based on the value of EXP1
+				// Should fall into the if if the value is "true"
+				pw.println("\tJMP [Value], ELSE");
+				
+				// Processes STMT1 to generate its intermediate code
+				stmt1.Pass3(stmt1.getChildren());
+				
+				// Jumps to END and skips the else
+				pw.println("\tJMP END");
+				
+				// Start of the else
+				pw.println("ELSE:");
+				
+				// Processes STMT2 to generate its intermediate code
+				stmt2.Pass3(stmt2.getChildren());
+				
+				// Adds the END label
+				pw.println("END:");
+				
+				
+			}
+			
+			// Generates the code for the rule:
+			// { STMT_P }
+			else if( child.getTokenName().equals( TokenTypes.LBrace.name() ) )
+			{
+				// Non-terminal token
+				Token stmtp = subject.getChildren().get(1);
+				
+				// Processes STMT_P to generate its intermediate code
+				stmtp.Pass3(stmtp.getChildren());
+				
+			}
+			
+			// Generates the code for the rule:
+			// while ( EXP ) STMT
+			else if( child.getTokenName().equals( TokenTypes.While.name() ) )
+			{
+				
+				// Non-terminal tokens
+				Token exp = subject.getChildren().get(2);
+				Token stmt = subject.getChildren().get(4);
+				
+				// Adds start label to intermediate code
+				pw.println("START_EXP1:");
+				
+				// Processes EXP1 to generate its intermediate code
+				exp.Pass3(exp.getChildren());
+	
+				// Jumps to the end of the while loop if the value indicates so
+				pw.println("\tJMP [Value], END");
+				
+				// Processes STMT to generate its intermediate code
+				stmt.Pass3(stmt.getChildren());
+	
+				// Jumps back to the evaluation of EXP1
+				pw.println("\tJMP START_EXP1");
+				
+				// End label
+				pw.println("END:");
+				
+				
+			}
+			
+			// Generates the code for the rule:
+			// System.out.Println ( EXP1 ) ;
+			else if( child.getTokenName().equals( TokenTypes.SystemOutPrintln.name() ) )
 			{
 				// Non-terminal token
 				Token exp = subject.getChildren().get(2);
@@ -180,35 +159,60 @@ public class ProcessSTMT
 				// Processes EXP1 to generate its intermediate code
 				exp.Pass3(exp.getChildren());
 				
-				// Stores the value of EXP1 to location of id
-				pw.println("SW [Value], [id]");
+				// TODO fix this
+				// Puts the value of EXP1 in the output register
+				// And the type in the output type register
+				pw.println("\tLI [Value], OUTPUT_REGISTER?");
+				pw.println("\tLI [TYPE], OUTPUT_REGISTER2?");
+				
+				// System call to output the value
+				pw.println("\tSYSCALL");
+				
 			}
 			
-			// Generates the code for the rule:
-			// id [ EXP1 ] = EXP1 ;
-			else if( subject.getChildren().get(1).getTokenName().equals( TokenTypes.LBracket.name() ) )
+			// Generates the code for the id rules
+			else if( child.getTokenName().equals( TokenTypes.Id.name() ) )
 			{
-				// Non-terminal tokens
-				Token exp1 = subject.getChildren().get(2);
-				Token exp2 = subject.getChildren().get(5);
+				// Generates the code for the rule:
+				// id = EXP1 ;
+				if( subject.getChildren().get(1).getTokenName().equals( TokenTypes.Assignment.name() ) )
+				{
+					// Non-terminal token
+					Token exp = subject.getChildren().get(2);
+					
+					// Processes EXP1 to generate its intermediate code
+					exp.Pass3(exp.getChildren());
+					
+					// Stores the value of EXP1 to location of id
+					pw.println("SW [Value], [id]");
+				}
 				
-				// Processes both EXP1's to generate their intermediate code
-				exp1.Pass3(exp1.getChildren());
-				exp2.Pass3(exp2.getChildren());
-				
-				// Shifts the value of the first EXP1 left 2
-				// Resulting in a multiply of 4 to get address offset
-				pw.println("SLL [Value1], 2, [Value1]");
-				
-				// Adds the offset to the id address
-				pw.println("ADD [Value1], [id], [Value1]");
-				
-				// Stores the value of the second EXP2 to the address
-				pw.println("SW [Value2], [Value1]");
+				// Generates the code for the rule:
+				// id [ EXP1 ] = EXP1 ;
+				else if( subject.getChildren().get(1).getTokenName().equals( TokenTypes.LBracket.name() ) )
+				{
+					// Non-terminal tokens
+					Token exp1 = subject.getChildren().get(2);
+					Token exp2 = subject.getChildren().get(5);
+					
+					// Processes both EXP1's to generate their intermediate code
+					exp1.Pass3(exp1.getChildren());
+					exp2.Pass3(exp2.getChildren());
+					
+					// Shifts the value of the first EXP1 left 2
+					// Resulting in a multiply of 4 to get address offset
+					pw.println("SLL [Value1], 2, [Value1]");
+					
+					// Adds the offset to the id address
+					pw.println("ADD [Value1], [id], [Value1]");
+					
+					// Stores the value of the second EXP2 to the address
+					pw.println("SW [Value2], [Value1]");
+				}
 			}
+			
+			// Closes the PrintWriter
+			pw.close();
 		}
-		
-		// Closes the PrintWriter
-		pw.close();
 	}
 }

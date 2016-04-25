@@ -47,21 +47,24 @@ public class ProcessSTMT_P
 	 */
 	public static void processPass3(Token subject)
 	{
-		// Generates the code for the rule:
-		// STMT_P -> STMT_P STMT
-		if( subject.getChildren().get(0).getTokenName().equals( TokenTypes.STMT_P.name() ) )
+		if( subject.getChildren() != null )
 		{
-			// STMT_P token
-			Token child = subject.getChildren().get(0);
-			
-			// Processes STMT_P to generate its intermediate code
-			child.Pass3(child.getChildren());
-			
-			// STMT token
-			child = subject.getChildren().get(1);
-			
-			// Processes STMT to generate its intermediate code
-			child.Pass3(child.getChildren());
+			// Generates the code for the rule:
+			// STMT_P -> STMT_P STMT
+			if( subject.getChildren().get(0).getTokenName().equals( TokenTypes.STMT_P.name() ) )
+			{
+				// STMT_P token
+				Token child = subject.getChildren().get(0);
+				
+				// Processes STMT_P to generate its intermediate code
+				ProcessSTMT_P.processPass3(child);
+				
+				// STMT token
+				child = subject.getChildren().get(1);
+				
+				// Processes STMT to generate its intermediate code
+				ProcessSTMT.processPass3(child);
+			}
 		}
 	}
 }

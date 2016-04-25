@@ -51,21 +51,24 @@ public class ProcessEXP_L
 	 */
 	public static void processPass3(Token subject) 
 	{
-		// Generates the code for the rule:
-		// EXP_L -> EXP1, EXP_R
-		if(subject.getChildren().get(0).getTokenName() == TokenTypes.EXP1.name())
+		if( subject.getChildren() != null )
 		{
-			// EXP1 token
-			Token child = subject.getChildren().get(0);
-			
-			// Processes EXP1 to generate its intermediate code
-			child.Pass3(child.getChildren());
-			
-			// EXP_R token
-			child = subject.getChildren().get(1);
-			
-			// Processes EXP_R to generate its intermediate code
-			child.Pass3(child.getChildren());
-		}		
+			// Generates the code for the rule:
+			// EXP_L -> EXP1, EXP_R
+			if(subject.getChildren().get(0).getTokenName() == TokenTypes.EXP1.name())
+			{
+				// EXP1 token
+				Token child = subject.getChildren().get(0);
+				
+				// Processes EXP1 to generate its intermediate code
+				ProcessEXP1.processPass3(child);
+				
+				// EXP_R token
+				child = subject.getChildren().get(1);
+				
+				// Processes EXP_R to generate its intermediate code
+				ProcessEXP_R.processPass3(child);
+			}		
+		}
 	}
 }
