@@ -4,7 +4,7 @@ import tokenizer.Token;
 import tokenizer.TokenTypes;
 
 /**
- * @author Curtis Rabe
+ * @author Curtis Rabe, Jared Good
  * 
  * Process class for STMT (the big one)
  */

@@ -4,7 +4,7 @@ import tokenizer.Token;
 import tokenizer.TokenTypes;
 
 /**
- * @author Curtis Rabe, Mike Zimmerman
+ * @author Curtis Rabe, Mike Zimmerman, Jared Good
  * 
  * Class to process STMT_P
  */
