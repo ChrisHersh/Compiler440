@@ -580,6 +580,10 @@ public class Token
     	this.type = type;
     }
     
+    /**
+     * Getter for the intermediate code of this Token
+     * @author Jared Good
+     */
     public StringBuffer getCode()
     {
     	return this.intermediateCode;
