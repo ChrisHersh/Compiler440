@@ -1,4 +1,8 @@
+import intermediate.process.TestProcessEXP1;
+import intermediate.process.TestProcessEXP2;
 import intermediate.process.TestProcessEXP_R;
+import intermediate.process.TestProcessOP1;
+import intermediate.process.TestProcessOP2;
 import intermediate.process.TestProcessSTMT_P;
 
 import org.junit.runner.RunWith;
@@ -183,6 +187,10 @@ import tokenizer.TestTokenizer;
 		
 		TestProcessEXP_R.class,
 		TestProcessSTMT_P.class,
+		TestProcessEXP1.class,
+		TestProcessEXP2.class,
+		TestProcessOP1.class,
+		TestProcessOP2.class,
 	}
 ) 
  
