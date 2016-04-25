@@ -1,5 +1,7 @@
 import intermediate.process.TestProcessEXP1;
 import intermediate.process.TestProcessEXP2;
+
+import intermediate.process.TestProcessEXP_L;
 import intermediate.process.TestProcessEXP_R;
 import intermediate.process.TestProcessOP1;
 import intermediate.process.TestProcessOP2;
@@ -185,6 +187,7 @@ import tokenizer.TestTokenizer;
 		TestCILS_31.class,
 		TestCILS_32.class,
 		
+		TestProcessEXP_L.class,
 		TestProcessEXP_R.class,
 		TestProcessSTMT_P.class,
 		TestProcessEXP1.class,
