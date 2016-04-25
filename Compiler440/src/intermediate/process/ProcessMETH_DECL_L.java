@@ -1,6 +1,4 @@
 package intermediate.process;
-import java.io.IOException;
-
 import tokenizer.Token;
 import tokenizer.TokenTypes;
 
@@ -45,10 +43,9 @@ public class ProcessMETH_DECL_L
 
 	/**
 	 * Generates Intermediate code for METH_DECL_L
-	 * @throws IOException 
 	 * 
 	 */
-	public static void processPass3(Token subject) throws IOException 
+	public static void processPass3(Token subject) 
 	{
 		Token child = subject.getChildren().get(0);
 			
