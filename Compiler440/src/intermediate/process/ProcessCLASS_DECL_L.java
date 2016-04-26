@@ -20,9 +20,15 @@ public class ProcessCLASS_DECL_L
 	public static void processPass1(Token subject) 
 	{
 		
-		subject.getChildren().get(0).setParentClass(subject.getParentClass());
-		Token.pass1(subject.getChildren());
-		subject.getChildren().get(0).setVisited();
+		for(int i= 0; i < subject.getChildren().size(); i++)
+		{
+			subject.getChildren().get(i).setParentClass(subject.getParentClass());
+			subject.getChildren().get(i).setParentMethod(subject.getParentMethod());
+			Token.pass1(subject.getChildren());
+			subject.getChildren().get(i).setVisited();
+		}
+		
+		
 		
 	}
 	

@@ -20,7 +20,7 @@ public class TestProcessCLASS_DECL_L
 	/**
 	 * Test the pass 1 for ProcessCLASS_DECL_L
 	 * @author Shannon Lee
-	 * BROKEN!!
+	 * 
 	 */
 	@Test
 	public void testPass1() 

@@ -23,12 +23,9 @@ public class ProcessMAIN_CLASS
 		{
 			subject.getChildren().get(i).setParentClass(subject.getParentClass());
 			subject.getChildren().get(i).setParentMethod(subject.getParentMethod());
-		}
-		if(subject.getChildren().get(0).isVisited() == false)
-		{
 			Token.pass1(subject.getChildren());
 		}
-		subject.setType(subject.getChildren().get(1).getType());
+		
 		
 	}
 
