@@ -16,7 +16,9 @@ public class ProcessPROG
 	 */
 	public static void processPass1(Token subject) 
 	{
-		// TODO Auto-generated method stub
+		subject.getChildren().get(0).setParentClass(subject.getParentClass());
+		Token.pass1(subject.getChildren());
+		subject.getChildren().get(0).setVisited();
 		
 	}
 
@@ -27,7 +29,7 @@ public class ProcessPROG
 	 */
 	public static void processPass2(Token subject) 
 	{
-		// TODO Auto-generated method stub
+		subject.pass2(subject.getChildren());
 		
 	}
 
@@ -38,7 +40,7 @@ public class ProcessPROG
 	 */
 	public static void processPass3(Token subject) 
 	{
-		// TODO Auto-generated method stub
+		Token.pass3(subject.getChildren());
 		
 	}
 }
