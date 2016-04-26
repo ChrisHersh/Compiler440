@@ -20,15 +20,80 @@ public class ProcessSTMT
 		//switch on the first child.getName...
 		switch(subject.getChildren().get(0).getTokenName())
 		{
-		//TODO - finish the stuff
 			case "LBrace":
-				if(subject.getChildren().get(1).getTokenName().equals(TokenTypes.STMT_P.name()))
+				for(int i = 0; i < subject.getChildren().size(); i++)
 				{
-					ProcessSTMT_P.processPass1(subject.getChildren().get(1));
+					subject.getChildren().get(i).setParentClass(subject.getParentClass());
+					subject.getChildren().get(i).setParentMethod(subject.getParentMethod());
 				}
+				if(subject.getChildren().get(0).isVisited() == false)
+				{
+					Token.pass1(subject.getChildren());
+				}
+				subject.setType(subject.getChildren().get(1).getType());
+				break;
+			case "If":
+				for(int i = 0; i < subject.getChildren().size(); i++)
+				{
+					subject.getChildren().get(i).setParentClass(subject.getParentClass());
+					subject.getChildren().get(i).setParentMethod(subject.getParentMethod());
+				}
+				if(subject.getChildren().get(0).isVisited() == false)
+				{
+					Token.pass1(subject.getChildren());
+				}
+				subject.setType(subject.getChildren().get(2).getType());
+				break;
+			case "While":
+				for(int i = 0; i < subject.getChildren().size(); i++)
+				{
+					subject.getChildren().get(i).setParentClass(subject.getParentClass());
+					subject.getChildren().get(i).setParentMethod(subject.getParentMethod());
+				}
+				if(subject.getChildren().get(0).isVisited() == false)
+				{
+					Token.pass1(subject.getChildren());
+				}
+				subject.setType(subject.getChildren().get(2).getType());
+				break;
+			case "SystemOutPrintLn":
+				for(int i = 0; i < subject.getChildren().size(); i++)
+				{
+					subject.getChildren().get(i).setParentClass(subject.getParentClass());
+					subject.getChildren().get(i).setParentMethod(subject.getParentMethod());
+				}
+				if(subject.getChildren().get(0).isVisited() == false)
+				{
+					Token.pass1(subject.getChildren());
+				}
+				subject.setType(subject.getChildren().get(2).getType());
+				break;
+			case "Id":
+				for(int i = 0; i < subject.getChildren().size(); i++)
+				{
+					subject.getChildren().get(i).setParentClass(subject.getParentClass());
+					subject.getChildren().get(i).setParentMethod(subject.getParentMethod());
+				}
+				if(subject.getChildren().get(1).getTokenName().equals(TokenTypes.Assignment.name()))
+				{
+					if(subject.getChildren().get(0).isVisited() == false)
+					{
+						Token.pass1(subject.getChildren());
+					}
+					subject.setType(subject.getChildren().get(0).getType());
+				}else
+				{
+					if(subject.getChildren().get(0).isVisited() == false)
+					{
+						Token.pass1(subject.getChildren());
+					}
+					subject.setType(subject.getChildren().get(0).getType());
+				}
+				break;
 			default:
 				break;
 		}
+		subject.setVisited();
 		
 	}
 
