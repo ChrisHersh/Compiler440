@@ -11,7 +11,7 @@ import symboltable.Class;
  * 
  * @author Raistlin Hess
  */
-public class TestProcessMETH_DECL_L 
+public class TestProcessMETH_DECL_L
 {
 	/**
 	 * This tests for Pass1. Make sure the correct information is passed down
@@ -48,11 +48,16 @@ public class TestProcessMETH_DECL_L
 		
 		Token test = new Token(TokenTypes.METH_DECL_L.name(), 1, tokens);
 		Class bob = new Class("Bobby", null, null);
-//		PublicMethod method = new PublicMethod("dummyMethod", bob, null, null);
 		test.setParentClass(bob);
+		
 		ProcessMETH_DECL_L.processPass1(test);
-		assertEquals(test.getParentClass(), test.getChildren().get(0).getParentClass());
-		assertTrue(test.getChildren().get(0).isVisited());
+		
+		//Check all children
+		for(int x = 0; x < test.getChildren().size(); x++)
+		{
+			assertEquals(test.getParentClass(), test.getChildren().get(x).getParentClass());
+			assertTrue(test.getChildren().get(x).isVisited());
+		}
 	}
 	
 	/**

@@ -2,6 +2,9 @@ package intermediate.process;
 import static org.junit.Assert.*;
 import java.util.ArrayList;
 import org.junit.Test;
+
+import symboltable.Class;
+import symboltable.method.impl.PublicMethod;
 import tokenizer.Token;
 import tokenizer.TokenTypes;
 
@@ -36,9 +39,21 @@ public class TestProcessMETH_DECL
 		tokens.add(R);
 		tokens.add(mB);
 		
+		Class person = new Class("Person", null, null);
+		PublicMethod method = new PublicMethod("dummyMethod", person, null, null);
 		Token test = new Token(TokenTypes.METHOD_DECL.name(), 1, tokens);
+		test.setParentClass(person);
+		test.setParentMethod(method);
 		
 		ProcessMETH_DECL.processPass1(test);
+		
+		//Check all children
+		for(int x = 0; x < test.getChildren().size(); x++)
+		{
+			assertEquals(test.getParentClass(),test.getChildren().get(x).getParentClass());
+			assertEquals(test.getParentMethod(),test.getChildren().get(x).getParentMethod());
+			assertTrue(test.getChildren().get(x).isVisited());
+		}
 	}
 	
 	/**
@@ -56,24 +71,21 @@ public class TestProcessMETH_DECL
 		Token type = new Token("type",TokenTypes.TYPE.name(),1);
 		Token id = new Token("Bobby",TokenTypes.Id.name(),1);
 		Token L = new Token("(",TokenTypes.LPara.name(),1);
-		Token fL = new Token("FORMAL_L",TokenTypes.FORMAL_L.name(),1);
-		Token R = new Token(")",TokenTypes.RPara.name(),1);
-		Token mB = new Token("METH_BODY",TokenTypes.METH_BODY.name(),1);
+//		Token fL = new Token("FORMAL_L",TokenTypes.FORMAL_L.name(),1);
+//		Token R = new Token(")",TokenTypes.RPara.name(),1);
+//		Token mB = new Token("METH_BODY",TokenTypes.METH_BODY.name(),1);
 		
 		tokens.add(pub);
 		tokens.add(type);
 		tokens.add(id);
 		tokens.add(L);
-		tokens.add(fL);
-		tokens.add(R);
-		tokens.add(mB);
-		
+//		tokens.add(fL);
+//		tokens.add(R);
+//		tokens.add(mB);
 		Token test = new Token(TokenTypes.METHOD_DECL.name(), 1, tokens);
 		
 		ProcessMETH_DECL.processPass3(test);
 		
-		//Find the line that contains the variable Bobby. Then, check to see if
-		//the whole line is printed in the correct syntax.
-		//If it is, then pass turns out to be true. Otherwise, it is left false 
+		assertEquals(test.getCode().toString(), "Method_Bobby_1:\n");
 	}
 }

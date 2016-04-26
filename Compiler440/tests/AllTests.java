@@ -1,15 +1,16 @@
 import intermediate.process.TestProcessEXP1;
 import intermediate.process.TestProcessEXP2;
-
 import intermediate.process.TestProcessEXP_L;
 import intermediate.process.TestProcessEXP_R;
+import intermediate.process.TestProcessMETH_DECL;
+import intermediate.process.TestProcessMETH_DECL_L;
 import intermediate.process.TestProcessOP1;
 import intermediate.process.TestProcessOP2;
 import intermediate.process.TestProcessSTMT_P;
-
+import intermediate.process.TestProcessVAR_DECL;
+import intermediate.process.TestProcessVAR_DECL_L;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-
 import parser.TestParser;
 import parser.states.TestCRM_20;
 import parser.states.TestState;
@@ -204,6 +205,10 @@ import tokenizer.TestTokenizer;
 		TestProcessEXP2.class,
 		TestProcessOP1.class,
 		TestProcessOP2.class,
+		TestProcessMETH_DECL_L.class,
+		TestProcessMETH_DECL.class,
+		TestProcessVAR_DECL_L.class,
+		TestProcessVAR_DECL.class
 	}
 ) 
  

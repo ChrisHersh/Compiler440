@@ -1,9 +1,6 @@
 package intermediate.process;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import org.junit.Test;
 import tokenizer.Token;
@@ -23,8 +20,6 @@ public class TestProcessVAR_DECL
 	@Test
 	public void testProcessPass1()
 	{		
-		//There is nothing to test for because the SymbolTable lacks the ability
-		//to store information and because my code doesn't directly generate IC
 		ArrayList<Token> varTokens = new ArrayList<Token>();
 		Token type = new Token("int",TokenTypes.TYPE.name(),1);
 		Token id = new Token("Bobby",TokenTypes.Id.name(),1);
@@ -36,73 +31,22 @@ public class TestProcessVAR_DECL
 		
 		Token test = new Token(TokenTypes.VAR_DECL.name(), 1, varTokens);
 		ProcessVAR_DECL.processPass1(test);
+		
+		//Check all children
+		for(int x = 0; x < test.getChildren().size(); x++)
+		{
+			assertEquals(test.getParentClass(),test.getChildren().get(x).getParentClass());
+			assertEquals(test.getParentMethod(),test.getChildren().get(x).getParentMethod());
+			assertTrue(test.getChildren().get(x).isVisited());
+		}
+		assertEquals(test.getType(),test.getChildren().get(0).getType());
 	}
 	
 	/**
-	 * This tests for Pass2. 
+	 * There is nothing to test for pass2 
 	 */
-	@Test
-	public void testProcessPass2()
-	{		
-		//There is nothing to test for because the SymbolTable lacks the ability
-		//to store information and because my code doesn't directly generate IC
-		ArrayList<Token> varTokens = new ArrayList<Token>();
-		Token type = new Token("int",TokenTypes.TYPE.name(),1);
-		Token id = new Token("Bobby",TokenTypes.Id.name(),1);
-		Token semi = new Token(";",TokenTypes.SemiColon.name(),1);
-		
-		varTokens.add(type);
-		varTokens.add(id);
-		varTokens.add(semi);
-		
-		Token test = new Token(TokenTypes.VAR_DECL.name(), 1, varTokens);
-		ProcessVAR_DECL.processPass2(test);
-	}
 	
 	/**
-	 * This tests for Pass3. 
+	 * There is nothing to test for pass2 
 	 */
-	@Test
-	public void testProcessPass3()
-	{		
-		//There is nothing to test for because the SymbolTable lacks the ability
-		//to store information and because my code doesn't directly generate IC
-		ArrayList<Token> varTokens = new ArrayList<Token>();
-		Token type = new Token("int",TokenTypes.TYPE.name(),1);
-		Token id = new Token("Bobby",TokenTypes.Id.name(),1);
-		Token semi = new Token(";",TokenTypes.SemiColon.name(),1);
-		
-		varTokens.add(type);
-		varTokens.add(id);
-		varTokens.add(semi);
-		
-		Token test = new Token(TokenTypes.VAR_DECL.name(), 1, varTokens);
-		ProcessVAR_DECL.processPass3(test);
-		
-		//Find the line that contains the variable Bobby. Then, check to see if
-		//the whole line is printed in the correct syntax.
-		//If it is, then pass turns out to be true. Otherwise, it is left false 
-		Boolean pass = false;
-		String fileName = Paths.get("intermediate.txt").toString();
-		try (BufferedReader br = new BufferedReader(new FileReader(fileName))) 
-		{
-			String line;
-			while (pass == false && (line = br.readLine()) != null) 
-			{
-				if(line.contains(id.getTokenName()))
-				{
-					String check = "STORE Tmp1 " + id.getTokenName();
-					if(line.equals(check))
-					{
-						pass = true;
-					}
-				}
-			}
-		}
-		catch (IOException e) 
-		{
-			e.printStackTrace();
-		}
-		assertTrue(pass);
-	}
 }

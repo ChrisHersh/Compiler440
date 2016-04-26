@@ -13,19 +13,22 @@ public class ProcessMETH_DECL
 	 */
 	public static void processPass1(Token subject) 
 	{
-		subject.getChildren().get(0).setParentClass(subject.getParentClass());
-		subject.getChildren().get(0).setParentMethod(subject.getParentMethod());
+		//Give parentClass and parentMethod to all children
+		for(int x = 0; x < subject.getChildren().size(); x++)
+		{
+			subject.getChildren().get(x).setParentClass(subject.getParentClass());
+			subject.getChildren().get(x).setParentMethod(subject.getParentMethod());
+			subject.getChildren().get(x).setVisited();
+		}
 		Token.pass1(subject.getChildren());
-		subject.getChildren().get(0).setVisited();
 	}
 
 	/**
-	 * Check that all types are valid for our children
-	 * May not need to do anything?
+	 * There are not types to check for in this state.
 	 */
 	public static void processPass2(Token subject) 
 	{
-		subject.pass2(subject.getChildren());
+		Token.pass2(subject.getChildren());
 //		//Check to see if the Type returned by METH_BODY is the same Type as 
 //		//the return Type in METH_DECL
 //		String methType = "";
@@ -41,13 +44,15 @@ public class ProcessMETH_DECL
 
 	/**
 	 * Generates intermediate code for METH_DECL
+	 * More specifically, it creates a label for this method and then
+	 * has its children write the rest
 	 */
 	public static void processPass3(Token subject) 
 	{
 		//Create starting label using the ID in the method, as well as the line number
 		//in order to prevent duplicate labels
 		Token methId = subject.getChildren().get(2);
-		subject.getCode().append(methId.getTokenName() + "_" + methId.getLineNumber() + ":");
+		subject.getCode().append("Method_" + methId.getToken() + "_" + methId.getLineNumber() + ":\n");
 		
 		//Now let children generate intermediate code after this label
 		Token.pass3(subject.getChildren());

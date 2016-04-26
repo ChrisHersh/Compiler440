@@ -1,9 +1,5 @@
 package intermediate.process;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import tokenizer.Token;
-import tokenizer.TokenTypes;
 
 /**
  * Responsible for storing all of the correct information for VAR_DECL
@@ -13,52 +9,39 @@ import tokenizer.TokenTypes;
 public class ProcessVAR_DECL 
 {
 	/**
-	 * Gather name and types of all vars
+	 * Pass class and method information up and down
 	 */
 	public static void processPass1(Token subject) 
 	{
-		Token child = subject.getChildren().get(0);
-		if(child.getTokenName() == TokenTypes.VAR_DECL.name())
+//		subject.getChildren().get(0).setParentClass(subject.getParentClass());
+//		subject.getChildren().get(0).setParentMethod(subject.getParentMethod());
+//		Token.pass1(subject.getChildren());
+//		subject.getChildren().get(0).setVisited();
+		
+		//Give parentClass and parentMethod to all children
+		for(int x = 0; x < subject.getChildren().size(); x++)
 		{
-			ProcessVAR_DECL.processPass1(child);
+			subject.getChildren().get(x).setParentClass(subject.getParentClass());
+			subject.getChildren().get(x).setParentMethod(subject.getParentMethod());
+			subject.getChildren().get(x).setVisited();
 		}
+		Token.pass1(subject.getChildren());
+		subject.setType(subject.getChildren().get(0).getType());
 	}
 
 	/**
-	 * Check that all types are valid
+	 * There are no types to check for this state
 	 */
 	public static void processPass2(Token subject) 
 	{
-		Token child = subject.getChildren().get(0);
-		if(child.getTokenName() == TokenTypes.VAR_DECL.name())
-		{
-			ProcessVAR_DECL.processPass2(child);
-		}
+		Token.pass2(subject.getChildren());
 	}
 
 	/**
-	 * Generates Intermediate code for VAR_DECL
+	 * There is no intermediate code to generate for this state
 	 */
 	public static void processPass3(Token subject) 
 	{
-		Token child = subject.getChildren().get(0);
-		PrintWriter pw = null;
-		try 
-		{
-			FileWriter fw = new FileWriter("intermediate.txt",true);
-			pw = new PrintWriter(fw);	
-		} 
-		catch (IOException e) 
-		{
-			e.printStackTrace();
-		}
 		
-		if(child.getTokenName() == TokenTypes.VAR_DECL.name())
-		{
-			ProcessVAR_DECL.processPass3(child);
-			
-			//Store the variable in a temp variable
-			pw.println("STORE Tmp1 "+subject.getChildren().get(1).getTokenName());
-		}
 	}
 }

@@ -13,9 +13,13 @@ public class ProcessMETH_DECL_L
 	 */
 	public static void processPass1(Token subject) 
 	{
-		subject.getChildren().get(0).setParentClass(subject.getParentClass());
+		//Give parentClass and parentMethod to all children
+		for(int x = 0; x < subject.getChildren().size(); x++)
+		{
+			subject.getChildren().get(x).setParentClass(subject.getParentClass());
+			subject.getChildren().get(x).setVisited();
+		}
 		Token.pass1(subject.getChildren());
-		subject.getChildren().get(0).setVisited();
 	}
 
 	/**
@@ -23,7 +27,7 @@ public class ProcessMETH_DECL_L
 	 */
 	public static void processPass2(Token subject) 
 	{
-		subject.pass2(subject.getChildren());
+		Token.pass2(subject.getChildren());
 	}
 
 	/**
