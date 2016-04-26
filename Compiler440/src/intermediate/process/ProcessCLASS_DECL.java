@@ -23,7 +23,13 @@ public class ProcessCLASS_DECL
 	 */
 	public static void processPass1(Token subject) 
 	{
-		
+		for(int i= 0; i < subject.getChildren().size(); i++)
+		{
+			subject.getChildren().get(i).setParentClass(subject.getParentClass());
+			subject.getChildren().get(i).setParentMethod(subject.getParentMethod());
+			Token.pass1(subject.getChildren());
+			subject.getChildren().get(i).setVisited();
+		}
 		
 	}
 
@@ -34,7 +40,7 @@ public class ProcessCLASS_DECL
 	 */
 	public static void processPass2(Token subject) 
 	{
-		// TODO Auto-generated method stub
+		subject.pass2(subject.getChildren());
 		
 	}
 
@@ -45,7 +51,14 @@ public class ProcessCLASS_DECL
 	 */
 	public static void processPass3(Token subject) 
 	{
-		// TODO Auto-generated method stub
+		Token mainMethod = subject.getChildren().get(3);
+		
+		String code;
+		
+		Token.pass3(mainMethod);
+		
+		code = mainMethod.getCode().toString();
+		subject.getCode().append(" " + subject.getParentClass().getName() + " " + subject.getParentMethod().getMethodName() + " { " + code + " }");
 		
 	}
 }
