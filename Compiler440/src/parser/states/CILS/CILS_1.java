@@ -2,6 +2,7 @@
 package parser.states.CILS;
 
 import parser.states.State;
+import tokenizer.Token;
 import tokenizer.TokenTypes;
 
 /**
@@ -27,6 +28,6 @@ public class CILS_1 extends State
 	@Override
 	public void invalidState()
 	{
-		reduceNumberOfStates(0, null);
+		currentParser.pushInputStack(new Token(TokenTypes.STMT_P.name(), TokenTypes.STMT_P.toString(), currentParser.peekInputStack().getLineNumber()));
 	}
 }

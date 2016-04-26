@@ -1,9 +1,8 @@
 package intermediate.process;
-
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
-
 import org.junit.Test;
-
 import tokenizer.Token;
 import tokenizer.TokenTypes;
 
@@ -20,8 +19,6 @@ public class TestProcessVAR_DECL_L
 	@Test
 	public void testProcessPass1()
 	{		
-		//There is nothing to test for because the SymbolTable lacks the ability
-		//to store information and because my code doesn't directly generate IC
 		ArrayList<Token> varTokens = new ArrayList<Token>();
 		Token type = new Token("int",TokenTypes.TYPE.name(),1);
 		Token id = new Token("Bobby",TokenTypes.Id.name(),1);
@@ -31,76 +28,29 @@ public class TestProcessVAR_DECL_L
 		varTokens.add(id);
 		varTokens.add(semi);
 		
-		Token var = new Token(TokenTypes.VAR_DECL.name(), 1, varTokens);
+		Token var = new Token(TokenTypes.VAR_DECL.name(),1,varTokens);
+		Token varDeclL = new Token("VAR_DECL_L",TokenTypes.VAR_DECL_L.name(),1);
+		ArrayList<Token> varDeclList = new ArrayList<Token>();
+		varDeclList.add(varDeclL);
+		varDeclList.add(var);
 		
-		ArrayList<Token> varDecl = new ArrayList<Token>();
-		varDecl.add(var);
-		
-		ArrayList<Token> tokens = new ArrayList<Token>();
-		Token t1 = new Token(TokenTypes.VAR_DECL_L.name(), 2, varDecl);
-		tokens.add(t1);
-		
-		Token test = new Token(TokenTypes.VAR_DECL_L.name(), 1, tokens);
+		Token test = new Token(TokenTypes.VAR_DECL_L.name(), 1, varDeclList);
 		ProcessVAR_DECL_L.processPass1(test);
+		
+		//Check all children
+		for(int x = 0; x < test.getChildren().size(); x++)
+		{
+			assertEquals(test.getParentClass(),test.getChildren().get(x).getParentClass());
+			assertEquals(test.getParentMethod(),test.getChildren().get(x).getParentMethod());
+			assertTrue(test.getChildren().get(x).isVisited());
+		}
 	}
 	
 	/**
-	 * This tests for Pass2. 
+	 * There is nothing to test for pass2 
 	 */
-	@Test
-	public void testProcessPass2()
-	{		
-		//There is nothing to test for because the SymbolTable lacks the ability
-		//to store information and because my code doesn't directly generate IC
-		ArrayList<Token> varTokens = new ArrayList<Token>();
-		Token type = new Token("int",TokenTypes.TYPE.name(),1);
-		Token id = new Token("Bobby",TokenTypes.Id.name(),1);
-		Token semi = new Token(";",TokenTypes.SemiColon.name(),1);
-		
-		varTokens.add(type);
-		varTokens.add(id);
-		varTokens.add(semi);
-		
-		Token var = new Token(TokenTypes.VAR_DECL.name(), 1, varTokens);
-		
-		ArrayList<Token> varDecl = new ArrayList<Token>();
-		varDecl.add(var);
-		
-		ArrayList<Token> tokens = new ArrayList<Token>();
-		Token t1 = new Token(TokenTypes.VAR_DECL_L.name(), 2, varDecl);
-		tokens.add(t1);
-		
-		Token test = new Token(TokenTypes.VAR_DECL_L.name(), 1, tokens);
-		ProcessVAR_DECL_L.processPass2(test);
-	}
 	
 	/**
-	 * This tests for Pass3. 
+	 * There is nothing to test for pass2 
 	 */
-	@Test
-	public void testProcessPass3()
-	{		
-		//There is nothing to test for because the SymbolTable lacks the ability
-		//to store information and because my code doesn't directly generate IC
-		ArrayList<Token> varTokens = new ArrayList<Token>();
-		Token type = new Token("int",TokenTypes.TYPE.name(),1);
-		Token id = new Token("Bobby",TokenTypes.Id.name(),1);
-		Token semi = new Token(";",TokenTypes.SemiColon.name(),1);
-		
-		varTokens.add(type);
-		varTokens.add(id);
-		varTokens.add(semi);
-		
-		Token var = new Token(TokenTypes.VAR_DECL.name(), 1, varTokens);
-		
-		ArrayList<Token> varDecl = new ArrayList<Token>();
-		varDecl.add(var);
-		
-		ArrayList<Token> tokens = new ArrayList<Token>();
-		Token t1 = new Token(TokenTypes.VAR_DECL_L.name(), 2, varDecl);
-		tokens.add(t1);
-		
-		Token test = new Token(TokenTypes.VAR_DECL_L.name(), 1, tokens);
-		ProcessVAR_DECL_L.processPass3(test);
-	}
 }
