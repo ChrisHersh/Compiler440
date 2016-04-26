@@ -1,9 +1,6 @@
 package intermediate.process;
 
-<<<<<<< HEAD
-=======
 import static org.junit.Assert.assertEquals;
->>>>>>> branch 'master' of https://github.com/impsbro/Compiler440.git
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
