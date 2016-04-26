@@ -53,7 +53,7 @@ public class ProcessSTMT_P
 	 */
 	public static void processPass3(Token subject)
 	{
-		if( subject.getChildren() != null )
+		if( subject.getChildren().get(0).isVisited() == false )
 		{
 			// Generates the code for the rule:
 			// STMT_P -> STMT_P STMT
@@ -77,5 +77,7 @@ public class ProcessSTMT_P
 				subject.getCode().append(code);
 			}
 		}
+		
+		subject.setVisited();
 	}
 }

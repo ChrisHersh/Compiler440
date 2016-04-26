@@ -1,6 +1,5 @@
 package intermediate.process;
 import tokenizer.Token;
-import tokenizer.TokenTypes;
 
 /**
  * Responsible for storing all of the correct information for METH_DECL_L
@@ -10,41 +9,30 @@ import tokenizer.TokenTypes;
 public class ProcessMETH_DECL_L 
 {
 	/**
-	 * Gather name and types of all methods
+	 * Pass class and method information up and down
 	 */
 	public static void processPass1(Token subject) 
 	{
-		subject.getChildren().get(0).setClass(subject.getClass());
-		subject.pass1(subject.getChildren());
-		subject.setType(subject.getChildren().get(0));
+		subject.getChildren().get(0).setParentClass(subject.getParentClass());
+		Token.pass1(subject.getChildren());
+		subject.getChildren().get(0).setVisited();
 	}
 
 	/**
-	 * Check that all types are valid
+	 * There are no types to check for in this state
 	 */
 	public static void processPass2(Token subject) 
 	{
-		subject.pass1(subject.getChildren());
+		subject.pass2(subject.getChildren());
 	}
 
 	/**
-	 * Generates Intermediate code for METH_DECL_L
+	 * There is no intermediate code that this pass creates directly, only
+	 * through its children
 	 * 
 	 */
 	public static void processPass3(Token subject) 
 	{
-		Token child = subject.getChildren().get(0);
-			
-		//Traverse down to each METHOD_DECL and generate intermediate code
-		//The code is actually generated in ProcessMETH_DECL, it is only called here
-		if(child.getTokenName() == TokenTypes.METH_DECL_L.name())
-		{
-			ProcessMETH_DECL_L.processPass3(child);
-			
-		}
-		if(child.getTokenName() == TokenTypes.METHOD_DECL.name())
-		{
-			ProcessMETH_DECL.processPass3(child);
-		}
+		Token.pass3(subject.getChildren());
 	}
 }

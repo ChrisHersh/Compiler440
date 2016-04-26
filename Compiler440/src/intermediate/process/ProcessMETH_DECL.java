@@ -1,10 +1,5 @@
 package intermediate.process;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import tokenizer.Token;
-import tokenizer.TokenTypes;
 
 /**
  * Responsible for storing all of the correct information for METH_DECL
@@ -14,72 +9,47 @@ import tokenizer.TokenTypes;
 public class ProcessMETH_DECL 
 {
 	/**
-	 * Gather name and types of all methods
+	 * Pass class and method information up and down
 	 */
 	public static void processPass1(Token subject) 
 	{
-		Token child = subject.getChildren().get(0);
-		if(child.getTokenName() == TokenTypes.METHOD_DECL.name())
-		{
-			ProcessMETH_DECL.processPass1(child);
-		}
+		subject.getChildren().get(0).setParentClass(subject.getParentClass());
+		subject.getChildren().get(0).setParentMethod(subject.getParentMethod());
+		Token.pass1(subject.getChildren());
+		subject.getChildren().get(0).setVisited();
 	}
 
 	/**
-	 * Check that all types are valid
+	 * Check that all types are valid for our children
+	 * May not need to do anything?
 	 */
 	public static void processPass2(Token subject) 
 	{
-		Token child = subject.getChildren().get(0);
-		if(child.getTokenName() == TokenTypes.METHOD_DECL.name())
-		{
-			ProcessMETH_DECL.processPass2(child);
-		}
+		subject.pass2(subject.getChildren());
+//		//Check to see if the Type returned by METH_BODY is the same Type as 
+//		//the return Type in METH_DECL
+//		String methType = "";
+//		if(subject.getToken().equals("METH_BODY"))
+//		{
+//			methType = subject.getChildren().get(4).getType();
+//		}
+//		if(subject.getToken().equals("METH_DECL"))
+//		{
+//			
+//		}
 	}
 
 	/**
-	 * Generates Intermediate code for METH_DECL
+	 * Generates intermediate code for METH_DECL
 	 */
 	public static void processPass3(Token subject) 
 	{
-		Token child = subject.getChildren().get(0);
-		PrintWriter pw = null;
-		BufferedWriter bw = null;
-		try 
-		{
-			FileWriter fw = new FileWriter("intermediate.txt",true);
-			pw = new PrintWriter(fw);
-			bw = new BufferedWriter(fw);
-		} 
-		catch (IOException e) 
-		{
-			e.printStackTrace();
-		}
+		//Create starting label using the ID in the method, as well as the line number
+		//in order to prevent duplicate labels
+		Token methId = subject.getChildren().get(2);
+		subject.getCode().append(methId.getTokenName() + "_" + methId.getLineNumber() + ":");
 		
-		if(subject.getTokenName() == TokenTypes.METHOD_DECL.name())
-		{
-//			ProcessMETH_DECL.processPass3(child);
-			
-			//Create starting label using the ID in the method
-			pw.println(subject.getChildren().get(2).getTokenName() + "." + child.getLineNumber() + ":");
-		}
-		
-		//IC for TYPE should be taken care of in ProcessTYPE
-		if(child.getTokenName() == TokenTypes.TYPE.name())
-		{
-			ProcessTYPE.processPass3(child);
-		}
-		
-		//IC for FORMAL_L should be taken care of in ProcessFORMAL_L
-		if(child.getTokenName() == TokenTypes.FORMAL_L.name())
-		{
-			ProcessFORMAL_L.processPass3(child);
-		}
-		
-		//IC for METH_BODY should be taken care of in ProcessMETH_BODY
-		if(child.getTokenName() == TokenTypes.METH_BODY.name())
-		{
-			ProcessMETH_BODY.processPass3(child);
-		}
+		//Now let children generate intermediate code after this label
+		Token.pass3(subject.getChildren());
 	}
 }

@@ -96,31 +96,25 @@ public class TestProcessEXP_L
 	@Test
 	public void testProcessPass3()
 	{
-		// first token of EXP_L
+		// EXP1 token for EXP_L
 		Token t1 = new Token(TokenTypes.EXP1.name(), 1, null);
+		t1.setVisited();
 		
-		// Tokens of EXP_R
-		Token t2 = new Token(TokenTypes.Comma.name(), 1, null);
-		Token t3 = new Token(TokenTypes.EXP1.name(), 1, null);
+		// EXP_R token for EXP_L
+		Token t2 = new Token(TokenTypes.EXP_R.name(), 1, null);
+		t2.setVisited();
+		
+		// Adds tokens to ArrayList to add to EXP_L
 		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
 		tkns.add(t2);
-		tkns.add(t3);
 		
-		// EXP_R, the second token of EXP_L
-		Token t4 = new Token(TokenTypes.EXP_R.name(), 1, tkns);
-		ArrayList<Token> tkns1 = new ArrayList<Token>();
-		tkns1.add(t1);
-		tkns1.add(t4);
+		// The EXP_L token to test
+		Token t3 = new Token(TokenTypes.EXP_L.name(), 1, tkns);
+
+		assertFalse(t3.isVisited());
+		Token.pass3(t3);
+		assertTrue(t3.isVisited());
 		
-		// The actual token of EXP_L to test
-		Token t5 = new Token(TokenTypes.EXP_L.name(), 1, tkns1);
-		
-		try 
-		{
-			ProcessEXP_L.processPass3(t5);
-		} catch (IndexOutOfBoundsException x) 
-		{
-			fail("Failed on Children Creation");
-		}
 	}
 }

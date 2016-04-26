@@ -1,6 +1,9 @@
 package intermediate.process;
 
+<<<<<<< HEAD
+=======
 import static org.junit.Assert.assertEquals;
+>>>>>>> branch 'master' of https://github.com/impsbro/Compiler440.git
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -102,6 +105,10 @@ public class TestProcessSTMT_P {
 		//Children for STMT_P
 		Token t1 = new Token(TokenTypes.STMT_P.name(), 1, null);
 		Token t2 = new Token(TokenTypes.STMT.name(), 1, null);
+		t1.setVisited();
+		t2.setVisited();
+		
+		// Adds tokens to ArrayList to add to STMT_P
 		ArrayList<Token> tkns = new ArrayList<Token>();
 		tkns.add(t1);
 		tkns.add(t2);
@@ -109,14 +116,9 @@ public class TestProcessSTMT_P {
 		// Main STMT_P		
 		Token t3 = new Token(TokenTypes.STMT_P.name(), 1, tkns);
 		
-		
-		try
-		{
-			ProcessSTMT_P.processPass3(t3);
-		} catch (IndexOutOfBoundsException x)
-		{
-			fail("Failed on Children Creation");
-		}
+		assertFalse(t3.isVisited());
+		Token.pass3(t3);
+		assertTrue(t3.isVisited());
 		
 	}
 	
