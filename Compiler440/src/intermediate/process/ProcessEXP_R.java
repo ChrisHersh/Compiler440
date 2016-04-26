@@ -57,7 +57,7 @@ public class ProcessEXP_R
 	 */
 	public static void processPass3(Token subject) 
 	{
-		if( subject.getChildren() != null ){
+		if( subject.getChildren().get(0).isVisited() == false ){
 			// EXP1 token
 			Token child = subject.getChildren().get(1);
 			
@@ -69,5 +69,6 @@ public class ProcessEXP_R
 			subject.getCode().append(code);
 			
 		}
+		subject.setVisited();
 	}
 }

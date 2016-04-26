@@ -75,6 +75,10 @@ public class TestProcessEXP_R
 		// Children tokens for EXP_R
 		Token t1 = new Token(TokenTypes.Comma.name(), 1, null);
 		Token t2 = new Token(TokenTypes.EXP1.name(), 1, null);
+		t1.setVisited();
+		t2.setVisited();
+		
+		// Adds tokens to ArrayList to add to EXP_R
 		ArrayList<Token> tkns = new ArrayList<Token>();
 		tkns.add(t1);
 		tkns.add(t2);
@@ -82,13 +86,9 @@ public class TestProcessEXP_R
 		// EXP_R token
 		Token t3 = new Token(TokenTypes.EXP_R.name(), 1, tkns);
 		
-		try
-		{
-			ProcessEXP_R.processPass3(t3);
-		}
-		catch (NullPointerException x)
-		{
-			fail("failed on not having nested childern");
-		}
+		assertFalse(t3.isVisited());
+		Token.pass3(t3);
+		assertTrue(t3.isVisited());
+		
 	}
 }
