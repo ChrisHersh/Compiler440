@@ -5,7 +5,7 @@ import tokenizer.Token;
 /**
  * 
  * @author shannon jones
- * MAIN_CLASS ­> class id { MAIN_METHOD }
+ * Handles process passes for:  MAIN_CLASS ­> class id { MAIN_METHOD }
  * 
  * class id.setClassName(ClassName)
  * class id.setMethodName(MethodName)

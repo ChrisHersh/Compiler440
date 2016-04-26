@@ -5,6 +5,7 @@ import tokenizer.TokenTypes;
 /**
  * 
  * @author shannon jones
+ * Handle process passes for:
  * CLASS_DECL­> class id { VAR_DECL_L METH_DECL_L }
  *           ­> class id extends id { VAR_DECL_L METH_DECL_L }
  * 

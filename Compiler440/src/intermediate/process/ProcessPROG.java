@@ -5,7 +5,7 @@ import tokenizer.Token;
 /**
  * 
  * @author shannon jones
- * PROG -> MAIN_CLASS CLASS_DECL_L
+ * handles process passes for PROG -> MAIN_CLASS CLASS_DECL_L
  */
 public class ProcessPROG 
 {

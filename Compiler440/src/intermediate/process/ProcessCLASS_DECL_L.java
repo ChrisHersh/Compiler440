@@ -4,9 +4,9 @@ import tokenizer.Token;
 import tokenizer.TokenTypes;
 
 /**
- * 
+ * Han
  * @author shannon jones
- * CLASS_DECL_L­> CLASS_DECL_L CLASS_DECL
+ * class for handling CLASS_DECL_L­> CLASS_DECL_L CLASS_DECL
  *
  */
 public class ProcessCLASS_DECL_L 
@@ -20,9 +20,9 @@ public class ProcessCLASS_DECL_L
 	public static void processPass1(Token subject) 
 	{
 		
-		
-		
-	
+		subject.getChildren().get(0).setParentClass(subject.getParentClass());
+		Token.pass1(subject.getChildren());
+		subject.getChildren().get(0).setVisited();
 		
 	}
 	
@@ -33,13 +33,7 @@ public class ProcessCLASS_DECL_L
  */
 	public static void processPass2(Token subject) 
 	{
-		if (subject.getChildren().get(0).getTokenName().equals(TokenTypes.CLASS_DECL_L.name()))
-		{
-			ProcessCLASS_DECL_L.processPass1(subject.getChildren().get(0));
-			ProcessCLASS_DECL.processPass1(subject.getChildren().get(1));
-			
-		}
-		
+		subject.pass2(subject.getChildren());
 	}
 	
 /**
@@ -49,12 +43,7 @@ public class ProcessCLASS_DECL_L
  */
 	public static void processPass3(Token subject) 
 	{
-		if (subject.getChildren().get(0).getTokenName().equals(TokenTypes.CLASS_DECL_L.name()))
-		{
-			ProcessCLASS_DECL_L.processPass1(subject.getChildren().get(0));
-			ProcessCLASS_DECL.processPass1(subject.getChildren().get(1));
-			
-		}
+		Token.pass3(subject.getChildren());
 		
 	}
 }
