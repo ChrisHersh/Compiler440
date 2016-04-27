@@ -29,7 +29,7 @@ public class TestProcessEXP7
 	@Test
 	public void testProcessPass1Length()
 	{
-		Token t0 = new Token(TokenTypes.Id.name(), 1, null);
+		Token t0 = new Token("Id", TokenTypes.Id.name(), 1);
 		Token t1 = new Token(TokenTypes.Length.name(), 1, null);
 		t0.setVisited();
 		t1.setVisited();
@@ -417,4 +417,5 @@ public class TestProcessEXP7
         assertTrue(t1.isVisited());
         assertEquals("IntNum", t0.getType());
     }
+    
 }

@@ -66,7 +66,19 @@ public class ProcessEXP7
                 //Sets the token to match the id
                 subject.setToken(subject.getChildren().get(0).getToken());
                 break;
+            } else {
+                for (int i = 0; i < subject.getChildren().size(); i++)
+                {
+                    subject.getChildren().get(i).setParentClass(subject.getParentClass());
+                    subject.getChildren().get(i).setParentMethod(subject.getParentMethod());
+                }
+                if (subject.getChildren().get(0).isVisited() == false)
+                {
+                    Token.pass1(subject.getChildren());
+                }
+                subject.setType(subject.getChildren().get(0).getType());
             }
+            break;
         case "true":
             //EXP7 -> true
             subject.setType(subject.getType());
@@ -80,8 +92,44 @@ public class ProcessEXP7
         	subject.setType(subject.getType());
             break;
         case "EXP_L":
+            for (int i = 0; i < subject.getChildren().size(); i++)
+            {
+                subject.getChildren().get(i).setParentClass(subject.getParentClass());
+                subject.getChildren().get(i).setParentMethod(subject.getParentMethod());
+            }
+            if (subject.getChildren().get(0).isVisited() == false)
+            {
+                Token.pass1(subject.getChildren());
+            }
+            subject.setType(subject.getChildren().get(0).getType());
+
+            break;
         case "LBrace":
+            for (int i = 0; i < subject.getChildren().size(); i++)
+            {
+                subject.getChildren().get(i).setParentClass(subject.getParentClass());
+                subject.getChildren().get(i).setParentMethod(subject.getParentMethod());
+            }
+            if (subject.getChildren().get(0).isVisited() == false)
+            {
+                Token.pass1(subject.getChildren());
+            }
+            subject.setType(subject.getChildren().get(0).getType());
+
+            break;
         case "RBrace":
+            for (int i = 0; i < subject.getChildren().size(); i++)
+            {
+                subject.getChildren().get(i).setParentClass(subject.getParentClass());
+                subject.getChildren().get(i).setParentMethod(subject.getParentMethod());
+            }
+            if (subject.getChildren().get(0).isVisited() == false)
+            {
+                Token.pass1(subject.getChildren());
+            }
+            subject.setType(subject.getChildren().get(0).getType());
+
+            break;
         case "Length":
             for (int i = 0; i < subject.getChildren().size(); i++)
             {
@@ -149,10 +197,13 @@ public class ProcessEXP7
         switch (subject.getChildren().get(0).getTokenName())
         {
         case "EXP_L":
+            subject.setCode(new StringBuffer("intermediate code for exp_l"));
             break;
         case "LBrace":
+            subject.setCode(new StringBuffer("intermediate code for lbrace"));
             break;
         case "RBrace":
+            subject.setCode(new StringBuffer("intermediate code for rbrace"));
             break;
         case "Id":
             subject.setCode(new StringBuffer("intermediate code for id"));
@@ -164,6 +215,7 @@ public class ProcessEXP7
             subject.setCode(new StringBuffer("intermediate code for new int [ EXP1 ]"));
             break;
         case "Length":
+            subject.setCode(new StringBuffer("intermediate code for length"));
             break;
         case "true":
         	subject.setCode(new StringBuffer("intermediate code for true"));
