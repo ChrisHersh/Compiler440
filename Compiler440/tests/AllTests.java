@@ -1,5 +1,4 @@
-import intermediate.process.TestProcessEXP1;
-import intermediate.process.TestProcessEXP2;
+import intermediate.process.*;
 import intermediate.process.TestProcessEXP_L;
 import intermediate.process.TestProcessEXP_R;
 import intermediate.process.TestProcessMETH_DECL;
@@ -201,8 +200,10 @@ import tokenizer.TestTokenizer;
 		TestProcessEXP_L.class,
 		TestProcessEXP_R.class,
 		TestProcessSTMT_P.class,
+		TestProcessSTMT.class,
 		TestProcessEXP1.class,
 		TestProcessEXP2.class,
+		TestProcessEXP7.class,
 		TestProcessOP1.class,
 		TestProcessOP2.class,
 		TestProcessMETH_DECL_L.class,

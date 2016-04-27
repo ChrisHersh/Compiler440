@@ -58,7 +58,7 @@ public class ProcessEXP_L
 	{
 		// Generates the code for the rule:
 		// EXP_L -> EXP1, EXP_R
-		if(subject.getChildren().get(0).getTokenName() == TokenTypes.EXP1.name() && subject.getChildren().get(0).isVisited() == false)
+		if( subject.getChildren().get(0).getTokenName().equals( TokenTypes.EXP1.name() ) )
 		{
 			// Tokens and string to keep track of code
 			Token exp = subject.getChildren().get(0);
@@ -66,8 +66,15 @@ public class ProcessEXP_L
 			String code;
 			
 			// Processes EXP1 and EXP_R to generate their intermediate code
-			Token.pass3(exp);
-			Token.pass3(expr);
+			if(!exp.isVisited())
+			{
+				Token.pass3(exp);
+			}
+			
+			if(!expr.isVisited())
+			{
+				Token.pass3(expr);
+			}
 			
 			// Adds EXP1 code to the EXP_L token
 			code = exp.getCode().toString();
@@ -77,6 +84,8 @@ public class ProcessEXP_L
 			code = expr.getCode().toString();
 			subject.getCode().append(code);
 		}	
+		
+		// Sets the subject to visited
 		subject.setVisited();
 	}
 }

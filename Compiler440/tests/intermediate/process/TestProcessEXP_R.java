@@ -99,6 +99,7 @@ public class TestProcessEXP_R
 		// EXP_R token
 		Token t3 = new Token(TokenTypes.EXP_R.name(), 1, tkns);
 		
+		// Checks that the token properly goes through pass 3
 		assertFalse(t3.isVisited());
 		Token.pass3(t3);
 		assertTrue(t3.isVisited());

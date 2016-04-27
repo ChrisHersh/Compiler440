@@ -63,18 +63,18 @@ public class ProcessEXP_R
 	 */
 	public static void processPass3(Token subject) 
 	{
-		if( subject.getChildren().get(0).isVisited() == false ){
-			// EXP1 token
-			Token child = subject.getChildren().get(1);
-			
-			// Processes EXP1 to generate its intermediate code
-			Token.pass3(child);
-			
-			// Adds EXP1 code to the EXP_R token
-			String code = child.getCode().toString();
-			subject.getCode().append(code);
-			
-		}
+		// EXP1 token
+		Token exp = subject.getChildren().get(1);
+		
+		// Processes EXP1 to generate its intermediate code
+		if(!exp.isVisited())
+		Token.pass3(exp);
+		
+		// Adds EXP1 code to the EXP_R token
+		String code = exp.getCode().toString();
+		subject.getCode().append(code);
+	
+		// Sets the subject to visited
 		subject.setVisited();
 	}
 }

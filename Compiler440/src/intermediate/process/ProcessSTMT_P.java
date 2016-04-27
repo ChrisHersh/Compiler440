@@ -53,31 +53,36 @@ public class ProcessSTMT_P
 	 */
 	public static void processPass3(Token subject)
 	{
-		if( subject.getChildren().get(0).isVisited() == false )
+		// Generates the code for the rule:
+		// STMT_P -> STMT_P STMT
+		if( subject.getChildren().get(0).getTokenName().equals( TokenTypes.STMT_P.name() ) )
 		{
-			// Generates the code for the rule:
-			// STMT_P -> STMT_P STMT
-			if( subject.getChildren().get(0).getTokenName().equals( TokenTypes.STMT_P.name() ) )
+			// Non-terminal tokens
+			Token stmtp = subject.getChildren().get(0);
+			Token stmt = subject.getChildren().get(1);
+			String code;
+			
+			// Processes the tokens to generate their intermediate code
+			if(!stmtp.isVisited())
 			{
-				// STMT_P token
-				Token stmtp = subject.getChildren().get(0);
-				Token stmt = subject.getChildren().get(1);
-				String code;
-				
-				// Processes the tokens to generate their intermediate code
 				Token.pass3(stmtp);
-				Token.pass3(stmt);
-				
-				// Adds STMT_P code to the current STMT_P code
-				code = stmtp.getCode().toString();
-				subject.getCode().append(code);
-				
-				// Adds STMT code to the current STMT_P code
-				code = stmt.getCode().toString();
-				subject.getCode().append(code);
 			}
+			
+			if(!stmt.isVisited())
+			{
+				Token.pass3(stmt);
+			}
+			
+			// Adds STMT_P code to the current STMT_P code
+			code = stmtp.getCode().toString();
+			subject.getCode().append(code);
+			
+			// Adds STMT code to the current STMT_P code
+			code = stmt.getCode().toString();
+			subject.getCode().append(code);
 		}
 		
+		// Sets the subject to visited
 		subject.setVisited();
 	}
 }
