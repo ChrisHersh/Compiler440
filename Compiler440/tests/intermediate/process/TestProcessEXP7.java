@@ -353,6 +353,7 @@ public class TestProcessEXP7
     public void testProcessPass1True()
     {
         Token t0 = new Token("true", TokenTypes.True.name(), 1);
+        t0.setType(TokenTypes.True.name());
 
         t0.setVisited();
 
@@ -368,13 +369,14 @@ public class TestProcessEXP7
         assertFalse(t1.isVisited());
         ProcessEXP7.processPass1(t1);
         assertTrue(t1.isVisited());
-        assertEquals("true", t0.getType());
+        assertEquals("True", t0.getType());
     }
     
     @Test
     public void testProcessPass1False()
     {
         Token t0 = new Token("false", TokenTypes.False.name(), 1);
+        t0.setType(TokenTypes.False.name());
 
         t0.setVisited();
 
@@ -390,13 +392,14 @@ public class TestProcessEXP7
         assertFalse(t1.isVisited());
         ProcessEXP7.processPass1(t1);
         assertTrue(t1.isVisited());
-        assertEquals("false", t0.getType());
+        assertEquals("False", t0.getType());
     }
     
     @Test
     public void testProcessPass1IntLiteral()
     {
         Token t0 = new Token("INTEGER_LITERAL", TokenTypes.IntNum.name(), 1);
+        t0.setType(TokenTypes.IntNum.name());
 
         t0.setVisited();
 
@@ -412,6 +415,6 @@ public class TestProcessEXP7
         assertFalse(t1.isVisited());
         ProcessEXP7.processPass1(t1);
         assertTrue(t1.isVisited());
-        assertEquals("INTEGER_LITERAL", t0.getType());
+        assertEquals("IntNum", t0.getType());
     }
 }
