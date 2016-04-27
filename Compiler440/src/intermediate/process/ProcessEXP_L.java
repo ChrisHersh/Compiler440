@@ -42,15 +42,12 @@ public class ProcessEXP_L
 	 */
 	public static void processPass2(Token subject) 
 	{
-		if (subject.getChildren().get(0).getTokenName().equals(TokenTypes.EXP_L.name()))
+		// Do children passes.
+		if(subject.getChildren().get(0).isVisited() == false)
 		{
-			// Do children passes.
-			if(subject.getChildren().get(0).isVisited() == false)
-			{
-				Token.pass1(subject.getChildren());
-			}
-			subject.setVisited();
-		}	
+			Token.pass1(subject.getChildren());
+		}
+		subject.setVisited();
 	}
 
 	

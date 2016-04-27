@@ -47,12 +47,13 @@ public class ProcessEXP_R
 	 */
 	public static void processPass2(Token subject) 
 	{
-//		Token child = subject.getChildren().get(1);
-//		child.Pass2(child.getChildren());
-		if(subject.getChildren().get(0).getTokenName().equals(TokenTypes.Comma.name()))
+// 		Do children passes.
+		if(subject.getChildren().get(0).isVisited() == false)
 		{
-			ProcessEXP1.processPass2(subject.getChildren().get(1));
+			Token.pass1(subject.getChildren());
 		}
+		subject.setType(subject.getChildren().get(1).getType());
+		subject.setVisited();
 	}
 
 	/**

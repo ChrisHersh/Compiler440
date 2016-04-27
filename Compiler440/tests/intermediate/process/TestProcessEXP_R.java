@@ -60,21 +60,27 @@ public class TestProcessEXP_R
 	@Test
 	public void testProcessPass2()
 	{
-		Token t1 = new Token(TokenTypes.Comma.name(), 1, null);
-		Token t2 = new Token(TokenTypes.EXP1.name(), 1, null);
+		// EXP1 token for EXP_L
+		Token t1 = new Token(TokenTypes.EXP1.name(), 1, null);
+		t1.setVisited();
+		
+		// EXP_R token for EXP_L
+		Token t2 = new Token(TokenTypes.EXP_R.name(), 1, null);
+		t2.setVisited();
+		
+		// Adds tokens to ArrayList to add to EXP_L
 		ArrayList<Token> tkns = new ArrayList<Token>();
 		tkns.add(t1);
 		tkns.add(t2);
 		
-		Token t3 = new Token(TokenTypes.EXP_R.name(), 1, tkns);
-		try
-		{
-			ProcessEXP_R.processPass2(t3);
-		}
-		catch (NullPointerException x)
-		{
-			fail("failed on not having nested childern");
-		}
+		// The EXP_L token to test
+		Token t3 = new Token(TokenTypes.EXP_L.name(), 1, tkns);
+
+		assertFalse(t3.isVisited());
+		Token.pass3(t3);
+		assertTrue(t3.isVisited());
+		assertEquals(t3.getType(), t3.getChildren().get(1).getType());
+
 	}
 	
 	/**
