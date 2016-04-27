@@ -34,15 +34,22 @@ public class ProcessSTMT_P
 	}
 
 	/**
+	 * @author Mike Zimmerman
 	 * the second pass of the processing of STMT_P
+	 * basically just passes to the next token. It does NOT (Should NOT) check for types 
 	 * @param subject the incoming token
 	 */
-	public static void processPass2(Token subject) {
+	public static void processPass2(Token subject) 
+	{
 		if(subject.getChildren() != null)
 		{
-			ProcessSTMT_P.processPass2(subject.getChildren().get(0));
-			ProcessSTMT.processPass2(subject.getChildren().get(1));
+			// Do children passes.
+			if(subject.getChildren().get(0).isVisited() == false)
+			{
+				Token.pass2(subject.getChildren());
+			}
 		}
+		subject.setVisited();
 	}
 
 	/**

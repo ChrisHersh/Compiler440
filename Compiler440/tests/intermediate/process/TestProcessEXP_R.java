@@ -54,8 +54,9 @@ public class TestProcessEXP_R
 	}
 	
 	/**
-	 * test to see if the EXP_R can make it through a second pass 
-	 * when processing 
+	 * @author Mike Zimmerman
+	 * test to see if the EXP_R can make it through a second pass when processing
+	 * also checks to make sure that the type of EXP1 is sythesised up to EXP_R 
 	 */
 	@Test
 	public void testProcessPass2()
