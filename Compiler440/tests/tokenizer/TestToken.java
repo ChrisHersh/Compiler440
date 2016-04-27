@@ -245,16 +245,4 @@ public class TestToken {
     		assertTrue(t.isVisited());
     	}
     }
-    
-    @Test
-    public void testPass2()
-    {
-    	
-    }
-    
-    @Test
-    public void testPass3()
-    {
-    	
-    }
 }
