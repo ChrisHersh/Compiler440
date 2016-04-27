@@ -58,8 +58,8 @@ public class TestProcessEXP_L
 	}
 
 	/**
-	 * test to see if the EXP_L can make it through a second pass 
-	 * when processing 
+	 * @author Mike Zimmerman 
+	 * test to see if the EXP_L can make it through a second pass when processing
 	 */
 	@Test
 	public void testProcessPass2()

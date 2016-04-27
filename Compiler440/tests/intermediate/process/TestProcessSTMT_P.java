@@ -58,37 +58,30 @@ public class TestProcessSTMT_P {
 	}
 
 	/**
+	 * @author Mike Zimmerman
 	 * A test to make sure that STMT_P can make it through pass 2 and process its children
 	 */
 	@Test
 	public void testProcessPass2()
 	{
-		//First token of STMT_P
+		//Children for STMT_P
 		Token t1 = new Token(TokenTypes.STMT_P.name(), 1, null);
-		//Children for Second token of STMT_P
-		Token t2 = new Token(TokenTypes.LBrace.name(), 1, null);
-		Token t3 = new Token(TokenTypes.RBrace.name(), 1, null);
-		Token t12 = new Token(TokenTypes.STMT_P.name(), 1, null);
+		Token t2 = new Token(TokenTypes.STMT.name(), 1, null);
+		t1.setVisited();
+		t2.setVisited();
+		
+		// Adds tokens to ArrayList to add to STMT_P
 		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
 		tkns.add(t2);
-		tkns.add(t12);			//without this, this should fail, when STMT is properly coded
-		tkns.add(t3);
-		//Token for STMT
-		Token t4 = new Token(TokenTypes.STMT.name(), 1, tkns);
-		ArrayList<Token> tkns1 = new ArrayList<Token>();
-		tkns1.add(t1);
-		tkns1.add(t4);
 		
-		//The actual token of EXP_L to test
-		Token t5 = new Token(TokenTypes.EXP_L.name(), 1, tkns1);
+		// Main STMT_P		
+		Token t3 = new Token(TokenTypes.STMT_P.name(), 1, tkns);
 		
-		try
-		{
-			ProcessSTMT_P.processPass2(t5);
-		} catch (IndexOutOfBoundsException x)
-		{
-			fail("Failed on Children Creation");
-		}
+		// Checks that the token properly goes through pass 3
+		assertFalse(t3.isVisited());
+		Token.pass3(t3);
+		assertTrue(t3.isVisited());
 	}
 	
 	/**

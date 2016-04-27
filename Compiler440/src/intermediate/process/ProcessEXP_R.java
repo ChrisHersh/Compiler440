@@ -1,7 +1,6 @@
 package intermediate.process;
 
 import tokenizer.Token;
-import tokenizer.TokenTypes;
 
 /**
  * @author Curtis Rabe, Jared Good, Mike Zimmerman
@@ -42,15 +41,16 @@ public class ProcessEXP_R
 	}
 
 	/**
-	 * the second pass of the processing of EXP_R
-	 * @param subject the token that is EXP_R and all its childern
+	 * @author Mike Zimmerman
+	 * the second pass of the processing of EXP_R also passes type from EXP1 to EXP_R
+	 * @param subject the token that is EXP_R and all its children
 	 */
 	public static void processPass2(Token subject) 
 	{
 // 		Do children passes.
 		if(subject.getChildren().get(0).isVisited() == false)
 		{
-			Token.pass1(subject.getChildren());
+			Token.pass2(subject.getChildren());
 		}
 		subject.setType(subject.getChildren().get(1).getType());
 		subject.setVisited();
