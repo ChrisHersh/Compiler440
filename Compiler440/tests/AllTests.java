@@ -200,6 +200,7 @@ import tokenizer.TestTokenizer;
 		TestProcessEXP_L.class,
 		TestProcessEXP_R.class,
 		TestProcessSTMT_P.class,
+		TestProcessSTMT.class,
 		TestProcessEXP1.class,
 		TestProcessEXP2.class,
 		TestProcessEXP7.class,

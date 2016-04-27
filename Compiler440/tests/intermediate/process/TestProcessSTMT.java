@@ -148,13 +148,14 @@ public class TestProcessSTMT
 		// Main STMT		
 		Token t8 = new Token(TokenTypes.STMT.name(), 1, tkns);
 		
+		// Checks that the token properly goes through pass 3
 		assertFalse(t8.isVisited());
 		Token.pass3(t8);
 		assertTrue(t8.isVisited());
 		
+		// Checks that the generated code is what is expected
 		String code = t8.getCode().toString();
 		String test = "START_EXP1:\n" + "\tJMP [Value], ELSE\n" + "\tJMP END\n" + "ELSE:\n" + "END:\n";
-		
 		assertEquals(code, test);
 		
 	}
@@ -185,6 +186,7 @@ public class TestProcessSTMT
 		// Main STMT		
 		Token t4 = new Token(TokenTypes.STMT_P.name(), 1, tkns);
 		
+		// Checks that the token properly goes through pass 3
 		assertFalse(t4.isVisited());
 		Token.pass3(t4);
 		assertTrue(t4.isVisited());
@@ -223,13 +225,14 @@ public class TestProcessSTMT
 		// Main STMT		
 		Token t6 = new Token(TokenTypes.STMT.name(), 1, tkns);
 		
+		// Checks that the token properly goes through pass 3
 		assertFalse(t6.isVisited());
 		Token.pass3(t6);
 		assertTrue(t6.isVisited());
 		
+		// Checks that the generated code is what is expected
 		String code = t6.getCode().toString();
 		String test = "START_EXP1:\n" + "\tJMP [Value], END\n" + "\tJMP START_EXP1\n" + "END:\n";
-		
 		assertEquals(code, test);
 		
 	}
@@ -266,13 +269,14 @@ public class TestProcessSTMT
 		// Main STMT		
 		Token t6 = new Token(TokenTypes.STMT.name(), 1, tkns);
 		
+		// Checks that the token properly goes through pass 3
 		assertFalse(t6.isVisited());
 		Token.pass3(t6);
 		assertTrue(t6.isVisited());
 		
+		// Checks that the generated code is what is expected
 		String code = t6.getCode().toString();
 		String test = "\tLI [Value], OUTPUT_REGISTER\n" + "\tLI [TYPE], OUTPUT_REGISTER2\n" + "\tSYSCALL\n";
-		
 		assertEquals(code, test);
 		
 	}
@@ -306,13 +310,14 @@ public class TestProcessSTMT
 		// Main STMT		
 		Token t5 = new Token(TokenTypes.STMT.name(), 1, tkns);
 		
+		// Checks that the token properly goes through pass 3
 		assertFalse(t5.isVisited());
 		Token.pass3(t5);
 		assertTrue(t5.isVisited());
 		
+		// Checks that the generated code is what is expected
 		String code = t5.getCode().toString();
 		String test = "\tSW [Value], [id]\n";
-		
 		assertEquals(code, test);
 		
 	}
@@ -355,13 +360,14 @@ public class TestProcessSTMT
 		// Main STMT		
 		Token t8 = new Token(TokenTypes.STMT.name(), 1, tkns);
 		
+		// Checks that the token properly goes through pass 3
 		assertFalse(t8.isVisited());
 		Token.pass3(t8);
 		assertTrue(t8.isVisited());
 		
+		// Checks that the generated code is what is expected
 		String code = t8.getCode().toString();
 		String test = "\tSLL [Value1], 2, [Value1]\n" + "\tADD [Value1], [id], [Value1]\n" + "\tSW [Value2], [Value1]\n";
-		
 		assertEquals(code, test);
 		
 	}
