@@ -19,6 +19,6 @@ public class ProcessOP2
 
 	public static void processPass3(Token subject)
 	{
-//		Op2.getOperater()
+		subject.getCode().append(" && ");
 	}
 }
