@@ -166,13 +166,13 @@ public class ProcessEXP7
         case "Length":
             break;
         case "true":
-            
+        	subject.setCode(new StringBuffer("intermediate code for true"));
             break; 
         case "false":
-            
+        	subject.setCode(new StringBuffer("intermediate code for false"));
             break;     
         case "INTEGER_LITERAL":
-      
+        	subject.setCode(new StringBuffer("intermediate code for INTEGER_LITERAL"));
             break;
         case "Not":
             subject.setCode(new StringBuffer("intermediate code for ! EXP1"));
