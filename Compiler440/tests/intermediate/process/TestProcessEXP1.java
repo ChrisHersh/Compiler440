@@ -1,7 +1,6 @@
 package intermediate.process;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
@@ -52,6 +51,7 @@ public class TestProcessEXP1
 		{
 			fail("Failed on Children Creation");
 		}
+		assertTrue(t4.isVisited());
 		
 		// Handle EXP1 -> EXP2
 		t1 = new Token(TokenTypes.EXP2.name(), 1, null); // Assume EXP2 = True
@@ -72,6 +72,7 @@ public class TestProcessEXP1
 		{
 			fail("Failed on Children Creation");
 		}
+		assertTrue(t4.isVisited());
 	}
 	
 	/**
@@ -105,6 +106,7 @@ public class TestProcessEXP1
 		{
 			fail("Failed on type check");
 		}
+		assertTrue(t4.isVisited());
 		
 		// Handle EXP1 -> EXP2
 		t1 = new Token(TokenTypes.EXP2.name(), 1, null); // Assume EXP2 = True
@@ -123,6 +125,7 @@ public class TestProcessEXP1
 		{
 			fail("Failed on type check");
 		}
+		assertTrue(t4.isVisited());
 	}
 	
 	/**
@@ -155,6 +158,7 @@ public class TestProcessEXP1
 			fail("Failed on Children Creation");
 		}
 		
+		assertTrue(t4.isVisited());
 		assertEquals("True || True", t4.getCode().toString());
 		
 		// Handle EXP1 -> EXP2
@@ -173,6 +177,7 @@ public class TestProcessEXP1
 			fail("Failed on Children Creation");
 		}
 		
+		assertTrue(t4.isVisited());
 		assertEquals("True", t2.getCode().toString());
 	}
 }
