@@ -14,50 +14,29 @@ public class ProcessVAR_DECL_L
 	 */
 	public static void processPass1(Token subject) 
 	{
-		Token child = subject.getChildren().get(0);
-		if(child.getTokenName() == TokenTypes.VAR_DECL_L.name())
+		//Give parentClass and parentMethod to all children
+		for(int x = 0; x < subject.getChildren().size(); x++)
 		{
-			ProcessVAR_DECL_L.processPass1(child);
+			subject.getChildren().get(x).setParentClass(subject.getParentClass());
+			subject.getChildren().get(x).setParentMethod(subject.getParentMethod());
+			subject.getChildren().get(x).setVisited();
 		}
-		if(child.getTokenName() == TokenTypes.VAR_DECL.name())
-		{
-			ProcessVAR_DECL.processPass1(child);
-		}
+		Token.pass1(subject.getChildren());
 	}
 
 	/**
-	 * Check that all types are valid
+	 * There are no types to check for this state
 	 */
 	public static void processPass2(Token subject) 
 	{
-		Token child = subject.getChildren().get(0);
-		if(child.getTokenName() == TokenTypes.VAR_DECL_L.name())
-		{
-			ProcessVAR_DECL_L.processPass1(child);
-		}
-		if(child.getTokenName() == TokenTypes.VAR_DECL.name())
-		{
-			ProcessVAR_DECL.processPass1(child);
-		}
+		Token.pass2(subject.getChildren());
 	}
 
 	/**
-	 * Generates Intermediate code for VAR_DECL_L
-	 * 
+	 * There is no intermediate code to generate for this state
 	 */
 	public static void processPass3(Token subject) 
 	{
-		Token child = subject.getChildren().get(0);
-			
-		//Traverse down to each VAR_DECL and generate intermediate code
-		//The code is actually generated in ProcessVAR_DECL, it is only called here
-		if(child.getTokenName() == TokenTypes.VAR_DECL_L.name())
-		{
-			ProcessVAR_DECL_L.processPass3(child);
-		}
-		if(child.getTokenName() == TokenTypes.VAR_DECL.name())
-		{
-			ProcessVAR_DECL.processPass3(child);
-		}
+		
 	}
 }

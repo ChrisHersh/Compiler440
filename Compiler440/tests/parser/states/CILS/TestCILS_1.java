@@ -14,6 +14,7 @@ import parser.states.ParserException;
 import parser.states.State;
 import parser.states.CILS.CILS_1;
 import parser.states.CILS.CILS_2;
+import parser.states.MDJ.MDJ_1;
 import tokenizer.Token;
 import tokenizer.TokenTypes;
 
@@ -69,24 +70,16 @@ public class TestCILS_1
 	{
 		Parser parser = Parser.getInstance();
 		State state = new CILS_1();
-		ArrayList<Token> tokens = new ArrayList<Token>();
-		tokens.add(new Token("else", TokenTypes.Else.name(),1));
-		parser.changeState(new CILS_1());
+		Token token = new Token("else", TokenTypes.Else.name(),1);
+		parser.changeState(state);
 		
-		parser.pushInputStack(tokens.get(0));
-		
-//		parser.pushStateStack(new CILS_1());
+		parser.pushInputStack(token);
 		
 		state.invalidState();
 		
 		assertFalse(parser.getInputStack().empty());
 		assertTrue(parser.getHoldStack().empty());
 		assertTrue(parser.getStateStack().empty());
-		Token token = new Token(TokenTypes.Else, tokens);
-		assertEquals(parser.peekInputStack().getLineNumber(), token.getLineNumber());
-		assertEquals(parser.peekInputStack().getToken(), token.getToken());
-		assertEquals(parser.peekInputStack().getTokenName(), token.getTokenName());
-		assertEquals(parser.peekInputStack().getChildren(), token.getChildren());
-		assertEquals(parser.getCurrentState().getClass(), new CILS_1().getClass());
+		assertTrue(parser.getCurrentState() instanceof CILS_1);
 	}
 }
