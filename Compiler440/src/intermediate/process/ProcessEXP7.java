@@ -29,15 +29,33 @@ public class ProcessEXP7
             break;
 
         case "New":
-            //EXP7 -> new int [ EXP1 ]
-            //Tell EXP1 of it's class and method
-            subject.getChildren().get(3).setParentClass(subject.getParentClass());
-            subject.getChildren().get(3).setParentMethod(subject.getParentMethod());
-            subject.setType("int[]");
-
-            if (subject.getChildren().get(3).isVisited() == false)
+            if(subject.getChildren().get(1).getTokenName() == "Id")
             {
-                Token.pass1(subject.getChildren().get(3));
+                //EXP7 -> new id()
+                subject.getChildren().get(1).setParentClass(subject.getParentClass());
+                subject.getChildren().get(1).setParentMethod(subject.getParentMethod());
+                
+                //get Token for ID
+                subject.setToken(subject.getChildren().get(1).getToken());
+                subject.setType("Id()");
+                
+                if (subject.getChildren().get(2).isVisited() == false)
+                {
+                    Token.pass1(subject.getChildren().get(2));
+                }
+            }
+            else if(subject.getChildren().get(1).getTokenName() == "Int")
+            {
+              //EXP7 -> new int [ EXP1 ]
+                //Tell EXP1 of it's class and method
+                subject.getChildren().get(3).setParentClass(subject.getParentClass());
+                subject.getChildren().get(3).setParentMethod(subject.getParentMethod());
+                subject.setType("int[]");
+
+                if (subject.getChildren().get(3).isVisited() == false)
+                {
+                    Token.pass1(subject.getChildren().get(3));
+                }
             }
             break;
 
@@ -77,6 +95,28 @@ public class ProcessEXP7
             subject.setType(subject.getChildren().get(0).getType());
 
             break;
+        case "Not":
+            //Tell EXP1 its class and method
+            subject.getChildren().get(1).setParentClass(subject.getParentClass());
+            subject.getChildren().get(1).setParentMethod(subject.getParentMethod());
+            subject.setType(subject.getChildren().get(1).getType());
+            
+            if (subject.getChildren().get(1).isVisited() == false)
+            {
+                Token.pass1(subject.getChildren().get(1));
+            }
+            break;
+        case "LPara":
+          //Tell EXP1 its class and method
+            subject.getChildren().get(1).setParentClass(subject.getParentClass());
+            subject.getChildren().get(1).setParentMethod(subject.getParentMethod());
+            subject.setType(subject.getChildren().get(1).getType());
+            
+            if (subject.getChildren().get(1).isVisited() == false)
+            {
+                Token.pass1(subject.getChildren().get(1));
+            }
+            break;
         }
 
     }
@@ -91,9 +131,12 @@ public class ProcessEXP7
         switch (subject.getChildren().get(0).getTokenName())
         {
         case "New":
-            if (!subject.getChildren().get(4).getType().equals("int"))
-                //prints to stderr because I don't want to change every processPass2 call
-                System.err.println("Wrong type for int array");
+            if(subject.getChildren().get(1).getTokenName() == "Int")
+            {
+                if (!subject.getChildren().get(4).getType().equals("int"))
+                    //prints to stderr because I don't want to change every processPass2 call
+                    System.err.println("Wrong type for int array");
+            }
         }
     }
 
@@ -123,14 +166,21 @@ public class ProcessEXP7
         case "Length":
             break;
         case "true":
-            
+        	subject.setCode(new StringBuffer("intermediate code for true"));
             break; 
         case "false":
-            
+        	subject.setCode(new StringBuffer("intermediate code for false"));
             break;     
         case "INTEGER_LITERAL":
-        	
+        	subject.setCode(new StringBuffer("intermediate code for INTEGER_LITERAL"));
             break;
+        case "Not":
+            subject.setCode(new StringBuffer("intermediate code for ! EXP1"));
+            break;
+        case "LPara":
+            subject.setCode(new StringBuffer("intermediate code for ( EXP1 )"));
+            break; 
+        
 
         }
     }
