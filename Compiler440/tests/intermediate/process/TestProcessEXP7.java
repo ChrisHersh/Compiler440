@@ -195,6 +195,8 @@ public class TestProcessEXP7
         assertEquals(t1.getType(), "ClassName");
     }
 	
+    
+    
     /**
      * Makes sure EXP7 -> new int [ EXP ] works
      */
@@ -236,4 +238,72 @@ public class TestProcessEXP7
         assertEquals(t3.getParentMethod(), pm);
     }
 
+    /**
+     * Makes sure EXP7 -> true works
+     */
+    @Test
+    public void testProcessPass1True()
+    {
+        Token t0 = new Token("true", TokenTypes.True.name(), 1);
+
+        t0.setVisited();
+
+        ArrayList<Token> tokens = new ArrayList<Token>();
+        tokens.add(t0);
+
+        Token t1 = new Token(TokenTypes.EXP7.name(), 1, tokens);
+        Class c1 = new Class("ClassName", null, null);
+        PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+        t1.setParentMethod(pm);
+        t1.setParentClass(c1);
+        
+        assertFalse(t1.isVisited());
+        ProcessEXP7.processPass1(t1);
+        assertTrue(t1.isVisited());
+        assertEquals("true", t0.getType());
+    }
+    
+    @Test
+    public void testProcessPass1False()
+    {
+        Token t0 = new Token("false", TokenTypes.False.name(), 1);
+
+        t0.setVisited();
+
+        ArrayList<Token> tokens = new ArrayList<Token>();
+        tokens.add(t0);
+
+        Token t1 = new Token(TokenTypes.EXP7.name(), 1, tokens);
+        Class c1 = new Class("ClassName", null, null);
+        PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+        t1.setParentMethod(pm);
+        t1.setParentClass(c1);
+        
+        assertFalse(t1.isVisited());
+        ProcessEXP7.processPass1(t1);
+        assertTrue(t1.isVisited());
+        assertEquals("false", t0.getType());
+    }
+    
+    @Test
+    public void testProcessPass1IntLiteral()
+    {
+        Token t0 = new Token("INTEGER_LITERAL", TokenTypes.IntNum.name(), 1);
+
+        t0.setVisited();
+
+        ArrayList<Token> tokens = new ArrayList<Token>();
+        tokens.add(t0);
+
+        Token t1 = new Token(TokenTypes.EXP7.name(), 1, tokens);
+        Class c1 = new Class("ClassName", null, null);
+        PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+        t1.setParentMethod(pm);
+        t1.setParentClass(c1);
+        
+        assertFalse(t1.isVisited());
+        ProcessEXP7.processPass1(t1);
+        assertTrue(t1.isVisited());
+        assertEquals("INTEGER_LITERAL", t0.getType());
+    }
 }

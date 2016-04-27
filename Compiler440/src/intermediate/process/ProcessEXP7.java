@@ -49,11 +49,11 @@ public class ProcessEXP7
                 subject.setToken(subject.getChildren().get(0).getToken());
                 break;
             }
-        case "True":
+        case "true":
             //EXP7 -> true
             subject.setType(subject.getType());
             break; 
-        case "False":
+        case "false":
             //EXP7 -> false
         	subject.setType(subject.getType());
             break;     
@@ -122,10 +122,10 @@ public class ProcessEXP7
             break;
         case "Length":
             break;
-        case "True":
+        case "true":
             
             break; 
-        case "False":
+        case "false":
             
             break;     
         case "INTEGER_LITERAL":
