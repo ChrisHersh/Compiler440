@@ -5,7 +5,7 @@ import tokenizer.TokenTypes;
 
 /**
  * 
- * @author Chris Hersh
+ * @author Chris Hersh, Matt Mousetis
  *
  */
 public class ProcessEXP7
@@ -49,7 +49,18 @@ public class ProcessEXP7
                 subject.setToken(subject.getChildren().get(0).getToken());
                 break;
             }
-
+        case "True":
+            //EXP7 -> true
+            subject.setType(subject.getType());
+            break; 
+        case "False":
+            //EXP7 -> false
+        	subject.setType(subject.getType());
+            break;     
+        case "INTEGER_LITERAL":
+            //EXP7 -> INTEGER_LITERAL
+        	subject.setType(subject.getType());
+            break;
         case "EXP_L":
         case "LBrace":
         case "RBrace":
@@ -110,6 +121,15 @@ public class ProcessEXP7
             subject.setCode(new StringBuffer("intermediate code for new int [ EXP1 ]"));
             break;
         case "Length":
+            break;
+        case "True":
+            
+            break; 
+        case "False":
+            
+            break;     
+        case "INTEGER_LITERAL":
+        	
             break;
 
         }
