@@ -19,7 +19,13 @@ import parser.states.JMCC.JMCC_24;
 import tokenizer.Token;
 import tokenizer.TokenTypes;
 
-public class TestJMCC_24 {
+/**
+ * 
+ * @author Ian Keefer
+ *
+ */
+public class TestJMCC_24 
+{
 
 	/**
 	 * prepares the parser from former test

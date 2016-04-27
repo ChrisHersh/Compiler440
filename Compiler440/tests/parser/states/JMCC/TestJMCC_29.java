@@ -17,7 +17,7 @@ import tokenizer.TokenTypes;
 
 /**
  * Test reduce works for JMCC_29
- * @author Daniel Breitigan
+ * @author Daniel Breitigan, Ian Keefer
  *
  */
 public class TestJMCC_29
