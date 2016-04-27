@@ -15,8 +15,9 @@ import tokenizer.Token;
 import tokenizer.TokenTypes;
 
 /**
- * 
- * @author Chris Hersh
+ * TestProcessEXP7.java
+ * Tests for ProcessEXP7. Note that many cases don't need Pass2 or Pass3.
+ * @author Chris Hersh, Daniel Breitigan
  *
  */
 public class TestProcessEXP7 
@@ -234,6 +235,113 @@ public class TestProcessEXP7
         assertEquals(t5.getType(), "int[]");
         assertEquals(t3.getParentClass(), c1);
         assertEquals(t3.getParentMethod(), pm);
+    }
+    
+    /**
+     * Makes sure EXP7 -> new id() works
+     */
+    @Test
+    public void testProcessPass1NewId()
+    {
+        Token t0 = new Token("new", TokenTypes.New.name(), 1);
+        Token t1 = new Token("Id", TokenTypes.Id.name(), 1);
+        Token t2 = new Token("(", TokenTypes.LPara.name(), 1);
+        Token t3 = new Token(")", TokenTypes.RPara.name(), 1);
+
+        t0.setVisited();
+
+        ArrayList<Token> tokens = new ArrayList<Token>();
+        tokens.add(t0);
+        tokens.add(t1);
+        tokens.add(t2);
+        tokens.add(t3);
+
+        Token t4 = new Token(TokenTypes.EXP7.name(), 1, tokens);
+        Class c1 = new Class("ClassName", null, null);
+        PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+        t4.setParentMethod(pm);
+        t4.setParentClass(c1);
+        
+        assertFalse(t4.isVisited());
+        try
+        {
+            ProcessEXP7.processPass1(t4);
+        } catch (NullPointerException e)
+        {
+            //do nothing we expect an exception to be thrown
+        }
+        assertTrue(t4.isVisited());
+        assertEquals(t4.getType(), "Id()");
+    }
+    
+    /**
+     * Makes sure EXP7 -> ! EXP1 works
+     */
+    @Test
+    public void testProcessPass1NotEXP1()
+    {
+        Token t0 = new Token("!", TokenTypes.Not.name(), 1);
+        Token t1 = new Token(TokenTypes.EXP1.name(), 1, null);
+        t1.setType(TokenTypes.EXP1.name());
+
+        t0.setVisited();
+
+        ArrayList<Token> tokens = new ArrayList<Token>();
+        tokens.add(t0);
+        tokens.add(t1);
+
+        Token t4 = new Token(TokenTypes.EXP7.name(), 1, tokens);
+        Class c1 = new Class("ClassName", null, null);
+        PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+        t4.setParentMethod(pm);
+        t4.setParentClass(c1);
+        
+        assertFalse(t4.isVisited());
+        try
+        {
+            ProcessEXP7.processPass1(t4);
+        } catch (NullPointerException e)
+        {
+            //do nothing we expect an exception to be thrown
+        }
+        assertTrue(t4.isVisited());
+        assertEquals(t4.getType(), "EXP1");
+    }
+    
+    /**
+     * Makes sure EXP7 -> ( EXP1 ) works
+     */
+    @Test
+    public void testProcessPass1LPara()
+    {
+        Token t0 = new Token("(", TokenTypes.LPara.name(), 1);
+        Token t1 = new Token(TokenTypes.EXP1.name(), 1, null);
+        Token t2 = new Token(")", TokenTypes.RPara.name(), 1);
+        t1.setType(TokenTypes.EXP1.name());
+
+        t0.setVisited();
+
+        ArrayList<Token> tokens = new ArrayList<Token>();
+        tokens.add(t0);
+        tokens.add(t1);
+        tokens.add(t2);
+
+        Token t4 = new Token(TokenTypes.EXP7.name(), 1, tokens);
+        Class c1 = new Class("ClassName", null, null);
+        PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+        t4.setParentMethod(pm);
+        t4.setParentClass(c1);
+        
+        assertFalse(t4.isVisited());
+        try
+        {
+            ProcessEXP7.processPass1(t4);
+        } catch (NullPointerException e)
+        {
+            //do nothing we expect an exception to be thrown
+        }
+        assertTrue(t4.isVisited());
+        assertEquals(t4.getType(), "EXP1");
     }
 
 }
