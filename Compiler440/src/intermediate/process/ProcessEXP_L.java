@@ -37,14 +37,20 @@ public class ProcessEXP_L
 
 	/**
 	 * the second pass for processing EXP_L
+	 * basically just passes to the next token. It does NOT (Should NOT) check for types 
 	 * @param subject
 	 */
-	public static void processPass2(Token subject) {
-		if(subject.getChildren() != null)
+	public static void processPass2(Token subject) 
+	{
+		if (subject.getChildren().get(0).getTokenName().equals(TokenTypes.EXP_L.name()))
 		{
-			ProcessEXP1.processPass2(subject.getChildren().get(0));
-			ProcessEXP_R.processPass2(subject.getChildren().get(1));
-		}
+			// Do children passes.
+			if(subject.getChildren().get(0).isVisited() == false)
+			{
+				Token.pass1(subject.getChildren());
+			}
+			subject.setVisited();
+		}	
 	}
 
 	
