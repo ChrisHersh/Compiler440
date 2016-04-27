@@ -14,7 +14,7 @@ import parser.states.JMCC.JMCC_24;
 import parser.states.JMCC.JMCC_29;
 
 /**
- * @author Manal Ibrahim, Chad Nunemaker
+ * @author Manal Ibrahim, Chad Nunemaker, Ian Keefer
  * */
 public class JMCC_23 extends State
 {

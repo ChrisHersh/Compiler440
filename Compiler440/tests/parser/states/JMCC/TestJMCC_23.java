@@ -24,7 +24,7 @@ import tokenizer.Token;
 
 /**
  * 
- * @author Chad Nunemaker, Manal Ibrahim
+ * @author Chad Nunemaker, Manal Ibrahim, Ian Keefer
  * 
  * In Ian and Chris's test style. 
  *
