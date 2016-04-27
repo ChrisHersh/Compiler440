@@ -585,6 +585,16 @@ public class Token
     }
     
     /**
+     * Setter for the intermediate code of this Token
+     * @author Chris Hersh
+     * @param stringBuffer 
+     */
+    public void setCode(StringBuffer stringBuffer)
+    {
+        this.intermediateCode = stringBuffer;
+    }
+    
+    /**
      * Getter for the intermediate code of this Token
      * @author Jared Good
      */
@@ -608,5 +618,14 @@ public class Token
     public boolean isVisited()
     {
     	return visited;
+    }
+
+    /**
+     * Sets the token
+     * @param name
+     */
+    public void setToken(String name)
+    {
+        this.token = name;
     }
 }

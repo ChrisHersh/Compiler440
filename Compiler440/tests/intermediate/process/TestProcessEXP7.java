@@ -14,6 +14,11 @@ import symboltable.method.impl.PublicMethod;
 import tokenizer.Token;
 import tokenizer.TokenTypes;
 
+/**
+ * 
+ * @author Chris Hersh
+ *
+ */
 public class TestProcessEXP7 
 {
 	
@@ -140,6 +145,95 @@ public class TestProcessEXP7
 		assertEquals(t5.getParentMethod(), t5.getChildren().get(3).getParentMethod());
 	}
 	
+	/**
+     * Makes sure EXP7 -> id works
+     */
+    @Test
+    public void testProcessPass1Id()
+    {
+        Token t0 = new Token("str", TokenTypes.Id.name(), 1);
+
+        t0.setVisited();
+
+        ArrayList<Token> tokens = new ArrayList<Token>();
+        tokens.add(t0);
+
+        Token t1 = new Token(TokenTypes.EXP7.name(), 1, tokens);
+        Class c1 = new Class("ClassName", null, null);
+        PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+        t1.setParentMethod(pm);
+        t1.setParentClass(c1);
+        
+        assertFalse(t1.isVisited());
+        ProcessEXP7.processPass1(t1);
+        assertTrue(t1.isVisited());
+        assertEquals(t1.getToken(), "str");
+    }
+    
+    /**
+     * Makes sure EXP7 -> id works
+     */
+    @Test
+    public void testProcessPass1This()
+    {
+        Token t0 = new Token("this", TokenTypes.This.name(), 1);
+
+        t0.setVisited();
+
+        ArrayList<Token> tokens = new ArrayList<Token>();
+        tokens.add(t0);
+
+        Token t1 = new Token(TokenTypes.EXP7.name(), 1, tokens);
+        Class c1 = new Class("ClassName", null, null);
+        PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+        t1.setParentMethod(pm);
+        t1.setParentClass(c1);
+        
+        assertFalse(t1.isVisited());
+        ProcessEXP7.processPass1(t1);
+        assertTrue(t1.isVisited());
+        assertEquals(t1.getType(), "ClassName");
+    }
 	
+    /**
+     * Makes sure EXP7 -> new int [ EXP ] works
+     */
+    @Test
+    public void testProcessPass1NewInt()
+    {
+        Token t0 = new Token("new", TokenTypes.New.name(), 1);
+        Token t1 = new Token("int", TokenTypes.Int.name(), 1);
+        Token t2 = new Token("[", TokenTypes.LBracket.name(), 1);
+        Token t3 = new Token(TokenTypes.EXP1.name(), 1, null);
+        Token t4 = new Token("]", TokenTypes.RBracket.name(), 1);
+
+        t0.setVisited();
+
+        ArrayList<Token> tokens = new ArrayList<Token>();
+        tokens.add(t0);
+        tokens.add(t1);
+        tokens.add(t2);
+        tokens.add(t3);
+        tokens.add(t4);
+
+        Token t5 = new Token(TokenTypes.EXP7.name(), 1, tokens);
+        Class c1 = new Class("ClassName", null, null);
+        PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+        t5.setParentMethod(pm);
+        t5.setParentClass(c1);
+        
+        assertFalse(t5.isVisited());
+        try
+        {
+            ProcessEXP7.processPass1(t5);
+        } catch (NullPointerException e)
+        {
+            //do nothing we expect an exception to be thrown
+        }
+        assertTrue(t5.isVisited());
+        assertEquals(t5.getType(), "int[]");
+        assertEquals(t3.getParentClass(), c1);
+        assertEquals(t3.getParentMethod(), pm);
+    }
 
 }
