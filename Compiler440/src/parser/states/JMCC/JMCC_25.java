@@ -8,7 +8,8 @@ import tokenizer.TokenTypes;
  * @author Ian Keefer
  *
  */
-public class JMCC_25 extends State {
+public class JMCC_25 extends State 
+{
 	
     @Override
     public void invalidState() throws ParserException

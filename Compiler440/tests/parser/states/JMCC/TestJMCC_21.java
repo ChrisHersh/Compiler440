@@ -20,7 +20,8 @@ import tokenizer.TokenTypes;
  * @author Ian Keefer
  *
  */
-public class TestJMCC_21 {
+public class TestJMCC_21 
+{
 	
     @Before
     public void setUp()

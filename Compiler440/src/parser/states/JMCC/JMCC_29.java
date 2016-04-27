@@ -6,7 +6,7 @@ import tokenizer.TokenTypes;
 /**
  * JMCC_29
  * Reduce to EXP6
- * @author Daniel Breitigan
+ * @author Daniel Breitigan, Ian Keefer
  *
  */
 public class JMCC_29 extends State 

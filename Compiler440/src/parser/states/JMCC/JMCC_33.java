@@ -2,6 +2,11 @@ package parser.states.JMCC;
 
 import parser.states.State;
 
+/**
+ * 
+ * @author Ian Keefer
+ *
+ */
 public class JMCC_33 extends State 
 {
 	

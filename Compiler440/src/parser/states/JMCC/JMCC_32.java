@@ -4,7 +4,13 @@ import parser.states.ParserException;
 import parser.states.State;
 import tokenizer.TokenTypes;
 
-public class JMCC_32 extends State {
+/**
+ * 
+ * @author Ian Keefer
+ *
+ */
+public class JMCC_32 extends State 
+{
 	
 	/**
 	 * Shift to JMCC_20 if the shift is EXP5.
