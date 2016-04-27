@@ -10,16 +10,16 @@ import parser.states.State;
 import tokenizer.Token;
 
 /**
- * Tests for CRM_20
+ * Tests for CRM_23
  * @author TJ Renninger
  */
-public class TestCRM_20
+public class TestCRM_23
 {
 	private Parser p;
 	private State s;
 	private int i;
-	private final String[] toks = {"Int", "Id", "Boolean", "TYPE"};
-	private final Object[] states = {CRM_9.class, CRM_12.class, CRM_13.class, CRM_21.class};
+	private final String[] toks = {"Id", "Int", "Boolean", "FORMAL_L", "TYPE"};
+	private final Object[] states = {CRM_9.class, CRM_12.class, CRM_13.class, CRM_25.class, CRM_35.class};
 	
 	/**
 	 * Sets up everything for the tests.
@@ -29,11 +29,11 @@ public class TestCRM_20
     {
         Parser.resetParser();
         p = Parser.getInstance();
-        s = new CRM_20();
+        s = new CRM_23();
     }
 	
 	/**
-	 * Test that shiftInt() on while in CRM_20 goes to the correct state
+	 * Test that shiftInt() on while in CRM_23 goes to the correct state
 	 * @throws ParserException
 	 */
 	@Test
@@ -42,13 +42,13 @@ public class TestCRM_20
 		i = 0;
 	    Token token = getToken();
 	    checkStacksBeforeShift(token);
-	   	s.shiftInt();
+	    s.shiftInt();
 	    checkStacksAfterShift(token);
 	    assertTrue(p.getCurrentState().getClass() == states[i]);
 	}
 	
 	/**
-	 * Test that shiftInt() on while in CRM_20 goes to the correct state
+	 * Test that shiftId() on while in CRM_23 goes to the correct state
 	 * @throws ParserException
 	 */
 	@Test
@@ -63,7 +63,7 @@ public class TestCRM_20
 	}
 	
 	/**
-	 * Test that shiftBoolean() on while in CRM_20 goes to the correct state
+	 * Test that shiftBoolean() on while in CRM_23 goes to the correct state
 	 * @throws ParserException
 	 */
 	@Test
@@ -78,13 +78,28 @@ public class TestCRM_20
 	}
 	
 	/**
-	 * Test that shiftTYPE() on while in CRM_20 goes to the correct state
+	 * Test that shiftFORMAL_L() on while in CRM_23 goes to the correct state
+	 * @throws ParserException
+	 */
+	@Test
+	public void testShiftFORMAL_L() throws ParserException
+	{
+		i = 3;
+	    Token token = getToken();
+	    checkStacksBeforeShift(token);
+	    s.shiftFORMAL_L();
+	    checkStacksAfterShift(token);
+	    assertTrue(p.getCurrentState().getClass() == states[i]);
+	}
+	
+	/**
+	 * Test that shiftTYPE() on while in CRM_23 goes to the correct state
 	 * @throws ParserException
 	 */
 	@Test
 	public void testShiftTYPE() throws ParserException
 	{
-		i = 3;
+		i = 4;
 	    Token token = getToken();
 	    checkStacksBeforeShift(token);
 	    s.shiftTYPE();

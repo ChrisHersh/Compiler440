@@ -33,11 +33,11 @@ public class TestCRM_21
     }
 	
 	/**
-	 * Test that shiftInt() on while in CRM_21 goes to the correct state
+	 * Test that shiftId() on while in CRM_21 goes to the correct state
 	 * @throws ParserException
 	 */
 	@Test
-	public void shiftId() throws ParserException
+	public void testShiftId() throws ParserException
 	{
 		i = 0;
 	    Token token = getToken();

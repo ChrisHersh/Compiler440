@@ -10,16 +10,16 @@ import parser.states.State;
 import tokenizer.Token;
 
 /**
- * Tests for CRM_20
+ * Tests for CRM_30
  * @author TJ Renninger
  */
-public class TestCRM_20
+public class TestCRM_30
 {
 	private Parser p;
 	private State s;
 	private int i;
-	private final String[] toks = {"Int", "Id", "Boolean", "TYPE"};
-	private final Object[] states = {CRM_9.class, CRM_12.class, CRM_13.class, CRM_21.class};
+	private final String[] toks = {"STMT", "If", "LBrace", "While", "SystemOutPrintln", "Id"};
+	private final Object[] states = {CRM_3.class, CRM_7.class, CRM_6.class, CRM_10.class, CRM_8.class, CRM_9.class};
 	
 	/**
 	 * Sets up everything for the tests.
@@ -29,65 +29,95 @@ public class TestCRM_20
     {
         Parser.resetParser();
         p = Parser.getInstance();
-        s = new CRM_20();
+        s = new CRM_30();
     }
 	
 	/**
-	 * Test that shiftInt() on while in CRM_20 goes to the correct state
+	 * Test that shiftSTMT() on while in CRM_30 goes to the correct state
 	 * @throws ParserException
 	 */
 	@Test
-	public void testShiftInt() throws ParserException
+	public void testShiftSTMT() throws ParserException
 	{
 		i = 0;
 	    Token token = getToken();
 	    checkStacksBeforeShift(token);
-	   	s.shiftInt();
+	    s.shiftSTMT();
 	    checkStacksAfterShift(token);
 	    assertTrue(p.getCurrentState().getClass() == states[i]);
 	}
 	
 	/**
-	 * Test that shiftInt() on while in CRM_20 goes to the correct state
+	 * Test that shiftIf() on while in CRM_30 goes to the correct state
+	 * @throws ParserException
+	 */
+	@Test
+	public void testShiftIf() throws ParserException
+	{
+		i = 1;
+	    Token token = getToken();
+	    checkStacksBeforeShift(token);
+	    s.shiftIf();
+	    checkStacksAfterShift(token);
+	    assertTrue(p.getCurrentState().getClass() == states[i]);
+	}
+	
+	/**
+	 * Test that shiftLeftBrace() on while in CRM_30 goes to the correct state
+	 * @throws ParserException
+	 */
+	@Test
+	public void testShiftLeftBrace() throws ParserException
+	{
+		i = 2;
+	    Token token = getToken();
+	    checkStacksBeforeShift(token);
+	    s.shiftLeftBrace();
+	    checkStacksAfterShift(token);
+	    assertTrue(p.getCurrentState().getClass() == states[i]);
+	}
+	
+	/**
+	 * Test that shiftWhile() on while in CRM_30 goes to the correct state
+	 * @throws ParserException
+	 */
+	@Test
+	public void testShiftWhile() throws ParserException
+	{
+		i = 3;
+	    Token token = getToken();
+	    checkStacksBeforeShift(token);
+	    s.shiftWhile();
+	    checkStacksAfterShift(token);
+	    assertTrue(p.getCurrentState().getClass() == states[i]);
+	}
+	
+	/**
+	 * Test that shiftSystemOutPrintln() on while in CRM_30 goes to the correct state
+	 * @throws ParserException
+	 */
+	@Test
+	public void testShiftSystemOutPrintln() throws ParserException
+	{
+		i = 4;
+	    Token token = getToken();
+	    checkStacksBeforeShift(token);
+	    s.shiftSystemOutPrintln();
+	    checkStacksAfterShift(token);
+	    assertTrue(p.getCurrentState().getClass() == states[i]);
+	}
+	
+	/**
+	 * Test that shiftId() on while in CRM_30 goes to the correct state
 	 * @throws ParserException
 	 */
 	@Test
 	public void testShiftId() throws ParserException
 	{
-		i = 1;
+		i = 5;
 	    Token token = getToken();
 	    checkStacksBeforeShift(token);
 	    s.shiftId();
-	    checkStacksAfterShift(token);
-	    assertTrue(p.getCurrentState().getClass() == states[i]);
-	}
-	
-	/**
-	 * Test that shiftBoolean() on while in CRM_20 goes to the correct state
-	 * @throws ParserException
-	 */
-	@Test
-	public void testShiftBoolean() throws ParserException
-	{
-		i = 2;
-	    Token token = getToken();
-	    checkStacksBeforeShift(token);
-	    s.shiftBoolean();
-	    checkStacksAfterShift(token);
-	    assertTrue(p.getCurrentState().getClass() == states[i]);
-	}
-	
-	/**
-	 * Test that shiftTYPE() on while in CRM_20 goes to the correct state
-	 * @throws ParserException
-	 */
-	@Test
-	public void testShiftTYPE() throws ParserException
-	{
-		i = 3;
-	    Token token = getToken();
-	    checkStacksBeforeShift(token);
-	    s.shiftTYPE();
 	    checkStacksAfterShift(token);
 	    assertTrue(p.getCurrentState().getClass() == states[i]);
 	}
