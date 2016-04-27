@@ -1,20 +1,24 @@
 package tokenizer;
-import symboltable.method.impl.MainMethod;
-import symboltable.Class;
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
+
 import org.junit.Test;
 
+import symboltable.Class;
+import symboltable.method.impl.MainMethod;
+
 /**
- * @author Curtis Rabe
+ * @author Curtis Rabe, TJ Renninger
  *
  */
 public class TestToken {
 	
     /**
      * Test to make sure the Token class's getters work correctly
-     * Note: this is mainly for test coverage
+     * Note, this is mainly for test coverage
      */
     @Test
     public void testToken()
@@ -111,5 +115,146 @@ public class TestToken {
     	assertFalse(t1.isVisited());
     	t1.setVisited();
     	assertTrue(t1.isVisited());
+    }
+    
+    /**
+     * Test to make sure that a token is visited when passed into pass1
+     */
+    @Test
+    public void testPass1SingleToken()
+    {
+    	String[] toks = {"EXP7", "EXP6", "EXP5", "EXP4", "EXP3", "EXP2", "EXP1", 
+    					 "VAR_DECL_L", "VAR_DECL", "PROG", "CLASS_DECL_L", "MAIN_CLASS", 
+    					 "CLASS_DECL", "M_METH_BODY", "METH_DECL_L", "METH_DECL", 
+    					 "METH_BODY", "FORMAL_L", "FORMAL_R", "TYPE", "STMT", "STMT_P",
+    					 "OP1", "OP2", "OP3", "OP4", "OP5", "OP6", "EXP_L", "EXP_R"};
+    	for (String s : toks)
+    	{
+    		Token t = new Token(s, s, 1);
+    		Token.pass1(t);
+    		assertTrue(t.isVisited());
+    	}
+    }
+    
+    /**
+     * Test to make sure that all tokens are visited when passed into pass1 as a list
+     */
+    @Test
+    public void testPass1MultipleTokens()
+    {
+    	String[] toks = {"EXP7", "EXP6", "EXP5", "EXP4", "EXP3", "EXP2", "EXP1", 
+    					 "VAR_DECL_L", "VAR_DECL", "PROG", "CLASS_DECL_L", "MAIN_CLASS", 
+    					 "CLASS_DECL", "M_METH_BODY", "METH_DECL_L", "METH_DECL", 
+    					 "METH_BODY", "FORMAL_L", "FORMAL_R", "TYPE", "STMT", "STMT_P",
+    					 "OP1", "OP2", "OP3", "OP4", "OP5", "OP6", "EXP_L", "EXP_R"};
+    	ArrayList<Token> tokens = new ArrayList<Token>();
+    	for (String s : toks)
+    	{
+    		Token t = new Token(s, s, 1);
+    		tokens.add(t);
+    	}
+    	Token.pass1(tokens);
+    	for (Token t : tokens)
+    	{
+    		assertTrue(t.isVisited());
+    	}
+    }
+    
+    /**
+     * Test to make sure that a token is visited when passed into pass2
+     */
+    @Test
+    public void testPass2SingleToken()
+    {
+    	String[] toks = {"EXP7", "EXP6", "EXP5", "EXP4", "EXP3", "EXP2", "EXP1", 
+    					 "VAR_DECL_L", "VAR_DECL", "PROG", "CLASS_DECL_L", "MAIN_CLASS", 
+    					 "CLASS_DECL", "M_METH_BODY", "METH_DECL_L", "METH_DECL", 
+    					 "METH_BODY", "FORMAL_L", "FORMAL_R", "TYPE", "STMT", "STMT_P",
+    					 "OP1", "OP2", "OP3", "OP4", "OP5", "OP6", "EXP_L", "EXP_R"};
+    	for (String s : toks)
+    	{
+    		Token t = new Token(s, s, 1);
+    		Token.pass2(t);
+    		assertTrue(t.isVisited());
+    	}
+    }
+    
+    /**
+     * Test to make sure that all tokens are visited when passed into pass2 as a list
+     */
+    @Test
+    public void testPass2MultipleTokens()
+    {
+    	String[] toks = {"EXP7", "EXP6", "EXP5", "EXP4", "EXP3", "EXP2", "EXP1", 
+    					 "VAR_DECL_L", "VAR_DECL", "PROG", "CLASS_DECL_L", "MAIN_CLASS", 
+    					 "CLASS_DECL", "M_METH_BODY", "METH_DECL_L", "METH_DECL", 
+    					 "METH_BODY", "FORMAL_L", "FORMAL_R", "TYPE", "STMT", "STMT_P",
+    					 "OP1", "OP2", "OP3", "OP4", "OP5", "OP6", "EXP_L", "EXP_R"};
+    	ArrayList<Token> tokens = new ArrayList<Token>();
+    	for (String s : toks)
+    	{
+    		Token t = new Token(s, s, 1);
+    		tokens.add(t);
+    	}
+    	Token.pass2(tokens);
+    	for (Token t : tokens)
+    	{
+    		assertTrue(t.isVisited());
+    	}
+    }
+    
+    /**
+     * Test to make sure that a token is visited when passed into pass3
+     */
+    @Test
+    public void testPass3SingleToken()
+    {
+    	String[] toks = {"EXP7", "EXP6", "EXP5", "EXP4", "EXP3", "EXP2", "EXP1", 
+    					 "VAR_DECL_L", "VAR_DECL", "PROG", "CLASS_DECL_L", "MAIN_CLASS", 
+    					 "CLASS_DECL", "M_METH_BODY", "METH_DECL_L", "METH_DECL", 
+    					 "METH_BODY", "FORMAL_L", "FORMAL_R", "TYPE", "STMT", "STMT_P",
+    					 "OP1", "OP2", "OP3", "OP4", "OP5", "OP6", "EXP_L", "EXP_R"};
+    	for (String s : toks)
+    	{
+    		Token t = new Token(s, s, 1);
+    		Token.pass3(t);
+    		assertTrue(t.isVisited());
+    	}
+    }
+    
+    /**
+     * Test to make sure that all tokens are visited when passed into pass3 as a list
+     */
+    @Test
+    public void testPass3MultipleTokens()
+    {
+    	String[] toks = {"EXP7", "EXP6", "EXP5", "EXP4", "EXP3", "EXP2", "EXP1", 
+    					 "VAR_DECL_L", "VAR_DECL", "PROG", "CLASS_DECL_L", "MAIN_CLASS", 
+    					 "CLASS_DECL", "M_METH_BODY", "METH_DECL_L", "METH_DECL", 
+    					 "METH_BODY", "FORMAL_L", "FORMAL_R", "TYPE", "STMT", "STMT_P",
+    					 "OP1", "OP2", "OP3", "OP4", "OP5", "OP6", "EXP_L", "EXP_R"};
+    	ArrayList<Token> tokens = new ArrayList<Token>();
+    	for (String s : toks)
+    	{
+    		Token t = new Token(s, s, 1);
+    		tokens.add(t);
+    	}
+    	Token.pass3(tokens);
+    	for (Token t : tokens)
+    	{
+    		assertTrue(t.isVisited());
+    	}
+    }
+    
+    @Test
+    public void testPass2()
+    {
+    	
+    }
+    
+    @Test
+    public void testPass3()
+    {
+    	
     }
 }
