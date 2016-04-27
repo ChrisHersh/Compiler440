@@ -17,5 +17,6 @@ public enum VariableType
     /**
      * boolean type
      */
-    BOOLEAN
+    BOOLEAN,
+    INTARRAY
 }
