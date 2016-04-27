@@ -132,10 +132,13 @@ public class ProcessSTMT
 				// TODO Need proper labels
 				
 				// Adds start label for the EXP1 to the intermediate code
-				subject.getCode().append("START_EXP1:");
+				subject.getCode().append("START_EXP1:\n");
 				
 				// Processes EXP1 to generate its intermediate code
-				Token.pass3(exp);
+				if(!exp.isVisited())
+				{
+					Token.pass3(exp);
+				}
 				
 				// Adds the exp code to the current code
 				code = exp.getCode().toString();
@@ -146,7 +149,10 @@ public class ProcessSTMT
 				subject.getCode().append("\tJMP [Value], ELSE\n");
 				
 				// Processes STMT1 to generate its intermediate code
-				Token.pass3(stmt1);
+				if(!stmt1.isVisited())
+				{
+					Token.pass3(stmt1);
+				}
 				
 				// Adds the first statement code to the current code
 				code = stmt1.getCode().toString();
@@ -159,7 +165,10 @@ public class ProcessSTMT
 				subject.getCode().append("ELSE:\n");
 				
 				// Processes STMT2 to generate its intermediate code
-				Token.pass3(stmt2);
+				if(!stmt2.isVisited())
+				{
+					Token.pass3(stmt2);
+				}
 				
 				// Adds the second statement code to the current code
 				code = stmt2.getCode().toString();
@@ -179,7 +188,10 @@ public class ProcessSTMT
 				Token stmtp = subject.getChildren().get(1);
 				
 				// Processes STMT_P to generate its intermediate code
-				Token.pass3(stmtp);
+				if(!stmtp.isVisited())
+				{
+					Token.pass3(stmtp);
+				}
 				
 				// Adds the STMT_P code to the STMT token
 				String code = stmtp.getCode().toString();
@@ -198,30 +210,36 @@ public class ProcessSTMT
 				String code;
 				
 				// Adds start label to intermediate code
-				subject.getCode().append("START_EXP1:");
+				subject.getCode().append("START_EXP1:\n");
 				
 				// Processes EXP1 to generate its intermediate code
-				Token.pass3(exp);
+				if(!exp.isVisited())
+				{
+					Token.pass3(exp);
+				}
 				
 				// Adds the EXP1 code to the STMT token
 				code = exp.getCode().toString();
 				subject.getCode().append(code);
 	
 				// Jumps to the end of the while loop if the value indicates so
-				subject.getCode().append("\tJMP [Value], END");
+				subject.getCode().append("\tJMP [Value], END\n");
 				
 				// Processes STMT to generate its intermediate code
-				Token.pass3(stmt);
+				if(!stmt.isVisited())
+				{
+					Token.pass3(stmt);
+				}
 				
 				// Adds the STMT code to the current STMT token
 				code = stmt.getCode().toString();
 				subject.getCode().append(code);
 	
 				// Jumps back to the evaluation of EXP1
-				subject.getCode().append("\tJMP START_EXP1");
+				subject.getCode().append("\tJMP START_EXP1\n");
 				
 				// End label
-				subject.getCode().append("END:");
+				subject.getCode().append("END:\n");
 				
 				
 			}
@@ -234,7 +252,10 @@ public class ProcessSTMT
 				Token exp = subject.getChildren().get(2);
 				
 				// Processes EXP1 to generate its intermediate code
-				Token.pass3(exp);
+				if(!exp.isVisited())
+				{
+					Token.pass3(exp);
+				}
 				
 				// Adds the EXP1 code to the STMT token
 				String code = exp.getCode().toString();
@@ -243,11 +264,11 @@ public class ProcessSTMT
 				// TODO fix this
 				// Puts the value of EXP1 in the output register
 				// And the type in the output type register
-				subject.getCode().append("\tLI [Value], OUTPUT_REGISTER?");
-				subject.getCode().append("\tLI [TYPE], OUTPUT_REGISTER2?");
+				subject.getCode().append("\tLI [Value], OUTPUT_REGISTER\n");
+				subject.getCode().append("\tLI [TYPE], OUTPUT_REGISTER2\n");
 				
 				// System call to output the value
-				subject.getCode().append("\tSYSCALL");
+				subject.getCode().append("\tSYSCALL\n");
 				
 			}
 			
@@ -262,14 +283,17 @@ public class ProcessSTMT
 					Token exp = subject.getChildren().get(2);
 					
 					// Processes EXP1 to generate its intermediate code
-					Token.pass3(exp);
+					if(!exp.isVisited())
+					{
+						Token.pass3(exp);
+					}
 					
 					// Adds the EXP1 code to the STMT token
 					String code = exp.getCode().toString();
 					subject.getCode().append(code);
 					
 					// Stores the value of EXP1 to location of id
-					subject.getCode().append("\tSW [Value], [id]");
+					subject.getCode().append("\tSW [Value], [id]\n");
 				}
 				
 				// Generates the code for the rule:
@@ -282,8 +306,15 @@ public class ProcessSTMT
 					String code;
 					
 					// Processes both EXP1's to generate their intermediate code
-					Token.pass3(exp1);
-					Token.pass3(exp2);
+					if(!exp1.isVisited())
+					{
+						Token.pass3(exp1);
+					}
+					
+					if(!exp2.isVisited())
+					{
+						Token.pass3(exp2);
+					}
 					
 					// Adds the first EXP1 code to the STMT token
 					code = exp1.getCode().toString();
@@ -295,16 +326,16 @@ public class ProcessSTMT
 					
 					// Shifts the value of the first EXP1 left 2
 					// Resulting in a multiply of 4 to get address offset
-					subject.getCode().append("\tSLL [Value1], 2, [Value1]");
+					subject.getCode().append("\tSLL [Value1], 2, [Value1]\n");
 					
 					// Adds the offset to the id address
-					subject.getCode().append("\tADD [Value1], [id], [Value1]");
+					subject.getCode().append("\tADD [Value1], [id], [Value1]\n");
 					
 					// Stores the value of the second EXP2 to the address
-					subject.getCode().append("\tSW [Value2], [Value1]");
+					subject.getCode().append("\tSW [Value2], [Value1]\n");
 				}
 			}
-			
 		}
+		subject.setVisited();
 	}
 }

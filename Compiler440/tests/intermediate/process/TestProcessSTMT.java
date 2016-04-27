@@ -109,5 +109,260 @@ public class TestProcessSTMT
 		assertEquals(t8.getChildren().get(6).getParentMethod(), t8.getParentMethod());
 		assertTrue(t8.isVisited());
 	}
-
+	
+	/**
+	 * A test to make sure that STMT can make it through pass 3 and process its children
+	 * for the rule: if ( EXP1 ) STMT1 else STMT2
+	 * @author Jared Good
+	 */
+	@Test
+	public void testProcessPass3If()
+	{		
+		//Children for STMT
+		Token t1 = new Token(TokenTypes.If.name(), 1, null);
+		Token t2 = new Token(TokenTypes.LPara.name(), 1, null);
+		Token t3 = new Token(TokenTypes.EXP1.name(), 1, null);
+		Token t4 = new Token(TokenTypes.RPara.name(), 1, null);
+		Token t5 = new Token(TokenTypes.STMT.name(), 1, null);
+		Token t6 = new Token(TokenTypes.Else.name(), 1, null);
+		Token t7 = new Token(TokenTypes.STMT.name(), 1, null);
+		t1.setVisited();
+		t2.setVisited();
+		t3.setVisited();
+		t4.setVisited();
+		t5.setVisited();
+		t6.setVisited();
+		t7.setVisited();
+		
+		// Adds tokens to ArrayList to add to STMT
+		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
+		tkns.add(t2);
+		tkns.add(t3);
+		tkns.add(t4);
+		tkns.add(t5);
+		tkns.add(t6);
+		tkns.add(t7);
+		
+		
+		// Main STMT		
+		Token t8 = new Token(TokenTypes.STMT.name(), 1, tkns);
+		
+		assertFalse(t8.isVisited());
+		Token.pass3(t8);
+		assertTrue(t8.isVisited());
+		
+		String code = t8.getCode().toString();
+		String test = "START_EXP1:\n" + "\tJMP [Value], ELSE\n" + "\tJMP END\n" + "ELSE:\n" + "END:\n";
+		
+		assertEquals(code, test);
+		
+	}
+	
+	/**
+	 * A test to make sure that STMT can make it through pass 3 and process its children
+	 * for the rule: { STMT_P }
+	 * @author Jared Good
+	 */
+	@Test
+	public void testProcessPass3LBrace()
+	{		
+		
+		//Children for STMT
+		Token t1 = new Token(TokenTypes.LBrace.name(), 1, null);
+		Token t2 = new Token(TokenTypes.STMT_P.name(), 1, null);
+		Token t3 = new Token(TokenTypes.RBrace.name(), 1, null);
+		t1.setVisited();
+		t2.setVisited();
+		t3.setVisited();
+		
+		// Adds tokens to ArrayList to add to STMT
+		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
+		tkns.add(t2);
+		tkns.add(t3);
+		
+		// Main STMT		
+		Token t4 = new Token(TokenTypes.STMT_P.name(), 1, tkns);
+		
+		assertFalse(t4.isVisited());
+		Token.pass3(t4);
+		assertTrue(t4.isVisited());
+		
+	}
+	
+	/**
+	 * A test to make sure that STMT can make it through pass 3 and process its children
+	 * for the rule: while ( EXP1 ) STMT
+	 * @author Jared Good
+	 */
+	@Test
+	public void testProcessPass3While()
+	{		
+		
+		//Children for STMT
+		Token t1 = new Token(TokenTypes.While.name(), 1, null);
+		Token t2 = new Token(TokenTypes.LPara.name(), 1, null);
+		Token t3 = new Token(TokenTypes.EXP1.name(), 1, null);
+		Token t4 = new Token(TokenTypes.RPara.name(), 1, null);
+		Token t5 = new Token(TokenTypes.STMT.name(), 1, null);
+		t1.setVisited();
+		t2.setVisited();
+		t3.setVisited();
+		t4.setVisited();
+		t5.setVisited();
+		
+		// Adds tokens to ArrayList to add to STMT
+		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
+		tkns.add(t2);
+		tkns.add(t3);
+		tkns.add(t4);
+		tkns.add(t5);
+		
+		// Main STMT		
+		Token t6 = new Token(TokenTypes.STMT.name(), 1, tkns);
+		
+		assertFalse(t6.isVisited());
+		Token.pass3(t6);
+		assertTrue(t6.isVisited());
+		
+		String code = t6.getCode().toString();
+		String test = "START_EXP1:\n" + "\tJMP [Value], END\n" + "\tJMP START_EXP1\n" + "END:\n";
+		
+		assertEquals(code, test);
+		
+	}
+	
+	/**
+	 * A test to make sure that STMT can make it through pass 3 and process its children
+	 * for the rule: System.out.Println ( EXP1 ) ;
+	 * @author Jared Good
+	 */
+	@Test
+	public void testProcessPass3SystemOutPrintLn()
+	{		
+		
+		//Children for STMT
+		Token t1 = new Token(TokenTypes.SystemOutPrintln.name(), 1, null);
+		Token t2 = new Token(TokenTypes.LPara.name(), 1, null);
+		Token t3 = new Token(TokenTypes.EXP1.name(), 1, null);
+		Token t4 = new Token(TokenTypes.RPara.name(), 1, null);
+		Token t5 = new Token(TokenTypes.SemiColon.name(), 1, null);
+		t1.setVisited();
+		t2.setVisited();
+		t3.setVisited();
+		t4.setVisited();
+		t5.setVisited();
+		
+		// Adds tokens to ArrayList to add to STMT
+		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
+		tkns.add(t2);
+		tkns.add(t3);
+		tkns.add(t4);
+		tkns.add(t5);
+		
+		// Main STMT		
+		Token t6 = new Token(TokenTypes.STMT.name(), 1, tkns);
+		
+		assertFalse(t6.isVisited());
+		Token.pass3(t6);
+		assertTrue(t6.isVisited());
+		
+		String code = t6.getCode().toString();
+		String test = "\tLI [Value], OUTPUT_REGISTER\n" + "\tLI [TYPE], OUTPUT_REGISTER2\n" + "\tSYSCALL\n";
+		
+		assertEquals(code, test);
+		
+	}
+	
+	/**
+	 * A test to make sure that STMT can make it through pass 3 and process its children
+	 * for the rule: id = EXP1 ;
+	 * @author Jared Good
+	 */
+	@Test
+	public void testProcessPass3IdAssignment()
+	{		
+		
+		//Children for STMT
+		Token t1 = new Token(TokenTypes.Id.name(), 1, null);
+		Token t2 = new Token(TokenTypes.Assignment.name(), 1, null);
+		Token t3 = new Token(TokenTypes.EXP1.name(), 1, null);
+		Token t4 = new Token(TokenTypes.SemiColon.name(), 1, null);
+		t1.setVisited();
+		t2.setVisited();
+		t3.setVisited();
+		t4.setVisited();
+		
+		// Adds tokens to ArrayList to add to STMT
+		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
+		tkns.add(t2);
+		tkns.add(t3);
+		tkns.add(t4);
+		
+		// Main STMT		
+		Token t5 = new Token(TokenTypes.STMT.name(), 1, tkns);
+		
+		assertFalse(t5.isVisited());
+		Token.pass3(t5);
+		assertTrue(t5.isVisited());
+		
+		String code = t5.getCode().toString();
+		String test = "\tSW [Value], [id]\n";
+		
+		assertEquals(code, test);
+		
+	}
+	
+	/**
+	 * A test to make sure that STMT can make it through pass 3 and process its children
+	 * for the rule: id [ EXP1 ] = EXP1 ;
+	 * @author Jared Good
+	 */
+	@Test
+	public void testProcessPass3IdLBracket()
+	{		
+		
+		//Children for STMT
+		Token t1 = new Token(TokenTypes.Id.name(), 1, null);
+		Token t2 = new Token(TokenTypes.LBracket.name(), 1, null);
+		Token t3 = new Token(TokenTypes.EXP1.name(), 1, null);
+		Token t4 = new Token(TokenTypes.RBracket.name(), 1, null);
+		Token t5 = new Token(TokenTypes.Assignment.name(), 1, null);
+		Token t6 = new Token(TokenTypes.EXP1.name(), 1, null);
+		Token t7 = new Token(TokenTypes.SemiColon.name(), 1, null);
+		t1.setVisited();
+		t2.setVisited();
+		t3.setVisited();
+		t4.setVisited();
+		t5.setVisited();
+		t6.setVisited();
+		t7.setVisited();
+		
+		// Adds tokens to ArrayList to add to STMT
+		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
+		tkns.add(t2);
+		tkns.add(t3);
+		tkns.add(t4);
+		tkns.add(t5);
+		tkns.add(t6);
+		tkns.add(t7);
+		
+		// Main STMT		
+		Token t8 = new Token(TokenTypes.STMT.name(), 1, tkns);
+		
+		assertFalse(t8.isVisited());
+		Token.pass3(t8);
+		assertTrue(t8.isVisited());
+		
+		String code = t8.getCode().toString();
+		String test = "\tSLL [Value1], 2, [Value1]\n" + "\tADD [Value1], [id], [Value1]\n" + "\tSW [Value2], [Value1]\n";
+		
+		assertEquals(code, test);
+		
+	}
 }
