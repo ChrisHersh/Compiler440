@@ -5,6 +5,7 @@ import tokenizer.Token;
 import tokenizer.TokenTypes;
 
 /**
+ * A parser state for MDJ_1.
  * @author Chad Nunemaker
  */
 public class MDJ_1 extends State
@@ -19,6 +20,7 @@ public class MDJ_1 extends State
 
 	/**
 	 * reduces to MDJ_1 (itself) and generates a CLASS_DECL_L token
+	 * @throws ParserException a parsing error has occurred
 	 */
 	@Override
 	public void invalidState() throws ParserException

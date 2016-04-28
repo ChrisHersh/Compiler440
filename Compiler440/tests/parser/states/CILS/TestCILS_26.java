@@ -14,6 +14,7 @@ import tokenizer.Token;
 import tokenizer.TokenTypes;
 
 /**
+ * Test all of the state shifts for CILS_26.
  * @author Chad Nunemaker
  */
 public class TestCILS_26
@@ -29,7 +30,7 @@ public class TestCILS_26
 
 	/**
 	 * Test the parsing of SemiColon.
-	 * @throws ParserException
+	 * @throws ParserException a parsing error has occured
 	 */
 	@Test
 	public void testSemiColon() throws ParserException
