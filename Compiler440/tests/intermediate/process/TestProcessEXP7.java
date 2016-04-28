@@ -418,4 +418,112 @@ public class TestProcessEXP7
         assertEquals("IntNum", t0.getType());
     }
     
+    
+    /**
+     * Daniel Breitigan
+     * Makes sure EXP7 -> (EXP1) works for pass3
+     */
+    @Test
+    public void testProcessPass3LPara()
+    {
+        Token t0 = new Token("(", TokenTypes.LPara.name(), 1);
+        Token t1 = new Token(TokenTypes.EXP1.name(), 1, null);
+        Token t2 = new Token(")", TokenTypes.RPara.name(), 1);
+        t1.setType(TokenTypes.EXP1.name());
+
+        t0.setVisited();
+
+        ArrayList<Token> tokens = new ArrayList<Token>();
+        tokens.add(t0);
+        tokens.add(t1);
+        tokens.add(t2);
+
+        Token t4 = new Token(TokenTypes.EXP7.name(), 1, tokens);
+        Class c1 = new Class("ClassName", null, null);
+        PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+        t4.setParentMethod(pm);
+        t4.setParentClass(c1);
+        
+        assertFalse(t4.isVisited());
+        try
+        {
+            ProcessEXP7.processPass3(t4);
+        } catch (NullPointerException e)
+        {
+            //do nothing we expect an exception to be thrown
+        }
+        assertEquals(t4.getCode().toString(), "(_EXP1_)_1:\n");
+    }
+    
+    /**
+     * Daniel Breitigan
+     * Makes sure EXP7 -> ! EXP1 works for pass3
+     */
+    @Test
+    public void testProcessPass3NotEXP1()
+    {
+        Token t0 = new Token("!", TokenTypes.Not.name(), 1);
+        Token t1 = new Token(TokenTypes.EXP1.name(), 1, null);
+        t1.setType(TokenTypes.EXP1.name());
+
+        t0.setVisited();
+
+        ArrayList<Token> tokens = new ArrayList<Token>();
+        tokens.add(t0);
+        tokens.add(t1);
+
+        Token t4 = new Token(TokenTypes.EXP7.name(), 1, tokens);
+        Class c1 = new Class("ClassName", null, null);
+        PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+        t4.setParentMethod(pm);
+        t4.setParentClass(c1);
+        
+        assertFalse(t4.isVisited());
+        try
+        {
+            ProcessEXP7.processPass3(t4);
+        } catch (NullPointerException e)
+        {
+            //do nothing we expect an exception to be thrown
+        }
+        
+        assertEquals(t4.getCode().toString(), "!_EXP1_1:\n");
+    }
+    
+    /**
+     * Daniel Breitigan
+     * Makes sure EXP7 -> new id() works for pass3
+     */
+    @Test
+    public void testProcessPass3NewId()
+    {
+        Token t0 = new Token("new", TokenTypes.New.name(), 1);
+        Token t1 = new Token("Id", TokenTypes.Id.name(), 1);
+        Token t2 = new Token("(", TokenTypes.LPara.name(), 1);
+        Token t3 = new Token(")", TokenTypes.RPara.name(), 1);
+
+        t0.setVisited();
+
+        ArrayList<Token> tokens = new ArrayList<Token>();
+        tokens.add(t0);
+        tokens.add(t1);
+        tokens.add(t2);
+        tokens.add(t3);
+
+        Token t4 = new Token(TokenTypes.EXP7.name(), 1, tokens);
+        Class c1 = new Class("ClassName", null, null);
+        PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+        t4.setParentMethod(pm);
+        t4.setParentClass(c1);
+        
+        assertFalse(t4.isVisited());
+        try
+        {
+            ProcessEXP7.processPass3(t4);
+        } catch (NullPointerException e)
+        {
+            //do nothing we expect an exception to be thrown
+        }
+        assertEquals(t4.getCode().toString(), "New_Id()_1:\n");
+    }
 }

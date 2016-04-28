@@ -4,8 +4,9 @@ import tokenizer.Token;
 import tokenizer.TokenTypes;
 
 /**
- * 
- * @author Chris Hersh, Matt Mousetis
+ * ProcessEXP7.java
+ * Process EXP7 rules for the intermediate code generator
+ * @author Chris Hersh, Matt Mousetis, Daniel Breitigan
  *
  */
 public class ProcessEXP7
@@ -144,6 +145,7 @@ public class ProcessEXP7
 
             break;
         case "Not":
+            //EXP7 -> ! EXP1
             //Tell EXP1 its class and method
             subject.getChildren().get(1).setParentClass(subject.getParentClass());
             subject.getChildren().get(1).setParentMethod(subject.getParentMethod());
@@ -155,6 +157,7 @@ public class ProcessEXP7
             }
             break;
         case "LPara":
+            //EXP7 -> ( EXP1 )
           //Tell EXP1 its class and method
             subject.getChildren().get(1).setParentClass(subject.getParentClass());
             subject.getChildren().get(1).setParentMethod(subject.getParentMethod());
@@ -218,7 +221,10 @@ public class ProcessEXP7
             }
             else
             {
-                subject.setCode(new StringBuffer("intermediate code for new id()"));
+                //Get Token for ID
+                Token NewId = subject.getChildren().get(1);
+                subject.getCode().append("New_" + NewId.getToken() + "()_" + NewId.getLineNumber() + ":\n");
+                
             }
             break;
         case "Length":
@@ -234,10 +240,14 @@ public class ProcessEXP7
         	subject.setCode(new StringBuffer("intermediate code for INTEGER_LITERAL"));
             break;
         case "Not":
-            subject.setCode(new StringBuffer("intermediate code for ! EXP1"));
+            //Get token for EXP1
+            Token NotId = subject.getChildren().get(1);
+            subject.getCode().append("!_" + NotId.getTokenName() + "_" + NotId.getLineNumber() + ":\n");
             break;
         case "LPara":
-            subject.setCode(new StringBuffer("intermediate code for ( EXP1 )"));
+            //Get token for EXP1
+            Token LParaId = subject.getChildren().get(1);
+            subject.getCode().append("(_" + LParaId.getTokenName() + "_)_" + LParaId.getLineNumber() + ":\n");
             break; 
         
 
