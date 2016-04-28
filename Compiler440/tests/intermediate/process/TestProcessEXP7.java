@@ -17,7 +17,7 @@ import tokenizer.TokenTypes;
 /**
  * TestProcessEXP7.java
  * Tests for ProcessEXP7. Note that many cases don't need Pass2 or Pass3.
- * @author Chris Hersh, Daniel Breitigan
+ * @author Chris Hersh, Daniel Breitigan, Matt Mousetis
  *
  */
 public class TestProcessEXP7 
