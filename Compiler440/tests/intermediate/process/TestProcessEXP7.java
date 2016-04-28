@@ -752,6 +752,73 @@ public class TestProcessEXP7
 
     
     
-}
+	@Test
+	public void testProcessPass3true()
+	{
+		Token t1 = new Token(TokenTypes.True.name(), 1, null);
+		t1.setVisited();
+		t1.setType(TokenTypes.True.name());
+
+		ArrayList<Token> tokens = new ArrayList<Token>();
+		tokens.add(t1);
+
+		Token t2 = new Token(TokenTypes.Boolean.name(), 1, tokens);
+		Class c1 = new Class("ClassName", null, null);
+		PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+		t2.setParentMethod(pm);
+		t2.setParentClass(c1);
+		
+		assertFalse(t2.isVisited());
+		
+		ProcessEXP7.processPass3(t2);
+        assertEquals(t2.getCode().toString(), "intermediate code for True");
+
+	}
+	
+	@Test
+	public void testProcessPass3False()
+	{
+		Token t1 = new Token(TokenTypes.False.name(), 1, null);
+		t1.setVisited();
+		t1.setType(TokenTypes.False.name());
+
+		ArrayList<Token> tokens = new ArrayList<Token>();
+		tokens.add(t1);
+
+		Token t2 = new Token(TokenTypes.Boolean.name(), 1, tokens);
+		Class c1 = new Class("ClassName", null, null);
+		PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+		t2.setParentMethod(pm);
+		t2.setParentClass(c1);
+		
+		assertFalse(t2.isVisited());
+		
+		ProcessEXP7.processPass3(t2);
+        assertEquals(t2.getCode().toString(), "intermediate code for false");
+
+	}
+	
+	@Test
+	public void testProcessPass3INT()
+	{
+		Token t1 = new Token(TokenTypes.IntNum.name(), 1, null);
+		t1.setVisited();
+		t1.setType(TokenTypes.IntNum.name());
+
+		ArrayList<Token> tokens = new ArrayList<Token>();
+		tokens.add(t1);
+
+		Token t2 = new Token(TokenTypes.Boolean.name(), 1, tokens);
+		Class c1 = new Class("ClassName", null, null);
+		PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+		t2.setParentMethod(pm);
+		t2.setParentClass(c1);
+		
+		assertFalse(t2.isVisited());
+		
+		ProcessEXP7.processPass3(t2);
+        assertEquals(t2.getCode().toString(), "intermediate code for INTEGER_LITERAL");
+
+	}
     
 }
