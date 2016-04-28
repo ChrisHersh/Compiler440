@@ -297,7 +297,7 @@ public class Token
      * @author chris Kjeldgaard
      * @param children
      */
-    public static void pass2 (ArrayList<Token> children)
+    public static void pass2 (ArrayList<Token> children)throws ProcessException
     {
     	if(children != null)
     	{
