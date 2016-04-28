@@ -313,7 +313,7 @@ public class Token
      * This method calls the class method that implements the Pass2 code for that token.
      * @author Chris Kjeldgard
      * @param subject
-     * @throws ProcessException 
+     * @throws ProcessException this is a exception to halt the compilation since types don't match
      */
     public static void pass2 (Token subject) throws ProcessException
     {

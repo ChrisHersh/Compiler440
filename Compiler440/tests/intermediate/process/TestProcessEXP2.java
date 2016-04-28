@@ -1,6 +1,7 @@
 package intermediate.process;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
@@ -14,13 +15,13 @@ import tokenizer.Token;
 import tokenizer.TokenTypes;
 
 /**
+ * Test process EXP2 to test the correct processing of the tokens.
  * @author Chad Nunemaker
- * Test process EXP2 to test the correct processing of the tokens
  */
 public class TestProcessEXP2
 {
 	/**
-	 * A test to make sure EXP2 can properly run through and process its tokens
+	 * A test to make sure EXP2 can properly run through and process its tokens.
 	 */
 	@Test
 	public void testProcessPass1()
@@ -52,6 +53,7 @@ public class TestProcessEXP2
 		{
 			fail("Failed on Children Creation");
 		}
+		assertTrue(t4.isVisited());
 		
 		// Handle EXP2 -> EXP3
 		t1 = new Token(TokenTypes.EXP3.name(), 1, null); // Assume EXP3 = True
@@ -72,10 +74,11 @@ public class TestProcessEXP2
 		{
 			fail("Failed on Children Creation");
 		}
+		assertTrue(t4.isVisited());
 	}
 	
 	/**
-	 * test to see if the EXP2 can make it through a second pass 
+	 * Test to see if the EXP2 can make it through a second pass .
 	 */
 	@Test
 	public void testProcessPass2()
@@ -105,6 +108,7 @@ public class TestProcessEXP2
 		{
 			fail("Failed on type check");
 		}
+		assertTrue(t4.isVisited());
 		
 		// Handle EXP2 -> EXP3
 		t1 = new Token(TokenTypes.EXP3.name(), 1, null); // Assume EXP3 = True
@@ -123,10 +127,11 @@ public class TestProcessEXP2
 		{
 			fail("Failed on type check");
 		}
+		assertTrue(t4.isVisited());
 	}
 	
 	/**
-	 * test to see if the EXP2 can make it through the third pass 
+	 * Test to see if the EXP2 can make it through the third pass.
 	 */
 	@Test
 	public void testProcessPass3()
@@ -155,6 +160,7 @@ public class TestProcessEXP2
 			fail("Failed on Children Creation");
 		}
 		
+		assertTrue(t4.isVisited());
 		assertEquals("True && True", t4.getCode().toString());
 		
 		// Handle EXP2 -> EXP3
@@ -173,6 +179,7 @@ public class TestProcessEXP2
 			fail("Failed on Children Creation");
 		}
 		
+		assertTrue(t4.isVisited());
 		assertEquals("True", t2.getCode().toString());
 	}
 }

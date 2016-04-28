@@ -15,6 +15,11 @@ import parser.states.State;
 import tokenizer.Token;
 import tokenizer.TokenTypes;
 
+/**
+ * 
+ * @author Ian Keefer
+ *
+ */
 public class TestJCTM_23 {
 	
     @Before
@@ -29,11 +34,11 @@ public class TestJCTM_23 {
         Parser parser = Parser.getInstance();
         State state = new JCTM_23();
         ArrayList<Token> tokens = new ArrayList<Token>();
-        tokens.add(new Token("id", TokenTypes.New.name(), 1));
-        tokens.add(new Token("id", TokenTypes.Int.name(), 1));
-        tokens.add(new Token("id", TokenTypes.LBracket.name(), 1));
-        tokens.add(new Token("id", TokenTypes.EXP1.name(), 1));
-        tokens.add(new Token("id", TokenTypes.RBrace.name(), 1));
+        tokens.add(new Token("rbracket", TokenTypes.RBracket.name(), 1));
+        tokens.add(new Token("exp1", TokenTypes.EXP1.name(), 1));
+        tokens.add(new Token("lbracket", TokenTypes.LBracket.name(), 1));
+        tokens.add(new Token("int", TokenTypes.Int.name(), 1));
+        tokens.add(new Token("new", TokenTypes.New.name(), 1));
 
         parser.pushHoldStack(tokens.get(4));
         parser.pushHoldStack(tokens.get(3));
@@ -58,5 +63,7 @@ public class TestJCTM_23 {
         assertEquals(parser.peekInputStack().getTokenName(), token.getTokenName());
         assertEquals(parser.peekInputStack().getChildren(), token.getChildren());
         assertEquals(parser.getCurrentState().getClass(), new JCTM_0().getClass());
+        
+        
     }
 }

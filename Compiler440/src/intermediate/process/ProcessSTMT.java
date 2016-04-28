@@ -99,8 +99,84 @@ public class ProcessSTMT
 		}
 	}
 
-	public static void processPass2(Token subject) {
-		// TODO Auto-generated method stub
+	/**
+	 * @author Mike Zimmerman
+	 * @param subject
+	 * @throws ProcessException this is a exception to halt the compilation since types don't match
+	 */
+	public static void processPass2(Token subject) throws ProcessException
+	{
+		//switch on the first child.getName...
+		switch(subject.getChildren().get(0).getTokenName())
+		{
+			case "LBrace":
+				if(subject.getChildren().get(0).isVisited() == false)
+				{
+					Token.pass1(subject.getChildren());
+				}
+				break;
+			case "If":
+				if(subject.getChildren().get(0).isVisited() == false)
+				{
+					Token.pass1(subject.getChildren());
+				}
+				if(subject.getChildren().get(2).getType() != "boolean")
+				{
+					 throw new ProcessException ();
+				}
+					
+				break;
+			case "While":
+				if(subject.getChildren().get(0).isVisited() == false)
+				{
+					Token.pass1(subject.getChildren());
+				}
+				if(subject.getChildren().get(2).getType() != "boolean")
+				{
+					 throw new ProcessException ();
+				}break;
+			case "SystemOutPrintln":
+				if(subject.getChildren().get(0).isVisited() == false)
+				{
+					Token.pass1(subject.getChildren());
+				}
+				//HELP
+				if(subject.getChildren().get(2).getType() != "String") // we don't handle Strings
+				{
+					 throw new ProcessException ();
+				}
+				break;
+			case "Id":
+				if(subject.getChildren().get(1).getTokenName().equals(TokenTypes.Assignment.name()))
+				{
+					if(subject.getChildren().get(0).isVisited() == false)
+					{
+						Token.pass1(subject.getChildren());
+					}
+					if(subject.getChildren().get(0).getType() != subject.getChildren().get(2).getType())
+					{
+						 throw new ProcessException ();
+					}
+				}else
+				{
+					if(subject.getChildren().get(0).isVisited() == false)
+					{
+						Token.pass1(subject.getChildren());
+					}
+					if(subject.getChildren().get(2).getType() != "boolean")
+					{
+						 throw new ProcessException ();
+					}
+					if(subject.getChildren().get(0).getType() != subject.getChildren().get(5).getType())
+					{
+						 throw new ProcessException ();
+					}
+				}
+				break;
+			default:
+				break;
+		}
+		subject.setVisited();
 		
 	}
 

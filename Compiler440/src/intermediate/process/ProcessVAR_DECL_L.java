@@ -1,6 +1,5 @@
 package intermediate.process;
 import tokenizer.Token;
-import tokenizer.TokenTypes;
 
 /**
  * Responsible for storing all of the correct information for VAR_DECL_L

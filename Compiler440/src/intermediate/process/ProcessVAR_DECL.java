@@ -1,4 +1,8 @@
 package intermediate.process;
+import symboltable.SymbolTable;
+import symboltable.VariableScope;
+import symboltable.VariableType;
+import symboltable.variable.impl.LocalPrimitiveVariable;
 import tokenizer.Token;
 
 /**
@@ -13,11 +17,6 @@ public class ProcessVAR_DECL
 	 */
 	public static void processPass1(Token subject) 
 	{
-//		subject.getChildren().get(0).setParentClass(subject.getParentClass());
-//		subject.getChildren().get(0).setParentMethod(subject.getParentMethod());
-//		Token.pass1(subject.getChildren());
-//		subject.getChildren().get(0).setVisited();
-		
 		//Give parentClass and parentMethod to all children
 		for(int x = 0; x < subject.getChildren().size(); x++)
 		{
@@ -27,6 +26,40 @@ public class ProcessVAR_DECL
 		}
 		Token.pass1(subject.getChildren());
 		subject.setType(subject.getChildren().get(0).getType());
+		
+		//Gather info from ID so store into Symbol Table
+		String tokenName = subject.getChildren().get(1).getToken().toString();
+		String parentMethod = subject.getChildren().get(1).getParentMethod().toString();
+		String parentClass = subject.getChildren().get(1).getParentClass().getName();
+		VariableScope scope = VariableScope.LOCAL;
+		
+		//Determine variable type
+		VariableType type = null;
+		if(subject.getChildren().get(0).getType().toLowerCase().equals("boolean"))
+		{
+			type = VariableType.BOOLEAN;
+		}
+		else if(subject.getChildren().get(0).getType().toLowerCase().equals("integer"))
+		{
+			//The type is an array of ints
+			if(subject.getChildren().get(0).getChildren().size() == 3)
+			{
+				type = VariableType.INTARRAY;
+			}
+			//The type is just int
+			else
+			{
+				type = VariableType.INTEGER;
+			}
+		}
+		else
+		{
+			type = VariableType.OBJECT;
+		}
+		
+		LocalPrimitiveVariable varDecl = new LocalPrimitiveVariable(tokenName,parentMethod, parentClass, scope, type);
+		
+		SymbolTable.getInstance().addVariable(tokenName, varDecl);
 	}
 
 	/**

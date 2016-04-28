@@ -8,13 +8,13 @@ import tokenizer.Token;
 import tokenizer.TokenTypes;
 
 /**
+ * Test process OP2 to test the correct processing of the tokens.
  * @author Chad Nunemaker
- * Test process OP2 to test the correct processing of the tokens
  */
 public class TestProcessOP2
 {
 	/**
-	 * test to see if the OP2 can make it through the third pass 
+	 * Test to see if the OP2 can make it through the third pass .
 	 */
 	@Test
 	public void testProcessPass3()
