@@ -24,13 +24,20 @@ import tokenizer.TokenTypes;
  */
 public class TestJMCC_16
 {
-    
+ 
+	/**
+	 * Reset the parser
+	 */
     @Before
     public void setUp()
     {
         Parser.resetParser();
     }
     
+    /**
+     * Makes sure reduce to another state works
+     * @throws ParserException
+     */
     @Test
     public void testInvalidState() throws ParserException
     {

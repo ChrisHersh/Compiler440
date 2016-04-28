@@ -16,6 +16,11 @@ import parser.states.JMCC.JMCC_3;
 import tokenizer.Token;
 import tokenizer.TokenTypes;
 
+/**
+ * 
+ * @author Chris Hersh
+ *
+ */
 public class TestJMCC_1
 {
 	/**

@@ -6,7 +6,7 @@ import tokenizer.TokenTypes;
 /**
  * ProcessEXP7.java
  * Process EXP7 rules for the intermediate code generator
- * @author Chris Hersh, Matt Mousetis, Daniel Breitigan
+ * @author Chris Hersh, Matt Mousetis, Daniel Breitigan, Ian Keefer
  *
  */
 public class ProcessEXP7
@@ -175,8 +175,9 @@ public class ProcessEXP7
     /**
      * Processes pass 2
      * @param subject
+     * @throws ProcessException 
      */
-    public static void processPass2(Token subject)
+    public static void processPass2(Token subject) throws ProcessException
     {
         //Only a few of EXP7s need type checking
         switch (subject.getChildren().get(0).getTokenName())
@@ -185,8 +186,7 @@ public class ProcessEXP7
             if(subject.getChildren().get(1).getTokenName() == "Int")
             {
                 if (!subject.getChildren().get(4).getType().equals("int"))
-                    //prints to stderr because I don't want to change every processPass2 call
-                    System.err.println("Wrong type for int array");
+                		throw new ProcessException();
             }
         }
     }
@@ -200,16 +200,16 @@ public class ProcessEXP7
         switch (subject.getChildren().get(0).getTokenName())
         {
         case "EXP_L":
-            subject.setCode(new StringBuffer("intermediate code for exp_l"));
+            subject.getCode().append("intermediate code for exp_l");
             break;
         case "LBrace":
-            subject.setCode(new StringBuffer("intermediate code for lbrace"));
+            subject.getCode().append("intermediate code for lbrace");
             break;
         case "RBrace":
-            subject.setCode(new StringBuffer("intermediate code for rbrace"));
+            subject.getCode().append("intermediate code for rbrace");
             break;
         case "Id":
-            subject.setCode(new StringBuffer("intermediate code for id"));
+            subject.getCode().append("intermediate code for id");
             break;
         case "This":
             subject.setCode(new StringBuffer("intermediate code for this"));
@@ -228,7 +228,7 @@ public class ProcessEXP7
             }
             break;
         case "Length":
-            subject.setCode(new StringBuffer("intermediate code for length"));
+            subject.getCode().append("intermediate code for length");
             break;
         case "true":
         	subject.setCode(new StringBuffer("intermediate code for true"));

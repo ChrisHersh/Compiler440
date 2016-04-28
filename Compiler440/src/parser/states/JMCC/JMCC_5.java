@@ -12,7 +12,7 @@ import parser.states.JCTM.JCTM_29;
 
 /**
  * Implements the methods from state JMCC_5.
- * @author Ledny Joseph, Jason LoBianco, TJ Renninger, Chris Kjeldgaard
+ * @author Ledny Joseph, Jason LoBianco, TJ Renninger, Chris Kjeldgaard, Chris Hersh
  */
 
 public class JMCC_5 extends State
