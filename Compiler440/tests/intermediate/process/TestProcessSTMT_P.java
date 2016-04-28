@@ -3,7 +3,6 @@ package intermediate.process;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 
@@ -60,9 +59,10 @@ public class TestProcessSTMT_P {
 	/**
 	 * @author Mike Zimmerman
 	 * A test to make sure that STMT_P can make it through pass 2 and process its children
+	 * @throws ProcessException this is a exception to halt the compilation since types don't match 
 	 */
 	@Test
-	public void testProcessPass2()
+	public void testProcessPass2() throws ProcessException
 	{
 		//Children for STMT_P
 		Token t1 = new Token(TokenTypes.STMT_P.name(), 1, null);
@@ -80,7 +80,7 @@ public class TestProcessSTMT_P {
 		
 		// Checks that the token properly goes through pass 3
 		assertFalse(t3.isVisited());
-		Token.pass3(t3);
+		Token.pass2(t3);
 		assertTrue(t3.isVisited());
 	}
 	

@@ -20,6 +20,7 @@ import tokenizer.TokenTypes;
  */
 public class TestProcessSTMT
 {
+//########################### START OF PASS 1 ###########################//
 
 	/**
 	 * Test for Process Pass1 on STMT -> { STMT_P }
@@ -336,10 +337,450 @@ public class TestProcessSTMT
 
 		assertTrue(t8.isVisited());
 	}
+
+//########################### START OF PASS 2 ###########################//
+
+	/**
+	 * @author Mike Zimmerman
+	 * Test for Process Pass2 on STMT -> { STMT_P }
+	 * This is a nothing special test just moves to the next token.
+	 * @throws ProcessException this is a exception to halt the compilation since types don't match
+	 */
+	@Test
+	public void testProcessPass2StartLBrace() throws ProcessException
+	{
+		Token t1 = new Token(TokenTypes.LBrace.name(), 1, null);
+		Token t2 = new Token(TokenTypes.STMT_P.name(), 2, null);
+		Token t3 = new Token(TokenTypes.RBrace.name(), 3, null);
+		t1.setVisited();
+		t2.setVisited();
+		t3.setVisited();
+
+		ArrayList<Token> tkns1 = new ArrayList<Token>();
+		tkns1.add(t1);
+		tkns1.add(t2);
+		tkns1.add(t3);
+		
+		Token t5 = new Token(TokenTypes.STMT.name(), 1, tkns1);
+		
+		assertFalse(t5.isVisited());
+		Token.pass2(t5);
+		assertTrue(t5.isVisited());
+	}
 	
+	/**
+	 * @author Mike Zimmerman
+	 * Test for Process Pass2 on STMT -> if ( EXP1 ) STMT else STMT
+	 * checks to make sure that EXP1 is boolean
+	 * @throws ProcessException this is a exception to halt the compilation since types don't match
+	 */
+	@Test
+	public void testProcessPass2StartIf() throws ProcessException
+	{
+		Token t1 = new Token(TokenTypes.If.name(), 1, null);
+		Token t2 = new Token(TokenTypes.LPara.name(), 1, null);
+		Token t3 = new Token(TokenTypes.EXP1.name(), 1, null);
+		Token t4 = new Token(TokenTypes.RPara.name(), 1, null);
+		Token t5 = new Token(TokenTypes.STMT.name(), 1, null);
+		Token t6 = new Token(TokenTypes.Else.name(), 1, null);
+		Token t7 = new Token(TokenTypes.STMT.name(), 1, null);
+		t1.setVisited();
+		t2.setVisited();
+		t3.setType("boolean");
+		t3.setVisited();
+		t4.setVisited();
+		t5.setVisited();
+		t6.setVisited();
+		t7.setVisited();
+		
+		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
+		tkns.add(t2);
+		tkns.add(t3);
+		tkns.add(t4);
+		tkns.add(t5);
+		tkns.add(t6);
+		tkns.add(t7);
+		
+		Token t8 = new Token(TokenTypes.STMT.name(), 1, tkns);
+
+		assertFalse(t8.isVisited());
+		Token.pass2(t8);
+		assertTrue(t8.isVisited());
+	}
 	
+	/**
+	 * @author Mike Zimmerman
+	 * Test for Process Pass2 on STMT -> if ( EXP1 ) STMT else STMT
+	 * checks to make sure that if EXP1 is not boolean compilation will halt
+	 * @throws ProcessException this is a exception to halt the compilation since types don't match
+	 */
+	@Test (expected = ProcessException.class)
+	public void testProcessPass2StartIfThrows() throws ProcessException
+	{
+		Token t1 = new Token(TokenTypes.If.name(), 1, null);
+		Token t2 = new Token(TokenTypes.LPara.name(), 1, null);
+		Token t3 = new Token(TokenTypes.EXP1.name(), 1, null);
+		Token t4 = new Token(TokenTypes.RPara.name(), 1, null);
+		Token t5 = new Token(TokenTypes.STMT.name(), 1, null);
+		Token t6 = new Token(TokenTypes.Else.name(), 1, null);
+		Token t7 = new Token(TokenTypes.STMT.name(), 1, null);
+		t1.setVisited();
+		t2.setVisited();
+		t3.setType("notBoolean");
+		t3.setVisited();
+		t4.setVisited();
+		t5.setVisited();
+		t6.setVisited();
+		t7.setVisited();
+		
+		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
+		tkns.add(t2);
+		tkns.add(t3);
+		tkns.add(t4);
+		tkns.add(t5);
+		tkns.add(t6);
+		tkns.add(t7);
+		
+		Token t8 = new Token(TokenTypes.STMT.name(), 1, tkns);
+
+		assertFalse(t8.isVisited());
+		Token.pass2(t8);
+		assertFalse(t8.isVisited());
+	}
 	
-//--------------------------------------------------------------------------------------------------
+
+	/**
+	 * @author Mike Zimmerman
+	 * Test for Process Pass2 on STMT -> while ( EXP1 ) STMT
+	 * checks to make sure that EXP1 is boolean
+	 * @throws ProcessException this is a exception to halt the compilation since types don't match
+	 */
+	@Test
+	public void testProcessPass2StartWhile() throws ProcessException
+	{
+		Token t1 = new Token(TokenTypes.While.name(), 1, null);
+		Token t2 = new Token(TokenTypes.LPara.name(), 1, null);
+		Token t3 = new Token(TokenTypes.EXP1.name(), 1, null);
+		Token t4 = new Token(TokenTypes.RPara.name(), 1, null);
+		Token t5 = new Token(TokenTypes.STMT.name(), 1, null);
+		t1.setVisited();
+		t2.setVisited();
+		t3.setType("boolean");
+		t3.setVisited();
+		t4.setVisited();
+		t5.setVisited();
+
+		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
+		tkns.add(t2);
+		tkns.add(t3);
+		tkns.add(t4);
+		tkns.add(t5);
+
+		Token t8 = new Token(TokenTypes.STMT.name(), 1, tkns);
+		
+		assertFalse(t8.isVisited());
+		Token.pass2(t8);
+		assertTrue(t8.isVisited());
+	}
+
+	/**
+	 * @author Mike Zimmerman
+	 * Test for Process Pass2 on STMT -> while ( EXP1 ) STMT
+	 * checks to make sure that if EXP1 is not boolean compilation will halt
+	 * @throws ProcessException this is a exception to halt the compilation since types don't match
+	 */
+	@Test (expected = ProcessException.class)
+	public void testProcessPass2StartWhileThrows() throws ProcessException
+	{
+		Token t1 = new Token(TokenTypes.While.name(), 1, null);
+		Token t2 = new Token(TokenTypes.LPara.name(), 1, null);
+		Token t3 = new Token(TokenTypes.EXP1.name(), 1, null);
+		Token t4 = new Token(TokenTypes.RPara.name(), 1, null);
+		Token t5 = new Token(TokenTypes.STMT.name(), 1, null);
+		t1.setVisited();
+		t2.setVisited();
+		t3.setType("notBoolean");
+		t3.setVisited();
+		t4.setVisited();
+		t5.setVisited();
+
+		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
+		tkns.add(t2);
+		tkns.add(t3);
+		tkns.add(t4);
+		tkns.add(t5);
+
+		Token t8 = new Token(TokenTypes.STMT.name(), 1, tkns);
+		
+		assertFalse(t8.isVisited());
+		Token.pass2(t8);
+		assertFalse(t8.isVisited());
+	}
+
+	/**
+	 * @author Mike Zimmerman
+	 * Test for Process Pass2 on STMT -> SystemOutPrintln ( EXP1 ) ;
+	 * checks to make sure that EXP1 is a String
+	 * NOTE: we don't do Strings !!!!!
+	 * @throws ProcessException this is a exception to halt the compilation since types don't match
+	 */
+	@Test
+	public void testProcessPass2StartSystemOutPrintLn() throws ProcessException
+	{
+		Token t1 = new Token(TokenTypes.SystemOutPrintln.name() , 1, null);
+		Token t2 = new Token(TokenTypes.LPara.name(), 1, null);
+		Token t3 = new Token(TokenTypes.EXP1.name(), 1, null);
+		Token t4 = new Token(TokenTypes.RPara.name(), 1, null);
+		Token t5 = new Token(TokenTypes.SemiColon.name(), 1, null);
+		t1.setVisited();
+		t2.setVisited();
+		t3.setType("String");
+		t3.setVisited();
+		t4.setVisited();
+		t5.setVisited();
+
+		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
+		tkns.add(t2);
+		tkns.add(t3);
+		tkns.add(t4);
+		tkns.add(t5);
+
+		Token t8 = new Token(TokenTypes.STMT.name(), 1, tkns);
+		
+		assertFalse(t8.isVisited());
+		Token.pass2(t8);
+		assertTrue(t8.isVisited());
+	}
+
+	/**
+	 * @author Mike Zimmerman
+	 * Test for Process Pass2 on STMT -> SystemOutPrintln ( EXP1 ) ;
+	 * checks to make sure that if EXP1 is not a String compilation will halt
+	 * NOTE: Still don't do strings !!!
+	 * @throws ProcessException this is a exception to halt the compilation since types don't match
+	 */
+	@Test (expected = ProcessException.class)
+	public void testProcessPass2StartSystemOutPrintLnThrows() throws ProcessException
+	{
+		Token t1 = new Token(TokenTypes.SystemOutPrintln.name() , 1, null);
+		Token t2 = new Token(TokenTypes.LPara.name(), 1, null);
+		Token t3 = new Token(TokenTypes.EXP1.name(), 1, null);
+		Token t4 = new Token(TokenTypes.RPara.name(), 1, null);
+		Token t5 = new Token(TokenTypes.SemiColon.name(), 1, null);
+		t1.setVisited();
+		t2.setVisited();
+		t3.setType("notString");
+		t3.setVisited();
+		t4.setVisited();
+		t5.setVisited();
+
+		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
+		tkns.add(t2);
+		tkns.add(t3);
+		tkns.add(t4);
+		tkns.add(t5);
+
+		Token t8 = new Token(TokenTypes.STMT.name(), 1, tkns);
+		
+		assertFalse(t8.isVisited());
+		Token.pass2(t8);
+		assertFalse(t8.isVisited());
+	}
+
+	/**
+	 * @author Mike Zimmerman
+	 * Test for Process Pass2 on STMT -> id = EXP1 ;
+	 * checks to make sure that EXP1 is of same type a id
+	 * @throws ProcessException this is a exception to halt the compilation since types don't match
+	 */
+	@Test
+	public void testProcessPass2StartIdEq() throws ProcessException
+	{
+		Token t1 = new Token(TokenTypes.Id.name() , 1, null);
+		Token t2 = new Token(TokenTypes.Assignment.name(), 1, null);
+		Token t3 = new Token(TokenTypes.EXP1.name(), 1, null);
+		Token t4 = new Token(TokenTypes.SemiColon.name(), 1, null);
+		t1.setType("boolean");
+		t1.setVisited();
+		t2.setVisited();
+		t3.setType("boolean");
+		t3.setVisited();
+		t4.setVisited();
+		
+		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
+		tkns.add(t2);
+		tkns.add(t3);
+		tkns.add(t4);
+
+		Token t8 = new Token(TokenTypes.STMT.name(), 1, tkns);
+
+		assertFalse(t8.isVisited());
+		Token.pass2(t8);
+		assertTrue(t8.isVisited());
+	}
+
+	/**
+	 * @author Mike Zimmerman
+	 * Test for Process Pass2 on STMT -> id = EXP1 ;
+	 * checks to make sure that if EXP1 is not of same type a id the compilation will halt
+	 * @throws ProcessException this is a exception to halt the compilation since types don't match
+	 */
+	@Test (expected = ProcessException.class)
+	public void testProcessPass2StartIdEqThrows() throws ProcessException
+	{
+		Token t1 = new Token(TokenTypes.Id.name() , 1, null);
+		Token t2 = new Token(TokenTypes.Assignment.name(), 1, null);
+		Token t3 = new Token(TokenTypes.EXP1.name(), 1, null);
+		Token t4 = new Token(TokenTypes.SemiColon.name(), 1, null);
+		t1.setType("boolean");
+		t1.setVisited();
+		t2.setVisited();
+		t3.setType("notBoolean");
+		t3.setVisited();
+		t4.setVisited();
+		
+		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
+		tkns.add(t2);
+		tkns.add(t3);
+		tkns.add(t4);
+
+		Token t8 = new Token(TokenTypes.STMT.name(), 1, tkns);
+
+		assertFalse(t8.isVisited());
+		Token.pass2(t8);
+		assertFalse(t8.isVisited());
+	}
+
+	/**
+	 * @author Mike Zimmerman
+	 * Test for Process Pass2 on STMT -> id [ EXP1* ] = EXP1 ;
+	 * checks to make sure that EXP1 is of same type a id and that EXP1* is boolean
+	 * @throws ProcessException this is a exception to halt the compilation since types don't match
+	 */
+	@Test
+	public void testProcessPass2StartIdArray() throws ProcessException
+	{
+		Token t1 = new Token(TokenTypes.Id.name() , 1, null);
+		Token t2 = new Token(TokenTypes.LBracket.name(), 1, null);
+		Token t3 = new Token(TokenTypes.EXP1.name(), 1, null);
+		Token t4 = new Token(TokenTypes.RBracket.name(), 1, null);
+		Token t5 = new Token(TokenTypes.Assignment.name(), 1, null);
+		Token t6 = new Token(TokenTypes.EXP1.name(), 1, null);
+		t1.setType("int");
+		t1.setVisited();
+		t2.setVisited();
+		t3.setType("boolean");
+		t3.setVisited();
+		t4.setVisited();
+		t5.setVisited();
+		t6.setType("int");
+		t6.setVisited();
+		
+		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
+		tkns.add(t2);
+		tkns.add(t3);
+		tkns.add(t4);
+		tkns.add(t5);
+		tkns.add(t6);
+
+		Token t8 = new Token(TokenTypes.STMT.name(), 1, tkns);
+	
+		assertFalse(t8.isVisited());
+		Token.pass2(t8);
+		assertTrue(t8.isVisited());
+	}
+
+	/**
+	 * @author Mike Zimmerman
+	 * Test for Process Pass2 on STMT -> id [ EXP1* ] = EXP1 ;
+	 * checks to make sure that if EXP1 is not of same type a id the compilation will halt
+	 * @throws ProcessException this is a exception to halt the compilation since types don't match
+	 */
+	@Test (expected = ProcessException.class)
+	public void testProcessPass2StartIdArrayThrows1() throws ProcessException
+	{
+		Token t1 = new Token(TokenTypes.Id.name() , 1, null);
+		Token t2 = new Token(TokenTypes.LBracket.name(), 1, null);
+		Token t3 = new Token(TokenTypes.EXP1.name(), 1, null);
+		Token t4 = new Token(TokenTypes.RBracket.name(), 1, null);
+		Token t5 = new Token(TokenTypes.Assignment.name(), 1, null);
+		Token t6 = new Token(TokenTypes.EXP1.name(), 1, null);
+		t1.setType("int");
+		t1.setVisited();
+		t2.setVisited();
+		t3.setType("notBoolean");
+		t3.setVisited();
+		t4.setVisited();
+		t5.setVisited();
+		t6.setType("int");
+		t6.setVisited();
+		
+		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
+		tkns.add(t2);
+		tkns.add(t3);
+		tkns.add(t4);
+		tkns.add(t5);
+		tkns.add(t6);
+
+		Token t8 = new Token(TokenTypes.STMT.name(), 1, tkns);
+	
+		assertFalse(t8.isVisited());
+		Token.pass2(t8);
+		assertFalse(t8.isVisited());
+	}
+
+	/**
+	 * @author Mike Zimmerman
+	 * Test for Process Pass2 on STMT -> id [ EXP1* ] = EXP1 ;
+	 * checks to make sure that if EXP1* is not boolean compilation will halt
+	 * @throws ProcessException this is a exception to halt the compilation since types don't match
+	 */
+	@Test (expected = ProcessException.class)
+	public void testProcessPass2StartIdArrayThrows2() throws ProcessException
+	{
+		Token t1 = new Token(TokenTypes.Id.name() , 1, null);
+		Token t2 = new Token(TokenTypes.LBracket.name(), 1, null);
+		Token t3 = new Token(TokenTypes.EXP1.name(), 1, null);
+		Token t4 = new Token(TokenTypes.RBracket.name(), 1, null);
+		Token t5 = new Token(TokenTypes.Assignment.name(), 1, null);
+		Token t6 = new Token(TokenTypes.EXP1.name(), 1, null);
+		t1.setType("int");
+		t1.setVisited();
+		t2.setVisited();
+		t3.setType("boolean");
+		t3.setVisited();
+		t4.setVisited();
+		t5.setVisited();
+		t6.setType("boolean");
+		t6.setVisited();
+		
+		ArrayList<Token> tkns = new ArrayList<Token>();
+		tkns.add(t1);
+		tkns.add(t2);
+		tkns.add(t3);
+		tkns.add(t4);
+		tkns.add(t5);
+		tkns.add(t6);
+
+		Token t8 = new Token(TokenTypes.STMT.name(), 1, tkns);
+	
+		assertFalse(t8.isVisited());
+		Token.pass2(t8);
+		assertFalse(t8.isVisited());
+	}
+	
+//########################### START OF PASS 3 ###########################//
+
 	/**
 	 * A test to make sure that STMT can make it through pass 3 and process its children
 	 * for the rule: if ( EXP1 ) STMT1 else STMT2

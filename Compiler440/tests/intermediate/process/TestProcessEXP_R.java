@@ -57,9 +57,10 @@ public class TestProcessEXP_R
 	 * @author Mike Zimmerman
 	 * test to see if the EXP_R can make it through a second pass when processing
 	 * also checks to make sure that the type of EXP1 is sythesised up to EXP_R 
+	 * @throws ProcessException this is a exception to halt the compilation since types don't match
 	 */
 	@Test
-	public void testProcessPass2()
+	public void testProcessPass2() throws ProcessException
 	{
 		// EXP1 token for EXP_L
 		Token t1 = new Token(TokenTypes.EXP1.name(), 1, null);
@@ -78,7 +79,7 @@ public class TestProcessEXP_R
 		Token t3 = new Token(TokenTypes.EXP_L.name(), 1, tkns);
 
 		assertFalse(t3.isVisited());
-		Token.pass3(t3);
+		Token.pass2(t3);
 		assertTrue(t3.isVisited());
 		assertEquals(t3.getType(), t3.getChildren().get(1).getType());
 

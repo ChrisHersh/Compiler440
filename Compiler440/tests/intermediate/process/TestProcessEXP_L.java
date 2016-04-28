@@ -60,9 +60,10 @@ public class TestProcessEXP_L
 	/**
 	 * @author Mike Zimmerman 
 	 * test to see if the EXP_L can make it through a second pass when processing
+	 * @throws ProcessException this is a exception to halt the compilation since types don't match 
 	 */
 	@Test
-	public void testProcessPass2()
+	public void testProcessPass2() throws ProcessException
 	{
 		// EXP1 token for EXP_L
 		Token t1 = new Token(TokenTypes.EXP1.name(), 1, null);
@@ -81,7 +82,7 @@ public class TestProcessEXP_L
 		Token t3 = new Token(TokenTypes.EXP_L.name(), 1, tkns);
 
 		assertFalse(t3.isVisited());
-		Token.pass3(t3);
+		Token.pass2(t3);
 		assertTrue(t3.isVisited());
 	}
 	
