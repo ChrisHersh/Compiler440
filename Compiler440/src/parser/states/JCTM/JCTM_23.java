@@ -5,16 +5,17 @@ import parser.states.State;
 import tokenizer.TokenTypes;
 
 /**
- * 
+ * JCTM_23 State
  * @author Ian Keefer
  *
  */
 public class JCTM_23 extends State {
 	
+	// Reduce state to EXP7
     @Override
     public void invalidState() throws ParserException
     {
-        reduceNumberOfStates(4, TokenTypes.RBracket);
+        reduceNumberOfStates(5, TokenTypes.EXP7);
     }
 
 }
