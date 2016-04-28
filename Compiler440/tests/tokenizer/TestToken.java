@@ -132,13 +132,21 @@ public class TestToken {
     	for (String s : toks)
     	{
     		Token t = new Token(s, s, 1);
-    		Token.pass1(t);
+    		try
+    		{
+    			Token.pass1(t);
+    		}
+    		catch (Exception e)
+    		{
+    			System.err.println("Pass1 broke at: Process" + s);
+    		}
     		assertTrue(t.isVisited());
     	}
     }
     
     /**
      * Test to make sure that all tokens are visited when passed into pass1 as a list
+     * This test will definitely fail if testPass1SingleToken does not pass.
      */
     @Test
     public void testPass1MultipleTokens()
@@ -176,13 +184,21 @@ public class TestToken {
     	for (String s : toks)
     	{
     		Token t = new Token(s, s, 1);
-    		Token.pass2(t);
+    		try
+    		{
+    			Token.pass2(t);
+    		}
+    		catch (Exception e)
+    		{
+    			System.err.println("Pass2 broke at: Process" + s);
+    		}
     		assertTrue(t.isVisited());
     	}
     }
     
     /**
      * Test to make sure that all tokens are visited when passed into pass2 as a list
+     * This test will definitely fail if testPass1SingleToken does not pass.
      * @throws ProcessException 
      */
     @Test
@@ -220,13 +236,21 @@ public class TestToken {
     	for (String s : toks)
     	{
     		Token t = new Token(s, s, 1);
-    		Token.pass3(t);
+    		try
+    		{
+    			Token.pass3(t);
+    		}
+    		catch (Exception e)
+    		{
+    			System.err.println("Pass3 broke at: Process" + s);
+    		}
     		assertTrue(t.isVisited());
     	}
     }
     
     /**
      * Test to make sure that all tokens are visited when passed into pass3 as a list
+     * This test will definitely fail if testPass1SingleToken does not pass.
      */
     @Test
     public void testPass3MultipleTokens()
