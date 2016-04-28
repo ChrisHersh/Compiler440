@@ -1,18 +1,19 @@
 package intermediate.process;
-
-import java.io.PrintWriter;
-
+/**
+ * op2 rules
+ * @author Mohammed 
+ */
 import tokenizer.Token;
-import tokenizer.TokenTypes;
 
 public class ProcessOP6 {
+	//Pass 1 -> Gather name and type of all variables, methods, classes
 	public static void processPass1(Token subject) {
-		// TODO Auto-generated method stub
+		//Does not do any thing because there is nothing to check
 		
 	}
-
+	//Pass 2 -> Check that all types are valid
 	public static void processPass2(Token subject) {
-		// TODO Auto-generated method stub
+		//Does not do any thing because there is nothing to check
 		
 	}
 

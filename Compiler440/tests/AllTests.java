@@ -214,9 +214,12 @@ import tokenizer.TestTokenizer;
 		TestProcessSTMT.class,
 		TestProcessEXP1.class,
 		TestProcessEXP2.class,
+		TestProcessEXP6.class,
 		TestProcessEXP7.class,
 		TestProcessOP1.class,
 		TestProcessOP2.class,
+		TestProcessOP6.class,
+		
 		TestProcessMETH_DECL_L.class,
 		TestProcessMETH_DECL.class,
 		TestProcessVAR_DECL_L.class,
