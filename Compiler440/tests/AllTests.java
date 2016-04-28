@@ -218,6 +218,8 @@ import tokenizer.TestTokenizer;
 		TestProcessEXP4.class,
 		TestProcessEXP7.class,
 		TestProcessOP1.class,
+		TestProcessEXP5.class,
+		TestProcessOP5.class,
 		TestProcessOP2.class,
 		TestProcessOP3.class,
 		TestProcessOP4.class,
