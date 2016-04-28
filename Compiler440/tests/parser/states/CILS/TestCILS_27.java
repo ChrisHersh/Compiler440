@@ -24,7 +24,7 @@ import tokenizer.Token;
 import tokenizer.TokenTypes;
 
 /**
- * Test all of the state shifts for CILS_27
+ * Test all of the state shifts for CILS_27.
  * @author Chad Nunemaker
  */
 public class TestCILS_27
@@ -40,6 +40,7 @@ public class TestCILS_27
 
 	/**
 	 * Make sure it reduces correctly handling invalid state transitions.
+	 * @throws ParserException a parsing error has occured
 	 */
 	@Test
 	public void testInvalidState() throws ParserException

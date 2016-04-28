@@ -26,7 +26,7 @@ public class ProcessMETH_DECL
 	/**
 	 * There are not types to check for in this state.
 	 */
-	public static void processPass2(Token subject) 
+	public static void processPass2(Token subject) throws ProcessException
 	{
 		Token.pass2(subject.getChildren());
 //		//Check to see if the Type returned by METH_BODY is the same Type as 

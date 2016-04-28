@@ -2,6 +2,7 @@ package tokenizer;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import intermediate.process.ProcessException;
 
 import java.util.ArrayList;
 
@@ -162,9 +163,10 @@ public class TestToken {
     
     /**
      * Test to make sure that a token is visited when passed into pass2
+     * @throws ProcessException 
      */
     @Test
-    public void testPass2SingleToken()
+    public void testPass2SingleToken() throws ProcessException
     {
     	String[] toks = {"EXP7", "EXP6", "EXP5", "EXP4", "EXP3", "EXP2", "EXP1", 
     					 "VAR_DECL_L", "VAR_DECL", "PROG", "CLASS_DECL_L", "MAIN_CLASS", 
@@ -181,9 +183,10 @@ public class TestToken {
     
     /**
      * Test to make sure that all tokens are visited when passed into pass2 as a list
+     * @throws ProcessException 
      */
     @Test
-    public void testPass2MultipleTokens()
+    public void testPass2MultipleTokens() throws ProcessException
     {
     	String[] toks = {"EXP7", "EXP6", "EXP5", "EXP4", "EXP3", "EXP2", "EXP1", 
     					 "VAR_DECL_L", "VAR_DECL", "PROG", "CLASS_DECL_L", "MAIN_CLASS", 

@@ -3,6 +3,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import org.junit.Test;
+
+import symboltable.Class;
+import symboltable.VariableType;
+import symboltable.method.impl.PublicMethod;
 import tokenizer.Token;
 import tokenizer.TokenTypes;
 
@@ -28,6 +32,9 @@ public class TestProcessVAR_DECL_L
 		varTokens.add(id);
 		varTokens.add(semi);
 		
+		type.setType(VariableType.INTEGER.name());
+		id.setType(VariableType.INTEGER.name());
+		
 		Token var = new Token(TokenTypes.VAR_DECL.name(),1,varTokens);
 		Token varDeclL = new Token("VAR_DECL_L",TokenTypes.VAR_DECL_L.name(),1);
 		ArrayList<Token> varDeclList = new ArrayList<Token>();
@@ -35,6 +42,10 @@ public class TestProcessVAR_DECL_L
 		varDeclList.add(var);
 		
 		Token test = new Token(TokenTypes.VAR_DECL_L.name(), 1, varDeclList);
+		Class person = new Class("Person", null, null);
+		PublicMethod method = new PublicMethod("dummyMethod", person, null, null);
+		test.setParentClass(person);
+		test.setParentMethod(method);
 		ProcessVAR_DECL_L.processPass1(test);
 		
 		//Check all children

@@ -296,8 +296,9 @@ public class Token
      * Takes the children token and calls the switch statement on each of them.
      * @author chris Kjeldgaard
      * @param children
+     * @throws ProcessException 
      */
-    public static void pass2 (ArrayList<Token> children)throws ProcessException
+    public static void pass2 (ArrayList<Token> children) throws ProcessException
     {
     	if(children != null)
     	{

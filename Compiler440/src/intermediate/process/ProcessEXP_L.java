@@ -41,7 +41,7 @@ public class ProcessEXP_L
 	 * basically just passes to the next token. It does NOT (Should NOT) check for types 
 	 * @param subject
 	 */
-	public static void processPass2(Token subject) 
+	public static void processPass2(Token subject)  throws ProcessException
 	{
 		if(subject.getChildren() != null)
 		{
