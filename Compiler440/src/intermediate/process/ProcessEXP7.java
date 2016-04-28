@@ -212,7 +212,14 @@ public class ProcessEXP7
             subject.setCode(new StringBuffer("intermediate code for this"));
             break;
         case "New":
-            subject.setCode(new StringBuffer("intermediate code for new int [ EXP1 ]"));
+            if(subject.getChildren().get(1).getTokenName() == "Int")
+            {
+                subject.setCode(new StringBuffer("intermediate code for new int [ EXP1 ]"));
+            }
+            else
+            {
+                subject.setCode(new StringBuffer("intermediate code for new id()"));
+            }
             break;
         case "Length":
             subject.setCode(new StringBuffer("intermediate code for length"));
