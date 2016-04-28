@@ -8,6 +8,7 @@ import tokenizer.Token;
 import tokenizer.TokenTypes;
 
 /**
+ * Process the EXP1 rules.
  * @author Chad Nunemaker
  */
 public class ProcessEXP1
@@ -114,7 +115,7 @@ public class ProcessEXP1
 	}
 
 	/**
-	 * Pass 3
+	 * Pass 3 creates intermediate code.
 	 * @param subject the token to process
 	 */
 	public static void processPass3(Token subject)

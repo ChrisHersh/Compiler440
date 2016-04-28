@@ -13,13 +13,13 @@ import tokenizer.Token;
 import tokenizer.TokenTypes;
 
 /**
+ * Test process EXP1 to test the correct processing of the tokens.
  * @author Chad Nunemaker
- * Test process EXP1 to test the correct processing of the tokens
  */
 public class TestProcessEXP1
 {
 	/**
-	 * A test to make sure EXP1 can properly run through and process its tokens
+	 * A test to make sure EXP1 can properly run through and process its tokens.
 	 */
 	@Test
 	public void testProcessPass1()
@@ -76,7 +76,7 @@ public class TestProcessEXP1
 	}
 	
 	/**
-	 * test to see if the EXP1 can make it through a second pass 
+	 * Test to see if the EXP1 can make it through a second pass .
 	 */
 	@Test
 	public void testProcessPass2()
@@ -129,7 +129,7 @@ public class TestProcessEXP1
 	}
 	
 	/**
-	 * test to see if the EXP1 can make it through the third pass 
+	 * Test to see if the EXP1 can make it through the third pass. 
 	 */
 	@Test
 	public void testProcessPass3()
