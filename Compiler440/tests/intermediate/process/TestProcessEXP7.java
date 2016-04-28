@@ -17,7 +17,7 @@ import tokenizer.TokenTypes;
 /**
  * TestProcessEXP7.java
  * Tests for ProcessEXP7. Note that many cases don't need Pass2 or Pass3.
- * @author Chris Hersh, Daniel Breitigan, Matt Mousetis
+ * @author Chris Hersh, Daniel Breitigan, Matt Mousetis, Ian Keefer
  *
  */
 public class TestProcessEXP7 
@@ -526,4 +526,137 @@ public class TestProcessEXP7
         }
         assertEquals(t4.getCode().toString(), "New_Id()_1:\n");
     }
+    
+	/**
+	 * length
+	 */
+	@Test
+	public void testProcessPass3Length()
+	{
+		Token t1 = new Token(TokenTypes.Length.name(), 1, null);
+		t1.setVisited();
+		t1.setType(TokenTypes.Length.name());
+
+		ArrayList<Token> tokens = new ArrayList<Token>();
+		tokens.add(t1);
+
+		Token t2 = new Token(TokenTypes.Boolean.name(), 1, tokens);
+		Class c1 = new Class("ClassName", null, null);
+		PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+		t2.setParentMethod(pm);
+		t2.setParentClass(c1);
+		
+		assertFalse(t2.isVisited());
+		
+		ProcessEXP7.processPass3(t2);
+        assertEquals(t2.getCode().toString(), "intermediate code for length");
+
+	}
+	
+	/**
+	 * rbrace
+	 */
+	@Test
+	public void testProcessPass3RBrace()
+	{
+		Token t1 = new Token(TokenTypes.RBrace.name(), 1, null);
+		t1.setVisited();
+		t1.setType(TokenTypes.RBrace.name());
+
+		ArrayList<Token> tokens = new ArrayList<Token>();
+		tokens.add(t1);
+
+		Token t2 = new Token(TokenTypes.Boolean.name(), 1, tokens);
+		Class c1 = new Class("ClassName", null, null);
+		PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+		t2.setParentMethod(pm);
+		t2.setParentClass(c1);
+		
+		assertFalse(t2.isVisited());
+		
+		ProcessEXP7.processPass3(t2);
+        assertEquals(t2.getCode().toString(), "intermediate code for rbrace");
+
+	}
+	
+	/**
+	 * lbrace
+	 */
+	@Test
+	public void testProcessPass3LBrace()
+	{
+		Token t1 = new Token(TokenTypes.LBrace.name(), 1, null);
+		t1.setVisited();
+		t1.setType(TokenTypes.LBrace.name());
+
+		ArrayList<Token> tokens = new ArrayList<Token>();
+		tokens.add(t1);
+
+		Token t2 = new Token(TokenTypes.Boolean.name(), 1, tokens);
+		Class c1 = new Class("ClassName", null, null);
+		PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+		t2.setParentMethod(pm);
+		t2.setParentClass(c1);
+		
+		assertFalse(t2.isVisited());
+		
+		ProcessEXP7.processPass3(t2);
+        assertEquals(t2.getCode().toString(), "intermediate code for lbrace");
+
+	}
+	
+	/**
+	 * EXP_l
+	 */
+	@Test
+	public void testProcessPass3expl()
+	{
+		Token t1 = new Token(TokenTypes.EXP_L.name(), 1, null);
+		t1.setVisited();
+		t1.setType(TokenTypes.EXP_L.name());
+
+		ArrayList<Token> tokens = new ArrayList<Token>();
+		tokens.add(t1);
+
+		Token t2 = new Token(TokenTypes.Boolean.name(), 1, tokens);
+		Class c1 = new Class("ClassName", null, null);
+		PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+		t2.setParentMethod(pm);
+		t2.setParentClass(c1);
+		
+		assertFalse(t2.isVisited());
+		
+		ProcessEXP7.processPass3(t2);
+        assertEquals(t2.getCode().toString(), "intermediate code for exp_l");
+
+	}
+	
+	/**
+	 * id
+	 */
+	@Test
+	public void testProcessPass3id()
+	{
+		Token t1 = new Token(TokenTypes.Id.name(), 1, null);
+		t1.setVisited();
+		t1.setType(TokenTypes.Id.name());
+
+		ArrayList<Token> tokens = new ArrayList<Token>();
+		tokens.add(t1);
+
+		Token t2 = new Token(TokenTypes.Boolean.name(), 1, tokens);
+		Class c1 = new Class("ClassName", null, null);
+		PublicMethod pm = new PublicMethod("MethodName", null, VariableType.BOOLEAN, null);
+		t2.setParentMethod(pm);
+		t2.setParentClass(c1);
+		
+		assertFalse(t2.isVisited());
+		
+		ProcessEXP7.processPass3(t2);
+        assertEquals(t2.getCode().toString(), "intermediate code for id");
+
+	}
+
+    
+    
 }

@@ -200,16 +200,16 @@ public class ProcessEXP7
         switch (subject.getChildren().get(0).getTokenName())
         {
         case "EXP_L":
-            subject.setCode(new StringBuffer("intermediate code for exp_l"));
+            subject.getCode().append("intermediate code for exp_l");
             break;
         case "LBrace":
-            subject.setCode(new StringBuffer("intermediate code for lbrace"));
+            subject.getCode().append("intermediate code for lbrace");
             break;
         case "RBrace":
-            subject.setCode(new StringBuffer("intermediate code for rbrace"));
+            subject.getCode().append("intermediate code for rbrace");
             break;
         case "Id":
-            subject.setCode(new StringBuffer("intermediate code for id"));
+            subject.getCode().append("intermediate code for id");
             break;
         case "This":
             subject.setCode(new StringBuffer("intermediate code for this"));
@@ -228,7 +228,7 @@ public class ProcessEXP7
             }
             break;
         case "Length":
-            subject.setCode(new StringBuffer("intermediate code for length"));
+            subject.getCode().append("intermediate code for length");
             break;
         case "true":
         	subject.setCode(new StringBuffer("intermediate code for true"));
