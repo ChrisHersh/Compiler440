@@ -6,7 +6,7 @@ import tokenizer.TokenTypes;
 /**
  * ProcessEXP7.java
  * Process EXP7 rules for the intermediate code generator
- * @author Chris Hersh, Matt Mousetis, Daniel Breitigan
+ * @author Chris Hersh, Matt Mousetis, Daniel Breitigan, Ian Keefer
  *
  */
 public class ProcessEXP7
