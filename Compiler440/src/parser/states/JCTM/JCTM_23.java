@@ -14,7 +14,7 @@ public class JCTM_23 extends State {
     @Override
     public void invalidState() throws ParserException
     {
-        reduceNumberOfStates(4, TokenTypes.RBracket);
+        reduceNumberOfStates(5, TokenTypes.EXP7);
     }
 
 }
