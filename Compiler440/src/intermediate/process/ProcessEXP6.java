@@ -136,11 +136,11 @@ public class ProcessEXP6
 			subject.setVisited();
 			
 			// Append code.
-			Token exp2B = subject.getChildren().get(0);
+			Token exp6B = subject.getChildren().get(0);
 			Token op6 = subject.getChildren().get(1);
 			Token exp7 = subject.getChildren().get(2);
 			
-			String code = exp2B.getCode().toString();
+			String code = exp6B.getCode().toString();
 			subject.getCode().append(code);
 			
 			code = op6.getCode().toString();
