@@ -1,33 +1,39 @@
 package intermediate.process;
 
-import java.io.*;
-
 import tokenizer.Token;
-import tokenizer.TokenTypes;
 
-public class ProcessOP3 {
-	public static void processPass1(Token subject) {
+/**
+ * Processing class for OP3 token
+ * Handles DFS passes 1-3
+ * @author Corey Peregord
+ */
+public class ProcessOP3 
+{
+	/**
+	 * Does nothing, OP3 has no children
+	 * @author Corey Peregord
+	 */
+	public static void processPass1(Token subject) 
+	{
 		//Do nothing, I have no children
 	}
 
-	public static void processPass2(Token subject) {
+	/**
+	 * Does nothing, OP3 has no children
+	 * @author Corey Peregord
+	 */
+	public static void processPass2(Token subject) 
+	{
 		//Do nothing, I have nothing to check
 	}
 
-	public static void processPass3(Token subject) {
-		PrintWriter pw = null;
- 		
- 		try {
- 			FileWriter fw = new FileWriter("intermediate.txt",true);
- 			pw = new PrintWriter(fw);	
- 		} catch (IOException e) {
- 			e.printStackTrace();
- 		}
- 		
- 		if(subject.getTokenName() == TokenTypes.Equals.name()){
- 			pw.print("==");
- 		} else if (subject.getTokenName() == TokenTypes.NotEquals.name()){
- 			pw.print("!=");
- 		}
+	/**
+	 * Generates node level intermediate code
+	 * @param subject token currently processing
+	 * @author Corey Peregord
+	 */
+	public static void processPass3(Token subject) 
+	{
+        subject.setCode(new StringBuffer("OP3.getOperater()"));
 	}
 }

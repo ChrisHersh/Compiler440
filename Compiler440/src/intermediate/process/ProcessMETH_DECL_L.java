@@ -25,7 +25,7 @@ public class ProcessMETH_DECL_L
 	/**
 	 * There are no types to check for in this state
 	 */
-	public static void processPass2(Token subject) 
+	public static void processPass2(Token subject)  throws ProcessException
 	{
 		Token.pass2(subject.getChildren());
 	}

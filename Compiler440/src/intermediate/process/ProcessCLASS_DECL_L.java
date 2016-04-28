@@ -37,7 +37,7 @@ public class ProcessCLASS_DECL_L
  * @author sj2451
  * @param subject
  */
-	public static void processPass2(Token subject) 
+	public static void processPass2(Token subject) throws ProcessException
 	{
 		subject.pass2(subject.getChildren());
 	}

@@ -27,7 +27,7 @@ public class ProcessPROG
 	 * @author Shannon Lee
 	 * @param subject
 	 */
-	public static void processPass2(Token subject) 
+	public static void processPass2(Token subject) throws ProcessException
 	{
 		subject.pass2(subject.getChildren());
 		

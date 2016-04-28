@@ -27,7 +27,7 @@ public class ProcessVAR_DECL_L
 	/**
 	 * There are no types to check for this state
 	 */
-	public static void processPass2(Token subject) 
+	public static void processPass2(Token subject) throws ProcessException
 	{
 		Token.pass2(subject.getChildren());
 	}

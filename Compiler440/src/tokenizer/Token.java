@@ -13,6 +13,7 @@ import intermediate.process.ProcessEXP6;
 import intermediate.process.ProcessEXP7;
 import intermediate.process.ProcessEXP_L;
 import intermediate.process.ProcessEXP_R;
+import intermediate.process.ProcessException;
 import intermediate.process.ProcessFORMAL_L;
 import intermediate.process.ProcessFORMAL_R;
 import intermediate.process.ProcessMAIN_CLASS;
@@ -295,8 +296,9 @@ public class Token
      * Takes the children token and calls the switch statement on each of them.
      * @author chris Kjeldgaard
      * @param children
+     * @throws ProcessException 
      */
-    public static void pass2 (ArrayList<Token> children)
+    public static void pass2 (ArrayList<Token> children) throws ProcessException
     {
     	if(children != null)
     	{
@@ -311,8 +313,9 @@ public class Token
      * This method calls the class method that implements the Pass2 code for that token.
      * @author Chris Kjeldgard
      * @param subject
+     * @throws ProcessException 
      */
-    public static void pass2 (Token subject)
+    public static void pass2 (Token subject) throws ProcessException
     {
     	switch (subject.getTokenName())
         {

@@ -18,7 +18,7 @@ public class ProcessSTMT_P
 	 * 
 	 * @param subject the incoming token
 	 */
-	public static void processPass1(Token subject)
+	public static void processPass1(Token subject) 
 	{
 		if(subject.getChildren() != null)
 		{
@@ -42,7 +42,7 @@ public class ProcessSTMT_P
 	 * basically just passes to the next token. It does NOT (Should NOT) check for types 
 	 * @param subject the incoming token
 	 */
-	public static void processPass2(Token subject) 
+	public static void processPass2(Token subject) throws ProcessException
 	{
 		if(subject.getChildren() != null)
 		{

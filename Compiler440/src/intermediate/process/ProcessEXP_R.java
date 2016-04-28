@@ -45,7 +45,7 @@ public class ProcessEXP_R
 	 * the second pass of the processing of EXP_R also passes type from EXP1 to EXP_R
 	 * @param subject the token that is EXP_R and all its children
 	 */
-	public static void processPass2(Token subject) 
+	public static void processPass2(Token subject) throws ProcessException
 	{
 // 		Do children passes.
 		if(subject.getChildren().get(0).isVisited() == false)
