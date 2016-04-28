@@ -14,6 +14,7 @@ import tokenizer.Token;
 import tokenizer.TokenTypes;
 
 /**
+ * Test all of the state shifts for CILS_20.
  * @author Chad Nunemaker
  */
 public class TestCILS_20
@@ -29,7 +30,7 @@ public class TestCILS_20
 
 	/**
 	 * Test the parsing of Assignment.
-	 * @throws ParserException
+	 * @throws ParserException a parsing error has occured
 	 */
 	@Test
 	public void testAssignment() throws ParserException

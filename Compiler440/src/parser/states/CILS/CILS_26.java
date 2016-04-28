@@ -4,6 +4,7 @@ import parser.states.ParserException;
 import parser.states.State;
 
 /**
+ * A parser state for CILS_26.
  * @author Chad Nunemaker
  */
 public class CILS_26 extends State

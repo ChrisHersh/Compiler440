@@ -23,7 +23,7 @@ import parser.states.JMCC.JMCC_29;
 import tokenizer.Token;
 
 /**
- * 
+ * Test the JMCC_23 state.
  * @author Chad Nunemaker, Manal Ibrahim, Ian Keefer
  * 
  * In Ian and Chris's test style. 
@@ -69,6 +69,7 @@ public class TestJMCC_23
     }
     
     /**
+     * Test ShiftEXP6.
      * @author Chad Nunemaker
      * @throws ParserException
      */
@@ -100,6 +101,7 @@ public class TestJMCC_23
     }
     
     /**
+     * Test shiftEXP7.
      * @author Chad Nunemaker
      * @throws ParserException
      */
