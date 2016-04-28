@@ -27,7 +27,7 @@ import tokenizer.TokenTypes;
 
 /**
  * Test class to check the methods of the JMCC_5 class.
- * @author Chris Kjeldgaard, Jason LoBianco
+ * @author Chris Kjeldgaard, Jason LoBianco, Chris Hersh
  *
  */
 public class TestJMCC_5 

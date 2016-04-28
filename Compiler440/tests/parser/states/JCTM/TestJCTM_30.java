@@ -15,7 +15,13 @@ import parser.states.JMCC.JMCC_3;
 import tokenizer.Token;
 import tokenizer.TokenTypes;
 
-public class TestJCTM_30 {
+/**
+ * 
+ * @author Chris Hersh
+ *
+ */
+public class TestJCTM_30 
+{
 
 	/**
 	 * Reset the parser

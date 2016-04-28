@@ -13,6 +13,9 @@ import tokenizer.TokenTypes;
  */
 public class JCTM_31 extends State 
 {
+	/**
+	 * Reduce to another state
+	 */
 	@Override
 	public void invalidState() throws ParserException 
 	{

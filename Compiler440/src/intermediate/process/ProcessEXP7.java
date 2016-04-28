@@ -175,8 +175,9 @@ public class ProcessEXP7
     /**
      * Processes pass 2
      * @param subject
+     * @throws ProcessException 
      */
-    public static void processPass2(Token subject)
+    public static void processPass2(Token subject) throws ProcessException
     {
         //Only a few of EXP7s need type checking
         switch (subject.getChildren().get(0).getTokenName())
@@ -185,8 +186,7 @@ public class ProcessEXP7
             if(subject.getChildren().get(1).getTokenName() == "Int")
             {
                 if (!subject.getChildren().get(4).getType().equals("int"))
-                    //prints to stderr because I don't want to change every processPass2 call
-                    System.err.println("Wrong type for int array");
+                		throw new ProcessException();
             }
         }
     }
