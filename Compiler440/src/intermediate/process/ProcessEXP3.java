@@ -31,12 +31,12 @@ public class ProcessEXP3
 			if(subject.getChildren().size() == 3)
 			{
 				Token child = subject.getChildren().get(2);
-				subject.setToken(child.getType());
+				subject.setType(child.getType());
 			}
 			else if(subject.getChildren().size() == 1)
 			{
 				Token child = subject.getChildren().get(0);
-				subject.setToken(child.getType());
+				subject.setType(child.getType());
 			}
 		}
 	}
